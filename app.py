@@ -38,11 +38,11 @@ def load_game_board(json):
     print(f"Loading board {game}")
     if game in all_games:
         cur_game = all_games[game]
-        emit("render_board", {"game": str(cur_game)})
+        emit("render_board", {"game": str(cur_game)}, room=game)
     else:
         cur_game = Game(game, 15)
         all_games[game] = cur_game
-        emit("render_board", {"game": str(cur_game)})
+        emit("render_board", {"game": str(cur_game)}, room=game)
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
