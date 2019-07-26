@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<body>
+    <h1>Welcome to MadGab</h1>
+    <input id="game_id" type="text">
+    <button type="submit" onclick="createGame()">Start Game</button>
+</body>
+
+<script>
+    function createGame() {
+        var input_name = document.getElementById("game_id")
+        window.location.href = "/" + input_name.value;
+    }
+</script>

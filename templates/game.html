@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<body>
+    <h1>Welcome to game ID {{id}}</h1>
+</body>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8">
+    var socket = io();
+    var href_parts = window.location.href.split("/");
+    var last_part = href_parts[href_parts.length - 1];
+    socket.on("connect", function() {
+        socket.emit("join", last_part);
+    });
+
+    socket.on("connect", function() {
+        socket.emit("load_board", {
+            "game": last_part
+        })
+    });
+
+    socket.on("render_board", function(resp) {
+        console.log(resp.game)
+    })
+
+
+
+
+</script>
