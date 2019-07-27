@@ -16,19 +16,19 @@
 
     socket.on("connect", function() {
         socket.emit("load_board", {
-            "game": last_part
+            "name": last_part
         })
     });
 
     socket.on("render_board", function(resp) {
-        console.log(resp.game)
+        console.log(resp)
     })
 
     function load_board() {
         var href_parts = window.location.href.split("/");
         var last_part = href_parts[href_parts.length - 1];
         socket.emit("load_board", {
-            "game": last_part
+            "name": last_part
         })
     }
 
