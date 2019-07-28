@@ -6,6 +6,7 @@ import simplejson
 
 from game import Game, State
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
@@ -45,6 +46,13 @@ def on_leave(data):
     leave_room(room)
     print(f'User has left the room {room}', room=room)
 
+def emit_error(game, msg):
+    emit("render_board", {
+        "status_code": 400,
+        "message": msg,
+        "payload": {}
+    }, room=game)
+
 @socketio.on('load_board')
 def load_board(json):
     """Loads the current game board, or creates on if none exists.
@@ -52,36 +60,35 @@ def load_board(json):
     Args:
         json (dict): dictionary with parameter called 'game'.
     """
-    try:
-        game = json["name"]
-    except KeyError:
-        emit("render_board", {
-            "status_code": 400,
-            "message": "'name' not supplied",
-            "payload": {}
+    game_name = json["name"]
 
-        }, room=game)
-        return
-
-    print(f"Loading board {game}")
-    if game in all_games:
-        cur_game = all_games[game]
+    print(f"Loading board {game_name}")
+    if game_name in all_games:
+        cur_game = all_games[game_name]
         emit("render_board", {
             "status_code": 200,
             "message": "Game retreived",
             "payload": simplejson.dumps(cur_game, for_json=True)
 
-        }, room=game)
+        }, room=game_name)
     else:
-        cur_game = Game(game)
+        cur_game = Game(game_name)
         all_games[game] = cur_game
         emit("render_board", {
             "status_code": 200,
             "message": "New game created",
-            "payload": {
-                simplejson.dumps(cur_game, for_json=True)
-            }
-        }, room=game)
+            "payload": simplejson.dumps(cur_game, for_json=True)
+        }, room=game_name)
+
+@socketio.on('start_turn')
+def start_turn(json):
+    game_name = json["name"]
+    game = all_games[game_name]
+
+    if game.state != State.IDLE:
+        emit_error(game_name, "Invalid game state for start turn")
+
+    # Make sure the game is in a consistent start state
 
 
 if __name__ == '__main__':
