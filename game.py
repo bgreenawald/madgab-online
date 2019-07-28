@@ -45,6 +45,9 @@ class Game(object):
     """
 
     def __init__(self, id, win_threshold=30, words_per_turn=3, seconds_per_turn=90):
+        self.reset(id, win_threshold, words_per_turn, seconds_per_turn)
+
+    def reset(self, id, win_threshold=30, words_per_turn=3, seconds_per_turn=90):
         self.id = id
 
         # General game configuration
@@ -162,11 +165,11 @@ class Game(object):
             self.update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                self.current_phrase, self.current_madgab, 1
+                (self.current_phrase, self.current_madgab, 1)
             )
         else:
             self.current_turn_clues.append(
-                self.current_phrase, self.current_madgab, 0
+                (self.current_phrase, self.current_madgab, 0)
             )
 
         # If they got them all correct, calculate bonus, check end condition
@@ -180,10 +183,20 @@ class Game(object):
             # If the game is not over, transition to the next turn
             self.change_active_team()
             self.state = State.IDLE
-        # Update the game to the stealing state
-        else:
+        # If any were missed, update to the stealing state
+        elif self.current_turn_correct != self.current_turn_counter:
             self.state = State.STEALING
             return
+        # Otherwise, they don't get bonus but do move to the idle state
+        else:
+            if self.check_game_over():
+                self.state = State.OVER
+                self.winning_team = "Team 1" if self.team_1_score > self.team_2_score \
+                                             else "Team 2"
+                return
+            # If the game is not over, transition to the next turn
+            self.change_active_team()
+            self.state = State.IDLE
 
     def increment_active_state(self, correct):
         """Wrapper for moving the turn ahead during the active state.
@@ -202,13 +215,13 @@ class Game(object):
             self.update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                self.current_phrase, self.current_madgab, 1
+                (self.current_phrase, self.current_madgab, 1)
             )
         elif self.current_phrase:
             # If they didn't get it corect, but isn't the first
             # word, add to list but don't update score
             self.current_turn_clues.append(
-                self.current_phrase, self.current_madgab, 0
+                (self.current_phrase, self.current_madgab, 0)
             )
 
         # Update the turn counter
