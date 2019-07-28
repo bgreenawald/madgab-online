@@ -148,8 +148,8 @@ class Game(object):
         if self.team_1_turn:
             return False
         else:
-            return self.team_1_score > self.win_threshold \
-                   or self.team_2_score > self.win_threshold
+            return self.team_1_score >= self.win_threshold \
+                   or self.team_2_score >= self.win_threshold
 
     def end_active_state(self, correct, time_left):
         """Ends the current active state.

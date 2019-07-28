@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from flask_socketio import join_room, leave_room, SocketIO, send, emit
 import simplejson
 
-from game import Game, State
+from game import InvalidState, Game, State
 
 
 app = Flask(__name__)
@@ -53,6 +53,14 @@ def emit_error(game, msg):
         "payload": {}
     }, room=game)
 
+def emit_board(game_name, game, msg):
+    emit("render_board", {
+        "status_code": 200,
+        "message": msg,
+        "payload": simplejson.dumps(game, for_json=True)
+
+    }, room=game_name)
+
 @socketio.on('load_board')
 def load_board(json):
     """Loads the current game board, or creates on if none exists.
@@ -65,31 +73,102 @@ def load_board(json):
     print(f"Loading board {game_name}")
     if game_name in all_games:
         cur_game = all_games[game_name]
-        emit("render_board", {
-            "status_code": 200,
-            "message": "Game retreived",
-            "payload": simplejson.dumps(cur_game, for_json=True)
-
-        }, room=game_name)
+        emit_board(game_name, cur_game, "Game retrieved")
     else:
         cur_game = Game(game_name)
-        all_games[game] = cur_game
-        emit("render_board", {
-            "status_code": 200,
-            "message": "New game created",
-            "payload": simplejson.dumps(cur_game, for_json=True)
-        }, room=game_name)
+        all_games[game_name] = cur_game
+        emit_board(game_name, cur_game, "New game created")
 
 @socketio.on('start_turn')
 def start_turn(json):
+    if "name" not in json:
+        print("Could not find the given board.")
+        return
+
     game_name = json["name"]
     game = all_games[game_name]
 
-    if game.state != State.IDLE:
-        emit_error(game_name, "Invalid game state for start turn")
+    try:
+        game.start_turn()
+    except InvalidState as e:
+        emit_error(str(e))
+    else:
+        emit_board(game_name, game, "Started turn")
 
-    # Make sure the game is in a consistent start state
 
+@socketio.on('reset_game')
+def reset_game(json):
+    if "name" not in json:
+        print("Could not find the given board.")
+        return
+
+    game_name = json["name"]
+    game = all_games[game_name]
+
+    game.reset(game_name)
+    emit_board(game_name, game, "Game reset")
+
+@socketio.on('new_phrase')
+def new_phrase(json):
+    if "name" not in json:
+        print("Could not find the given board.")
+        return
+
+
+    game_name = json["name"]
+    game = all_games[game_name]
+
+    if "correct" not in json:
+        emit_error(game_name, "'correct' not in request")
+
+    try:
+        game.increment_active_state(json["correct"])
+        emit_board(game_name, game, "New phrase generated")
+    except InvalidState as e:
+        emit_error(game_name, str(e))
+
+@socketio.on('end_turn')
+def end_turn(json):
+    if "name" not in json:
+        print("Could not find the given board.")
+        return
+
+
+    game_name = json["name"]
+    game = all_games[game_name]
+
+    if "correct" not in json:
+        emit_error(game_name, "'correct' not in request")
+        return
+    elif "time_left" not in json:
+        emit_error(game_name, "'time_left' not in request")
+        return
+
+    try:
+        game.end_active_state(json["correct"], json["time_left"])
+        emit_board(game_name, game, "Active state ended")
+    except InvalidState as e:
+        emit_error(game_name, str(e))
+
+@socketio.on('steal')
+def steal(json):
+    if "name" not in json:
+        print("Could not find the given board.")
+        return
+
+
+    game_name = json["name"]
+    game = all_games[game_name]
+
+    if "points" not in json:
+        emit_error(game_name, "'points' not in request")
+        return
+
+    try:
+        game.steal(json["points"])
+        emit_board(game_name, game, "Points stolen")
+    except InvalidState as e:
+        emit_error(game_name, str(e))
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)

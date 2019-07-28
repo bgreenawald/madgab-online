@@ -2,35 +2,171 @@
 
 <body>
     <h1>Welcome to game ID {{id}}</h1>
-    <button onclick="load_board()">Load board</button>
+    <h2>Game state</h2>
+    <div>
+        <ul>
+            <li>Team 1 scored: <span id="team_1_score"></span></li>
+            <li>Team 2 scored: <span id="team_2_score"></span></li>
+            <li>State: <span id="state"></span></li>
+            <li>Winning team: <span id="winning_team"></span></li>
+        </ul>
+    </div>
+
+    <h2>Turn state</h2>
+    <p>Turn timer: <p id="timer"></p></p>
+    <div>
+        <ul>
+            <li>Team 1 Turn: <span id="team_1_turn"></span></li>
+            <li>Current phrase: <span id="current_phrase"></span></li>
+            <li>Current madgab: <span id="current_madgab"></span></li>
+            <li>Current turn clues: <span id="current_turn_clues"></span></li>
+            <li>Current turn counter: <span id="current_turn_counter"></span></li>
+            <li>Current turn correct: <span id="current_turn_correct"></span></li>
+        </ul>
+    </div>
+
+    <h2>Game actions</h2>
+    <div>
+        <button onclick="load_board()">Load board</button>
+        <button onclick="start_turn()">Start turn</button>
+        <button onclick="reset_game()">Reset game</button>
+        <button onclick="new_phrase(false)">Pass word</button>
+        <button onclick="new_phrase(true)">Got word</button>
+        <button onclick="end_turn(true)">End turn - got last word</button>
+        <button onclick="end_turn(false)">End turn - missed last word</button>
+        <h4>Steal amount</h4>
+        <select id="steal_amount">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        <button onclick="steal()">Steal</button>
+    </div>
+
 </body>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf-8">
+    // Global variables needed
     var socket = io();
     var href_parts = window.location.href.split("/");
-    var last_part = href_parts[href_parts.length - 1];
+    var game_name = href_parts[href_parts.length - 1];
+    var game_state = null;
+    var turn_timer = null;
+    var timer = null;
+
+    // --------------------------------------
+    // Actions taken on connect
+
+    // Join the necessary room
     socket.on("connect", function() {
-        socket.emit("join", last_part);
+        socket.emit("join", game_name);
     });
 
+    // Load the current state of the board, or create a new one
     socket.on("connect", function() {
         socket.emit("load_board", {
-            "name": last_part
+            "name": game_name
         })
     });
 
+    // --------------------------------------
+    // Render board action
     socket.on("render_board", function(resp) {
         console.log(resp)
+        game_state = JSON.parse(resp.payload)
+        console.log(game_state)
+        render_board(game_state)
     })
 
+    function render_board(resp) {
+        // Game state
+        document.getElementById("team_1_score").textContent = String(resp["team_1_score"])
+        document.getElementById("team_2_score").textContent = String(resp["team_2_score"])
+        document.getElementById("state").textContent = String(resp["state"])
+        document.getElementById("winning_team").textContent = String(resp["winning_team"])
+
+        document.getElementById("team_1_turn").textContent = String(resp["team_1_turn"])
+        document.getElementById("current_phrase").textContent = String(resp["current_phrase"])
+        document.getElementById("current_madgab").textContent = String(resp["current_madgab"])
+        document.getElementById("current_turn_clues").textContent = String(resp["current_turn_clues"])
+        document.getElementById("current_turn_counter").textContent = String(resp["current_turn_counter"])
+        document.getElementById("current_turn_correct").textContent = String(resp["current_turn_correct"])
+    }
+
+    // --------------------------------------
+    //Client functions
+
+    // Manually load the current board
     function load_board() {
-        var href_parts = window.location.href.split("/");
-        var last_part = href_parts[href_parts.length - 1];
         socket.emit("load_board", {
-            "name": last_part
+            "name": game_name
         })
     }
+
+    // Start the turn
+    function start_turn() {
+        timer = game_state["seconds_per_turn"]
+        turn_timer = setInterval(start_timer, 1000)
+        socket.emit("start_turn", {
+            "name": game_name
+        })
+    }
+
+    function start_timer() {
+        var minutes = parseInt(timer / 60, 10);
+        var seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        document.getElementById("timer").textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            socket.emit("end_turn", {
+                "name": game_name,
+                "correct": false,
+                "time_left": 0
+            })
+        }
+    }
+
+    function new_phrase(correct) {
+        socket.emit("new_phrase", {
+            "name": game_name,
+            "correct": correct
+        })
+    }
+
+    function steal() {
+        socket.emit("steal", {
+            "name": game_name,
+            "points": parseInt(document.getElementById("steal_amount").value)
+        })
+
+        clearInterval(turn_timer);
+    }
+
+    function end_turn(correct) {
+        socket.emit("end_turn", {
+            "name": game_name,
+            "correct": correct,
+            "time_left": timer
+        })
+
+        clearInterval(turn_timer);
+    }
+    // Reset the game
+    function reset_game() {
+        socket.emit("reset_game", {
+            "name": game_name
+        })
+    }
+
+
+
+
 
 
 
