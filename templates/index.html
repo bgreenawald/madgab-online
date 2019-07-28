@@ -2,13 +2,53 @@
 
 <body>
     <h1>Welcome to MadGab</h1>
+    Enter a game ID, or accept the default. Once you start, you will
+    recieve a URL to share with your friends so they can join.
     <input id="game_id" type="text">
-    <button type="submit" onclick="createGame()">Start Game</button>
+    <button type="submit" onclick="createGame()">Create New Game</button>
+    <div id="error"></div>
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+
+    $.ajax({
+            url: "/api/get_names",
+    }).done(function(res) {
+        var used_ids = res["ids"];
+        var rand_id = generate_id();
+
+        while(used_ids.includes(rand_id)) {
+            rand_id = generate_id()
+        }
+
+        document.getElementById("game_id").value = rand_id;
+    });
+
+
+    function generate_id() {
+        var min=0;
+        var max=999999;
+        var random =Math.floor(Math.random() * (+max - +min)) + +min;
+        return random;
+    }
+
     function createGame() {
-        var input_name = document.getElementById("game_id")
-        window.location.href = "/" + input_name.value;
+        $.ajax({
+            url: "/api/get_names",
+            async: false,
+        }).done(function(res) {
+            var used_ids = res["ids"];
+            console.log(used_ids);
+            var input_name = document.getElementById("game_id").value;
+            console.log(input_name);
+            if (used_ids.includes(input_name)) {
+                document.getElementById("error").innerHTML = "ID already in use, choose another"
+            }
+            else {
+                console.log("Success")
+                window.location.href = "/" + input_name;
+            }
+        });
     }
 </script>

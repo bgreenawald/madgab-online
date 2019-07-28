@@ -1,6 +1,9 @@
+import atexit
+import datetime
 import random
 
-from flask import Flask, render_template
+from apscheduler.schedulers.background import BackgroundScheduler
+from flask import Flask, render_template, json
 from flask_socketio import join_room, leave_room, SocketIO, send, emit
 import simplejson
 
@@ -13,7 +16,10 @@ socketio = SocketIO(app)
 
 all_games = {}
 
+# ---------------------------------------
 # App routes
+# ---------------------------------------
+
 @app.route('/')
 def return_index():
     return render_template("index.html")
@@ -22,7 +28,18 @@ def return_index():
 def return_game(id=None):
     return render_template("game.html", id=id)
 
+@app.route("/api/get_names")
+def get_names():
+    ids = [x for x in all_games]
+    print(ids)
+    return json.jsonify({
+        "ids": ids
+    })
+
+# ---------------------------------------
 # Socket functions
+# ---------------------------------------
+
 @socketio.on('join')
 def on_join(data):
     """Joins the connection to the provided room
@@ -94,7 +111,6 @@ def start_turn(json):
         emit_error(str(e))
     else:
         emit_board(game_name, game, "Started turn")
-
 
 @socketio.on('reset_game')
 def reset_game(json):
@@ -169,6 +185,36 @@ def steal(json):
         emit_board(game_name, game, "Points stolen")
     except InvalidState as e:
         emit_error(game_name, str(e))
+
+@socketio.on('toggle_difficulty')
+def toggle_difficulty(json):
+    if "name" not in json:
+        print("Could not find the given board.")
+        return
+
+    game_name = json["name"]
+    game = all_games[game_name]
+
+    game.toggle_difficulty()
+    emit_board(game_name, game, "Difficulty toggled")
+
+# ---------------------------------------
+# Other functions
+# ---------------------------------------
+
+# Schedule cleanup
+def delete_old_games():
+    for game in all_games:
+        age = datetime.datetime.now() - all_games[game].date_created
+        if age.total_seconds() > 86400:
+            del all_games[game]
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=delete_old_games, trigger="interval", seconds=3600)
+scheduler.start()
+
+# Shutdown your cron thread if the web process is stopped
+atexit.register(lambda: scheduler.shutdown())
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)

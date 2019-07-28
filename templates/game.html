@@ -9,6 +9,7 @@
             <li>Team 2 scored: <span id="team_2_score"></span></li>
             <li>State: <span id="state"></span></li>
             <li>Winning team: <span id="winning_team"></span></li>
+            <li>Difficulty: <span id="difficulty"></span></li>
         </ul>
     </div>
 
@@ -28,6 +29,7 @@
     <h2>Game actions</h2>
     <div>
         <button onclick="load_board()">Load board</button>
+        <button onclick="toggle_difficulty()">Toggle difficulty</button>
         <button onclick="start_turn()">Start turn</button>
         <button onclick="reset_game()">Reset game</button>
         <button onclick="new_phrase(false)">Pass word</button>
@@ -86,6 +88,7 @@
         document.getElementById("team_2_score").textContent = String(resp["team_2_score"])
         document.getElementById("state").textContent = String(resp["state"])
         document.getElementById("winning_team").textContent = String(resp["winning_team"])
+        document.getElementById("difficulty").textContent = String(resp["difficulty"])
 
         document.getElementById("team_1_turn").textContent = String(resp["team_1_turn"])
         document.getElementById("current_phrase").textContent = String(resp["current_phrase"])
@@ -156,6 +159,12 @@
         })
 
         clearInterval(turn_timer);
+    }
+
+    function toggle_difficulty() {
+        socket.emit("toggle_difficulty", {
+            "name": game_name
+        })
     }
     // Reset the game
     function reset_game() {

@@ -191,6 +191,15 @@ class testGameMethods(unittest.TestCase):
 
         self.assertEqual(game.team_2_score, 2, "Check other teams score")
 
+    def testToggleDifficulty(self):
+        game = Game("")
+
+        self.assertEqual(game.difficulty, "hard", "Initially difficulty")
+        game.toggle_difficulty()
+        self.assertEqual(game.difficulty, "easy", "After first toggle")
+        game.toggle_difficulty()
+        self.assertEqual(game.difficulty, "hard", "After second toggle")
+
     def testUpdateScore(self):
         game = Game("")
 

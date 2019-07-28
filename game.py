@@ -55,6 +55,7 @@ class Game(object):
         self.words_per_turn = min(max(3, words_per_turn), 5)
         self.seconds_per_turn = min(max(60, seconds_per_turn), 120)
         self.date_created = datetime.datetime.now()
+        self.difficulty = "hard"
 
         # Game state
         self.team_1_score = 0
@@ -93,6 +94,7 @@ class Game(object):
             "win_threshold": self.win_threshold,
             "words_per_turn": self.words_per_turn,
             "seconds_per_turn": self.seconds_per_turn,
+            "difficulty": self.difficulty,
 
             # Game state
             "team_1_score": self.team_1_score,
@@ -277,6 +279,12 @@ class Game(object):
         # Transition to the next turn
         self.change_active_team()
         self.state = State.IDLE
+
+    def toggle_difficulty(self):
+        if self.difficulty == "easy":
+           self.difficulty = "hard"
+        else:
+            self.difficulty = "easy"
 
     def update_score(self, points, current_team=True):
         """Update the score.
