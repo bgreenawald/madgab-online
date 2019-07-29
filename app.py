@@ -6,7 +6,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, render_template, json
 from flask_socketio import join_room, leave_room, SocketIO, send, emit
 import simplejson
-from flask.ext.scss import Scss
+from flask_scss import Scss
 
 from game import InvalidState, Game, State
 
@@ -14,7 +14,12 @@ from game import InvalidState, Game, State
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-Scss(app, static_dir='styles/css', asset_dir='styles/scss')
+
+# app.wsgi_app = SassMiddleware(app.wsgi_app, {
+#     'app': ('static/sass', 'static/css', '/static/css')
+# })
+app.debug = True
+Scss(app, static_dir='static/styles/css', asset_dir='static/styles/scss')
 
 all_games = {}
 
