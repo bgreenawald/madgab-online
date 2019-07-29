@@ -7,6 +7,7 @@ Flask-SocketIO==4.1.0
 greenlet==0.4.15
 itsdangerous==1.1.0
 Jinja2==2.10.1
+libsass==0.19.2
 MarkupSafe==1.1.1
 monotonic==1.5
 numpy==1.17.0

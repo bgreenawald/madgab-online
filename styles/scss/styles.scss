@@ -1,0 +1,38 @@
+// ********** NORMALIZE ********** //
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+@mixin flexbox() {
+    display: flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin pos-a-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pos-a {
+    position: absolute;
+}
+
+.pos-r {
+    position: relative;
+}
+
+// ********** INDEX ********** //
+
+.home-container {
+    background-color: blue;
+}

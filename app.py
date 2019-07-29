@@ -6,6 +6,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, render_template, json
 from flask_socketio import join_room, leave_room, SocketIO, send, emit
 import simplejson
+from flask.ext.scss import Scss
 
 from game import InvalidState, Game, State
 
@@ -13,6 +14,7 @@ from game import InvalidState, Game, State
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
+Scss(app, static_dir='styles/css', asset_dir='styles/scss')
 
 all_games = {}
 
@@ -43,7 +45,6 @@ def get_names():
 @socketio.on('join')
 def on_join(data):
     """Joins the connection to the provided room
-
     Args:
         data (str): Name of the room.
     """
@@ -55,7 +56,6 @@ def on_join(data):
 @socketio.on('leave')
 def on_leave(data):
     """Removes the current connection from the room.
-
     Args:
         data (str): Name of the room.
     """
@@ -81,7 +81,6 @@ def emit_board(game_name, game, msg):
 @socketio.on('load_board')
 def load_board(json):
     """Loads the current game board, or creates on if none exists.
-
     Args:
         json (dict): dictionary with parameter called 'game'.
     """
