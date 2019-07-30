@@ -35,6 +35,10 @@ def return_index():
 def return_game(id=None):
     return render_template("game.html", id=id)
 
+@app.route('/test/<id>')
+def return_game_test(id=None):
+    return render_template("game2.html", id=id)
+
 @app.route("/api/get_names")
 def get_names():
     ids = [x for x in all_games]

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<body>
+    <div class="viewport-overlay">
+        <div class="header">
+            <span id="team_1_score"></span>
+            <span> - </span>
+            <span id="team_2_score"></span>
+        </div>
+        <button class='team'>red</button>
+
+        <div class="footer">
+            <p>Rad Gab c 2019</p>
+        </div>
+    </div>
+
+</body>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+    integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8">
+    // Global variables needed
+    var socket = io();
+    var href_parts = window.location.href.split("/");
+    var game_name = href_parts[href_parts.length - 1];
+    var game_state = null;
+    var turn_timer = null;
+    var timer = null;
+    let team;
+
+    Array.from(document.querySelectorAll("button.team")).forEach(button => {
+        button.addEventListener('click', e => {
+            console.log(e.target.innerText)
+            team = e.target.innerText
+        })
+    })
+
+    // --------------------------------------
+    // Actions taken on connect
+
+    // Join the necessary room
+    socket.on("connect", function () {
+        socket.emit("join", game_name);
+    });
+
+    // Load the current state of the board, or create a new one
+    socket.on("connect", function () {
+        socket.emit("load_board", {
+            "name": game_name
+        })
+    });
+
+    // --------------------------------------
+    // Render board action
+    socket.on("render_board", function (resp) {
+        console.log(resp)
+        game_state = JSON.parse(resp.payload)
+        console.log(game_state)
+        render_board(game_state)
+    })
+
+    function render_board(resp) {
+        // Game state
+        document.getElementById("team_1_score").textContent = String(resp["team_1_score"])
+        document.getElementById("team_2_score").textContent = String(resp["team_2_score"])
+        document.getElementById("state").textContent = String(resp["state"])
+        document.getElementById("winning_team").textContent = String(resp["winning_team"])
+        document.getElementById("difficulty").textContent = String(resp["difficulty"])
+
+        document.getElementById("team_1_turn").textContent = String(resp["team_1_turn"])
+        document.getElementById("current_phrase").textContent = String(resp["current_phrase"])
+        document.getElementById("current_category").textContent = String(resp["current_category"])
+        document.getElementById("current_madgab").textContent = String(resp["current_madgab"])
+        document.getElementById("current_turn_clues").textContent = String(resp["current_turn_clues"])
+        document.getElementById("current_turn_counter").textContent = String(resp["current_turn_counter"])
+        document.getElementById("current_turn_correct").textContent = String(resp["current_turn_correct"])
+    }
+
+    // --------------------------------------
+    //Client functions
+
+    // Manually load the current board
+    function load_board() {
+        socket.emit("load_board", {
+            "name": game_name
+        })
+    }
+
+    // Start the turn
+    function start_turn() {
+        timer = game_state["seconds_per_turn"]
+        turn_timer = setInterval(start_timer, 1000)
+        socket.emit("start_turn", {
+            "name": game_name
+        })
+    }
+
+    function start_timer() {
+        var minutes = parseInt(timer / 60, 10);
+        var seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        document.getElementById("timer").textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            socket.emit("end_turn", {
+                "name": game_name,
+                "correct": false,
+                "time_left": 0
+            })
+        }
+    }
+
+    function new_phrase(correct) {
+        socket.emit("new_phrase", {
+            "name": game_name,
+            "correct": correct
+        })
+    }
+
+    function steal() {
+        socket.emit("steal", {
+            "name": game_name,
+            "points": parseInt(document.getElementById("steal_amount").value)
+        })
+
+        clearInterval(turn_timer);
+    }
+
+    function end_turn(correct) {
+        socket.emit("end_turn", {
+            "name": game_name,
+            "correct": correct,
+            "time_left": timer
+        })
+
+        clearInterval(turn_timer);
+    }
+
+    function toggle_difficulty() {
+        socket.emit("toggle_difficulty", {
+            "name": game_name
+        })
+    }
+    // Reset the game
+    function reset_game() {
+        socket.emit("reset_game", {
+            "name": game_name
+        })
+    }
+</script>
