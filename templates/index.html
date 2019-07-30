@@ -1,13 +1,34 @@
+
+
+
 <!DOCTYPE html>
+    <html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mad Gab Online</title>
+
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/styles.css') }}" />
+
+        
+    </head>
 
 <body>
-    <h1>Welcome to MadGab</h1>
-    Enter a game ID, or accept the default. Once you start, you will
-    recieve a URL to share with your friends so they can join.
-    <input id="game_id" type="text">
-    <button type="submit" onclick="createGame()">Create New Game</button>
-    <div id="error"></div>
-</body>
+
+    <div class="home-container">
+        <div class="rules-container">
+            <button>rules</button>
+        </div>
+        <div class="home-content">
+            <h1>Welcome to MadGab</h1>
+            Enter a game ID, or accept the default. Once you start, you will
+            recieve a URL to share with your friends so they can join.
+            <input id="game_id" type="text">
+            <button type="submit" onclick="createGame()">Create New Game</button>
+            <div id="error"></div>
+        </div>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -52,3 +73,6 @@
         });
     }
 </script>
+</body>
+
+</html>

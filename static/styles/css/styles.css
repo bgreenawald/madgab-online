@@ -1,0 +1,15 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh; }
+
+  .pos-a {
+    position: absolute; }
+
+    .pos-r {
+      position: relative; }
+
+      .home-container {
+        background-color: blue;
+        height: 100vh;
+        color: white; }
