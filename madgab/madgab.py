@@ -16,6 +16,10 @@ PHONEME_MAPPING_FILE = os.path.join(
     "phoneme_to_pronunciation.json"
 )
 
+FREQUENCY_FILENAME = os.path.join(
+    os.path.dirname(__file__),
+    "frequency.csv"
+)
 
 def word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation):
     """ Task a word a returns its phonetic spelling. """
@@ -133,7 +137,7 @@ class FrequencyMatrix(object):
     Main tasks include handling indexing and normalization.
     """
 
-    def __init__(self, filename="./frequency.csv"):
+    def __init__(self, filename=FREQUENCY_FILENAME):
         self.frequency_matrix = pd.read_csv(filename, header=None)
         self.normalize()
 

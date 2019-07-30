@@ -137,6 +137,10 @@ class testGameMethods(unittest.TestCase):
         game = Game("")
         game.new_phrase()
         self.assertIsNotNone(game.current_phrase, "Check that phrase is generated")
+        self.assertIsNotNone(game.current_category, "Check that category is generated")
+        self.assertTrue(isinstance(game.current_phrase, str), "Check phrase is str")
+        self.assertTrue(isinstance(game.current_category, str), "Check category is str")
+        self.assertTrue(isinstance(game.current_madgab, str), "Check madgab is str")
         self.assertIsNotNone(game.current_madgab, "Check that madgab generated")
         self.assertNotEqual(game.current_phrase, game.current_madgab, "Check phrase has been changed")
 

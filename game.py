@@ -2,7 +2,7 @@ import datetime
 from enum import Enum
 import random
 
-from madgab import madgab
+from madgab.madgab import mad_gabify
 
 all_games = {}
 
@@ -63,8 +63,8 @@ class Game(object):
         self.state = State.IDLE
 
         # Initialize the clues
-        with open("./clues.txt", "r") as file:
-            clues = [clue.strip() for clue in file.readlines()]
+        with open("./clues_full.txt", "r") as file:
+            clues = [clue.strip().split(" | ") for clue in file.readlines()]
             random.shuffle(clues)
             self.clues = clues
 
@@ -72,6 +72,7 @@ class Game(object):
         self.team_1_turn = True
         self.winning_team = None
         self.current_phrase = None
+        self.current_category = None
         self.current_madgab = None
         self.current_turn_clues = []
         self.current_turn_counter = 0
@@ -105,6 +106,7 @@ class Game(object):
             # Turn state
             "team_1_turn": self.team_1_turn,
             "current_phrase": self.current_phrase,
+            "current_category": self.current_category,
             "current_madgab": self.current_madgab,
             "current_turn_clues": self.current_turn_clues,
             "current_turn_counter": self.current_turn_counter,
@@ -167,11 +169,11 @@ class Game(object):
             self.update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 1)
+                (self.current_phrase, self.current_madgab, 1, self.current_category)
             )
         else:
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 0)
+                (self.current_phrase, self.current_madgab, 0, self.current_category)
             )
 
         # If they got them all correct, calculate bonus, check end condition
@@ -217,13 +219,13 @@ class Game(object):
             self.update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 1)
+                (self.current_phrase, self.current_madgab, 1, self.current_category)
             )
         elif self.current_phrase:
             # If they didn't get it corect, but isn't the first
             # word, add to list but don't update score
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 0)
+                (self.current_phrase, self.current_madgab, 0, self.current_category)
             )
 
         # Update the turn counter
@@ -235,8 +237,8 @@ class Game(object):
     def new_phrase(self):
         """Generates a new phrase
         """
-        self.current_phrase = self.clues.pop()
-        self.current_madgab = madgab(self.current_phrase)
+        self.current_phrase, self.current_category = self.clues.pop()
+        self.current_madgab = mad_gabify(self.current_phrase, self.difficulty)
 
     def reset_turn(self):
         self.current_phrase = None

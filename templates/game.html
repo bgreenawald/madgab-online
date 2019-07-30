@@ -19,6 +19,7 @@
         <ul>
             <li>Team 1 Turn: <span id="team_1_turn"></span></li>
             <li>Current phrase: <span id="current_phrase"></span></li>
+            <li>Current phrase category: <span id="current_category"></span></li>
             <li>Current madgab: <span id="current_madgab"></span></li>
             <li>Current turn clues: <span id="current_turn_clues"></span></li>
             <li>Current turn counter: <span id="current_turn_counter"></span></li>
@@ -92,6 +93,7 @@
 
         document.getElementById("team_1_turn").textContent = String(resp["team_1_turn"])
         document.getElementById("current_phrase").textContent = String(resp["current_phrase"])
+        document.getElementById("current_category").textContent = String(resp["current_category"])
         document.getElementById("current_madgab").textContent = String(resp["current_madgab"])
         document.getElementById("current_turn_clues").textContent = String(resp["current_turn_clues"])
         document.getElementById("current_turn_counter").textContent = String(resp["current_turn_counter"])
