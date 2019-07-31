@@ -116,7 +116,7 @@ def start_turn(json):
     try:
         game.start_turn()
     except InvalidState as e:
-        emit_error(str(e))
+        emit_error(game_name, str(e))
     else:
         emit_board(game_name, game, "Started turn")
 
