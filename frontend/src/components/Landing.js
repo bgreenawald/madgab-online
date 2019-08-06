@@ -5,10 +5,11 @@ class Landing extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            input_name: "", 
-            used_ids: "",
+            game_id: "", 
+            used_ids: [],
             rand_id: 0
         }
+        this.input_name = React.createRef()
         this.createGame = this.createGame.bind(this)
         this.generateID = this.generateID.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
@@ -18,47 +19,50 @@ class Landing extends Component {
         var min = 0;
         var max = 999999;
         var random = Math.floor(Math.random() * (+max - +min)) + +min;
-        return random;
+        this.setState({
+            rand_id: random
+        });
     }
     
     createGame = () => {
-        fetch("http://localhost:5000/api/get_names").then(function (res) {
-            // console.log(this.state)
+        fetch("http://localhost:5000/api/get_names").then(res => {
+            console.log("RES:", res)
             // this.state.used_ids = res["ids"];
-            // console.log(this.state.used_ids);
-            // this.state.input_name = document.getElementById("game_id").value;
-            // console.log(this.state.input_name);
-            // if (this.state.used_ids.includes(this.state.input_name)) {
-            //     document.getElementById("error").innerHTML = "ID already in use, choose another"
-            // }
-            // else {
-            //     console.log("Success")
-            //     window.location.href = "/" + this.state.input_name;
-            // }
+            console.log("GAME ID", this.input_name.current.value)
+            this.setState({
+                game_id: this.input_name.value
+            }) 
+            if (this.state.used_ids.includes(this.state.game_id)) {
+                document.getElementById("error").innerHTML = "ID already in use, choose another"
+            }
+            else {
+                console.log("Success")
+                console.log(this.state)
+                window.location.href = "/" + this.state.game_id;
+            }
             console.log(res["ids"])
         });
     }
 
     async componentDidMount() {
-        // console.log(this.state)
+        console.log(this)
         await $.ajax({
-            url: "http://localhost:5000/api/get_names",
-        }).done(function(res) {
-            // console.log(res)
+            url: "http://localhost:5000/api/get_names"
+        }).done(res => {
+            console.log(res)
 
-            // let newID = this.generateID()
+            this.generateID()
             
-            // this.setState({
-            //     used_ids: res["ids"],
-            //     rand_id: newID
-            // })
+            this.setState({
+                used_ids: res["ids"]
+            })
     
-            // while (this.state.used_ids.includes(this.state.rand_id)) {
-            //     this.state.rand_id = this.generateID()
-            // }
+            while (this.state.used_ids.includes(this.state.rand_id)) {
+                this.generateID()
+            }
     
-            // document.getElementById("game_id").value = this.state.rand_id;
-        });
+            document.getElementById("game_id").value = this.state.rand_id;
+        })
     }
 
 
@@ -75,7 +79,7 @@ class Landing extends Component {
                         Enter a game ID, or accept the default. Once you start, you will
                         recieve a URL to share with your friends so they can join.
                     </p>
-                    <input id="game_id" type="text"></input>
+                    <input id="game_id" type="text" ref={this.input_name}></input>
                     <button type="submit" onClick={this.createGame}>Create New Game</button>
                     <div id="error"></div>
                 </div>
