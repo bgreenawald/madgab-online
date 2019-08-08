@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
+import '../App.scss'
 
 class Landing extends Component {
     constructor(props) {
@@ -27,20 +28,18 @@ class Landing extends Component {
     createGame = () => {
         fetch("http://localhost:5000/api/get_names").then(res => {
             console.log("RES:", res)
-            // this.state.used_ids = res["ids"];
             console.log("GAME ID", this.input_name.current.value)
             this.setState({
-                game_id: this.input_name.value
+                game_id: this.input_name.current.value
             }) 
             if (this.state.used_ids.includes(this.state.game_id)) {
                 document.getElementById("error").innerHTML = "ID already in use, choose another"
             }
             else {
                 console.log("Success")
-                console.log(this.state)
-                window.location.href = "/" + this.state.game_id;
+                console.log("STATE", this.state)
+                this.props.history.push(`/game/${this.state.game_id}`)
             }
-            console.log(res["ids"])
         });
     }
 
