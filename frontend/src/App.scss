@@ -146,3 +146,32 @@ $primary-yellow: #FFD754;
     left: 0%;
     box-shadow: 0px 3px 10px darken($primary-blue, 10%);
 }
+
+// ********** GAME ********** //
+.game-viewport {
+  position: relative;
+  height: 100%;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  > .flex {
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+
+.choose-team.container {
+  @include flexbox();
+  flex-flow: column nowrap;
+  height: 60%;
+  justify-content: space-around;
+}
+
