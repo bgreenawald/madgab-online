@@ -15,6 +15,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
+from flask_cors import CORS
+CORS(app)
 # app.wsgi_app = SassMiddleware(app.wsgi_app, {
 #     'app': ('static/sass', 'static/css', '/static/css')
 # })

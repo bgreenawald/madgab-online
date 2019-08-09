@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 
-<body>
-    <div class="viewport-overlay">
-        <div class="header">
-            <span id="team_1_score"></span>
-            <span> - </span>
-            <span id="team_2_score"></span>
-        </div>
-        <button class='team'>red</button>
 
-        <div class="footer">
-            <p>Rad Gab c 2019</p>
-        </div>
-    </div>
+<body></body>
 
-</body>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
-    integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf-8">
     // Global variables needed
     var socket = io();
@@ -26,25 +12,17 @@
     var game_state = null;
     var turn_timer = null;
     var timer = null;
-    let team;
-
-    Array.from(document.querySelectorAll("button.team")).forEach(button => {
-        button.addEventListener('click', e => {
-            console.log(e.target.innerText)
-            team = e.target.innerText
-        })
-    })
 
     // --------------------------------------
     // Actions taken on connect
 
     // Join the necessary room
-    socket.on("connect", function () {
+    socket.on("connect", function() {
         socket.emit("join", game_name);
     });
 
     // Load the current state of the board, or create a new one
-    socket.on("connect", function () {
+    socket.on("connect", function() {
         socket.emit("load_board", {
             "name": game_name
         })
@@ -52,7 +30,7 @@
 
     // --------------------------------------
     // Render board action
-    socket.on("render_board", function (resp) {
+    socket.on("render_board", function(resp) {
         console.log(resp)
         game_state = JSON.parse(resp.payload)
         console.log(game_state)
@@ -150,4 +128,11 @@
             "name": game_name
         })
     }
+
+
+
+
+
+
+
 </script>

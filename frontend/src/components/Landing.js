@@ -26,7 +26,8 @@ class Landing extends Component {
     }
     
     createGame = () => {
-        fetch("http://localhost:5000/api/get_names").then(res => {
+        fetch("http://localhost:5000/api/get_names")
+        .then(res => {
             console.log("RES:", res)
             console.log("GAME ID", this.input_name.current.value)
             this.setState({
@@ -38,13 +39,14 @@ class Landing extends Component {
             else {
                 console.log("Success")
                 console.log("STATE", this.state)
-                this.props.history.push(`/game/${this.state.game_id}`)
+                this.props.history.push(`/game/${this.state.game_id}`, {
+                    game_id: this.state.game_id
+                })
             }
         });
     }
 
     async componentDidMount() {
-        console.log(this)
         await $.ajax({
             url: "http://localhost:5000/api/get_names"
         }).done(res => {
