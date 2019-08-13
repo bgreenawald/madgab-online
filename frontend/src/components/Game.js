@@ -26,8 +26,20 @@ class Game extends Component {
         })
     }
 
+    componentDidMount = () => {
+        socket.on("connect", function() {
+            socket.emit("join", game_name);
+        });
+    
+        // Load the current state of the board, or create a new one
+        socket.on("connect", function() {
+            socket.emit("load_board", {
+                "name": game_name
+            })
+        });
+    }
+
     render() {
-        console.log("GAME:", this.props.state)
         if (this.state.team) {
             console.log("You chose a team!")
             return(
