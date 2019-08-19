@@ -84,9 +84,9 @@ def add_spaces(phrase, freq):
     """ Use the frequency matrix to reasonably insert spaces. """
 
     # Define constants for the triangle distribution
-    left_bound = 2
+    left_bound = 3
     right_bound = 8
-    desired_value = 4
+    desired_value = 5
 
     # Define distribution parameters based on the constants
     scale = right_bound - left_bound
