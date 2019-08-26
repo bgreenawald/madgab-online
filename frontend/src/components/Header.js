@@ -4,9 +4,16 @@ import '../App.scss'
 class Header extends Component {
     constructor(props) {
         super(props)
+        // this.state = props.history.location
+    }
+    componentDidMount = () => {
+        // this.setState({...this.props.props})
+        console.log("MY STATE", this.state)
     }
 
     render(){
+        console.log("in the render")
+        // if (this.state)
         return(
             <div className="header">
                 <div className="flex">

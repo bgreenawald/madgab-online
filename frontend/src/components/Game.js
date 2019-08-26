@@ -10,14 +10,14 @@ class Game extends Component {
             //  href_parts = window.location.href.split("/"),
             active_team: 1,
             game_id: this.props.history.location.state.game_id,
-            game_name: this.props.history.location,
-            game_state: null,
-            response: null,
-            userRole: null,
-            scores: [0, 0],
-            team: null,
-            turn_timer: null,
-            timer: null
+            game_name: this.props.history.location
+            // game_state: null,
+            // response: null,
+            // userRole: null,
+            // scores: [0, 0],
+            // team: null,
+            // turn_timer: null,
+            // timer: null
         }
         this.socket = io('http://localhost:5000/')
         this.clueRadioYes = React.createRef();
@@ -46,7 +46,10 @@ class Game extends Component {
             socket.on("render_board", resp => {
                 console.log("RESP", resp)
                 let game_state = JSON.parse(resp.payload)
-                console.log(game_state)
+                this.setState({
+                    ...game_state, 
+                    loaded: true
+                })
             })
         })
 
@@ -66,12 +69,15 @@ class Game extends Component {
     }
 
     render() {
-       
+    //    console.log("STATE", this.state)
 
-        if (this.state.team) {
-            console.log("You chose a team!")
+        if (this.state.loaded) {
+            // console.log("You chose a team!")
             return (
-                <div className="game-viewport">Hello world!</div>
+                <div className="game-viewport">
+                    <Header props={this.state} />
+
+                </div>
             )
         }
 
