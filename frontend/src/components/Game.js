@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.scss'
-import Header from './Header'
+import Menu from './Menu'
 import io from 'socket.io-client'
 
 class Game extends Component {
@@ -10,19 +10,14 @@ class Game extends Component {
             //  href_parts = window.location.href.split("/"),
             active_team: 1,
             game_id: this.props.history.location.state.game_id,
-            game_name: this.props.history.location
-            // game_state: null,
-            // response: null,
-            // userRole: null,
-            // scores: [0, 0],
-            // team: null,
-            // turn_timer: null,
-            // timer: null
+            game_name: this.props.history.location,
+            inTurn: false
         }
         this.socket = io('http://localhost:5000/')
         this.clueRadioYes = React.createRef();
         this.clueRadioNo = React.createRef();
         this.startTurn = React.createRef();
+        this.timerDOM = React.createRef();
     }
 
     handleTeamSelection = e => {
@@ -44,16 +39,19 @@ class Game extends Component {
                 "name": id
             })
             socket.on("render_board", resp => {
-                console.log("RESP", resp)
                 let game_state = JSON.parse(resp.payload)
+                console.log("RESP", game_state)
                 this.setState({
-                    ...game_state, 
+                    ...game_state,
                     loaded: true
                 })
             })
         })
-
     }
+
+    // componentWillMount() {
+    //     this.refs= {}
+    // }
 
     handleGameStart = () => {
         this.setState({
@@ -68,31 +66,88 @@ class Game extends Component {
         })
     }
 
-    render() {
-    //    console.log("STATE", this.state)
+    start_timer = () =>  {
+        let socket = io('http://localhost:5000')
+        let id = this.state.game_id
+        // let timer = this.state.seconds_per_turn
 
-        if (this.state.loaded) {
-            // console.log("You chose a team!")
+        var minutes = parseInt(this.state.seconds_per_turn / 60, 10);
+        var seconds = parseInt(this.state.seconds_per_turn % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        this.timerDOM.current.innerText = minutes + ":" + seconds;
+
+        if (--this.state.seconds_per_turn < 0) {
+            socket.emit("end_turn", {
+                "name": id,
+                "correct": false,
+                "time_left": 0
+            })
+        }
+    }
+
+    handleStartTurn = () => {
+        let timer = this.state.seconds_per_turn
+        let turn_timer = setInterval(this.start_timer, 1000)
+        let socket = io('http://localhost:5000')
+        let id = this.state.game_id
+        socket.on('connect', resp => {
+            socket.emit("start_turn", {
+                "name": id
+            })
+            console.log("RESP after start turn", JSON.parse(resp))
+        })
+        this.setState({
+            inTurn: true
+        })
+    }
+
+    // renderBoard = () => {
+    //     this.setState({
+    //         inTurn: true
+    //     })
+    // }
+
+    render() {
+        //    console.log("STATE", this.state)
+
+        if (this.state.inTurn) {
+            console.log("STATEEEE", this.state)
             return (
                 <div className="game-viewport">
-                    <Header props={this.state} />
+                    <Menu props={this.state} />
+
+                    <div className="gameplay-container">
+                        <div id="timer" ref={this.timerDOM}></div>
+                        <div className="card">
+                            {/* {this.state.} */}
+                        </div>
+                        <div className="buttons">
+                            <button className="pass">Pass</button>
+                            <button className="correct">Correct</button>
+                        </div>
+                    </div>
 
                 </div>
             )
         }
-
-        else {
+        else if (this.state.loaded) {
             // choose your team
+            console.log("Game.js state", this.state)
             return (
                 <div className="game-viewport">
-                    <Header />
+                    <Menu {...this.state} />
+
                     <div className="turn-container">
-                        <h3>It's your turn next:</h3>
-                        <h2>Team 1</h2>
+                        <h3>You're up:</h3>
+                        <h2>Team {this.state.active_team}</h2>
                     </div>
 
+
                     {/* <div className="choose-team container">
-                    <Header props={this.state.scores}/>
+                    <Menu props={this.state.scores}/>
                     <h1>Choose your team:</h1>
                     <button onClick={this.handleTeamSelection} data="1">Team 1</button>
                     <button onClick={this.handleTeamSelection} data="2">Team 2</button>
@@ -106,11 +161,22 @@ class Game extends Component {
                         <label htmlFor="No">No</label>
                     </div>
 
-                    <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.renderBoard}>Start the turn!</button>
+                    <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.handleStartTurn}>Start the turn!</button>
                 </div>
 
             )
         }
+
+        else {
+            // console.log("You chose a team!")
+            return (
+                <div className="game-viewport">
+                    <Menu {...this.state} />
+
+                </div>
+            )
+        }
+
     }
 }
 

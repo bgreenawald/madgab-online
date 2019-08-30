@@ -153,7 +153,7 @@ $primary-yellow: #FFD754;
   height: 100%;
 }
 
-.header {
+.menu {
   position: absolute;
   top: 0;
   right: 0;
@@ -161,10 +161,22 @@ $primary-yellow: #FFD754;
   height: 100%;
   width: 100%;
   z-index: -1;
-  > .flex {
-    flex-flow: column nowrap;
+  &.flex {
+    flex-flow: column wrap;
     justify-content: space-between;
     height: 100%;
+  }
+    .menu-bottom, .game-info {
+      flex-flow: row wrap;
+      height: auto;
+      justify-content: space-around;
+      width: 60%;
+  }
+
+  .menu-bottom {
+      flex-flow: column wrap;
+      background-color: #c4c4c4;
+      width: 100%;
   }
 }
 
