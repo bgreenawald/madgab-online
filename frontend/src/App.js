@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
 import './App.scss';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Landing from './components/Landing';

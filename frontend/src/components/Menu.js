@@ -11,10 +11,17 @@ class Menu extends Component {
 
     render() {
         // console.log("in the render")
-        console.log("PROPS:", this.props)
+        console.log("PROPS from menu:", this.props)
         { this.state && console.log(this.state) }
         return (
             <div className="menu flex">
+                <div className="user-bar flex">
+                    <div className="user-team">
+                    </div>
+
+                    <div className="user-role">
+                    </div>
+                </div>
                     <div className="menu-top">
                         <div className="flex">
                             <h3>Round 1</h3>

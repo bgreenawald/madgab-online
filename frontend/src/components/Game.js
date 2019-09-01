@@ -3,6 +3,7 @@ import '../App.scss'
 import Menu from './Menu'
 import io from 'socket.io-client'
 
+
 class Game extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +12,8 @@ class Game extends Component {
             active_team: 1,
             game_id: this.props.history.location.state.game_id,
             game_name: this.props.history.location,
-            inTurn: false
+            inTurn: false, 
+            userTeam: 1
         }
         this.socket = io('http://localhost:5000/')
         this.clueRadioYes = React.createRef();
@@ -19,16 +21,6 @@ class Game extends Component {
         this.startTurn = React.createRef();
         this.timerDOM = React.createRef();
     }
-
-    handleTeamSelection = e => {
-        let selectedTeam = e.target.innerText
-        let teamNumber = parseInt(selectedTeam.slice(selectedTeam.length - 1, selectedTeam.length))
-        this.setState({
-            team: teamNumber,
-            active_team: 1
-        })
-    }
-
     // join socket, load board, and render board
     componentDidMount = () => {
         let socket = io('http://localhost:5000')
@@ -40,7 +32,7 @@ class Game extends Component {
             })
             socket.on("render_board", resp => {
                 let game_state = JSON.parse(resp.payload)
-                console.log("RESP", game_state)
+                console.log("RESP from render board", game_state)
                 this.setState({
                     ...game_state,
                     loaded: true
@@ -66,7 +58,18 @@ class Game extends Component {
         })
     }
 
-    start_timer = () =>  {
+    handleTeamSelection = e => {
+        let chosenTeam = Number(document.querySelector('input[name="teamChoice"]:checked').value)
+        let bgColor = (chosenTeam === 1 ? "team1 game-viewport" : "team2 game-viewport")
+        
+        this.setState({
+            userTeam: chosenTeam,
+            bgcolor: bgColor
+        })
+    }
+
+
+    start_timer = () => {
         let socket = io('http://localhost:5000')
         let id = this.state.game_id
         // let timer = this.state.seconds_per_turn
@@ -97,7 +100,6 @@ class Game extends Component {
             socket.emit("start_turn", {
                 "name": id
             })
-            console.log("RESP after start turn", JSON.parse(resp))
         })
         this.setState({
             inTurn: true
@@ -114,7 +116,7 @@ class Game extends Component {
         //    console.log("STATE", this.state)
 
         if (this.state.inTurn) {
-            console.log("STATEEEE", this.state)
+            console.log("STATE while in turn", this.state)
             return (
                 <div className="game-viewport">
                     <Menu props={this.state} />
@@ -122,7 +124,7 @@ class Game extends Component {
                     <div className="gameplay-container">
                         <div id="timer" ref={this.timerDOM}></div>
                         <div className="card">
-                            {/* {this.state.} */}
+                            {this.state.current_madgab}
                         </div>
                         <div className="buttons">
                             <button className="pass">Pass</button>
@@ -137,7 +139,7 @@ class Game extends Component {
             // choose your team
             console.log("Game.js state", this.state)
             return (
-                <div className="game-viewport">
+                <div className={this.state.bgcolor}>
                     <Menu {...this.state} />
 
                     <div className="turn-container">
@@ -146,20 +148,31 @@ class Game extends Component {
                     </div>
 
 
-                    {/* <div className="choose-team container">
+                    <div className="choose-team">
                     <Menu props={this.state.scores}/>
-                    <h1>Choose your team:</h1>
-                    <button onClick={this.handleTeamSelection} data="1">Team 1</button>
-                    <button onClick={this.handleTeamSelection} data="2">Team 2</button>
-                </div> */}
+                    <h2>Choose your team:</h2>
+     
+                        <input type="radio" name="teamChoice" ref={this.radioTeam1} onChange={this.handleTeamSelection} value="1" />
+                        <label htmlFor="team1">Team 1</label>
+                        <input type="radio" name="teamChoice" ref={this.radioTeam2} onChange={this.handleTeamSelection} value="2" />
+                        <label htmlFor="team2">Team2</label>
+                </div>
 
                     <div className="game-options">
-                        <p>Are you the clue giver?</p>
+                        <h2>Are you the clue giver?</h2>
                         <input type="radio" name="userRole" ref={this.clueRadioYes} onChange={this.handleRoleSelected} value="clue giver" />
                         <label htmlFor="Yes">Yes</label>
                         <input type="radio" name="userRole" ref={this.clueRadioNo} onChange={this.handleRoleSelected} value="clue guesser" />
                         <label htmlFor="No">No</label>
                     </div>
+
+                    {/* <div className="team-options">
+                        <p>{this.state.userTeam}</p>
+                        <label class="switch">
+                            <input type="checkbox" />
+                            <span class="slider round"></span>
+                        </label>
+                    </div> */}
 
                     <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.handleStartTurn}>Start the turn!</button>
                 </div>
