@@ -23,12 +23,10 @@ class Menu extends Component {
                     </div>
                 </div>
                     <div className="menu-top">
-                        <div className="flex">
                             <h3>Round 1</h3>
                             <div className="score-box">
                                 <span className="current-team-score">0 -</span>
                                 <span className="opposing-team-score"> 0</span>
-                            </div>
                         </div>
                     </div>
                     <div className="menu-bottom flex">

@@ -69,6 +69,7 @@ body {
     @include flexbox()
 }
 
+
 // ********** FONTS ********** //
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Noto+Sans|Sigmar+One&display=swap');
 
@@ -87,8 +88,17 @@ p {
 
 $primary-blue: #0057F9;
 $primary-yellow: #FFD754;
+$primary-red: #E84855;
 
 // Color scheme: https://coolors.co/ffff99-91bfff-ffd754-1034a6-0057f9
+
+
+// ********** BUTTONS ********** //
+
+button {
+    padding: 20px;
+    border-radius: 20px;
+}
 
 // ********** INDEX ********** //
   
@@ -151,7 +161,17 @@ $primary-yellow: #FFD754;
 .game-viewport {
   position: relative;
   height: 100%;
+  @include flexbox();
+  flex-flow: column wrap;
+//   color: white;
+  text-align: center;
+  width: 100%;
 }
+
+
+ .textbox {
+    margin: 40px auto 40px auto;
+  }
 
 .menu {
   position: absolute;
@@ -177,6 +197,13 @@ $primary-yellow: #FFD754;
       flex-flow: column wrap;
       background-color: #c4c4c4;
       width: 100%;
+  }
+
+  .menu-top {
+      top: 0;
+      position: absolute;
+      @include flexbox();
+      flex-flow: column wrap;
   }
 }
 
@@ -252,9 +279,9 @@ input:checked + .slider:before {
 }
 
 .team1 {
-    background-color: red;;
+    background-color: $primary-red;
 }
 
 .team2 {
-    background-color: blue;
+    background-color: $primary-blue;
 }
