@@ -37,6 +37,12 @@ body {
     padding: 0;
     margin: 0;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+* {
+  font-family: 'chelsea market', arial, sans-serif;
 }
 
 @mixin flexbox() {
@@ -72,16 +78,20 @@ body {
 
 // ********** FONTS ********** //
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Noto+Sans|Sigmar+One&display=swap');
+@font-face {
+  font-family: 'chelsea market';
+  src: 'ChelseaMarket-Regular.ttf';
+}
+
 
 h1 {
-    font-family: 'Luckiest Guy', cursive;
+    // font-family: 'chelsea market', cursive;
     font-size: 3em;
-    letter-spacing: .15em;
 }
 
-p {
-    font-family: 'Noto Sans', arial, sans-serif;
-}
+// p {
+//     font-family: 'chelsea market', sans-serif;
+// }
 
 
 // ********** COLORS ********** //
@@ -89,6 +99,7 @@ p {
 $primary-blue: #0057F9;
 $primary-yellow: #FFD754;
 $primary-red: #E84855;
+$off-black: #403F4C;
 
 // Color scheme: https://coolors.co/ffff99-91bfff-ffd754-1034a6-0057f9
 
@@ -96,8 +107,22 @@ $primary-red: #E84855;
 // ********** BUTTONS ********** //
 
 button {
-    padding: 20px;
-    border-radius: 20px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.primary-button {
+  background-color: $primary-yellow;
+  color: $off-black;
+  transition: all .5s cubic-bezier(.77,.2,.05,1);
+
+  &:hover {
+    // background-color: transparent;
+    // border: 1px solid $primary-yellow;
+    background-color: darken($primary-yellow, 20%);
+    // color: $primary-yellow;
+  }
 }
 
 // ********** INDEX ********** //
@@ -113,6 +138,8 @@ button {
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    text-align: center;
+    position: relative;
 
 
     -webkit-box-shadow: 0 0 25px 0 #fff;
@@ -124,11 +151,62 @@ button {
     background: -webkit-linear-gradient(-45deg, $primary-blue 0%, $primary-blue 24%, #555555 25%, $primary-blue 26%, $primary-blue 50%, $primary-blue 74%, #555555 75%, $primary-blue 76%, $primary-blue 100%);
     background: -o-linear-gradient(-45deg, $primary-blue 0%, $primary-blue 24%, #555555 25%, $primary-blue 26%, $primary-blue 50%, $primary-blue 74%, #555555 75%, $primary-blue 76%, $primary-blue 100%);
     background: -ms-linear-gradient(-45deg, $primary-blue 0%, $primary-blue 24%, #555555 25%, $primary-blue 26%, $primary-blue 50%, $primary-blue 74%, #555555 75%, $primary-blue 76%, $primary-blue 100%);
-    background: linear-gradient(135deg, #0057F9 0%, #0057F9 -10%, #0068F9 -24%, #0057F9 54%, #0057F9 97%, #0057FA 136%, #0068F9 195%, #0057F9 4.8%, #0057F9 70%);
+    background: linear-gradient(135deg, $primary-blue 0%, $primary-blue -10%, #0068F9 -24%, $primary-blue 54%, $primary-blue 97%, #0057FA 136%, #0068F9 195%, $primary-blue 4.8%, #0057F9 70%);
 
     background-size: 70px 70px;
     position: relative;
     @include flexbox();
+
+    .overlay { 
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      &.open {
+        background-color: rgba(0,0,0,0.4);
+        display: block;
+      }
+    }
+
+    input {
+      border-radius: 10px;
+      padding: 10px 0px;
+      border: none;
+      margin: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .title {
+      margin: 0px;
+    }
+
+    #home-title-madgab {
+      margin: 20px 0px 40px 0px;
+    }
+
+    .game-id-label {
+      margin: 0px;
+    }
+
+    .game-id-input {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+
+    input, button {
+      width: 200px;
+    }
+
+    .start-game-button {
+      font-size: 16px;
+      // background-color: $primary-yellow;
+    }
 }
 
 .gradient {
@@ -146,15 +224,64 @@ button {
 .home-content {
     flex-flow: column wrap;
     width: 60%;
-    z-index: 100;
+    z-index: 1;
+    position: relative;
 }
 
 .rules-container {
     position: absolute;
-    transform: rotate(-90deg);
-    top: 40px;
-    left: 0%;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    transition: transform .5s cubic-bezier(.77,.2,.05,1);
     box-shadow: 0px 3px 10px darken($primary-blue, 10%);
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px 30px;
+    background-color: #fff;
+    color: black;
+    z-index: 100;
+
+    #rules-button {
+      border: 1px solid white;
+      border-radius: 15px;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all .5s cubic-bezier(.77,.2,.05,1);
+      padding: 15px 20px 40px 20px;
+      color: white;
+      border-bottom: none;
+      cursor: pointer;
+      h3 {
+        margin: 0;
+      }
+    }
+    &.open {
+      transform: translate(-50%,-10%);
+      #rules-button {
+        color: black;
+        border: none;
+        top: 50px;
+        position: relative;
+      }
+      .close-button {
+        display: block;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        font-size: 20px;
+        &:hover {
+          cursor: pointer;
+          color: darken($primary-blue, 10%);
+        }
+      }
+    }
+
+    &.closed {
+      transform: translate(-50%,100%);
+    }
 }
 
 // ********** GAME ********** //
@@ -279,7 +406,7 @@ input:checked + .slider:before {
 }
 
 .team1 {
-    background-color: $primary-red;
+    background-color: $primary-blue;
 }
 
 .team2 {

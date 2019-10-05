@@ -41,10 +41,6 @@ class Game extends Component {
         })
     }
 
-    // componentWillMount() {
-    //     this.refs= {}
-    // }
-
     handleGameStart = () => {
         this.setState({
             turn_timer: 90
@@ -52,7 +48,6 @@ class Game extends Component {
     }
 
     handleRoleSelected = () => {
-        // console.log("is yes checked?", this.clueRadioYes.current.value) 
         this.setState({
             userRole: document.querySelector('input[name="userRole"]:checked').value
         })

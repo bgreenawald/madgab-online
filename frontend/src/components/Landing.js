@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import '../App.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 class Landing extends Component {
     constructor(props) {
@@ -8,7 +10,8 @@ class Landing extends Component {
         this.state = {
             game_id: "", 
             used_ids: [],
-            rand_id: 0
+            rand_id: 0,
+            isRulesOpen: false
         }
         this.input_name = React.createRef()
         this.createGame = this.createGame.bind(this)
@@ -28,8 +31,6 @@ class Landing extends Component {
     createGame = () => {
         fetch("http://localhost:5000/api/get_names")
         .then(res => {
-            console.log("RES:", res)
-            console.log("GAME ID", this.input_name.current.value)
             this.setState({
                 game_id: this.input_name.current.value
             }) 
@@ -37,8 +38,6 @@ class Landing extends Component {
                 document.getElementById("error").innerHTML = "ID already in use, choose another"
             }
             else {
-                console.log("Success")
-                console.log("STATE", this.state)
                 this.props.history.push(`/game/${this.state.game_id}`, {
                     game_id: this.state.game_id
                 })
@@ -46,11 +45,25 @@ class Landing extends Component {
         });
     }
 
+    toggleRules = () => {
+        this.setState({
+            isRulesOpen: !this.state.isRulesOpen
+        })
+    }
+
+    closeModal = () => {
+        console.log(this.isRulesOpen)
+        if(this.state.isRulesOpen) {
+            this.setState({
+                isRulesOpen: false
+            })
+        }
+    }
+
     async componentDidMount() {
         await $.ajax({
             url: "http://localhost:5000/api/get_names"
         }).done(res => {
-            console.log(res)
 
             this.generateID()
             
@@ -62,27 +75,31 @@ class Landing extends Component {
                 this.generateID()
             }
     
-            document.getElementById("game_id").value = this.state.rand_id;
+            Array.from(document.getElementsByClassName('game-id-input'))[0].value = this.state.rand_id;
         })
     }
 
 
+
     render() {
         return (
-            <div className="home-container" id="css3-background-texture">
+            <div className="home-container" id="css3-background-texture" onClick={this.closeModal}>
+                <div className={this.state.isRulesOpen ? 'overlay open' : 'overlay closed'}></div>
                 <div className="gradient"></div>
-                <div className="rules-container">
-                    <button>rules</button>
-                </div>
                 <div className="home-content flex">
-                    <h1>Welcome to MadGab</h1>
-                    <p>
-                        Enter a game ID, or accept the default. Once you start, you will
-                        recieve a URL to share with your friends so they can join.
-                    </p>
-                    <input id="game_id" type="text" ref={this.input_name}></input>
-                    <button type="submit" onClick={this.createGame}>Create New Game</button>
+                    <h2 className="title">Welcome to</h2>
+                    <h1 className="title" id="home-title-madgab">MADGAB</h1>
+                   <h3 className="game-id-label">Game ID:</h3>
+                    <input aria-label="game id input field" className="game-id-input" id="game_id" type="text" ref={this.input_name}></input>
+                    <button aria-label="submit" type="submit" onClick={this.createGame} className="primary-button start-game-button"> Start Game</button>
                     <div id="error"></div>
+                </div>
+                <div className="rules-container" className={this.state.isRulesOpen ? 'rules-container open' : 'rules-container closed'}>
+                    <div id="rules-button" onClick={this.toggleRules}>
+                        <h3>Rules</h3>
+                    </div>
+                    <FontAwesomeIcon icon={faTimesCircle} className="close-button"/>
+                    <p>These are the rules of madgab. blah blah blah blah Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ut animi nesciunt, officia corrupti dolor alias ipsam facilis aliquid saepe fugit velit id ipsa eius incidunt ullam voluptates praesentium officiis. </p>
                 </div>
             </div>
         )
