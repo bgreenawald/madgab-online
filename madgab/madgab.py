@@ -2,6 +2,7 @@ import json
 import os
 import random
 import re
+from typing import List
 
 import numpy as np
 import pandas as pd
@@ -21,7 +22,7 @@ FREQUENCY_FILENAME = os.path.join(
     "frequency.csv"
 )
 
-def word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation):
+def word_to_pronunciation(word: str, word_to_phoneme: dict, phoneme_to_pronunciation:dict) -> str:
     """ Task a word a returns its phonetic spelling. """
     # Get the phoneme list for the word (choose random pronunciation).
     try:
@@ -36,7 +37,7 @@ def word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation):
     return "".join([random.choice(phoneme_to_pronunciation[p]) for p in phonemes])
 
 
-def mad_gabify(phrase, difficulty="hard"):
+def mad_gabify(phrase: str, difficulty: str = "hard") -> str:
     """Takes a phrase and returns its Mad Gabified version.
 
     Args:
@@ -62,7 +63,7 @@ def mad_gabify(phrase, difficulty="hard"):
     words = phrase.split(" ")
 
     # Mad Gab each word.
-    mad_gabed = [
+    mad_gabed_list = [
         word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation)
         for word in words
     ]
@@ -71,7 +72,7 @@ def mad_gabify(phrase, difficulty="hard"):
     freq = FrequencyMatrix()
 
     # Add the spaces in
-    mad_gabed = " ".join(mad_gabed)
+    mad_gabed = " ".join(mad_gabed_list)
 
     # If Hard, add randomized spaces.
     if difficulty == "hard":
@@ -80,7 +81,7 @@ def mad_gabify(phrase, difficulty="hard"):
     return " ".join([word.capitalize() for word in mad_gabed.split(" ")])
 
 
-def add_spaces(phrase, freq):
+def add_spaces(phrase: str, freq: FrequencyMatrix) -> str:
     """ Use the frequency matrix to reasonably insert spaces. """
 
     # Define constants for the triangle distribution
@@ -144,7 +145,7 @@ class FrequencyMatrix(object):
     def __getitem__(self, tup):
         x, y = tup
 
-        def make_index(ind):
+        def make_index(ind: str) -> int:
             if ind == " ":
                 return 26
             else:
