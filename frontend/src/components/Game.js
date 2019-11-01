@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import '../App.scss'
+import '../game.scss'
 import Menu from './Menu'
+import Header from './Header'
+import Footer from './Footer'
 import io from 'socket.io-client'
+import $ from 'jquery';
 
 
 class Game extends Component {
@@ -101,90 +105,82 @@ class Game extends Component {
         })
     }
 
-    // renderBoard = () => {
-    //     this.setState({
-    //         inTurn: true
-    //     })
-    // }
-
     render() {
-        //    console.log("STATE", this.state)
 
         if (this.state.inTurn) {
-            console.log("STATE while in turn", this.state)
             return (
-                <div className="game-viewport">
-                    <div className={this.state.bgcolor}>
-                        <Menu {...this.state} />
+                <div className={this.state.bgcolor, "gameport-view"}>
+                    {/* <Menu {...this.state} /> */}
 
-                        <div className="gameplay-container">
-                            <div id="timer" ref={this.timerDOM}></div>
-                            <div className="card">
-                                {this.state.current_madgab}
-                            </div>
-                            <div className="buttons">
-                                <button className="pass">Pass</button>
-                                <button className="correct">Correct</button>
-                            </div>
+                    <div className="gameplay-container">
+                        <div id="timer" ref={this.timerDOM}></div>
+                        <div className="card">
+                            {this.state.current_madgab}
+                        </div>
+                        <div className="buttons">
+                            <button className="pass">Pass</button>
+                            <button className="correct">Correct</button>
                         </div>
                     </div>
-
                 </div>
             )
         }
         else if (this.state.loaded) {
-            // choose your team
-            console.log("Game.js state", this.state)
-            return (
-                <div className="game-viewport">
-                    <div className={this.state.bgcolor}>
-                        <Menu {...this.state} />
+            if (this.state.inTurn) {
+                return (
+                    <React.Fragment>
+                    <Header {...this.state} />
+                    <div className="game-viewport">
+
 
                         <div className="turn-container textbox">
-                            <h3>You're up:</h3>
-                            <h2>Team {this.state.active_team}</h2>
+                            <h3>It's your turn:</h3>
+                            <h2>{this.state.active_team === 1 ? 'Blue' : 'Red'} Team</h2>
                         </div>
 
 
-                        <div className="choose-team textbox">
-                            <Menu props={this.state.scores} />
-                            <h2>Choose your team:</h2>
-
-                            <input type="radio" name="teamChoice" ref={this.radioTeam1} onChange={this.handleTeamSelection} value="1" />
-                            <label htmlFor="team1">Team 1</label>
-                            <input type="radio" name="teamChoice" ref={this.radioTeam2} onChange={this.handleTeamSelection} value="2" />
-                            <label htmlFor="team2">Team2</label>
-                        </div>
+                        <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.handleStartTurn}>Start turn!</button>
 
                         <div className="game-options textbox">
-                            <h2>Are you the clue giver?</h2>
-                            <input type="radio" name="userRole" ref={this.clueRadioYes} onChange={this.handleRoleSelected} value="clue giver" />
-                            <label htmlFor="Yes">Yes</label>
-                            <input type="radio" name="userRole" ref={this.clueRadioNo} onChange={this.handleRoleSelected} value="clue guesser" />
-                            <label htmlFor="No">No</label>
+                            <input type="checkbox" name="userRole" ref={this.userRole} onChange={this.handleRoleSelected} value="clue giver" />
+                            <label htmlFor="Yes">I'm the clue reader</label>
+                        </div>
+                        <Footer {...this.state} />
+                    </div>
+
+                </React.Fragment>
+                )
+            }
+
+            else {
+                return (
+                    <React.Fragment>
+                    <div className="game-viewport" id="css3-background-texture">
+
+
+                        <div className="turn-container textbox">
+                            <h3>It's your turn:</h3>
+                            <h2>{this.state.active_team === 1 ? 'Blue' : 'Red'} Team</h2>
                         </div>
 
-                        {/* <div className="team-options">
-                            <p>{this.state.userTeam}</p>
-                            <label class="switch">
-                                <input type="checkbox" />
-                                <span class="slider round"></span>
-                            </label>
-                        </div> */}
 
-                        <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.handleStartTurn}>Start the turn!</button>
+                        <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.handleStartTurn}>Start turn!</button>
+
+                        <div className="game-options textbox">
+                            <input type="checkbox" name="userRole" ref={this.userRole} onChange={this.handleRoleSelected} value="clue giver" />
+                            <label htmlFor="Yes">I'm the clue reader</label>
+                        </div>
                     </div>
-                </div>
 
-            )
+                </React.Fragment>
+                )
+            }
         }
 
         else {
-            // console.log("You chose a team!")
             return (
                 <div className="game-viewport">
                     <Menu {...this.state} />
-
                 </div>
             )
         }

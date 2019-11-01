@@ -1,0 +1,100 @@
+// ********** NORMALIZE ********** //
+
+@mixin flexbox() {
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin pos-a-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// ********** MIX-INs ********** //
+
+
+@mixin blue-tile-background() {
+  background: $primary-blue;
+
+  background: -moz-linear-gradient(-45deg, $primary-blue 0%, $primary-blue 24%, #555555 25%, $primary-blue 26%, $primary-blue 50%, $primary-blue 74%, #555555 75%, $primary-blue 76%, $primary-blue 100%);
+
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $primary-blue), color-stop(24%, $primary-blue), color-stop(25%, #555555), color-stop(26%, $primary-blue), color-stop(50%, $primary-blue), color-stop(74%, $primary-blue), color-stop(75%, #555555), color-stop(76%, $primary-blue), color-stop(100%, $primary-blue));
+  background: -webkit-linear-gradient(-45deg, $primary-blue 0%, $primary-blue 24%, #555555 25%, $primary-blue 26%, $primary-blue 50%, $primary-blue 74%, #555555 75%, $primary-blue 76%, $primary-blue 100%);
+  background: -o-linear-gradient(-45deg, $primary-blue 0%, $primary-blue 24%, #555555 25%, $primary-blue 26%, $primary-blue 50%, $primary-blue 74%, #555555 75%, $primary-blue 76%, $primary-blue 100%);
+  background: -ms-linear-gradient(-45deg, $primary-blue 0%, $primary-blue 24%, #555555 25%, $primary-blue 26%, $primary-blue 50%, $primary-blue 74%, #555555 75%, $primary-blue 76%, $primary-blue 100%);
+  background: linear-gradient(135deg, $primary-blue 0%, $primary-blue -10%, #0068F9 -24%, $primary-blue 54%, $primary-blue 97%, #0057FA 136%, #0068F9 195%, $primary-blue 4.8%, #0057F9 70%);
+}
+
+// ********** COLORS ********** //
+
+$primary-blue: #0057F9;
+$primary-yellow: #FFD754;
+$primary-red: #E84855;
+$off-black: #403F4C;
+
+
+// ********** GAME ********** //
+// .game-viewport {
+//     position: relative;
+//     height: 100%;
+//     @include flexbox();
+//     flex-flow: column wrap;
+//     text-align: center;
+//     width: 100%;
+//     @include blue-tile-background();
+//   }
+  
+  
+  .textbox {
+      margin: 40px auto 40px auto;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    &.flex {
+      flex-flow: column wrap;
+      justify-content: space-between;
+      height: 100%;
+    }
+      .menu-bottom, .game-info {
+        flex-flow: row wrap;
+        height: auto;
+        justify-content: space-around;
+        width: 60%;
+    }
+  
+    .menu-bottom {
+        flex-flow: column wrap;
+        background-color: #c4c4c4;
+        width: 100%;
+    }
+  
+    .menu-top {
+        top: 0;
+        position: absolute;
+        @include flexbox();
+        flex-flow: column wrap;
+    }
+  }
+  
+  .choose-team.container {
+    @include flexbox();
+    flex-flow: column nowrap;
+    height: 60%;
+    justify-content: space-around;
+  }
+ 

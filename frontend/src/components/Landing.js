@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import '../App.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 class Landing extends Component {
     constructor(props) {
@@ -98,7 +98,7 @@ class Landing extends Component {
                     <div id="rules-button" onClick={this.toggleRules}>
                         <h3>Rules</h3>
                     </div>
-                    <FontAwesomeIcon icon={faTimesCircle} className="close-button"/>
+                    {/* <FontAwesomeIcon icon={faTimesCircle} className="close-button"/> */}
                     <p>These are the rules of madgab. blah blah blah blah Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ut animi nesciunt, officia corrupti dolor alias ipsam facilis aliquid saepe fugit velit id ipsa eius incidunt ullam voluptates praesentium officiis. </p>
                 </div>
             </div>
