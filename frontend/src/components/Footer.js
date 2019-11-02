@@ -9,8 +9,8 @@ class Footer extends Component {
     render() {
         { this.state && console.log(this.state) }
         return (
-            <div className="menu-bottom flex">
-                <div className="game-info flex">
+            <div className="footer">
+                <div className="game-info">
                     <div className="score">
                         <h3>Score:</h3>
                         <p>Team 1: <span>{this.props.team_1_score}</span></p>

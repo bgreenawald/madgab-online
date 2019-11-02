@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import '../App.scss'
 import '../game.scss'
-import Menu from './Menu'
 import Header from './Header'
 import Footer from './Footer'
 import io from 'socket.io-client'
 import $ from 'jquery';
+import TurnWaitStart from './GameContentTurnWait'
+import InTurn from './GameContentInTurn'
 
 
 class Game extends Component {
@@ -106,86 +107,24 @@ class Game extends Component {
     }
 
     render() {
-
-        if (this.state.inTurn) {
-            return (
-                <div className={this.state.bgcolor, "gameport-view"}>
-                    {/* <Menu {...this.state} /> */}
-
-                    <div className="gameplay-container">
-                        <div id="timer" ref={this.timerDOM}></div>
-                        <div className="card">
-                            {this.state.current_madgab}
-                        </div>
-                        <div className="buttons">
-                            <button className="pass">Pass</button>
-                            <button className="correct">Correct</button>
-                        </div>
-                    </div>
-                </div>
-            )
-        }
-        else if (this.state.loaded) {
-            if (this.state.inTurn) {
-                return (
-                    <React.Fragment>
+        return (
+       
+                <div className="game-container">
                     <Header {...this.state} />
-                    <div className="game-viewport">
-
-
-                        <div className="turn-container textbox">
-                            <h3>It's your turn:</h3>
-                            <h2>{this.state.active_team === 1 ? 'Blue' : 'Red'} Team</h2>
-                        </div>
-
-
-                        <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.handleStartTurn}>Start turn!</button>
-
-                        <div className="game-options textbox">
-                            <input type="checkbox" name="userRole" ref={this.userRole} onChange={this.handleRoleSelected} value="clue giver" />
-                            <label htmlFor="Yes">I'm the clue reader</label>
-                        </div>
-                        <Footer {...this.state} />
-                    </div>
-
-                </React.Fragment>
-                )
-            }
-
-            else {
-                return (
-                    <React.Fragment>
-                    <div className="game-viewport" id="css3-background-texture">
-
-
-                        <div className="turn-container textbox">
-                            <h3>It's your turn:</h3>
-                            <h2>{this.state.active_team === 1 ? 'Blue' : 'Red'} Team</h2>
-                        </div>
-
-
-                        <button id="start-turn" ref={this.startTurn} disabled={this.state.userRole === null} onClick={this.handleStartTurn}>Start turn!</button>
-
-                        <div className="game-options textbox">
-                            <input type="checkbox" name="userRole" ref={this.userRole} onChange={this.handleRoleSelected} value="clue giver" />
-                            <label htmlFor="Yes">I'm the clue reader</label>
-                        </div>
-                    </div>
-
-                </React.Fragment>
-                )
-            }
-        }
-
-        else {
-            return (
-                <div className="game-viewport">
-                    <Menu {...this.state} />
+                        <TurnWaitStart {...this.state} />
+                    <Footer {...this.state} />
                 </div>
-            )
-        }
-
-    }
+                ) 
+            // :  (
+            //         <div className={this.state.bgcolor, "gameport-view"}>
+            //             {/* <Menu {...this.state} /> */}
+    
+            //             <div className="gameplay-container">
+            //                 <InTurn {...this.state} />
+            //             </div>
+            //         </div>
+            //     )
+            }
 }
 
 export default Game

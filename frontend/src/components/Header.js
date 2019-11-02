@@ -9,7 +9,7 @@ class Header extends Component {
     render() {
         { this.state && console.log(this.state) }
         return (
-            <div className="header flex">
+            <div className="header">
                     <h3>Round 1</h3>
                     <div className="score-box">
                         <span className="current-team-score">0 -</span>
