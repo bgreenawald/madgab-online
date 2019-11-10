@@ -2,6 +2,7 @@ import json
 import os
 import random
 import re
+from typing import List
 
 import numpy as np
 import pandas as pd
@@ -21,7 +22,39 @@ FREQUENCY_FILENAME = os.path.join(
     "frequency.csv"
 )
 
-def word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation):
+class FrequencyMatrix(object):
+    """
+    Wrapper function around the frequency matrix.
+    Main tasks include handling indexing and normalization.
+    """
+
+    def __init__(self, filename=FREQUENCY_FILENAME):
+        self.frequency_matrix = pd.read_csv(filename, header=None)
+        self.normalize()
+
+    def __getitem__(self, tup):
+        x, y = tup
+
+        def make_index(ind: str) -> int:
+            if ind == " ":
+                return 26
+            else:
+                return ord(ind) - ord('a')
+
+        x_ind = make_index(x)
+        y_ind = make_index(y)
+
+        if not 0 <= x_ind <= 26 or not 0 <= y_ind <= 26:
+            raise(KeyError("Indexes should be lowercase letters or spaces."))
+
+        return self.frequency_matrix.iloc[x_ind, y_ind]
+
+    def normalize(self):
+        self.frequency_matrix = self.frequency_matrix.div(
+            self.frequency_matrix.sum(axis=1), axis=0
+        )
+
+def word_to_pronunciation(word: str, word_to_phoneme: dict, phoneme_to_pronunciation:dict) -> str:
     """ Task a word a returns its phonetic spelling. """
     # Get the phoneme list for the word (choose random pronunciation).
     try:
@@ -36,17 +69,14 @@ def word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation):
     return "".join([random.choice(phoneme_to_pronunciation[p]) for p in phonemes])
 
 
-def mad_gabify(phrase, difficulty="hard"):
+def mad_gabify(phrase: str, difficulty: str = "hard") -> str:
     """Takes a phrase and returns its Mad Gabified version.
-
     Args:
         phrase (str): Phrased to be mad gabified.
         hard (bool): What difficulty to use. "easy" does a pure phonetic conversion.
             "hard" adds in random spacing. Defaults "easy".
-
     Returns:
         str: Phrased after conversion.
-
     """
     # Load the mappings
     with open(WORD_MAPPING_FILE) as file:
@@ -62,7 +92,7 @@ def mad_gabify(phrase, difficulty="hard"):
     words = phrase.split(" ")
 
     # Mad Gab each word.
-    mad_gabed = [
+    mad_gabed_list = [
         word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation)
         for word in words
     ]
@@ -71,7 +101,7 @@ def mad_gabify(phrase, difficulty="hard"):
     freq = FrequencyMatrix()
 
     # Add the spaces in
-    mad_gabed = " ".join(mad_gabed)
+    mad_gabed = " ".join(mad_gabed_list)
 
     # If Hard, add randomized spaces.
     if difficulty == "hard":
@@ -80,7 +110,7 @@ def mad_gabify(phrase, difficulty="hard"):
     return " ".join([word.capitalize() for word in mad_gabed.split(" ")])
 
 
-def add_spaces(phrase, freq):
+def add_spaces(phrase: str, freq: FrequencyMatrix) -> str:
     """ Use the frequency matrix to reasonably insert spaces. """
 
     # Define constants for the triangle distribution
@@ -129,39 +159,6 @@ def add_spaces(phrase, freq):
             cur_len = 1
 
     return end_str
-
-class FrequencyMatrix(object):
-    """
-    Wrapper function around the frequency matrix.
-
-    Main tasks include handling indexing and normalization.
-    """
-
-    def __init__(self, filename=FREQUENCY_FILENAME):
-        self.frequency_matrix = pd.read_csv(filename, header=None)
-        self.normalize()
-
-    def __getitem__(self, tup):
-        x, y = tup
-
-        def make_index(ind):
-            if ind == " ":
-                return 26
-            else:
-                return ord(ind) - ord('a')
-
-        x_ind = make_index(x)
-        y_ind = make_index(y)
-
-        if not 0 <= x_ind <= 26 or not 0 <= y_ind <= 26:
-            raise(KeyError("Indexes should be lowercase letters or spaces."))
-
-        return self.frequency_matrix.iloc[x_ind, y_ind]
-
-    def normalize(self):
-        self.frequency_matrix = self.frequency_matrix.div(
-            self.frequency_matrix.sum(axis=1), axis=0
-        )
 
 
 def tester():
