@@ -10,22 +10,43 @@ class Footer extends Component {
         { this.state && console.log(this.state) }
         return (
             <div className="footer">
-                <div className="game-info">
-                    <div className="score">
-                        <h3>Score:</h3>
-                        <p>Team 1: <span>{this.props.team_1_score}</span></p>
-                        <p>Team 2: <span>{this.props.team_2_score}</span></p>
+                <div className="game-options">
+
+                    <div className="footer-child">
+                        <h3>Difficulty:</h3>
+                        <div className="binary-toggle">
+                            <a className={this.props.difficulty === "easy" ? "selected option" : "option"}>
+                                <p>Easy</p>
+                            </a>
+                            <a className={this.props.difficulty === "hard" ? "selected option" : "option"}>
+                                <p>Hard</p>
+                            </a>
+                        </div>
                     </div>
 
-                    <div className="difficulty">
-                        <h3>Difficulty:</h3>
-                        <p>{this.props.difficulty}</p>
+                    <div className="footer-child">
+                        <h3>Role</h3>
+                        <div className="binary-toggle">
+                            <a className={this.props.userRole === "guesser" ? "selected option" : "option"}>
+                                <p>Guesser</p>
+                            </a>
+                            <a className={this.props.userRole === "reader" ? "selected option" : "option"}>
+                                <p>Reader</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div className="game-branding">
-                    <p>Rad Gab</p>
-                    {/* Insert Rad Gab logo here */}
+                    <div className="footer-child">
+                        <p>Rad Gab</p>
+                        {/* Insert Rad Gab logo here */}
+                    </div>
+
+                    <div className="footer-child">
+                        <a className="rules-button">Rules</a>
+                    </div>
+
                 </div>
             </div>
         )

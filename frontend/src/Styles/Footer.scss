@@ -1,5 +1,57 @@
-@import './App.scss';
+@import './Normalize.scss';
 
-* {
-    color: white;
+
+.footer {
+    @include flexbox();
+    flex-flow: column wrap;
+    width: 100vw;
+
+    .game-branding {
+        @include flexbox();
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        padding: 0px 40px;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+
+
+    .game-options {
+        @include flexbox();
+        flex-flow: row nowrap;
+        width: 60vw;
+        justify-content: space-between;
+
+        .footer-child {
+            @include flexbox();
+            flex-flow: column wrap;
+        }
+    }
+
+    .binary-toggle {
+        color: white;
+        border-radius: 15px;
+        border: 1px solid white;
+        @include flexbox();
+        overflow: hidden;
+
+        .option {
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+
+            p {
+                margin: 0;
+            }
+
+            &.selected {
+                background-color: white;
+                color: $primary-blue;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
 }

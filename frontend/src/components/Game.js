@@ -17,7 +17,8 @@ class Game extends Component {
             game_id: this.props.history.location.state.game_id,
             game_name: this.props.history.location,
             inTurn: false,
-            userTeam: 1
+            userTeam: 1,
+            userRole: 'guesser'
         }
         this.socket = io('http://localhost:5000/')
         this.clueRadioYes = React.createRef();
