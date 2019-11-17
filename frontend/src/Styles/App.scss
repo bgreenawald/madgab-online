@@ -1,160 +1,4 @@
-// ********** NORMALIZE ********** //
-body {
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-* {
-  font-family: "chelsea market", arial, sans-serif;
-}
-
-@mixin flexbox() {
-  display: flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin pos-a-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.pos-a {
-  position: absolute;
-}
-
-.pos-r {
-  position: relative;
-}
-
-.flex {
-  @include flexbox();
-}
-
-// ********** FONTS ********** //
-@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy|Noto+Sans|Sigmar+One|Chelsea+Market&display=swap");
-
-@font-face {
-  font-family: "Chelsea Market";
-  src: "ChelseaMarket-Regular.ttf";
-}
-
-h1 {
-  font-size: 3em;
-}
-
-// ********** COLORS ********** //
-
-$primary-blue: #0057f9;
-$primary-yellow: #ffd754;
-$primary-red: #e84855;
-$off-black: #403f4c;
-
-// Color scheme: https://coolors.co/ffff99-91bfff-ffd754-1034a6-0057f9
-
-// ********** MIXINS ********** //
-
-@mixin background-gradient() {
-  background: $primary-blue;
-
-  background: -moz-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
-      #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
-      #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
-
-  background: -webkit-gradient(linear,
-      left top,
-      right bottom,
-      color-stop(0%, $primary-blue),
-      color-stop(24%, $primary-blue),
-      color-stop(25%, #555555),
-      color-stop(26%, $primary-blue),
-      color-stop(50%, $primary-blue),
-      color-stop(74%, $primary-blue),
-      color-stop(75%, #555555),
-      color-stop(76%, $primary-blue),
-      color-stop(100%, $primary-blue));
-  background: -webkit-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
-      #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
-      #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
-  background: -o-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
-      #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
-      #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
-  background: -ms-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
-      #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
-      #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
-  background: linear-gradient(135deg,
-      $primary-blue 0%,
-      $primary-blue -10%,
-      #0068f9 -24%,
-      $primary-blue 54%,
-      $primary-blue 97%,
-      #0057fa 136%,
-      #0068f9 195%,
-      $primary-blue 4.8%,
-      #0057f9 70%);
-
-  background-size: 70px 70px;
-  -webkit-box-shadow: 0 0 25px 0 #fff;
-}
-
-// ********** BUTTONS ********** //
-
-button {
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.primary-button {
-  background-color: $primary-yellow;
-  color: $off-black;
-  transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-
-  &:hover {
-    // background-color: transparent;
-    // border: 1px solid $primary-yellow;
-    background-color: darken($primary-yellow, 20%);
-    // color: $primary-yellow;
-  }
-}
+@import './Normalize.scss';
 
 // ********** INDEX ********** //
 
@@ -376,7 +220,17 @@ button {
 // }
 
 .header {
+  padding: 0px 20px;
   flex-flow: column wrap;
+  color: white;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  h3 {
+    margin: 0px;
+  }
 }
 
 

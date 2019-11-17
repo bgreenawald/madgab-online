@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import '../App.scss'
-import '../game.scss'
+import '../Styles/Game.scss'
 import Header from './Header'
 import Footer from './Footer'
 import io from 'socket.io-client'

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import '../App.scss'
+import '../Styles/App.scss'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
