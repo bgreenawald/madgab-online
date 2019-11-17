@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/react-fontawesome": "^0.1.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "ajax": "0.0.4",
     "cors": "^2.8.5",
+    "i": "^0.3.6",
     "jquery": "^3.4.1",
     "list": "^2.0.18",
     "node-sass": "^4.12.0",
