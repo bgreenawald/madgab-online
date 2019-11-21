@@ -12,6 +12,7 @@ class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            ...props,
             //  href_parts = window.location.href.split("/"),
             active_team: 1,
             game_id: this.props.history.location.state.game_id,

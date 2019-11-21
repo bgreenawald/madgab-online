@@ -4,7 +4,22 @@ import '../Styles/Footer.scss'
 class Footer extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            ...props, 
+            difficulty: 'easy'
+        }
     }
+
+
+    toggleRole = (e) => {
+        this.setState({userRole: e.target.innerText.toLowerCase()})
+    }
+
+    toggleDifficulty = (e) => {
+        this.setState({difficulty: e.target.innerText.toLowerCase()})
+        
+    }
+
 
     render() {
         { this.state && console.log(this.state) }
@@ -15,10 +30,10 @@ class Footer extends Component {
                     <div className="footer-child">
                         <h3>Difficulty:</h3>
                         <div className="binary-toggle">
-                            <a className={this.props.difficulty === "easy" ? "selected option" : "option"}>
+                            <a className={this.state.difficulty === "easy" ? "selected option" : "option"} onClick={this.toggleDifficulty}>
                                 <p>Easy</p>
                             </a>
-                            <a className={this.props.difficulty === "hard" ? "selected option" : "option"}>
+                            <a className={this.state.difficulty === "hard" ? "selected option" : "option"} onClick={this.toggleDifficulty}>
                                 <p>Hard</p>
                             </a>
                         </div>
@@ -27,10 +42,10 @@ class Footer extends Component {
                     <div className="footer-child">
                         <h3>Role</h3>
                         <div className="binary-toggle">
-                            <a className={this.props.userRole === "guesser" ? "selected option" : "option"}>
+                            <a className={this.state.userRole === "guesser" ? "selected option" : "option"} onClick={this.toggleRole}>
                                 <p>Guesser</p>
                             </a>
-                            <a className={this.props.userRole === "reader" ? "selected option" : "option"}>
+                            <a className={this.state.userRole === "reader" ? "selected option" : "option"}  onClick={this.toggleRole}>
                                 <p>Reader</p>
                             </a>
                         </div>

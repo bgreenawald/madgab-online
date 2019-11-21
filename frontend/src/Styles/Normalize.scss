@@ -142,17 +142,18 @@ button {
   padding: 12px 20px;
   border-radius: 10px;
   cursor: pointer;
-}
-
-.primary-button {
-  background-color: $primary-yellow;
-  color: $off-black;
-  transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-
-  &:hover {
-    // background-color: transparent;
-    // border: 1px solid $primary-yellow;
-    background-color: darken($primary-yellow, 20%);
-    // color: $primary-yellow;
+  display: block;
+  
+  &.primary {
+    background-color: $primary-yellow;
+    color: $off-black;
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  
+    &:hover {
+      // background-color: transparent;
+      // border: 1px solid $primary-yellow;
+      background-color: darken($primary-yellow, 20%);
+      // color: $primary-yellow;
+    }
   }
 }

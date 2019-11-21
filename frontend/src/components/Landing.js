@@ -91,7 +91,7 @@ class Landing extends Component {
                     <h1 className="title" id="home-title-madgab">MADGAB</h1>
                    <h3 className="game-id-label">Game ID:</h3>
                     <input aria-label="game id input field" className="game-id-input" id="game_id" type="text" ref={this.input_name}></input>
-                    <button aria-label="submit" type="submit" onClick={this.createGame} className="primary-button start-game-button"> Start Game</button>
+                    <button aria-label="submit" type="submit" onClick={this.createGame} className="primary button start-game-button"> Start Game</button>
                     <div id="error"></div>
                 </div>
                 <div className="rules-container" className={this.state.isRulesOpen ? 'rules-container open' : 'rules-container closed'}>
