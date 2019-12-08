@@ -7,6 +7,7 @@ import io from "socket.io-client";
 import TurnWaitStart from "./GameContentTurnWait";
 import InTurn from "./GameContentInTurn";
 import { connect } from "react-redux";
+import { fetchGameData } from '../store/actions';
 
 class Game extends Component {
   constructor(props) {
@@ -118,15 +119,6 @@ class Game extends Component {
         <Footer {...this.state} />
       </div>
     );
-    // :  (
-    //         <div className={this.state.bgcolor, "gameport-view"}>
-    //             {/* <Menu {...this.state} /> */}
-
-    //             <div className="gameplay-container">
-    //                 <InTurn {...this.state} />
-    //             </div>
-    //         </div>
-    //     )
   }
 }
 
@@ -137,7 +129,8 @@ const mapDispatchToProps = dispatch => {
         type: "TOGGLE_DIFFICULTY",
         difficulty: "hard"
       });
-    }
+    },
+    fetchGameData: () => dispatch(fetchGameData())
   };
 };
 

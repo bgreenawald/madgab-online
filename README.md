@@ -14,3 +14,12 @@ Then, just run
 ```python
 python app.py
 ```
+
+## Setup - Frontend
+CD into the frontend directory
+Run
+```npm i
+npm run start
+```
+
+The UI will start up on port 3000.

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "../Styles/App.scss";
 import { connect } from "react-redux";
-import fetchGameData from "../actions";
+// import fetchGameData from "../actions";
+
+import { fetchGameData } from '../store/actions';
 
 class Landing extends Component {
   constructor(props) {
@@ -27,7 +29,8 @@ class Landing extends Component {
   };
 
   createGame = () => {
-    this.props.startGame(this.input_name.current.value);
+    // this.props.startGame(this.input_name.current.value);
+    this.props.fetchGameData(this.input_name.current.value);
     // fetch("http://localhost:5000/api/get_names").then(res => {
     //   // update store
     //   this.props.startGame(this.input_name.current.value);
@@ -35,9 +38,9 @@ class Landing extends Component {
     //     document.getElementById("error").innerHTML =
     //       "ID already in use, choose another";
     //   } else {
-    //     this.props.history.push(`/game/${this.state.game_id}`, {
-    //       game_id: this.state.game_id
-    //     });
+    this.props.history.push(`/game/${this.state.game_id}`, {
+      game_id: this.state.game_id
+    });
     //   }
     // });
   };
@@ -140,19 +143,14 @@ class Landing extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    startGame: gameId => {
-      dispatch({
-        type: "START_GAME",
-        game_id: gameId
-      });
-    },
-    // fetchGameData: async () => {
-    //   await fetch("http://localhost:5000/api/get_names").then(res => {
-    //     dispatch();
+    // startGame: gameId => {
+    //   dispatch({
+    //     type: "START_GAME",
+    //     game_id: gameId
     //   });
     // },
-    fetchGameData: () => {
-      dispatch(fetchGameData());
+    fetchGameData: (gameId) => {
+      dispatch(fetchGameData(gameId));
     }
   };
 };

@@ -1,3 +1,5 @@
+import { combineREducers } from 'redux';
+
 const initState = {
   user: "jocelyn",
   password: "pass123",
@@ -5,8 +7,15 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-  console.log(action);
-  return state;
+  switch (action.type) {
+    case 'FETCH_GAME_DATA':
+      return {
+        ...state,
+        gameData: action.json.ids
+      };
+    default:
+      return state;
+  }
 };
 
 export default rootReducer;
