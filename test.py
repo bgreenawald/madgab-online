@@ -2,14 +2,14 @@ import unittest
 
 from game import Game, InvalidState, State
 
-class testGameMethods(unittest.TestCase):
 
+class testGameMethods(unittest.TestCase):
     def test_init(self):
         # Test the win threshold
         params_threshold = [
             (30, 30, "Standard threshold"),
             (0, 10, "Threshold lower bound"),
-            (75, 50, "Threshold upper bound")
+            (75, 50, "Threshold upper bound"),
         ]
         for thresh, test, msg in params_threshold:
             with self.subTest(msg):
@@ -19,39 +19,42 @@ class testGameMethods(unittest.TestCase):
         params_words_per_turn = [
             (3, 3, "Standard words_per_turn"),
             (0, 3, "words_per_turn lower bound"),
-            (6, 5, "words_per_turn upper bound")
+            (6, 5, "words_per_turn upper bound"),
         ]
         for words_per_turn, test, msg in params_words_per_turn:
             with self.subTest(msg):
-                self.assertEqual(Game("", words_per_turn=words_per_turn).words_per_turn, test)
+                self.assertEqual(
+                    Game("", words_per_turn=words_per_turn).words_per_turn, test
+                )
 
         params_seconds_per_turn = [
             (90, 90, "Standard seconds_per_turn"),
             (50, 60, "seconds_per_turn upper bound"),
-            (130, 120, "seconds_per_turn upper bound")
+            (130, 120, "seconds_per_turn upper bound"),
         ]
         for seconds_per_turn, test, msg in params_seconds_per_turn:
             with self.subTest(msg):
-                self.assertEqual(Game("", seconds_per_turn=seconds_per_turn).seconds_per_turn, test)
-
+                self.assertEqual(
+                    Game("", seconds_per_turn=seconds_per_turn).seconds_per_turn, test
+                )
 
     def testCalculateBonus(self):
         game = Game("")
         seconds = game.seconds_per_turn
 
-        game.calculate_bonus(seconds * 2/3 + 1)
+        game.calculate_bonus(seconds * 2 / 3 + 1)
         with self.subTest("Big bonus"):
             self.assertEqual(game.team_1_score, 3)
 
-        game.calculate_bonus(seconds * 1/2)
+        game.calculate_bonus(seconds * 1 / 2)
         with self.subTest("Medium bonus"):
             self.assertEqual(game.team_1_score, 5)
 
-        game.calculate_bonus(seconds * 1/4)
+        game.calculate_bonus(seconds * 1 / 4)
         with self.subTest("Small bonus"):
             self.assertEqual(game.team_1_score, 6)
 
-        game.calculate_bonus(seconds * 1/6 - 1)
+        game.calculate_bonus(seconds * 1 / 6 - 1)
         with self.subTest("No bonus"):
             self.assertEqual(game.team_1_score, 6)
 
@@ -104,7 +107,7 @@ class testGameMethods(unittest.TestCase):
         game = Game("")
         game.start_turn()
         game.current_turn_correct = game.words_per_turn - 1
-        game.end_active_state(True, game.seconds_per_turn * 2/3 + 1)
+        game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
 
         with self.subTest("Check game in idle state - all correct"):
             self.assertEqual(game.state, State.IDLE)
@@ -119,7 +122,7 @@ class testGameMethods(unittest.TestCase):
         game.current_turn_correct = game.words_per_turn - 1
         game.team_1_turn = False
         game.team_2_score = game.win_threshold - 2
-        game.end_active_state(True, game.seconds_per_turn * 2/3 + 1)
+        game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
 
         with self.subTest("Check game in over state"):
             self.assertEqual(game.state, State.OVER)
@@ -129,7 +132,7 @@ class testGameMethods(unittest.TestCase):
         # Test none missed to idle state
         game = Game("")
         game.start_turn()
-        game.end_active_state(True, game.seconds_per_turn * 2/3 + 1)
+        game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
         with self.subTest("Check game in idle state"):
             self.assertEqual(game.state, State.IDLE)
         with self.subTest("Check that turn has changed"):
@@ -291,5 +294,6 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check team 2 update/team 1 active"):
             self.assertEqual(game.team_1_score, 1)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

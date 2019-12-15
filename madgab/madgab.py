@@ -2,25 +2,18 @@ import json
 import os
 import random
 import re
-from typing import List
 
 import numpy as np
 import pandas as pd
 from scipy.stats import triang
 
-WORD_MAPPING_FILE = os.path.join(
-    os.path.dirname(__file__),
-    "word_to_phonemes.json"
-)
+WORD_MAPPING_FILE = os.path.join(os.path.dirname(__file__), "word_to_phonemes.json")
 PHONEME_MAPPING_FILE = os.path.join(
-    os.path.dirname(__file__),
-    "phoneme_to_pronunciation.json"
+    os.path.dirname(__file__), "phoneme_to_pronunciation.json"
 )
 
-FREQUENCY_FILENAME = os.path.join(
-    os.path.dirname(__file__),
-    "frequency.csv"
-)
+FREQUENCY_FILENAME = os.path.join(os.path.dirname(__file__), "frequency.csv")
+
 
 class FrequencyMatrix(object):
     """
@@ -39,13 +32,13 @@ class FrequencyMatrix(object):
             if ind == " ":
                 return 26
             else:
-                return ord(ind) - ord('a')
+                return ord(ind) - ord("a")
 
         x_ind = make_index(x)
         y_ind = make_index(y)
 
         if not 0 <= x_ind <= 26 or not 0 <= y_ind <= 26:
-            raise(KeyError("Indexes should be lowercase letters or spaces."))
+            raise (KeyError("Indexes should be lowercase letters or spaces."))
 
         return self.frequency_matrix.iloc[x_ind, y_ind]
 
@@ -54,7 +47,10 @@ class FrequencyMatrix(object):
             self.frequency_matrix.sum(axis=1), axis=0
         )
 
-def word_to_pronunciation(word: str, word_to_phoneme: dict, phoneme_to_pronunciation:dict) -> str:
+
+def word_to_pronunciation(
+    word: str, word_to_phoneme: dict, phoneme_to_pronunciation: dict
+) -> str:
     """ Task a word a returns its phonetic spelling. """
     # Get the phoneme list for the word (choose random pronunciation).
     try:
@@ -149,7 +145,7 @@ def add_spaces(phrase: str, freq: FrequencyMatrix) -> str:
         except ZeroDivisionError:
             p1_norm = p2_norm = 0.5
 
-        choice = np.random.choice([0, 1], p = [p1_norm, p2_norm])
+        choice = np.random.choice([0, 1], p=[p1_norm, p2_norm])
 
         if choice == 0:
             end_str += phrase[i]
@@ -164,11 +160,9 @@ def add_spaces(phrase: str, freq: FrequencyMatrix) -> str:
 def tester():
     while True:
         phrase = input("Enter a phrase ('q' to quit): ")
-        if phrase == 'q':
+        if phrase == "q":
             break
         print(mad_gabify(phrase))
-
-
 
 
 if __name__ == "__main__":

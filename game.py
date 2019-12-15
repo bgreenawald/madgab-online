@@ -6,18 +6,23 @@ from madgab.madgab import mad_gabify
 
 all_games = {}
 
+
 class InvalidState(Exception):
     """Generic exception for the game being in an invalid state.
     """
+
     pass
+
 
 class State(Enum):
     """Defines the current state of a turn.
     """
+
     IDLE = "IDLE"
     ACTIVE = "ACTIVE"
     STEALING = "STEALING"
     OVER = "OVER"
+
 
 class Game(object):
     """
@@ -90,19 +95,16 @@ class Game(object):
     def __json__(self):
         return {
             "id": self.id,
-
             # General game configuration
             "win_threshold": self.win_threshold,
             "words_per_turn": self.words_per_turn,
             "seconds_per_turn": self.seconds_per_turn,
             "difficulty": self.difficulty,
-
             # Game state
             "team_1_score": self.team_1_score,
             "team_2_score": self.team_2_score,
             "state": self.state.value,
             "winning_team": self.winning_team,
-
             # Turn state
             "team_1_turn": self.team_1_turn,
             "current_phrase": self.current_phrase,
@@ -111,7 +113,6 @@ class Game(object):
             "current_turn_clues": self.current_turn_clues,
             "current_turn_counter": self.current_turn_counter,
             "current_turn_correct": self.current_turn_correct,
-
         }
 
     for_json = __json__
@@ -128,9 +129,13 @@ class Game(object):
         # If they got it in the first third, they get three bonus points
         if 0 <= time_taken < self.seconds_per_turn / 3:
             bonus = 3
-        elif self.seconds_per_turn / 3 <= time_taken < self.seconds_per_turn * (7/12):
+        elif self.seconds_per_turn / 3 <= time_taken < self.seconds_per_turn * (7 / 12):
             bonus = 2
-        elif self.seconds_per_turn * (7/12) <= time_taken < self.seconds_per_turn * (5/6):
+        elif (
+            self.seconds_per_turn * (7 / 12)
+            <= time_taken
+            < self.seconds_per_turn * (5 / 6)
+        ):
             bonus = 1
 
         if bonus:
@@ -152,8 +157,10 @@ class Game(object):
         if self.team_1_turn:
             return False
         else:
-            return self.team_1_score >= self.win_threshold \
-                   or self.team_2_score >= self.win_threshold
+            return (
+                self.team_1_score >= self.win_threshold
+                or self.team_2_score >= self.win_threshold
+            )
 
     def end_active_state(self, correct, time_left):
         """Ends the current active state.
@@ -181,8 +188,9 @@ class Game(object):
             self.calculate_bonus(time_left)
             if self.check_game_over():
                 self.state = State.OVER
-                self.winning_team = "Team 1" if self.team_1_score > self.team_2_score \
-                                             else "Team 2"
+                self.winning_team = (
+                    "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+                )
                 return
             # If the game is not over, transition to the next turn
             self.change_active_team()
@@ -195,8 +203,9 @@ class Game(object):
         else:
             if self.check_game_over():
                 self.state = State.OVER
-                self.winning_team = "Team 1" if self.team_1_score > self.team_2_score \
-                                             else "Team 2"
+                self.winning_team = (
+                    "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+                )
                 return
             # If the game is not over, transition to the next turn
             self.change_active_team()
@@ -273,10 +282,11 @@ class Game(object):
 
         # Check the game end condition
         if self.check_game_over():
-                self.state = State.OVER
-                self.winning_team = "Team 1" if self.team_1_score > self.team_2_score \
-                                             else "Team 2"
-                return
+            self.state = State.OVER
+            self.winning_team = (
+                "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+            )
+            return
 
         # Transition to the next turn
         self.change_active_team()
@@ -284,7 +294,7 @@ class Game(object):
 
     def toggle_difficulty(self):
         if self.difficulty == "easy":
-           self.difficulty = "hard"
+            self.difficulty = "hard"
         else:
             self.difficulty = "easy"
 
@@ -305,4 +315,3 @@ class Game(object):
                 self.team_2_score += points
             else:
                 self.team_1_score += points
-

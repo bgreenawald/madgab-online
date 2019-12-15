@@ -1,27 +1,26 @@
 import atexit
 import datetime
-import random
 
+import simplejson
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, render_template, json
-from flask_socketio import join_room, leave_room, SocketIO, send, emit
-import simplejson
+from flask_cors import CORS
 from flask_scss import Scss
+from flask_socketio import join_room, leave_room, SocketIO, emit
 
-from game import InvalidState, Game, State
+from game import InvalidState, Game
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
+app.config["SECRET_KEY"] = "secret!"
 socketio = SocketIO(app)
 
-from flask_cors import CORS
 CORS(app)
 # app.wsgi_app = SassMiddleware(app.wsgi_app, {
 #     'app': ('static/sass', 'static/css', '/static/css')
 # })
 app.debug = True
-Scss(app, static_dir='static/styles/css', asset_dir='static/styles/scss')
+Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 
 all_games = {}
 
@@ -29,31 +28,35 @@ all_games = {}
 # App routes
 # ---------------------------------------
 
-@app.route('/')
+
+@app.route("/")
 def return_index():
     return render_template("index.html")
 
-@app.route('/<id>')
+
+@app.route("/<id>")
 def return_game(id=None):
     return render_template("game.html", id=id)
 
-@app.route('/test/<id>')
+
+@app.route("/test/<id>")
 def return_game_test(id=None):
     return render_template("game2.html", id=id)
+
 
 @app.route("/api/get_names")
 def get_names():
     ids = [x for x in all_games]
     print(ids)
-    return json.jsonify({
-        "ids": ids
-    })
+    return json.jsonify({"ids": ids})
+
 
 # ---------------------------------------
 # Socket functions
 # ---------------------------------------
 
-@socketio.on('join')
+
+@socketio.on("join")
 def on_join(data):
     """Joins the connection to the provided room
     Args:
@@ -61,35 +64,38 @@ def on_join(data):
     """
     room = data
     join_room(room)
-    print(f'User has entered the room {room}')
-    print(f'{socketio.server.rooms}')
+    print(f"User has entered the room {room}")
+    print(f"{socketio.server.rooms}")
 
-@socketio.on('leave')
+
+@socketio.on("leave")
 def on_leave(data):
     """Removes the current connection from the room.
     Args:
         data (str): Name of the room.
     """
-    room = data['room']
+    room = data["room"]
     leave_room(room)
-    print(f'User has left the room {room}', room=room)
+    print(f"User has left the room {room}", room=room)
+
 
 def emit_error(game, msg):
-    emit("render_board", {
-        "status_code": 400,
-        "message": msg,
-        "payload": {}
-    }, room=game)
+    emit("render_board", {"status_code": 400, "message": msg, "payload": {}}, room=game)
+
 
 def emit_board(game_name, game, msg):
-    emit("render_board", {
-        "status_code": 200,
-        "message": msg,
-        "payload": simplejson.dumps(game, for_json=True)
+    emit(
+        "render_board",
+        {
+            "status_code": 200,
+            "message": msg,
+            "payload": simplejson.dumps(game, for_json=True),
+        },
+        room=game_name,
+    )
 
-    }, room=game_name)
 
-@socketio.on('load_board')
+@socketio.on("load_board")
 def load_board(json):
     """Loads the current game board, or creates on if none exists.
     Args:
@@ -106,7 +112,8 @@ def load_board(json):
         all_games[game_name] = cur_game
         emit_board(game_name, cur_game, "New game created")
 
-@socketio.on('start_turn')
+
+@socketio.on("start_turn")
 def start_turn(json):
     if "name" not in json:
         print("Could not find the given board.")
@@ -122,7 +129,8 @@ def start_turn(json):
     else:
         emit_board(game_name, game, "Started turn")
 
-@socketio.on('reset_game')
+
+@socketio.on("reset_game")
 def reset_game(json):
     if "name" not in json:
         print("Could not find the given board.")
@@ -134,12 +142,12 @@ def reset_game(json):
     game.reset(game_name)
     emit_board(game_name, game, "Game reset")
 
-@socketio.on('new_phrase')
+
+@socketio.on("new_phrase")
 def new_phrase(json):
     if "name" not in json:
         print("Could not find the given board.")
         return
-
 
     game_name = json["name"]
     game = all_games[game_name]
@@ -153,12 +161,12 @@ def new_phrase(json):
     except InvalidState as e:
         emit_error(game_name, str(e))
 
-@socketio.on('end_turn')
+
+@socketio.on("end_turn")
 def end_turn(json):
     if "name" not in json:
         print("Could not find the given board.")
         return
-
 
     game_name = json["name"]
     game = all_games[game_name]
@@ -176,12 +184,12 @@ def end_turn(json):
     except InvalidState as e:
         emit_error(game_name, str(e))
 
-@socketio.on('steal')
+
+@socketio.on("steal")
 def steal(json):
     if "name" not in json:
         print("Could not find the given board.")
         return
-
 
     game_name = json["name"]
     game = all_games[game_name]
@@ -196,7 +204,8 @@ def steal(json):
     except InvalidState as e:
         emit_error(game_name, str(e))
 
-@socketio.on('toggle_difficulty')
+
+@socketio.on("toggle_difficulty")
 def toggle_difficulty(json):
     if "name" not in json:
         print("Could not find the given board.")
@@ -207,6 +216,7 @@ def toggle_difficulty(json):
 
     game.toggle_difficulty()
     emit_board(game_name, game, "Difficulty toggled")
+
 
 # ---------------------------------------
 # Other functions
@@ -219,6 +229,7 @@ def delete_old_games():
         if age.total_seconds() > 86400:
             del all_games[game]
 
+
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=delete_old_games, trigger="interval", seconds=3600)
 scheduler.start()
@@ -226,5 +237,5 @@ scheduler.start()
 # Shutdown your cron thread if the web process is stopped
 atexit.register(lambda: scheduler.shutdown())
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     socketio.run(app, debug=True)
