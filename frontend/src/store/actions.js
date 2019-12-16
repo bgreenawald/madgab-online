@@ -1,18 +1,11 @@
+// TODO: test error/validation
 let validateUnusedId = (existingIdsArray, choosenId) => {
-    // if (this.state.used_ids.includes(choosenId)) {
-    //     document.getElementById("error").innerHTML =
-    //       "ID already in use, choose another";
-    //   } else {
-    //     this.props.history.push(`/game/${this.state.game_id}`, {
-    //       game_id: this.state.game_id
-    //     });
     if (existingIdsArray.includes(choosenId)) {
         return false
-        // "ID already in use, choose another"
     }
     else return true
-    // }
 }
+
 export const fetchGameData = (id) => {
     return (dispatch, getState) => {
 
@@ -23,6 +16,14 @@ export const fetchGameData = (id) => {
                 let registerIDSuccess = validateUnusedId(json.ids, id);
                 dispatch({ type: 'FETCH_GAME_DATA', json })
             })
-        // .catch(err => dispathc({ type: 'GAME_DATA_ERROR'}))
+            .catch(err => dispatch({ type: 'GAME_DATA_ERROR' }))
+    }
+}
+
+export const toggleRules = (rulesStatus) => {
+    return (dispatch, getState) => {
+        dispatch({
+            type: 'TOGGLE_RULES'
+        })
     }
 }

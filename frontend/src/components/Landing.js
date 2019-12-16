@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-import { fetchGameData } from '../store/actions';
+import { fetchGameData, toggleRules } from '../store/actions';
 
 class Landing extends Component {
   constructor(props) {
@@ -39,17 +39,13 @@ class Landing extends Component {
   };
 
   toggleRules = () => {
-    this.setState({
-      isRulesOpen: !this.state.isRulesOpen
-    });
+    this.props.toggleRules();
   };
 
   closeModal = () => {
     // console.log(this.isRulesOpen);
-    if (this.state.isRulesOpen) {
-      this.setState({
-        isRulesOpen: false
-      });
+    if (this.props.state.areRulesOpen) {
+      this.props.toggleRules();
     }
   };
 
@@ -84,7 +80,7 @@ class Landing extends Component {
         onClick={this.closeModal}
       >
         <div
-          className={this.state.isRulesOpen ? "overlay open" : "overlay closed"}
+          className={this.props.state.areRulesOpen ? "overlay open" : "overlay closed"}
         ></div>
         <div className="gradient"></div>
         <div className="home-content flex">
@@ -111,9 +107,8 @@ class Landing extends Component {
           <div id="error"></div>
         </div>
         <div
-          //   TODO: fix rule close animation
           className={
-            this.state.isRulesOpen
+            this.props.state.areRulesOpen
               ? "rules-container open"
               : "rules-container closed"
           }
@@ -121,7 +116,6 @@ class Landing extends Component {
           <div id="rules-button" onClick={this.toggleRules}>
             <h3>Rules</h3>
           </div>
-          {/* <FontAwesomeIcon icon={faTimesCircle} className="close-button" /> */}
           <p>
             These are the rules of madgab. blah blah blah blah Lorem ipsum dolor
             sit amet consectetur adipisicing elit. Quo ut animi nesciunt,
@@ -139,6 +133,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchGameData: (gameId) => {
       dispatch(fetchGameData(gameId));
+    },
+    toggleRules: (areRulesOpen) => {
+      dispatch(toggleRules(areRulesOpen));
     }
   };
 };

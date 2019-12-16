@@ -3,7 +3,8 @@ import { combineREducers } from 'redux';
 const initState = {
   user: "jocelyn",
   password: "pass123",
-  pokemon: "ampharos"
+  pokemon: "ampharos",
+  areRulesOpen: false
 };
 
 const rootReducer = (state = initState, action) => {
@@ -13,6 +14,11 @@ const rootReducer = (state = initState, action) => {
         ...state,
         gameData: action.json.ids
       };
+    case 'TOGGLE_RULES':
+      return {
+        ...state,
+        areRulesOpen: !state.areRulesOpen
+      }
     default:
       return state;
   }

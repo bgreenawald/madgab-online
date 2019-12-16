@@ -22,7 +22,7 @@
   @include flexbox();
 
   .overlay {
-    // display: none;
+    display: none;
     opacity: 0;
     position: absolute;
     top: 0;
@@ -34,7 +34,7 @@
 
     &.open {
       background-color: rgba(0, 0, 0, 0.4);
-      // display: block;
+      display: block;
       opacity: 1;
       transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
@@ -160,23 +160,24 @@
       // position: relative;
     }
 
-    .close-button {
-      display: block;
-      margin-top: 20px;
-      color: lighten($primary-blue, 10%);
-      font-size: 90%;
 
-
-      &:hover {
-        cursor: pointer;
-        color: darken($primary-blue, 10%);
-      }
-    }
   }
 
   &.closed {
     transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transform: translate(-50%, 100%);
+  }
+  .close-button {
+    display: block;
+    margin-top: 20px;
+    color: lighten($primary-blue, 10%);
+    font-size: 90%;
+
+
+    &:hover {
+      cursor: pointer;
+      color: darken($primary-blue, 10%);
+    }
   }
 }
 
