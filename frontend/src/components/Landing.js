@@ -3,6 +3,9 @@ import $ from "jquery";
 import "../Styles/App.scss";
 import { connect } from "react-redux";
 // import fetchGameData from "../actions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+
 
 import { fetchGameData } from '../store/actions';
 
@@ -29,20 +32,10 @@ class Landing extends Component {
   };
 
   createGame = () => {
-    // this.props.startGame(this.input_name.current.value);
     this.props.fetchGameData(this.input_name.current.value);
-    // fetch("http://localhost:5000/api/get_names").then(res => {
-    //   // update store
-    //   this.props.startGame(this.input_name.current.value);
-    //   if (this.state.used_ids.includes(this.state.game_id)) {
-    //     document.getElementById("error").innerHTML =
-    //       "ID already in use, choose another";
-    //   } else {
-    this.props.history.push(`/game/${this.state.game_id}`, {
-      game_id: this.state.game_id
+    this.props.history.push(`/game/${this.input_name.current.value}`, {
+      game_id: this.input_name.current.value
     });
-    //   }
-    // });
   };
 
   toggleRules = () => {
@@ -128,13 +121,14 @@ class Landing extends Component {
           <div id="rules-button" onClick={this.toggleRules}>
             <h3>Rules</h3>
           </div>
-          {/* <FontAwesomeIcon icon={faTimesCircle} className="close-button"/> */}
+          {/* <FontAwesomeIcon icon={faTimesCircle} className="close-button" /> */}
           <p>
             These are the rules of madgab. blah blah blah blah Lorem ipsum dolor
             sit amet consectetur adipisicing elit. Quo ut animi nesciunt,
             officia corrupti dolor alias ipsam facilis aliquid saepe fugit velit
             id ipsa eius incidunt ullam voluptates praesentium officiis.{" "}
           </p>
+          <span className="close-button">x close</span>
         </div>
       </div>
     );
@@ -143,12 +137,6 @@ class Landing extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // startGame: gameId => {
-    //   dispatch({
-    //     type: "START_GAME",
-    //     game_id: gameId
-    //   });
-    // },
     fetchGameData: (gameId) => {
       dispatch(fetchGameData(gameId));
     }
