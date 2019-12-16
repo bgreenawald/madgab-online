@@ -145,6 +145,11 @@ def add_spaces(phrase: str, freq: FrequencyMatrix) -> str:
         except ZeroDivisionError:
             p1_norm = p2_norm = 0.5
 
+        # Further check to ensure our normalized values are finite
+        if not np.isfinite(p1_norm) or not np.isfinite(p2_norm):
+            p1_norm = p2_norm = 0.5
+
+        # Decide if there should be a space or not based on the distribution
         choice = np.random.choice([0, 1], p=[p1_norm, p2_norm])
 
         if choice == 0:
