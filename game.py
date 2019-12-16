@@ -1,10 +1,9 @@
 import datetime
 from enum import Enum
 import random
+from typing import Any, Dict, List, Tuple
 
 from madgab.madgab import mad_gabify
-
-all_games = {}
 
 
 class InvalidState(Exception):
@@ -49,41 +48,56 @@ class Game(object):
         current_turn_correct (int): The number of words guessed correctly so far this turn.
     """
 
-    def __init__(self, id, win_threshold=30, words_per_turn=3, seconds_per_turn=90):
+    def __init__(
+        self,
+        id: str,
+        win_threshold: int = 30,
+        words_per_turn: int = 3,
+        seconds_per_turn: int = 90
+    ):
         self.reset(id, win_threshold, words_per_turn, seconds_per_turn)
 
-    def reset(self, id, win_threshold=30, words_per_turn=3, seconds_per_turn=90):
-        self.id = id
+    def reset(
+        self,
+        id: str,
+        win_threshold: int = 30,
+        words_per_turn: int = 3,
+        seconds_per_turn: int = 90
+    ):
+        self.id: str = id
 
         # General game configuration
-        self.win_threshold = min(max(10, win_threshold), 50)
-        self.words_per_turn = min(max(3, words_per_turn), 5)
-        self.seconds_per_turn = min(max(60, seconds_per_turn), 120)
+        self.win_threshold: int = min(max(10, win_threshold), 50)
+        self.words_per_turn: int = min(max(3, words_per_turn), 5)
+        self.seconds_per_turn: int = min(max(60, seconds_per_turn), 120)
         self.date_created = datetime.datetime.now()
-        self.difficulty = "hard"
+        self.difficulty: str = "hard"
 
         # Game state
-        self.team_1_score = 0
-        self.team_2_score = 0
-        self.state = State.IDLE
+        self.team_1_score: int = 0
+        self.team_2_score: int = 0
+        self.state: State = State.IDLE
 
         # Initialize the clues
         with open("./clues_full.txt", "r") as file:
-            clues = [clue.strip().split(" | ") for clue in file.readlines()]
+            clues = []
+            for clue in file.readlines():
+                category, phrase = clue.strip().split(" | ")
+                clues.append((category, phrase))
             random.shuffle(clues)
-            self.clues = clues
+            self.clues: List[Tuple[str, str]] = clues
 
         # Turn state
-        self.team_1_turn = True
-        self.winning_team = None
-        self.current_phrase = None
-        self.current_category = None
-        self.current_madgab = None
-        self.current_turn_clues = []
-        self.current_turn_counter = 0
-        self.current_turn_correct = 0
+        self.team_1_turn: bool = True
+        self.winning_team: str = ""
+        self.current_phrase: str = ""
+        self.current_category: str = ""
+        self.current_madgab: str = ""
+        self.current_turn_clues: List[Tuple[str, str, int, str]] = []
+        self.current_turn_counter: int = 0
+        self.current_turn_correct: int = 0
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f"ID: {self.id}\n"
             f"Win threshold: {self.win_threshold}\n"
@@ -92,7 +106,7 @@ class Game(object):
             f"Clues: {self.clues}\n"
         )
 
-    def __json__(self):
+    def __json__(self) -> Dict[str, Any]:
         return {
             "id": self.id,
             # General game configuration
@@ -117,7 +131,7 @@ class Game(object):
 
     for_json = __json__
 
-    def calculate_bonus(self, time_left):
+    def calculate_bonus(self, time_left: float):
         """Calculate the bonus based on the time left
 
         Args:
@@ -162,7 +176,7 @@ class Game(object):
                 or self.team_2_score >= self.win_threshold
             )
 
-    def end_active_state(self, correct, time_left):
+    def end_active_state(self, correct: bool, time_left: float):
         """Ends the current active state.
 
         Args:
@@ -211,7 +225,7 @@ class Game(object):
             self.change_active_team()
             self.state = State.IDLE
 
-    def increment_active_state(self, correct):
+    def increment_active_state(self, correct: bool):
         """Wrapper for moving the turn ahead during the active state.
 
         Args:
@@ -250,8 +264,8 @@ class Game(object):
         self.current_madgab = mad_gabify(self.current_phrase, self.difficulty)
 
     def reset_turn(self):
-        self.current_phrase = None
-        self.current_madgab = None
+        self.current_phrase = ""
+        self.current_madgab = ""
         self.current_turn_clues = []
         self.current_turn_counter = 0
         self.current_turn_correct = 0
@@ -267,7 +281,7 @@ class Game(object):
         self.state = State.ACTIVE
         self.increment_active_state(False)
 
-    def steal(self, points):
+    def steal(self, points: int):
         """Steal points.
 
         Args:
@@ -298,7 +312,7 @@ class Game(object):
         else:
             self.difficulty = "easy"
 
-    def update_score(self, points, current_team=True):
+    def update_score(self, points: int, current_team: bool = True):
         """Update the score.
 
         Args:
@@ -315,3 +329,7 @@ class Game(object):
                 self.team_2_score += points
             else:
                 self.team_1_score += points
+
+
+if __name__ == "__main__":
+    Game("123")

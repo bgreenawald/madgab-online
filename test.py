@@ -213,9 +213,9 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check current turn clues reset"):
             self.assertEqual(len(game.current_turn_clues), 0)
         with self.subTest("Check current phrase reset"):
-            self.assertIsNone(game.current_phrase)
+            self.assertEqual(game.current_phrase, "")
         with self.subTest("Check current madgab reset"):
-            self.assertIsNone(game.current_madgab)
+            self.assertEqual(game.current_madgab, "")
         with self.subTest("Check counter reset"):
             self.assertEqual(game.current_turn_counter, 0)
         with self.subTest("Check correct reset"):

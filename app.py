@@ -1,28 +1,43 @@
 import atexit
 import datetime
+import logging
+import os
+from typing import Any, Dict
 
 import simplejson
 from apscheduler.schedulers.background import BackgroundScheduler
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, Response
 from flask_cors import CORS
 from flask_scss import Scss
 from flask_socketio import join_room, leave_room, SocketIO, emit
 
 from game import InvalidState, Game
 
-
+# Initialize the application
 app = Flask(__name__)
+app.debug = True
 app.config["SECRET_KEY"] = "secret!"
 socketio = SocketIO(app)
 
+# Setup logging
+if not os.path.isdir("logs"):
+    os.makedirs("logs")
+logger = logging.getLogger(__name__)
+logger.setLevel("DEBUG")
+handler = logging.FileHandler("logs/app.log")
+handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+logger.addHandler(handler)
+
+
+# Initialize CORS and styling
 CORS(app)
 # app.wsgi_app = SassMiddleware(app.wsgi_app, {
 #     'app': ('static/sass', 'static/css', '/static/css')
 # })
-app.debug = True
 Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 
-all_games = {}
+# Dictionary to hold all games
+all_games: Dict[str, Game] = {}
 
 # ---------------------------------------
 # App routes
@@ -30,24 +45,23 @@ all_games = {}
 
 
 @app.route("/")
-def return_index():
+def return_index() -> str:
     return render_template("index.html")
 
 
 @app.route("/<id>")
-def return_game(id=None):
+def return_game(id: str) -> str:
     return render_template("game.html", id=id)
 
 
 @app.route("/test/<id>")
-def return_game_test(id=None):
+def return_game_test(id: str) -> str:
     return render_template("game2.html", id=id)
 
 
 @app.route("/api/get_names")
-def get_names():
+def get_names() -> Response:
     ids = [x for x in all_games]
-    print(ids)
     return json.jsonify({"ids": ids})
 
 
@@ -57,33 +71,31 @@ def get_names():
 
 
 @socketio.on("join")
-def on_join(data):
+def on_join(room):
     """Joins the connection to the provided room
     Args:
-        data (str): Name of the room.
+        room (str): Name of the room.
     """
-    room = data
     join_room(room)
-    print(f"User has entered the room {room}")
-    print(f"{socketio.server.rooms}")
+    logger.info(f"A user has entered the room {room}")
 
 
 @socketio.on("leave")
-def on_leave(data):
+def on_leave(room):
     """Removes the current connection from the room.
     Args:
-        data (str): Name of the room.
+        room (str): Name of the room.
     """
-    room = data["room"]
     leave_room(room)
-    print(f"User has left the room {room}", room=room)
+    logger.info(f"User has left the room {room}")
 
 
-def emit_error(game, msg):
-    emit("render_board", {"status_code": 400, "message": msg, "payload": {}}, room=game)
+def emit_error(game_name: str, msg: str):
+    logging.error(msg)
+    emit("render_board", {"status_code": 400, "message": msg, "payload": {}}, room=game_name)
 
 
-def emit_board(game_name, game, msg):
+def emit_board(game_name: str, game: Game, msg: str):
     emit(
         "render_board",
         {
@@ -96,14 +108,14 @@ def emit_board(game_name, game, msg):
 
 
 @socketio.on("load_board")
-def load_board(json):
+def load_board(json: Dict[Any, Any]):
     """Loads the current game board, or creates on if none exists.
     Args:
         json (dict): dictionary with parameter called 'game'.
     """
     game_name = json["name"]
 
-    print(f"Loading board {game_name}")
+    logger.info(f"Loading board {game_name}")
     if game_name in all_games:
         cur_game = all_games[game_name]
         emit_board(game_name, cur_game, "Game retrieved")
@@ -114,9 +126,9 @@ def load_board(json):
 
 
 @socketio.on("start_turn")
-def start_turn(json):
+def start_turn(json: Dict[Any, Any]):
     if "name" not in json:
-        print("Could not find the given board.")
+        logger.warning("Could not find the given board.")
         return
 
     game_name = json["name"]
@@ -125,15 +137,16 @@ def start_turn(json):
     try:
         game.start_turn()
     except InvalidState as e:
+        logging.error("Exception occurred", exc_info=True)
         emit_error(game_name, str(e))
     else:
         emit_board(game_name, game, "Started turn")
 
 
 @socketio.on("reset_game")
-def reset_game(json):
+def reset_game(json: Dict[Any, Any]):
     if "name" not in json:
-        print("Could not find the given board.")
+        logger.warning("Could not find the given board.")
         return
 
     game_name = json["name"]
@@ -144,9 +157,9 @@ def reset_game(json):
 
 
 @socketio.on("new_phrase")
-def new_phrase(json):
+def new_phrase(json: Dict[Any, Any]):
     if "name" not in json:
-        print("Could not find the given board.")
+        logger.warning("Could not find the given board.")
         return
 
     game_name = json["name"]
@@ -159,13 +172,14 @@ def new_phrase(json):
         game.increment_active_state(json["correct"])
         emit_board(game_name, game, "New phrase generated")
     except InvalidState as e:
+        logging.error("Exception occurred", exc_info=True)
         emit_error(game_name, str(e))
 
 
 @socketio.on("end_turn")
-def end_turn(json):
+def end_turn(json: Dict[Any, Any]):
     if "name" not in json:
-        print("Could not find the given board.")
+        logger.warning("Could not find the given board.")
         return
 
     game_name = json["name"]
@@ -182,13 +196,14 @@ def end_turn(json):
         game.end_active_state(json["correct"], json["time_left"])
         emit_board(game_name, game, "Active state ended")
     except InvalidState as e:
+        logging.error("Exception occurred", exc_info=True)
         emit_error(game_name, str(e))
 
 
 @socketio.on("steal")
-def steal(json):
+def steal(json: Dict[Any, Any]):
     if "name" not in json:
-        print("Could not find the given board.")
+        logger.warning("Could not find the given board.")
         return
 
     game_name = json["name"]
@@ -202,13 +217,14 @@ def steal(json):
         game.steal(json["points"])
         emit_board(game_name, game, "Points stolen")
     except InvalidState as e:
+        logging.error("Exception occurred", exc_info=True)
         emit_error(game_name, str(e))
 
 
 @socketio.on("toggle_difficulty")
-def toggle_difficulty(json):
+def toggle_difficulty(json: Dict[Any, Any]):
     if "name" not in json:
-        print("Could not find the given board.")
+        logger.warning("Could not find the given board.")
         return
 
     game_name = json["name"]
