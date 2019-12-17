@@ -5,3 +5,4 @@ clues_temp/
 .ipynb_checkpoints/
 .mypy_cache
 profile.txt
+logs/

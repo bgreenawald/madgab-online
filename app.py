@@ -7,10 +7,10 @@ from typing import Any, Dict
 
 import simplejson
 from apscheduler.schedulers.background import BackgroundScheduler
-from flask import Flask, render_template, json, Response
+from flask import Flask, render_template, json, Response, request
 from flask_cors import CORS
 from flask_scss import Scss
-from flask_socketio import join_room, leave_room, SocketIO, emit
+from flask_socketio import join_room, SocketIO, emit
 
 from game import InvalidState, Game
 
@@ -85,23 +85,28 @@ def get_names() -> Response:
 
 
 @socketio.on("join")
-def on_join(room):
+def on_join(data: Dict[str, Any]):
     """Joins the connection to the provided room
     Args:
-        room (str): Name of the room.
+        data (dict): Name of the room.
     """
-    join_room(room)
-    logger.info(f"A user has entered the room {room}")
+    room_name = data["name"]
+    join_room(room_name)
+    logger.info(f"{request.sid} has entered the room {room_name}")
 
 
-@socketio.on("leave")
-def on_leave(room):
-    """Removes the current connection from the room.
-    Args:
-        room (str): Name of the room.
+@socketio.on("connect")
+def on_connect():
+    """Called on client connect.
     """
-    leave_room(room)
-    logger.info(f"User has left the room {room}")
+    logger.info(f"{request.sid} has connected.")
+
+
+@socketio.on("disconnect")
+def on_disconnect():
+    """Called on client disconnect.
+    """
+    logger.info(f"{request.sid} has disconnected.")
 
 
 def emit_error(game_name: str, msg: str):
