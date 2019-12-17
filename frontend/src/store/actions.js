@@ -1,10 +1,10 @@
 // TODO: test error/validation
-let validateUnusedId = (existingIdsArray, choosenId) => {
-    if (existingIdsArray.includes(choosenId)) {
-        return false
-    }
-    else return true
-}
+// let validateUnusedId = (existingIdsArray, choosenId) => {
+//     if (existingIdsArray.includes(choosenId)) {
+//         return false
+//     }
+//     else return true
+// }
 
 export const fetchGameData = (id) => {
     return (dispatch, getState) => {
@@ -12,8 +12,7 @@ export const fetchGameData = (id) => {
         fetch("http://localhost:5000/api/get_names")
             .then(res => res.json())
             .then(json => {
-                console.log('json', json)
-                let registerIDSuccess = validateUnusedId(json.ids, id);
+                // let registerIDSuccess = validateUnusedId(json.ids, id);
                 dispatch({ type: 'FETCH_GAME_DATA', json })
             })
             .catch(err => dispatch({ type: 'GAME_DATA_ERROR' }))
@@ -36,6 +35,14 @@ export const generateID = () => {
         dispatch({
             type: 'GENERATE_ID',
             gameID: random
+        })
+    }
+}
+
+export const startTurn = () => {
+    return (dispatch, getState) => {
+        dispatch({
+            type: 'START_TURN'
         })
     }
 }

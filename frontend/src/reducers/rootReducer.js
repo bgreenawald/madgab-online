@@ -1,8 +1,9 @@
-import { combineREducers } from 'redux';
+// import { combineReducers } from 'redux';
 
 const initState = {
   gameID: "loading...",
-  areRulesOpen: false
+  areRulesOpen: false,
+  inTurn: false
 };
 
 const rootReducer = (state = initState, action) => {
@@ -21,6 +22,11 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         gameID: action.gameID
+      };
+    case 'START_TURN':
+      return {
+        ...state,
+        inTurn: !state.inTurn
       }
     default:
       return state;

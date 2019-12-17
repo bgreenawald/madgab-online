@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import "../Styles/App.scss";
 import { connect } from "react-redux";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-
 import { fetchGameData, toggleRules, generateID } from '../store/actions';
 
 class Landing extends Component {
