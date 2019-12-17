@@ -2,6 +2,7 @@ import atexit
 import datetime
 import logging
 import os
+import re
 from typing import Any, Dict
 
 import simplejson
@@ -38,6 +39,19 @@ Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 
 # Dictionary to hold all games
 all_games: Dict[str, Game] = {}
+
+# Generate the list of clues
+with open("./clues_full.txt", "r") as file:
+    clues = []
+    for clue in file.readlines():
+        category, phrase = clue.strip().split(" | ")
+
+        # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
+        phrase = phrase.lower()
+        phrase = re.sub(r"[^a-z '.]", "", phrase)
+
+        clues.append((category, phrase))
+
 
 # ---------------------------------------
 # App routes
@@ -120,7 +134,7 @@ def load_board(json: Dict[Any, Any]):
         cur_game = all_games[game_name]
         emit_board(game_name, cur_game, "Game retrieved")
     else:
-        cur_game = Game(game_name)
+        cur_game = Game(game_name, clues)
         all_games[game_name] = cur_game
         emit_board(game_name, cur_game, "New game created")
 
@@ -152,7 +166,7 @@ def reset_game(json: Dict[Any, Any]):
     game_name = json["name"]
     game = all_games[game_name]
 
-    game.reset(game_name)
+    game.reset(game_name, clues)
     emit_board(game_name, game, "Game reset")
 
 

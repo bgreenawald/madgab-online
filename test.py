@@ -1,6 +1,20 @@
+import re
 import unittest
 
 from game import Game, InvalidState, State
+
+
+# Generate the list of clues
+with open("./clues_full.txt", "r") as file:
+    clues = []
+    for clue in file.readlines():
+        category, phrase = clue.strip().split(" | ")
+
+        # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
+        phrase = phrase.lower()
+        phrase = re.sub(r"[^a-z '.]", "", phrase)
+
+        clues.append((category, phrase))
 
 
 class testGameMethods(unittest.TestCase):
@@ -13,7 +27,7 @@ class testGameMethods(unittest.TestCase):
         ]
         for thresh, test, msg in params_threshold:
             with self.subTest(msg):
-                self.assertEqual(Game("", win_threshold=thresh).win_threshold, test)
+                self.assertEqual(Game("", clues, win_threshold=thresh).win_threshold, test)
 
         # Test the words per turn threshold
         params_words_per_turn = [
@@ -24,7 +38,7 @@ class testGameMethods(unittest.TestCase):
         for words_per_turn, test, msg in params_words_per_turn:
             with self.subTest(msg):
                 self.assertEqual(
-                    Game("", words_per_turn=words_per_turn).words_per_turn, test
+                    Game("", clues, words_per_turn=words_per_turn).words_per_turn, test
                 )
 
         params_seconds_per_turn = [
@@ -35,11 +49,11 @@ class testGameMethods(unittest.TestCase):
         for seconds_per_turn, test, msg in params_seconds_per_turn:
             with self.subTest(msg):
                 self.assertEqual(
-                    Game("", seconds_per_turn=seconds_per_turn).seconds_per_turn, test
+                    Game("", clues, seconds_per_turn=seconds_per_turn).seconds_per_turn, test
                 )
 
     def testCalculateBonus(self):
-        game = Game("")
+        game = Game("", clues)
         seconds = game.seconds_per_turn
 
         game.calculate_bonus(seconds * 2 / 3 + 1)
@@ -59,7 +73,7 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.team_1_score, 6)
 
     def testChangeActiveTeam(self):
-        game = Game("")
+        game = Game("", clues)
 
         with self.subTest("Invalid change team not caught"):
             try:
@@ -75,7 +89,7 @@ class testGameMethods(unittest.TestCase):
             self.assertFalse(game.team_1_turn)
 
     def testCheckGameOver(self):
-        game = Game("")
+        game = Game("", clues)
 
         game.team_1_score = game.win_threshold + 1
         with self.subTest("Game over on wrong turn"):
@@ -86,7 +100,7 @@ class testGameMethods(unittest.TestCase):
             self.assertTrue(game.check_game_over())
 
     def testEndActiveState(self):
-        game = Game("")
+        game = Game("", clues)
         with self.subTest("Invalid state on end active state not caught"):
             try:
                 game.end_active_state(True, 0)
@@ -104,7 +118,7 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.team_1_score, 0)
 
         # Test all correct to idle state
-        game = Game("")
+        game = Game("", clues)
         game.start_turn()
         game.current_turn_correct = game.words_per_turn - 1
         game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
@@ -117,7 +131,7 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.team_1_score, 4)
 
         # Test correct to game over state
-        game = Game("")
+        game = Game("", clues)
         game.start_turn()
         game.current_turn_correct = game.words_per_turn - 1
         game.team_1_turn = False
@@ -130,7 +144,7 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.winning_team, "Team 2")
 
         # Test none missed to idle state
-        game = Game("")
+        game = Game("", clues)
         game.start_turn()
         game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
         with self.subTest("Check game in idle state"):
@@ -139,7 +153,7 @@ class testGameMethods(unittest.TestCase):
             self.assertFalse(game.team_1_turn)
 
     def testIncrementActiveState(self):
-        game = Game("")
+        game = Game("", clues)
         with self.subTest("Invalid increment active state not caught"):
             try:
                 game.increment_active_state(False)
@@ -176,7 +190,7 @@ class testGameMethods(unittest.TestCase):
                 self.fail()
 
     def testNewPhrase(self):
-        game = Game("")
+        game = Game("", clues)
         game.new_phrase()
         with self.subTest("Check that phrase is generated"):
             self.assertIsNotNone(game.current_phrase)
@@ -194,7 +208,7 @@ class testGameMethods(unittest.TestCase):
             self.assertNotEqual(game.current_phrase, game.current_madgab)
 
     def testResetTurn(self):
-        game = Game("")
+        game = Game("", clues)
 
         game.start_turn()
         game.increment_active_state(True)
@@ -223,7 +237,7 @@ class testGameMethods(unittest.TestCase):
 
     def testStartTurn(self):
 
-        game = Game("")
+        game = Game("", clues)
 
         game.start_turn()
         with self.subTest("Test phrase"):
@@ -246,7 +260,7 @@ class testGameMethods(unittest.TestCase):
                 self.fail()
 
     def testSteal(self):
-        game = Game("")
+        game = Game("", clues)
 
         with self.subTest("Steal state check failed"):
             try:
@@ -262,7 +276,7 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.team_2_score, 2)
 
     def testToggleDifficulty(self):
-        game = Game("")
+        game = Game("", clues)
         with self.subTest("Initially difficulty"):
             self.assertEqual(game.difficulty, "hard")
         game.toggle_difficulty()
@@ -273,7 +287,7 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.difficulty, "hard")
 
     def testUpdateScore(self):
-        game = Game("")
+        game = Game("", clues)
 
         game.update_score(2)
         with self.subTest("Check team 1 update/team 1 active"):
@@ -283,7 +297,7 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check team2 update/team 1 active"):
             self.assertEqual(game.team_2_score, 1)
 
-        game.reset("")
+        game.reset("", clues)
         game.state = State.ACTIVE
         game.change_active_team()
         game.update_score(2)

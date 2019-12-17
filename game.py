@@ -51,15 +51,17 @@ class Game(object):
     def __init__(
         self,
         id: str,
+        clues: List[Tuple[str, str]],
         win_threshold: int = 30,
         words_per_turn: int = 3,
         seconds_per_turn: int = 90
     ):
-        self.reset(id, win_threshold, words_per_turn, seconds_per_turn)
+        self.reset(id, clues, win_threshold, words_per_turn, seconds_per_turn)
 
     def reset(
         self,
         id: str,
+        clues: List[Tuple[str, str]],
         win_threshold: int = 30,
         words_per_turn: int = 3,
         seconds_per_turn: int = 90
@@ -79,13 +81,8 @@ class Game(object):
         self.state: State = State.IDLE
 
         # Initialize the clues
-        with open("./clues_full.txt", "r") as file:
-            clues = []
-            for clue in file.readlines():
-                category, phrase = clue.strip().split(" | ")
-                clues.append((category, phrase))
-            random.shuffle(clues)
-            self.clues: List[Tuple[str, str]] = clues
+        random.shuffle(clues)
+        self.clues: List[Tuple[str, str]] = clues
 
         # Turn state
         self.team_1_turn: bool = True
@@ -332,4 +329,4 @@ class Game(object):
 
 
 if __name__ == "__main__":
-    Game("123")
+    Game("123", [])

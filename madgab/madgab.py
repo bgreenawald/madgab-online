@@ -1,60 +1,32 @@
 import json
 import os
 import random
-import re
 
 import numpy as np
-import pandas as pd
 from scipy.stats import triang
+
+from .frequency_matrix import FrequencyMatrix
 
 WORD_MAPPING_FILE = os.path.join(os.path.dirname(__file__), "word_to_phonemes.json")
 PHONEME_MAPPING_FILE = os.path.join(
     os.path.dirname(__file__), "phoneme_to_pronunciation.json"
 )
 
-FREQUENCY_FILENAME = os.path.join(os.path.dirname(__file__), "frequency.csv")
+# Load the mappings
+with open(WORD_MAPPING_FILE) as file:
+    WORD_TO_PHONEME = json.load(file)
+with open(PHONEME_MAPPING_FILE) as file:
+    PHONEME_TO_PRONUNCIATION = json.load(file)
+
+# Generate frequency matrix
+FREQUENCY = FrequencyMatrix()
 
 
-class FrequencyMatrix(object):
-    """
-    Wrapper function around the frequency matrix.
-    Main tasks include handling indexing and normalization.
-    """
-
-    def __init__(self, filename=FREQUENCY_FILENAME):
-        self.frequency_matrix = pd.read_csv(filename, header=None)
-        self.normalize()
-
-    def __getitem__(self, tup):
-        x, y = tup
-
-        def make_index(ind: str) -> int:
-            if ind == " ":
-                return 26
-            else:
-                return ord(ind) - ord("a")
-
-        x_ind = make_index(x)
-        y_ind = make_index(y)
-
-        if not 0 <= x_ind <= 26 or not 0 <= y_ind <= 26:
-            raise (KeyError("Indexes should be lowercase letters or spaces."))
-
-        return self.frequency_matrix.iloc[x_ind, y_ind]
-
-    def normalize(self):
-        self.frequency_matrix = self.frequency_matrix.div(
-            self.frequency_matrix.sum(axis=1), axis=0
-        )
-
-
-def word_to_pronunciation(
-    word: str, word_to_phoneme: dict, phoneme_to_pronunciation: dict
-) -> str:
+def word_to_pronunciation(word: str) -> str:
     """ Task a word a returns its phonetic spelling. """
     # Get the phoneme list for the word (choose random pronunciation).
     try:
-        phoneme = random.choice(word_to_phoneme[word.lower()])
+        phoneme = random.choice(WORD_TO_PHONEME[word.lower()])
     except KeyError:
         return word
 
@@ -62,7 +34,7 @@ def word_to_pronunciation(
     phonemes = phoneme.split(" ")
 
     # Get random phonetic spelling for each phoneme and join.
-    return "".join([random.choice(phoneme_to_pronunciation[p]) for p in phonemes])
+    return "".join([random.choice(PHONEME_TO_PRONUNCIATION[p]) for p in phonemes])
 
 
 def mad_gabify(phrase: str, difficulty: str = "hard") -> str:
@@ -74,39 +46,24 @@ def mad_gabify(phrase: str, difficulty: str = "hard") -> str:
     Returns:
         str: Phrased after conversion.
     """
-    # Load the mappings
-    with open(WORD_MAPPING_FILE) as file:
-        word_to_phoneme = json.load(file)
-    with open(PHONEME_MAPPING_FILE) as file:
-        phoneme_to_pronunciation = json.load(file)
-
-    # Change to lowercase and sub out any irrelevant characters.
-    phrase = phrase.lower()
-    phrase = re.sub(r"[^a-z '.]", "", phrase)
 
     # Split the phrase into words.
     words = phrase.split(" ")
 
     # Mad Gab each word.
-    mad_gabed_list = [
-        word_to_pronunciation(word, word_to_phoneme, phoneme_to_pronunciation)
-        for word in words
-    ]
-
-    # Generate frequency matrix
-    freq = FrequencyMatrix()
+    mad_gabed_list = [word_to_pronunciation(word) for word in words]
 
     # Add the spaces in
     mad_gabed = " ".join(mad_gabed_list)
 
     # If Hard, add randomized spaces.
     if difficulty == "hard":
-        mad_gabed = add_spaces(mad_gabed, freq)
+        mad_gabed = add_spaces(mad_gabed)
 
     return " ".join([word.capitalize() for word in mad_gabed.split(" ")])
 
 
-def add_spaces(phrase: str, freq: FrequencyMatrix) -> str:
+def add_spaces(phrase: str) -> str:
     """ Use the frequency matrix to reasonably insert spaces. """
 
     # Define constants for the triangle distribution
@@ -135,8 +92,8 @@ def add_spaces(phrase: str, freq: FrequencyMatrix) -> str:
         if i == len(phrase) - 1:
             end_str += phrase[i]
             continue
-        p1 = freq[end_str[-1], phrase[i]]
-        p2 = freq[end_str[-1], " "] * triang_cdf(cur_len)
+        p1 = FREQUENCY[end_str[-1], phrase[i]]
+        p2 = FREQUENCY[end_str[-1], " "] * triang_cdf(cur_len)
 
         # Normalize
         try:
