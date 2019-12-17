@@ -2,33 +2,20 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "../Styles/App.scss";
 import { connect } from "react-redux";
-// import fetchGameData from "../actions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
-
-import { fetchGameData, toggleRules } from '../store/actions';
+import { fetchGameData, toggleRules, generateID } from '../store/actions';
 
 class Landing extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      game_id: "",
-      used_ids: [],
-      rand_id: 0,
-      isRulesOpen: false
-    };
     this.input_name = React.createRef();
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   generateID = () => {
-    var min = 0;
-    var max = 999999;
-    var random = Math.floor(Math.random() * (+max - +min)) + +min;
-    this.setState({
-      rand_id: random
-    });
+    this.props.generateID();
   };
 
   createGame = () => {
@@ -43,36 +30,18 @@ class Landing extends Component {
   };
 
   closeModal = () => {
-    // console.log(this.isRulesOpen);
     if (this.props.state.areRulesOpen) {
       this.props.toggleRules();
     }
   };
 
-  async componentDidMount() {
-    await $.ajax({
-      url: "http://localhost:5000/api/get_names"
-    }).done(res => {
-      this.generateID();
-
-      // update store
-      this.props.fetchGameData();
-
-      this.setState({
-        used_ids: res["ids"]
-      });
-
-      while (this.state.used_ids.includes(this.state.rand_id)) {
-        this.generateID();
-      }
-
-      Array.from(
-        document.getElementsByClassName("game-id-input")
-      )[0].value = this.state.rand_id;
-    });
+  componentDidMount() {
+    this.props.fetchGameData();
+    this.props.generateID();
   }
 
   render() {
+    // if (this.props.state.gameID !== "loading...") {
     return (
       <div
         className="home-container"
@@ -89,18 +58,18 @@ class Landing extends Component {
             MADGAB
           </h1>
           <h3 className="game-id-label">Game ID:</h3>
-          <input
-            aria-label="game id input field"
-            className="game-id-input"
-            id="game_id"
-            type="text"
-            ref={this.input_name}
-          ></input>
-          <button
-            aria-label="submit"
+          {this.props.state.gameID === "loading..." ? (<h1>Loading...</h1>) :
+            (<input id="game_id" aria-label="game id input field" type="text"
+              className="game-id-input"
+              ref={this.input_name}
+
+              defaultValue={this.props.state.gameID}
+            ></input>)}
+
+          <button className="primary button start-game-button" aria-label="submit"
             type="submit"
             onClick={this.createGame}
-            className="primary button start-game-button"
+            disabled={this.props.state.gameID === "loading..." ? true : false}
           >
             Start Game
           </button>
@@ -124,8 +93,15 @@ class Landing extends Component {
           </p>
           <span className="close-button">x close</span>
         </div>
-      </div>
-    );
+      </div >
+    )
+    // }
+
+    // else {
+    //   return (
+    //     <h1>Loading</h1>
+    //   )
+    // }
   }
 }
 
@@ -136,6 +112,9 @@ const mapDispatchToProps = dispatch => {
     },
     toggleRules: (areRulesOpen) => {
       dispatch(toggleRules(areRulesOpen));
+    },
+    generateID: () => {
+      dispatch(generateID());
     }
   };
 };

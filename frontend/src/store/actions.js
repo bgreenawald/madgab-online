@@ -27,3 +27,15 @@ export const toggleRules = (rulesStatus) => {
         })
     }
 }
+
+export const generateID = () => {
+    var min = 0;
+    var max = 999999;
+    var random = Math.floor(Math.random() * (+max - +min)) + +min;
+    return (dispatch, getState) => {
+        dispatch({
+            type: 'GENERATE_ID',
+            gameID: random
+        })
+    }
+}

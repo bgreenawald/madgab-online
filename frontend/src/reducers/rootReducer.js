@@ -1,9 +1,7 @@
 import { combineREducers } from 'redux';
 
 const initState = {
-  user: "jocelyn",
-  password: "pass123",
-  pokemon: "ampharos",
+  gameID: "loading...",
   areRulesOpen: false
 };
 
@@ -18,6 +16,11 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         areRulesOpen: !state.areRulesOpen
+      };
+    case 'GENERATE_ID':
+      return {
+        ...state,
+        gameID: action.gameID
       }
     default:
       return state;
