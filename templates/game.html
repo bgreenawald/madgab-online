@@ -137,7 +137,9 @@
 
     // Join the necessary room
     socket.on("connect", function () {
-        socket.emit("join", game_name);
+        socket.emit("join", {
+            "name": game_name
+        });
     });
 
     // Load the current state of the board, or create a new one
