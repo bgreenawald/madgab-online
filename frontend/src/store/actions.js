@@ -6,6 +6,12 @@
 //     else return true
 // }
 
+import { rootReducer, store } from "../reducers/rootReducer";
+
+import io from "socket.io-client";
+
+const socket = io("http://localhost:5000/");
+
 export const fetchGameData = (id) => {
     return (dispatch, getState) => {
 
@@ -39,8 +45,31 @@ export const generateID = () => {
     }
 }
 
+export const updateGameData = (gameData) => {
+    return (dispatch, getStsate) => {
+        dispatch({
+            type: 'UPDATE_GAME_DATA',
+            gameData
+        })
+    }
+}
+
 export const startTurn = () => {
+
     return (dispatch, getState) => {
+        console.log('starting the turn')
+        // socket.emit("start_turn", {
+        //     "name": getState().gameID
+        // })
+        // socket.on('reply', (data) => {
+        //     console.log('socket data', data)
+        // })
+        socket.on("connect", resp => {
+            socket.emit("start_turn", {
+                name: getState().gameID
+            });
+            console.log("start response:", resp)
+        });
         dispatch({
             type: 'START_TURN'
         })

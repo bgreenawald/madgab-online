@@ -11,7 +11,7 @@ const rootReducer = (state = initState, action) => {
     case 'FETCH_GAME_DATA':
       return {
         ...state,
-        gameData: action.json.ids
+        existingGameIDs: action.json.ids
       };
     case 'TOGGLE_RULES':
       return {
@@ -27,6 +27,11 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         inTurn: !state.inTurn
+      }
+    case 'UPDATE_GAME_DATA':
+      return {
+        ...state,
+        ...action.gameData
       }
     default:
       return state;

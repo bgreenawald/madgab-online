@@ -4,41 +4,18 @@ import "../Styles/Game.scss";
 
 import { connect } from "react-redux";
 import { startTurn } from "../store/actions";
+import io from "socket.io-client";
 
 class GameContentTurnWait extends Component {
   handleStartTurn = () => {
-    console.log("starting the turn~~!");
-    this.props.startTurn();
+    let socket = io("http://localhost:5000");
+
+    // console.log("starting the turn~~!");
+    // socket.emit("join", this.props.state.gameID);
+    socket.emit("start_turn", {
+      "name": this.props.state.gameID
+    })
   };
-
-  // handleStartTurn = () => {
-  //   //   this.setState({
-  //   //     turn_timer: 90
-  //   //   });
-  //   //   function start_turn() {
-  //   //     timer = game_state["seconds_per_turn"]
-  //   //     turn_timer = setInterval(start_timer, 1000)
-  //   //     socket.emit("start_turn", {
-  //   //         "name": game_name
-  //   //     })
-  //   // }
-  //   this.props.startTurn();
-  // };
-
-  // handleStartTurn = () => {
-  //   let timer = this.state.seconds_per_turn;
-  //   let turn_timer = setInterval(this.start_timer, 1000);
-  //   let socket = io("http://localhost:5000");
-  //   let id = this.state.game_id;
-  //   socket.on("connect", resp => {
-  //     socket.emit("start_turn", {
-  //       name: id
-  //     });
-  //   });
-  //   this.setState({
-  //     inTurn: true
-  //   });
-  // };
 
   // start_timer = () => {
   //   let socket = io("http://localhost:5000");

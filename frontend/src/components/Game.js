@@ -8,40 +8,64 @@ import TurnWaitStart from "./GameContentTurnWait";
 import InTurn from "./GameContentInTurn";
 
 import { connect } from "react-redux";
-import { fetchGameData } from '../store/actions';
+import { fetchGameData, updateGameData } from '../store/actions';
 
 class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ...props,
-      //  href_parts = window.location.href.split("/"),
       active_team: 1,
       game_name: this.props.history.location,
       userTeam: 1,
       userRole: "guesser"
     };
-    this.socket = io("http://localhost:5000/");
     this.clueRadioYes = React.createRef();
     this.clueRadioNo = React.createRef();
     this.timerDOM = React.createRef();
   }
+
+  getGameId = () => {
+    let id = this.props.state.gameID;
+    let url = window.location.href;
+    if (this.props.state.gameID === 'loading...') {
+      let urlParts = url.split("/");
+      id = urlParts[urlParts.length - 1]
+    }
+    this.props.updateGameData({
+      gameID: id
+    });
+    return id;
+  }
   // join socket, load board, and render board
   componentDidMount = () => {
     let socket = io("http://localhost:5000");
-    let id = this.state.game_id;
-    socket.on("connect", () => {
+    let id = this.getGameId();
+
+    socket.on("connect", (resp) => {
       socket.emit("join", id);
+    });
+
+    socket.on("connect", (resp) => {
       socket.emit("load_board", {
         name: id
       });
-      socket.on("render_board", resp => {
-        let game_state = JSON.parse(resp.payload);
-        this.setState({
-          ...game_state,
-          loaded: true
-        });
-      });
+    });
+
+    socket.on("render_board", resp => {
+
+      let data = resp.payload
+      console.log('full response:', resp)
+      console.log('resp.payload \n', data, ' \n is typeof', typeof (resp.payload))
+
+      if (typeof (resp.payload) === 'string') {
+        console.log("it's an object!")
+        if (resp.payload.includes("{")) {
+          data = JSON.parse(resp.payload)
+        }
+      }
+
+      this.props.updateGameData(data)
     });
   };
 
@@ -65,10 +89,15 @@ class Game extends Component {
   };
 
   render() {
+    let socket = io("http://localhost:5000");
+
+    socket.on("start_turn", resp => {
+      console.log("start turn!", resp)
+    })
     return (
       <div className="game-container">
         <Header {...this.state} />
-        <TurnWaitStart {...this.state} />
+        {this.props.state.state === "ACTIVE" ? <InTurn /> : <TurnWaitStart {...this.state} />}
         <Footer {...this.state} />
       </div>
     );
@@ -83,7 +112,12 @@ const mapDispatchToProps = dispatch => {
         difficulty: "hard"
       });
     },
-    fetchGameData: () => dispatch(fetchGameData()),
+    fetchGameData: () => {
+      dispatch(fetchGameData())
+    },
+    updateGameData: (gameData) => {
+      dispatch(updateGameData(gameData))
+    }
   };
 };
 
