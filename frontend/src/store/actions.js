@@ -40,7 +40,7 @@ export const generateID = () => {
     return (dispatch, getState) => {
         dispatch({
             type: 'GENERATE_ID',
-            gameID: random
+            id: random
         })
     }
 }
@@ -59,19 +59,30 @@ export const startTurn = () => {
     return (dispatch, getState) => {
         console.log('starting the turn')
         // socket.emit("start_turn", {
-        //     "name": getState().gameID
+        //     "name": getState().id
         // })
         // socket.on('reply', (data) => {
         //     console.log('socket data', data)
         // })
         socket.on("connect", resp => {
             socket.emit("start_turn", {
-                name: getState().gameID
+                name: getState().id
             });
-            console.log("start response:", resp)
+            // console.log("start response:", resp)
         });
         dispatch({
             type: 'START_TURN'
+        })
+    }
+}
+
+export const decreaseTimer = () => {
+    return (dispatch, getState) => {
+        let startingCount = getState().timer;
+        console.log('decreasing in actions')
+        dispatch({
+            type: 'DECREASE_TIMER',
+            newCount: --startingCount
         })
     }
 }

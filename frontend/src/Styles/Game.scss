@@ -55,3 +55,52 @@
 
 // ***************************
 
+
+
+// ***************************
+
+//    ACTIVE/In Turn
+
+// ***************************
+
+.game-content {
+  > * {
+    margin: .7em auto;
+  }
+}
+
+#timer {
+  font-size: 200%;
+}
+
+.card.clue {
+  padding: 60px;
+  color: darken($primary-blue, 20%);
+  border-radius: $border-radius;
+  max-height: 40vh;
+  min-height: 20vh;
+  max-width: 40vh;
+  display: flex;
+  position: relative;
+  p {
+    align-self: center;
+    font-size: 200%;
+  }
+  .clue-count {
+    position: absolute;
+    bottom: 2vh;
+    right: 2vh;
+    color: lighten($off-black, 20%);
+    z-index: 10;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row nowrap; 
+  button {
+    width: 20vw;
+    font-size: 120%;
+    margin: 0px 20px;
+  }
+}

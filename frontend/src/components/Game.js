@@ -26,14 +26,14 @@ class Game extends Component {
   }
 
   getGameId = () => {
-    let id = this.props.state.gameID;
+    let id = this.props.state.id;
     let url = window.location.href;
-    if (this.props.state.gameID === 'loading...') {
+    if (this.props.state.id === 'loading...') {
       let urlParts = url.split("/");
       id = urlParts[urlParts.length - 1]
     }
     this.props.updateGameData({
-      gameID: id
+      id: id
     });
     return id;
   }
@@ -66,6 +66,9 @@ class Game extends Component {
       }
 
       this.props.updateGameData(data)
+      this.props.updateGameData({
+        timer: this.props.state.seconds_per_turn
+      })
     });
   };
 

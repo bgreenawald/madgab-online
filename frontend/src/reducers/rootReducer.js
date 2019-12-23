@@ -1,7 +1,7 @@
 // import { combineReducers } from 'redux';
 
 const initState = {
-  gameID: "loading...",
+  id: "loading...",
   areRulesOpen: false,
   inTurn: false
 };
@@ -21,7 +21,7 @@ const rootReducer = (state = initState, action) => {
     case 'GENERATE_ID':
       return {
         ...state,
-        gameID: action.gameID
+        id: action.id
       };
     case 'START_TURN':
       return {
@@ -32,6 +32,11 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         ...action.gameData
+      }
+    case 'DECREASE_TIMER':
+      return {
+        ...state,
+        timer: action.newCount
       }
     default:
       return state;

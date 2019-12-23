@@ -37,7 +37,6 @@ class Landing extends Component {
   }
 
   render() {
-    // if (this.props.state.gameID !== "loading...") {
     return (
       <div
         className="home-container"
@@ -54,18 +53,18 @@ class Landing extends Component {
             MADGAB
           </h1>
           <h3 className="game-id-label">Game ID:</h3>
-          {this.props.state.gameID === "loading..." ? (<h1>Loading...</h1>) :
+          {this.props.state.id === "loading..." ? (<h1>Loading...</h1>) :
             (<input id="game_id" aria-label="game id input field" type="text"
               className="game-id-input"
               ref={this.input_name}
 
-              defaultValue={this.props.state.gameID}
+              defaultValue={this.props.state.id}
             ></input>)}
 
           <button className="primary button start-game-button" aria-label="submit"
             type="submit"
             onClick={this.createGame}
-            disabled={this.props.state.gameID === "loading..." ? true : false}
+            disabled={this.props.state.id === "loading..." ? true : false}
           >
             Start Game
           </button>
@@ -91,13 +90,6 @@ class Landing extends Component {
         </div>
       </div >
     )
-    // }
-
-    // else {
-    //   return (
-    //     <h1>Loading</h1>
-    //   )
-    // }
   }
 }
 

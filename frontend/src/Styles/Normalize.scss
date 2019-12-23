@@ -2,9 +2,9 @@
 
 // ********** VARIABLES ********** //
 
-$border-radius: 5px;
+$border-radius: 15px;
 
-// ********** VARIABLES ********** //
+// ********** LAYOUT ********** //
 
 body {
   padding: 0;
@@ -159,10 +159,26 @@ button {
   &.primary {
     background-color: $primary-yellow;
     color: $off-black;
-    transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: background-color 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
   
     &:hover {
-      background-color: lighten($primary-yellow, 5%);
+      background-color: lighten($primary-yellow, 10%);
     }
   }
+
+  &.secondary {
+    background-color: transparent;
+    color: white;
+    transition: all 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
+  
+    &:hover {
+      background-color: white;
+      color: $off-black;
+    }
+  }
+}
+
+// ********** BUTTONS ********** //
+.card {
+  background-color: #fff;
 }

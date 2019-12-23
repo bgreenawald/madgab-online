@@ -4,21 +4,41 @@ import "../Styles/Game.scss"
 import io from "socket.io-client";
 
 import { connect } from 'react-redux';
-import { } from '../store/actions'
+import { decreaseTimer, updateGameData } from '../store/actions'
+
+let socket = io('http://localhost:5000');
 
 class GameContentInTurn extends Component {
 
+  constructor() {
+    super();
+    this.timerDOM = React.createRef();
+  }
+
   componentDidMount = () => {
+    this.startTimer()
+  }
+
+  startTimer = () => {
+    setInterval(this.decrementTimer, 1000)
+  }
+
+  decrementTimer = () => {
+    if (this.props.state.timer === 0) clearInterval();
+    else this.props.decreaseTimer();
   }
 
   render() {
     return (
-      <div className="game-content">
-        <div id="timer" ref={this.timerDOM}></div>
-        <div className="card clue">{this.props.state.current_madgab}</div>
+      <div className="game-content reader-view">
+        <div id="timer" ref={this.timerDOM}>{this.props.state.timer}s</div>
+        <div className="card clue">
+          <p>{this.props.state.current_madgab}</p>
+          <span className="clue-count">/3</span>
+        </div>
         <div className="buttons">
-          <button className="pass">Pass</button>
-          <button className="correct">Correct</button>
+          <button className="correct primary">Correct</button>
+          <button className="pass secondary">Pass</button>
         </div>
       </div>
     );
@@ -27,7 +47,12 @@ class GameContentInTurn extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    decreaseTimer: () => {
+      dispatch(decreaseTimer())
+    },
+    updateGameData: () => {
+      dispatch(updateGameData())
+    }
   }
 }
 
