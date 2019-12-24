@@ -6,11 +6,11 @@
 //     else return true
 // }
 
-import { rootReducer, store } from "../reducers/rootReducer";
+// import { rootReducer, store } from "../reducers/rootReducer";
 
-import io from "socket.io-client";
+// import io from "socket.io-client";
 
-const socket = io("http://localhost:5000/");
+// const socket = io("http://localhost:5000/");
 
 export const fetchGameData = (id) => {
     return (dispatch, getState) => {
@@ -46,7 +46,9 @@ export const generateID = () => {
 }
 
 export const updateGameData = (gameData) => {
-    return (dispatch, getStsate) => {
+    return (dispatch, getState) => {
+        // console.log('update game state', gameData)
+
         dispatch({
             type: 'UPDATE_GAME_DATA',
             gameData
@@ -57,19 +59,6 @@ export const updateGameData = (gameData) => {
 export const startTurn = () => {
 
     return (dispatch, getState) => {
-        console.log('starting the turn')
-        // socket.emit("start_turn", {
-        //     "name": getState().id
-        // })
-        // socket.on('reply', (data) => {
-        //     console.log('socket data', data)
-        // })
-        socket.on("connect", resp => {
-            socket.emit("start_turn", {
-                name: getState().id
-            });
-            // console.log("start response:", resp)
-        });
         dispatch({
             type: 'START_TURN'
         })
@@ -79,10 +68,20 @@ export const startTurn = () => {
 export const decreaseTimer = () => {
     return (dispatch, getState) => {
         let startingCount = getState().timer;
-        console.log('decreasing in actions')
         dispatch({
             type: 'DECREASE_TIMER',
             newCount: --startingCount
+        })
+    }
+}
+
+export const toggleUserRole = () => {
+    return (dispatch, getState) => {
+        let newRole = "reader";
+        if (getState().userRole === "reader") newRole = "guesser"
+        dispatch({
+            type: 'TOGGLE_USER_ROLE',
+            userRole: newRole
         })
     }
 }

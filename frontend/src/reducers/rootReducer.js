@@ -3,7 +3,8 @@
 const initState = {
   id: "loading...",
   areRulesOpen: false,
-  inTurn: false
+  inTurn: false,
+  userRole: 'guesser'
 };
 
 const rootReducer = (state = initState, action) => {
@@ -37,6 +38,11 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         timer: action.newCount
+      }
+    case 'TOGGLE_USER_ROLE':
+      return {
+        ...state,
+        userRole: action.userRole
       }
     default:
       return state;

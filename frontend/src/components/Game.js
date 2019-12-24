@@ -25,6 +25,9 @@ class Game extends Component {
     this.timerDOM = React.createRef();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.state.state !== this.props.state.state
+  }
   getGameId = () => {
     let id = this.props.state.id;
     let url = window.location.href;
@@ -39,6 +42,7 @@ class Game extends Component {
   }
   // join socket, load board, and render board
   componentDidMount = () => {
+    console.log('game rendering')
     let socket = io("http://localhost:5000");
     let id = this.getGameId();
 
@@ -53,22 +57,17 @@ class Game extends Component {
     });
 
     socket.on("render_board", resp => {
-
+      console.log('event received: \n', resp.message)
       let data = resp.payload
-      console.log('full response:', resp)
-      console.log('resp.payload \n', data, ' \n is typeof', typeof (resp.payload))
 
       if (typeof (resp.payload) === 'string') {
-        console.log("it's an object!")
         if (resp.payload.includes("{")) {
           data = JSON.parse(resp.payload)
+          console.log(data)
         }
       }
 
       this.props.updateGameData(data)
-      this.props.updateGameData({
-        timer: this.props.state.seconds_per_turn
-      })
     });
   };
 

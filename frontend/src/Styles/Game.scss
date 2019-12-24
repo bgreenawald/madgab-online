@@ -55,7 +55,16 @@
 
 // ***************************
 
+.active-team {
+  font-size: 3.5em;
+  font-weight: normal;
+  margin-top: 0px;
+}
 
+#start-turn {
+  font-size: 1em;
+  width: 250px;
+}
 
 // ***************************
 
@@ -81,6 +90,8 @@
   min-height: 20vh;
   max-width: 40vh;
   display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
   position: relative;
   p {
     align-self: center;
@@ -92,6 +103,10 @@
     right: 2vh;
     color: lighten($off-black, 20%);
     z-index: 10;
+  }
+  #clue-answer {
+    color: lighten($off-black, 20%);
+    font-size: 1.4em;
   }
 }
 

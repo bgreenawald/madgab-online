@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import "../Styles/Footer.scss";
+import { connect } from "react-redux";
+import io from 'socket.io-client';
+import { toggleUserRole } from '../store/actions';
 
 class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...props,
-      difficulty: "easy"
-    };
-  }
 
-  toggleRole = e => {
-    this.setState({ userRole: e.target.innerText.toLowerCase() });
+  toggleRole = (role) => {
+    this.props.toggleUserRole();
   };
 
   toggleDifficulty = e => {
-    this.setState({ difficulty: e.target.innerText.toLowerCase() });
+    let socket = io("http://localhost:5000");
+    socket.emit("toggle_difficulty", {
+      "name": this.props.state.id
+    })
   };
 
   render() {
@@ -27,7 +26,7 @@ class Footer extends Component {
             <div className="binary-toggle">
               <span
                 className={
-                  this.state.difficulty === "easy"
+                  this.props.state.difficulty === "easy"
                     ? "selected option"
                     : "option"
                 }
@@ -37,7 +36,7 @@ class Footer extends Component {
               </span>
               <span
                 className={
-                  this.state.difficulty === "hard"
+                  this.props.state.difficulty === "hard"
                     ? "selected option"
                     : "option"
                 }
@@ -52,18 +51,18 @@ class Footer extends Component {
             <h3>Role</h3>
             <div className="binary-toggle">
               <span
+                onClick={this.toggleRole}
                 className={
-                  this.state.userRole === "guesser"
+                  this.props.state.userRole === "guesser"
                     ? "selected option"
                     : "option"
                 }
-                onClick={this.toggleRole}
               >
                 <p>Guesser</p>
               </span>
               <span
                 className={
-                  this.state.userRole === "reader"
+                  this.props.state.userRole === "reader"
                     ? "selected option"
                     : "option"
                 }
@@ -85,9 +84,23 @@ class Footer extends Component {
             <span className="rules-button">Rules</span>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
 
-export default Footer;
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleUserRole: (role) => {
+      dispatch(toggleUserRole())
+    }
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    state: { ...state }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
