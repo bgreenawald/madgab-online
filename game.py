@@ -78,6 +78,7 @@ class Game(object):
         # Game state
         self.team_1_score: int = 0
         self.team_2_score: int = 0
+        self.round_number: int = 0
         self.state: State = State.IDLE
 
         # Initialize the clues
@@ -114,6 +115,7 @@ class Game(object):
             # Game state
             "team_1_score": self.team_1_score,
             "team_2_score": self.team_2_score,
+            "round_number": self.round_number,
             "state": self.state.value,
             "winning_team": self.winning_team,
             # Turn state
@@ -274,6 +276,8 @@ class Game(object):
         """
         if self.state not in [State.IDLE, State.STEALING]:
             raise InvalidState("Cannot start turn when not idle")
+        if self.team_1_turn:
+            self.round_number += 1
         self.reset_turn()
         self.state = State.ACTIVE
         self.increment_active_state(False)

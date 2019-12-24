@@ -235,6 +235,32 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check correct reset"):
             self.assertEqual(game.current_turn_correct, 0)
 
+    def testRoundNumber(self):
+        game = Game("", clues)
+
+        with self.subTest("Initial round number."):
+            self.assertEqual(game.round_number, 0)
+
+        # Start and end the turn
+        game.start_turn()
+
+        with self.subTest("First round number active state change."):
+            self.assertEqual(game.round_number, 1)
+
+        # Check a new turn, round number should not update.
+        game.end_active_state(game.words_per_turn, 0)
+        game.start_turn()
+
+        with self.subTest("Team 2 turn, round number should not update."):
+            self.assertEqual(game.round_number, 1)
+
+        # Check a new turn, round number should update.
+        game.end_active_state(game.words_per_turn, 0)
+        game.start_turn()
+
+        with self.subTest("Second round number active state change."):
+            self.assertEqual(game.round_number, 2)
+
     def testStartTurn(self):
 
         game = Game("", clues)
