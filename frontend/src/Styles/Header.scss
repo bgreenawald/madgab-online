@@ -1,0 +1,29 @@
+@import './Normalize.scss';
+
+.header {
+    padding: 0px 20px;
+    flex-flow: column wrap;
+    background-color: #fff;
+    color: $off-black;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    h3 {
+      margin: 0px;
+      margin-bottom: 10px;
+    }
+  }
+
+.round-counter {
+    margin-bottom: 20px;
+}
+
+.team-1-blue-score {
+    color: $primary-blue;
+}
+
+.team-2-red-score {
+    color: $primary-red;
+}
