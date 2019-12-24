@@ -1,0 +1,121 @@
+@import './Normalize.scss';
+
+
+.textbox {
+  margin: 40px auto 40px auto;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+
+  &.flex {
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .menu-bottom,
+  .game-info {
+    flex-flow: row wrap;
+    height: auto;
+    justify-content: space-around;
+    width: 60%;
+  }
+
+  .menu-bottom {
+    flex-flow: column wrap;
+    background-color: #c4c4c4;
+    width: 100%;
+  }
+
+  .menu-top {
+    top: 0;
+    position: absolute;
+    @include flexbox();
+    flex-flow: column wrap;
+  }
+}
+
+.choose-team.container {
+  @include flexbox();
+  flex-flow: column nowrap;
+  height: 60%;
+  justify-content: space-around;
+}
+
+// ***************************
+
+//    Waiting to start turn
+
+// ***************************
+
+.active-team {
+  font-size: 3.5em;
+  font-weight: normal;
+  margin-top: 0px;
+}
+
+#start-turn {
+  font-size: 1em;
+  width: 250px;
+}
+
+// ***************************
+
+//    ACTIVE/In Turn
+
+// ***************************
+
+.game-content {
+  > * {
+    margin: .7em auto;
+  }
+}
+
+#timer {
+  font-size: 200%;
+}
+
+.card.clue {
+  padding: 60px;
+  color: darken($primary-blue, 20%);
+  border-radius: $border-radius;
+  max-height: 40vh;
+  min-height: 20vh;
+  max-width: 40vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  position: relative;
+  p {
+    align-self: center;
+    font-size: 200%;
+  }
+  .clue-count {
+    position: absolute;
+    bottom: 2vh;
+    right: 2vh;
+    color: lighten($off-black, 20%);
+    z-index: 10;
+  }
+  #clue-answer {
+    color: lighten($off-black, 20%);
+    font-size: 1.4em;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row nowrap; 
+  button {
+    width: 20vw;
+    font-size: 120%;
+    margin: 0px 20px;
+  }
+}

@@ -6,3 +6,5 @@ clues_temp/
 .mypy_cache
 profile.txt
 logs/
+node_modules/
+.DS_Store
