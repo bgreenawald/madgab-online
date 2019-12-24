@@ -27,12 +27,19 @@ class GameContentInTurn extends Component {
   }
 
   decrementTimer = () => {
-    if (this.props.state.timer === 0) clearInterval();
+    if (this.props.state.timer === 0) clearInterval(this.startTimer());
     else this.props.decreaseTimer();
   }
 
   loadNextClue = (didGuessCorrectly) => {
     let socket = io("http://localhost:5000")
+    if (this.props.state.current_turn_counter === this.props.state.words_per_turn) {
+      socket.emit("end_turn", {
+        "name": this.props.state.id,
+        "correct": didGuessCorrectly,
+        "time_left": 0
+      })
+    }
     socket.emit("new_phrase", {
       "name": this.props.state.id,
       "correct": didGuessCorrectly
