@@ -24,7 +24,7 @@ class GameContentTurnWait extends Component {
       <div className="game-content">
         <div className="turn-container textbox">
           <h3>It's your turn:</h3>
-          <h2 className='active-team'>{this.props.active_team === 1 ? "Blue" : "Red"} Team</h2>
+          <h2 className='active-team'>{this.props.state.team_1_turn === true ? "Blue" : "Red"} Team</h2>
         </div>
 
         <button

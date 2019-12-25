@@ -8,12 +8,12 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <h3 className="round-counter">Round 1</h3>
+        <h3 className="round-counter">Round {this.props.state.round_number}</h3>
         <div className="score-box">
           <span className="team-1-blue-score">{this.props.state.team_1_score}</span>
           <span> - </span>
           <span className="team-2-red-score">{this.props.state.team_2_score}</span>
-        </div>
+        </div> 
       </div>
     );
   }
