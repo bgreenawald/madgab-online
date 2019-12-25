@@ -47,7 +47,9 @@ class Game extends Component {
     let id = this.getGameId();
 
     socket.on("connect", (resp) => {
-      socket.emit("join", id);
+      socket.emit("join", {
+        name: id
+      });
     });
 
     socket.on("connect", (resp) => {
