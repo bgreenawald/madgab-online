@@ -40,7 +40,16 @@ class Game extends Component {
     });
     return id;
   }
-  // join socket, load board, and render board
+
+  parsePayload = payload => {
+    if (typeof (payload) === 'string') {
+      if (payload.includes("{")) {
+        return JSON.parse(payload)
+      }
+    }
+    return payload
+  }
+
   componentDidMount = () => {
     console.log('game rendering')
     let socket = io("http://localhost:5000");
@@ -59,15 +68,10 @@ class Game extends Component {
     });
 
     socket.on("render_board", resp => {
-      console.log('event received: \n', resp.message)
-      let data = resp.payload
 
-      if (typeof (resp.payload) === 'string') {
-        if (resp.payload.includes("{")) {
-          data = JSON.parse(resp.payload)
-          console.log(data)
-        }
-      }
+      let data = this.parsePayload(resp.payload)
+      console.log('event received: \n', resp.message, '\n', data)
+
 
       this.props.updateGameData(data)
     });
