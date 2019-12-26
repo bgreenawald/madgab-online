@@ -6,7 +6,7 @@ import io from "socket.io-client";
 import { connect } from 'react-redux';
 import { decreaseTimer, updateGameData } from '../store/actions'
 
-// let socket = io('http://localhost:5000');
+let socket = io('http://localhost:5000');
 
 class GameContentInTurn extends Component {
 
@@ -16,28 +16,44 @@ class GameContentInTurn extends Component {
   }
 
   componentDidMount = () => {
-    this.props.updateGameData({
-      timer: this.props.state.seconds_per_turn
-    })
-    setTimeout(this.startTimer(), 1000)
+    this.resetTimer();
+    this.timerID = this.startTimer();
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this.timerID);
   }
 
   startTimer = () => {
-    setInterval(this.decrementTimer, 1000)
+    return setInterval(this.decrementTimer, 1000)
+  }
+
+  resetTimer = () => {
+    this.props.updateGameData({
+      timer: this.props.state.seconds_per_turn
+    })
   }
 
   decrementTimer = () => {
-    if (this.props.state.timer === 0) clearInterval(this.startTimer());
+    if (this.props.state.timer === 0 || this.props.state.timer < 0) {
+      socket.emit("end_turn", {
+        "name": this.props.state.id,
+        "correct": false,
+        "time_left": 0
+      })
+      clearInterval(this.timerID);
+      this.resetTimer();
+    }
     else this.props.decreaseTimer();
   }
 
   loadNextClue = (didGuessCorrectly) => {
-    let socket = io("http://localhost:5000")
     if (this.props.state.current_turn_counter === this.props.state.words_per_turn) {
+      clearInterval(this.startTimer);
       socket.emit("end_turn", {
         "name": this.props.state.id,
         "correct": didGuessCorrectly,
-        "time_left": 0
+        "time_left": this.props.state.timer
       })
     }
     socket.emit("new_phrase", {
