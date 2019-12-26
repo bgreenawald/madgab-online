@@ -73,7 +73,7 @@
 // ***************************
 
 .game-content {
-  > * {
+  >* {
     margin: .7em auto;
   }
 }
@@ -84,7 +84,7 @@
 
 .card.clue {
   padding: 60px;
-  color: darken($primary-blue, 20%);
+  color: $off-black;
   border-radius: $border-radius;
   max-height: 40vh;
   min-height: 20vh;
@@ -93,10 +93,12 @@
   flex-flow: column wrap;
   justify-content: center;
   position: relative;
+
   p {
     align-self: center;
     font-size: 200%;
   }
+
   .clue-count {
     position: absolute;
     bottom: 2vh;
@@ -104,6 +106,7 @@
     color: lighten($off-black, 20%);
     z-index: 10;
   }
+
   #clue-answer {
     color: lighten($off-black, 20%);
     font-size: 1.4em;
@@ -112,7 +115,8 @@
 
 .buttons {
   display: flex;
-  flex-flow: row nowrap; 
+  flex-flow: row nowrap;
+
   button {
     width: 20vw;
     font-size: 120%;

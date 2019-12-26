@@ -10,11 +10,13 @@
     border-left: 1px solid white;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    max-height: 90px;
+
     h3 {
-      margin: 0px;
-      margin-bottom: 10px;
+        margin: 0px;
+        margin-bottom: 10px;
     }
-  }
+}
 
 .round-counter {
     margin-bottom: 20px;

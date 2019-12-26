@@ -6,6 +6,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import TurnWaitStart from "./GameContentTurnWait";
 import InTurn from "./GameContentInTurn";
+import Stealing from "./Stealing";
 
 import { connect } from "react-redux";
 import { fetchGameData, updateGameData } from '../store/actions';
@@ -28,6 +29,7 @@ class Game extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.state.state !== this.props.state.state
   }
+
   getGameId = () => {
     let id = this.props.state.id;
     let url = window.location.href;
@@ -51,7 +53,6 @@ class Game extends Component {
   }
 
   componentDidMount = () => {
-    console.log('game rendering')
     let socket = io("http://localhost:5000");
     let id = this.getGameId();
 
@@ -71,7 +72,6 @@ class Game extends Component {
 
       let data = this.parsePayload(resp.payload)
       console.log('event received: \n', resp.message, '\n', data)
-
 
       this.props.updateGameData(data)
     });
@@ -96,6 +96,19 @@ class Game extends Component {
     });
   };
 
+  renderGameContent = () => {
+    switch (this.props.state.state) {
+      case 'ACTIVE':
+        return <InTurn />
+      case 'STEALING':
+        return <Stealing />
+      case 'IDLE':
+        return <TurnWaitStart />
+      default:
+        return <TurnWaitStart />
+    }
+  }
+
   render() {
     let socket = io("http://localhost:5000");
 
@@ -105,7 +118,8 @@ class Game extends Component {
     return (
       <div className={this.props.state.team_1_turn ? "game-container blue" : "game-container red"}>
         <Header {...this.state} />
-        {this.props.state.state === "ACTIVE" ? <InTurn /> : <TurnWaitStart {...this.state} />}
+
+        {this.renderGameContent()}
         <Footer {...this.state} />
       </div>
     );

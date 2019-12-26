@@ -13,13 +13,13 @@ class Header extends Component {
           <span className="team-1-blue-score">{this.props.state.team_1_score}</span>
           <span> - </span>
           <span className="team-2-red-score">{this.props.state.team_2_score}</span>
-        </div> 
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     state: { ...state }
   }

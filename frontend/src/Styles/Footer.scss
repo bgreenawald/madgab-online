@@ -5,6 +5,7 @@
     @include flexbox();
     flex-flow: column wrap;
     width: 100vw;
+    max-height: 200px;
 
     .game-branding {
         @include flexbox();
@@ -46,7 +47,7 @@
 
             &.selected {
                 background-color: white;
-                color: $primary-blue;
+                color: $off-black;
             }
 
             &:hover {
