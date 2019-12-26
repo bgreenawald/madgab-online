@@ -17,8 +17,9 @@ body {
 
 * {
   font-family: "chelsea market", arial, sans-serif;
+
   &:focus {
-    box-shadow: 0px 0px 0px 2px  white;
+    box-shadow: 0px 0px 0px 2px white;
     outline: none;
     transition: none;
   }
@@ -77,72 +78,72 @@ $off-black: #403f4c;
 
 // ********** MIXINS ********** //
 
-@mixin background-gradient() {
-  background: $primary-blue;
+@mixin background-gradient($background-color) {
+  background: $background-color;
 
   background: -moz-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
+      $background-color 0%,
+      $background-color 24%,
       #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
+      $background-color 26%,
+      $background-color 50%,
+      $background-color 74%,
       #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
+      $background-color 76%,
+      $background-color 100%);
 
   background: -webkit-gradient(linear,
       left top,
       right bottom,
-      color-stop(0%, $primary-blue),
-      color-stop(24%, $primary-blue),
+      color-stop(0%, $background-color),
+      color-stop(24%, $background-color),
       color-stop(25%, #555555),
-      color-stop(26%, $primary-blue),
-      color-stop(50%, $primary-blue),
-      color-stop(74%, $primary-blue),
+      color-stop(26%, $background-color),
+      color-stop(50%, $background-color),
+      color-stop(74%, $background-color),
       color-stop(75%, #555555),
-      color-stop(76%, $primary-blue),
-      color-stop(100%, $primary-blue));
+      color-stop(76%, $background-color),
+      color-stop(100%, $background-color));
   background: -webkit-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
+      $background-color 0%,
+      $background-color 24%,
       #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
+      $background-color 26%,
+      $background-color 50%,
+      $background-color 74%,
       #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
+      $background-color 76%,
+      $background-color 100%);
   background: -o-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
+      $background-color 0%,
+      $background-color 24%,
       #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
+      $background-color 26%,
+      $background-color 50%,
+      $background-color 74%,
       #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
+      $background-color 76%,
+      $background-color 100%);
   background: -ms-linear-gradient(-45deg,
-      $primary-blue 0%,
-      $primary-blue 24%,
+      $background-color 0%,
+      $background-color 24%,
       #555555 25%,
-      $primary-blue 26%,
-      $primary-blue 50%,
-      $primary-blue 74%,
+      $background-color 26%,
+      $background-color 50%,
+      $background-color 74%,
       #555555 75%,
-      $primary-blue 76%,
-      $primary-blue 100%);
+      $background-color 76%,
+      $background-color 100%);
   background: linear-gradient(135deg,
-      $primary-blue 0%,
-      $primary-blue -10%,
-      #0068f9 -24%,
-      $primary-blue 54%,
-      $primary-blue 97%,
-      #0057fa 136%,
-      #0068f9 195%,
-      $primary-blue 4.8%,
-      #0057f9 70%);
+      $background-color 0%,
+      $background-color -10%,
+      lighten($background-color, 5%) -24%,
+      $background-color 54%,
+      $background-color 97%,
+      lighten($background-color, 4%) 136%,
+      lighten($background-color, 5%) 195%,
+      $background-color 4.8%,
+      lighten($background-color, 4%) 70%);
 
   background-size: 70px 70px;
   -webkit-box-shadow: 0 0 25px 0 #fff;
@@ -155,12 +156,12 @@ button {
   border-radius: 10px;
   cursor: pointer;
   display: block;
-  
+
   &.primary {
     background-color: $primary-yellow;
     color: $off-black;
     transition: background-color 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
-  
+
     &:hover {
       background-color: lighten($primary-yellow, 10%);
     }
@@ -170,7 +171,7 @@ button {
     background-color: transparent;
     color: white;
     transition: all 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
-  
+
     &:hover {
       background-color: white;
       color: $off-black;

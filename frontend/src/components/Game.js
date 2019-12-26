@@ -103,7 +103,7 @@ class Game extends Component {
       console.log("start turn!", resp)
     })
     return (
-      <div className="game-container">
+      <div className={this.props.state.team_1_turn ? "game-container blue" : "game-container red"}>
         <Header {...this.state} />
         {this.props.state.state === "ACTIVE" ? <InTurn /> : <TurnWaitStart {...this.state} />}
         <Footer {...this.state} />

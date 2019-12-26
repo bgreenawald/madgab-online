@@ -69,7 +69,7 @@ class GameContentInTurn extends Component {
         <div className="card clue">
           {this.props.state.userRole === "reader" ? <p id="clue-answer">{this.props.state.current_phrase}</p> : null}
           <p id="clue-current">{this.props.state.current_madgab}</p>
-          <span className="clue-count">/3</span>
+          <span className="clue-count">{this.props.state.current_turn_counter}/3</span>
         </div>
         <div className="buttons">
           <button className="correct primary" onClick={didGetCorrect => this.loadNextClue(true)}>Correct</button>

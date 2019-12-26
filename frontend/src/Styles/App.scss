@@ -7,7 +7,6 @@
 }
 
 .home-container {
-  // background-color: blue;
   height: 100vh;
   color: white;
   width: 100%;
@@ -16,7 +15,7 @@
   text-align: center;
   position: relative;
 
-  @include background-gradient();
+  @include background-gradient($primary-blue);
 
   position: relative;
   @include flexbox();
@@ -74,7 +73,6 @@
 
   .start-game-button {
     font-size: 16px;
-    // background-color: $primary-yellow;
   }
 }
 
@@ -157,7 +155,6 @@
       color: black;
       border: none;
       top: 50px;
-      // position: relative;
     }
 
 
@@ -167,6 +164,7 @@
     transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transform: translate(-50%, 100%);
   }
+
   .close-button {
     display: block;
     margin-top: 20px;
@@ -187,27 +185,30 @@
   @include flexbox();
   flex-flow: column wrap;
   height: 100%;
-  @include background-gradient();
+  @include background-gradient($primary-blue);
 
+  &.red {
+    @include background-gradient(darken($primary-red, 25%));
+  }
 }
 
 .game-content {
   position: relative;
-  // height: 100%;
   @include flexbox();
   flex-flow: column wrap;
   flex-grow: 10;
   color: white;
   text-align: center;
   width: 100%;
-  // @include background-gradient();
 }
 
 .textbox {
   margin: 40px auto 40px auto;
 }
 
-.footer, .header, .game-info {
+.footer,
+.header,
+.game-info {
   @include flexbox();
   flex-grow: 1;
 }
