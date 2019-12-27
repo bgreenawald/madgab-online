@@ -69,7 +69,7 @@ class GameContentInTurn extends Component {
 
   render() {
     return (
-      <div className="game-content reader-view">
+      <div className="game-content">
         <div id="timer" ref={this.timerDOM}>{this.props.state.timer}s</div>
         <div className="card clue">
           {this.props.state.userRole === "reader" ? <p id="clue-answer">{this.props.state.current_phrase}</p> : null}
