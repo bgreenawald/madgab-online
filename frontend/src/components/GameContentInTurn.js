@@ -6,6 +6,8 @@ import io from "socket.io-client";
 import { connect } from 'react-redux';
 import { decreaseTimer, updateGameData } from '../store/actions'
 
+import Countdown from './Countdown';
+
 let socket = io('http://localhost:5000');
 
 class GameContentInTurn extends Component {
@@ -18,6 +20,9 @@ class GameContentInTurn extends Component {
   componentDidMount = () => {
     this.resetTimer();
     this.timerID = this.startTimer();
+    this.props.updateGameData({
+      inCountdown: true
+    })
   }
 
   componentWillUnmount = () => {
@@ -68,20 +73,25 @@ class GameContentInTurn extends Component {
   }
 
   render() {
-    return (
-      <div className="game-content">
-        <div id="timer" ref={this.timerDOM}>{this.props.state.timer}s</div>
-        <div className="card clue">
-          {this.props.state.userRole === "reader" ? <p id="clue-answer">{this.props.state.current_phrase}</p> : null}
-          <p id="clue-current">{this.props.state.current_madgab}</p>
-          <span className="clue-count">{this.props.state.current_turn_counter}/3</span>
+    if (this.props.state.inCountdown === true) {
+      return (<Countdown />)
+    }
+    else {
+      return (
+        <div className="game-content">
+          <div id="timer" ref={this.timerDOM}>{this.props.state.timer}s</div>
+          <div className="card clue">
+            {this.props.state.userRole === "reader" ? <p id="clue-answer">{this.props.state.current_phrase}</p> : null}
+            <p id="clue-current">{this.props.state.current_madgab}</p>
+            <span className="clue-count">{this.props.state.current_turn_counter}/3</span>
+          </div>
+          <div className="buttons">
+            <button className="correct primary" onClick={didGetCorrect => this.loadNextClue(true)}>Correct</button>
+            <button className="pass secondary" onClick={didGetCorrect => this.loadNextClue(false)}>Pass</button>
+          </div>
         </div>
-        <div className="buttons">
-          <button className="correct primary" onClick={didGetCorrect => this.loadNextClue(true)}>Correct</button>
-          <button className="pass secondary" onClick={didGetCorrect => this.loadNextClue(false)}>Pass</button>
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
