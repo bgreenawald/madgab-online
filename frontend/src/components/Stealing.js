@@ -12,13 +12,22 @@ class Stealing extends Component {
         })
     }
     render() {
+        let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
         if (this.props.state.inCountdown) {
-            return (<Countdown />)
+            return (<div className="game-content">
+                <div className="stealing-container">
+                    <p>
+                        {currentTeam} start stealing in...
+                    </p>
+                    <Countdown inheritedCountdown={[3, 2, 1]} />
+                </div>
+            </div>
+            )
         }
         return (
             <div className="game-content">
                 <div className="stealing-container">
-                    in steal
+                    <Countdown inheritedCountdown={['10...']} />
                 </div>
             </div>
         )
