@@ -57,10 +57,11 @@ class Countdown extends Component {
             for (let i = 0; i < this.props.inheritedCountdown.length; i++) {
                 let elem = this.props.inheritedCountdown[i];
                 if (typeof (elem) === 'string' && elem.includes('...')) {
+                    let restOfCountdown = this.props.inheritedCountdown.splice(i, this.props.inheritedCountdown.length - 1)
                     elem = elem.replace('...', '')
                     elem = Number(elem);
                     for (let j = elem; j > 0; --j) {
-                        this.props.inheritedCountdown[i] = j;
+                        this.props.inheritedCountdown.splice(i, 0, j);
                         i++;
                     }
                 }
