@@ -36,6 +36,10 @@ class Stealing extends Component {
         })
     }
 
+    countStolen = () => {
+
+    }
+
     render() {
         this.calculateNumberToSteal();
         let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";

@@ -8,23 +8,24 @@ import { updateGameData } from '../store/actions';
 class Countdown extends Component {
     constructor(props) {
         super(props)
-        this.countdownArray = this.props.inheritedCountdown || ['Ready?', 3, 2, 1, 'end'];
     }
+
     beginCountdown = () => {
+        this.countdownArray = this.props.inheritedCountdown || ['Ready?', 3, 2, 1];
+        this.currentValue = this.countdownArray[0]
         return setInterval(this.decrease, 1000)
     }
 
-    // countdownArray = ['Ready?', 3, 2, 1, 'end'];
 
     decrease = () => {
-        // this.currentValue = this.countdownArray.shift();
-        this.props.updateGameData({
-            countdownDisplay: this.currentValue
-        })
+
+        this.currentValue = this.countdownArray.shift();
+        console.log('decreasing', this.countdownArray, 'length:', this.countdownArray.length, 'curVal', this.currentValue)
+
         if (this.countdownArray.length === 0) {
             setTimeout(this.stopCountdown, 1000)
         }
-        else { this.currentValue = this.countdownArray.shift(); }
+
     }
 
     stopCountdown = () => {
@@ -34,17 +35,8 @@ class Countdown extends Component {
         })
     }
 
-    // resetCountdown = () => {
-    //     this.currentValue = this.countdownArray.shift();
-    //     this.props.updateGameData({
-    //         countdownDisplay: this.currentValue
-    //     })
-
-    //     this.currentValue = this.countdownArray.shift();
-
-    // }
-
-    resetCountdown = () => {
+    setInitialValue = () => {
+        this.countdownArray = this.props.inheritedCountdown || ['Ready?', 3, 2, 1];
         this.currentValue = this.countdownArray[0]
     }
 
@@ -53,7 +45,7 @@ class Countdown extends Component {
     }
 
     parseCountdown = () => {
-        if (this.props.inheritedCountdown)
+        if (this.props.inheritedCountdown) {
             for (let i = 0; i < this.props.inheritedCountdown.length; i++) {
                 let elem = this.props.inheritedCountdown[i];
                 if (typeof (elem) === 'string' && elem.includes('...')) {
@@ -66,11 +58,21 @@ class Countdown extends Component {
                     }
                 }
             }
+        }
     }
 
+    removeTrailingDots = () => {
+        // if (this.props.inheritedCountdown) {
+        //   this.countdownArray.map ( e => {
+        // if (elem.includes('...')) return Number(elem.replace('...', ''))
+        // else return elem
+        // }) }
+    }
+
+
     initializeCountdown = () => {
-        this.parseCountdown();
-        // this.resetCountdown();
+        // this.setInitialValue();
+        // this.parseCountdown();
         this.countdownTimerID = this.beginCountdown();
     }
 
@@ -82,8 +84,10 @@ class Countdown extends Component {
         return (
             <div className="game-content">
                 <div id="countdown">
-                    {this.props.state.countdownDisplay}
-                    {this.props.stealingSequence}
+                    {/* {this.props.state.countdownDisplay ? this.props.state.countdownDisplay : this.countdownArray[0]} */}
+                    {this.currentValue}
+                    {/* {this.props.state.countdownDisplay}
+                    {this.props.stealingSequence} */}
                 </div>
             </div>
         )

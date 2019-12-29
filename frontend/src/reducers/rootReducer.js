@@ -4,7 +4,8 @@ const initState = {
   id: "loading...",
   areRulesOpen: false,
   inTurn: false,
-  userRole: 'guesser'
+  userRole: 'guesser',
+  scoreArray: []
 };
 
 const rootReducer = (state = initState, action) => {

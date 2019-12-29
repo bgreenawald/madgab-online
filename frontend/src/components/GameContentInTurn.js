@@ -21,7 +21,8 @@ class GameContentInTurn extends Component {
     this.resetTimer();
     this.timerID = this.startTimer();
     this.props.updateGameData({
-      inCountdown: true
+      inCountdown: true,
+      scoreArray: Array(this.props.state.words_per_turn).fill('unseen')
     })
   }
 
@@ -66,6 +67,15 @@ class GameContentInTurn extends Component {
       this.loadLastClue(didGuessCorrectly);
     }
 
+    let clueStatus = didGuessCorrectly ? 'correct' : 'failed';
+
+    let newScoreArray = this.props.state.scoreArray;
+    newScoreArray[this.props.state.current_turn_counter - 1] = clueStatus;
+
+    this.props.updateGameData({
+      scoreArray: newScoreArray
+    })
+
     socket.emit("new_phrase", {
       "name": this.props.state.id,
       "correct": didGuessCorrectly
@@ -74,7 +84,11 @@ class GameContentInTurn extends Component {
 
   render() {
     if (this.props.state.inCountdown === true) {
-      return (<Countdown />)
+      return (
+        <div className="game-content">
+          <Countdown inheritedCountdown={[3, 2, 1,]} />
+        </div>
+      )
     }
     else {
       return (
