@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Styles/App.scss";
-import "../Styles/Game.scss"
+import "../Styles/Game.scss";
 import io from "socket.io-client";
 
 import { connect } from 'react-redux';
@@ -15,6 +15,7 @@ class GameContentInTurn extends Component {
   constructor() {
     super();
     this.timerDOM = React.createRef();
+    this.countdownOffsetTimer = 4;
   }
 
   componentDidMount = () => {
@@ -36,7 +37,7 @@ class GameContentInTurn extends Component {
 
   resetTimer = () => {
     this.props.updateGameData({
-      timer: this.props.state.seconds_per_turn
+      timer: this.props.state.seconds_per_turn + this.countdownOffsetTimer
     })
   }
 
@@ -86,7 +87,7 @@ class GameContentInTurn extends Component {
     if (this.props.state.inCountdown === true) {
       return (
         <div className="game-content">
-          <Countdown inheritedCountdown={[3, 2, 1,]} />
+          <Countdown loadingMessage="Ready?" />
         </div>
       )
     }
