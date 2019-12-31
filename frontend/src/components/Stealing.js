@@ -7,6 +7,16 @@ import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
 import io from 'socket.io-client';
 
+// Sequence:
+// active team scored: __/3: show animation counting correct vs. incorrect
+
+// ---
+
+// Inactive team, you can steal: show animation:
+
+// Countdown get ready in 3.2.1
+
+// countdown 10 and make enter steal before show next turn
 
 let socket = io('http://localhost:5000')
 
@@ -21,11 +31,12 @@ class Stealing extends Component {
 
     }
 
-    calculateNumberToSteal = () => {
+    displayAnswerResults = () => {
         this.cluesIcons = [];
         this.cluesToSteal = this.props.state.current_turn_counter - this.props.state.current_turn_correct;
-        for (let i = 0; i < this.cluesToSteal; i++) {
-            this.cluesIcons.push(<ClueIcon value='test' />)
+        let scoreArray = this.props.state.scoreArray;
+        for (let result of scoreArray) {
+            this.cluesIcons.push(<ClueIcon value={result} />)
         }
     }
 
@@ -40,15 +51,31 @@ class Stealing extends Component {
 
     }
 
+    getPoints = (pts) => {
+        let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
+        let points = this.props.state.current_turn_correct;
+
+        switch (pts) {
+            case 1:
+                return `1 point!`;
+            default:
+                return `${pts} points!`
+
+        }
+    }
+
     render() {
-        this.calculateNumberToSteal();
+        this.displayAnswerResults();
         let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
         let opposingTeam = this.props.state.team_1_turn ? "Red Team" : "Blue Team";
 
         return (
             <div className="game-content">
-                <p>How many clues did you steal?</p>
-                {this.cluesIcons}
+                <h2>{currentTeam},  you scored: </h2>
+                <div className="clue-icon-container">
+                    {this.cluesIcons}
+                </div>
+                <h1>{this.getPoints(this.props.state.current_turn_correct)}</h1>
             </div>
 
         )

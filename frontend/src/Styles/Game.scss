@@ -130,9 +130,16 @@
 //    STEALING
 
 // ***************************
+
+.clue-icon-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .circle-icon {
-  background-color: rgba(lighten($off-black, 20%), 20%);
-  border: 4px solid lighten($off-black, 10%);
+  background-color: white;
+  border: 4px solid rgba(lighten($off-black, 60%), 30%);
+  // TODO: add shadow with angle to icons
   border-radius: 50%;
   color: lighten($off-black, 10%);
   height: 40px;
@@ -141,8 +148,21 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  margin: 20px;
 
   &:hover {
     cursor: pointer;
+  }
+
+  &.incorrect {
+    color: $primary-red;
+  }
+
+  &.correct {
+    color: green;
+  }
+
+  &.unseen {
+    color: rgba(lighten($off-black, 20%), 20%);
   }
 }

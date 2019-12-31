@@ -9,10 +9,23 @@ class ClueIcon extends Component {
     constructor(props) {
         super(props)
     }
+
+    getIcon = (value) => {
+        switch (value) {
+            case 'correct':
+                return '✔';
+            case 'incorrect':
+                return '✗';
+            case 'unseen':
+                return '-';
+            default:
+                return null;
+        }
+    }
     render() {
         return (
-            <div className="circle-icon">
-                {this.props.value}
+            <div className={`circle-icon ${this.props.value}`}>
+                {this.getIcon(this.props.value)}
             </div>
         )
     }

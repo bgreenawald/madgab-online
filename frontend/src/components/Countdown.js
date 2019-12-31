@@ -57,7 +57,7 @@ class Countdown extends Component {
                     </h1> :
                         <div className="loading-container">
                             <h2>{this.props.loadingMessage || null}</h2>
-                            <div class="loader"></div>
+                            <div className="loader"></div>
                         </div>
                         // this.countdownArray[this.index]
                         // "loading"

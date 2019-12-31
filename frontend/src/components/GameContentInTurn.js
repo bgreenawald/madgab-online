@@ -68,7 +68,7 @@ class GameContentInTurn extends Component {
       this.loadLastClue(didGuessCorrectly);
     }
 
-    let clueStatus = didGuessCorrectly ? 'correct' : 'failed';
+    let clueStatus = didGuessCorrectly ? 'correct' : 'incorrect';
 
     let newScoreArray = this.props.state.scoreArray;
     newScoreArray[this.props.state.current_turn_counter - 1] = clueStatus;
