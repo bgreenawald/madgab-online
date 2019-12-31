@@ -91,9 +91,12 @@ class Game(object):
         self.current_phrase: str = ""
         self.current_category: str = ""
         self.current_madgab: str = ""
-        self.current_turn_clues: List[Tuple[str, str, int, str]] = []
         self.current_turn_counter: int = 0
         self.current_turn_correct: int = 0
+
+        # This contains the current turn clues. It is a tuple with the phrase,
+        # the madgab, whether they got it correct, and the category.
+        self.current_turn_clues: List[Tuple[str, str, bool, str]] = []
 
     def __str__(self) -> str:
         return (
@@ -123,9 +126,9 @@ class Game(object):
             "current_phrase": self.current_phrase,
             "current_category": self.current_category,
             "current_madgab": self.current_madgab,
-            "current_turn_clues": self.current_turn_clues,
             "current_turn_counter": self.current_turn_counter,
             "current_turn_correct": self.current_turn_correct,
+            "current_turn_clues": self.current_turn_clues,
         }
 
     for_json = __json__
@@ -189,11 +192,11 @@ class Game(object):
             self.update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 1, self.current_category)
+                (self.current_phrase, self.current_madgab, True, self.current_category)
             )
         else:
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 0, self.current_category)
+                (self.current_phrase, self.current_madgab, False, self.current_category)
             )
 
         # If they got them all correct, calculate bonus, check end condition
@@ -241,13 +244,13 @@ class Game(object):
             self.update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 1, self.current_category)
+                (self.current_phrase, self.current_madgab, True, self.current_category)
             )
         elif self.current_phrase:
             # If they didn't get it corect, but isn't the first
             # word, add to list but don't update score
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, 0, self.current_category)
+                (self.current_phrase, self.current_madgab, False, self.current_category)
             )
 
         # Update the turn counter
