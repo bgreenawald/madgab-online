@@ -33,10 +33,10 @@ class Stealing extends Component {
 
     displayAnswerResults = () => {
         this.cluesIcons = [];
-        this.cluesToSteal = this.props.state.current_turn_counter - this.props.state.current_turn_correct;
-        let scoreArray = this.props.state.scoreArray;
+        let scoreArray = this.props.state.current_turn_clues;
         for (let result of scoreArray) {
-            this.cluesIcons.push(<ClueIcon value={result} />)
+            let answer = result[2] ? 'correct' : 'incorrect';
+            this.cluesIcons.push(<ClueIcon value={answer} />)
         }
     }
 
