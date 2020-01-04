@@ -1,11 +1,18 @@
-import React, { Component } from "react";
 import "../Styles/App.scss";
 import "../Styles/Game.scss";
+
+import React, { Component } from "react";
 import { connect } from 'react-redux';
+
 import Countdown from './Countdown';
 import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
+
 import io from 'socket.io-client';
+import { gsap } from "gsap/dist/gsap";
+import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+import { TimelineLite, CSSPlugin } from "gsap/all";
+
 
 // Sequence:
 // active team scored: __/3: show animation counting correct vs. incorrect
@@ -21,10 +28,20 @@ import io from 'socket.io-client';
 let socket = io('http://localhost:5000')
 
 class Stealing extends Component {
+
+    constructor(props) {
+        super(props);
+        this.myElement = null;
+        this.myTween = new TimelineLite({ paused: true });
+        this.cluesIcons = [];
+    }
     componentDidMount = () => {
         this.props.updateGameData({
             inCountdown: true
-        })
+        });
+        this.myTween = new TimelineLite({ paused: false })
+            .to(this.myElement, 0.5, { y: -100, opacity: 1 })
+            .play();
     }
 
     generateScoreArray = () => {
@@ -32,7 +49,6 @@ class Stealing extends Component {
     }
 
     displayAnswerResults = () => {
-        this.cluesIcons = [];
         let scoreArray = this.props.state.current_turn_clues;
         for (let result of scoreArray) {
             let answer = result[2] ? 'correct' : 'incorrect';
@@ -75,6 +91,7 @@ class Stealing extends Component {
                 <div className="clue-icon-container">
                     {this.cluesIcons}
                 </div>
+                <div className="square" ref={elem => this.myElement = elem}></div>
                 <h1>{this.getPoints(this.props.state.current_turn_correct)}</h1>
             </div>
 
