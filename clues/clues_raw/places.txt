@@ -1,0 +1,400 @@
+Statue of Liberty
+Eiffel Tower
+Big Ben
+Leaning Tower of Pisa
+Colosseum
+Empire State Building
+Hollywood Sign
+Golden Gate Bridge
+Notre Dame
+Tokyo Tower
+London Eye
+St. Peter's Basilica
+Sagrada Familia
+Little Mermaid
+Great Wall of China
+Sydney Opera House
+St. Basil's Cathedral
+Arc de Triomphe
+Berlin Wall
+Stonehenge
+Kilimanjaro
+Uluru - Ayers Rock
+Taj Mahal
+Pyramids of Giza
+The Great Sphinx
+Tower Bridge
+The Forbidden City, China
+Mount Everest
+Capitol Hill
+Willis Tower (Sears Tower)
+Brooklyn Bridge
+Burj Al Arab Hotel
+Acropolis, Greece
+Trevi Fountain
+St. Mark's Basilica & Campanile
+Times Square
+The White House
+Louvre Museum
+Manneken Pis, Brussels
+Buckingham Palace
+Versailles
+Neuschwanstein Castle
+Matterhorn
+Pompeii
+Florence Cathedral
+Edinburgh Castle
+Machu Picchu
+Christ the Redeemer - Rio De Janerio, Brazil
+CN Tower
+The Grand Canyon
+Niagara Falls
+Burj Khalifa
+Tower of London
+Madrid Palace
+Mont St. Michel, France
+Las Vegas
+Petronas Twin Towers
+Windsor Castle
+Sacre Coeur, Paris
+Paul's Cathedral
+Central Park
+Mount Rushmore
+Mount Fuji
+Rialto Bridge
+Arena Di Verona
+Space Needle
+Westminster Abbey
+Rock of Gibraltar
+Alcatraz
+White Cliffs of Dover
+Iguazu National Park, Argentina
+Washington Monument
+The Shard
+The Gherkin
+Moai
+Temple of Luxor
+Brandenburg Gate, Berlin
+Cologne Cathedral
+Pentagon
+Vesuvio
+Mayan Pyramids of Chichen Itza
+Cloud Gate, Chicago
+Angkor Wat, Cambodia
+Victoria Falls
+Terracotta Warriors
+Potala Palace, Lhasa
+Petra
+Yellowstone National Park
+Hagia Sophia
+Oriental Pearl Tower
+Nyhavn
+Ponte Vecchio
+Wailing Wall
+Loch Ness
+Mecca
+Sydney Harbor Bridge
+Sistine Chapel
+Spanish Steps
+Bridge of Sighs
+Pompidue Center
+Summer Palace, an Imperial Garden in Beijing
+Mount Etna
+Lascaux Caves, France
+Bryce Canyon National Park
+Great Buddha
+Freedom Tower, Ground Zero
+Kronborg Castle
+Gateway Arch
+Shanghai World Finacial Center
+Moulin Rouge
+Redwood National Park
+Santorini
+Mill Complex at Kinderdijk
+Monument Valley Navajo Tribal Park
+Tsarskoye Selo (Catherine Palace), St Petersburg, Russia
+Juliet's Balcony
+Berlin Cathedral
+Helsinki Cathedral
+Tivoli Gardens
+Bath, England
+Brighton Pier
+Disneyland Paris
+Giant's Causeway
+Everglades National Park
+Alhambra
+Papel Palace, Avignon
+Pond Du Garre
+Festung Hohensalzburg
+Bran Castle
+Prague Castle
+Chapel Bridge
+Piazza Del Campo, Siena
+Portofino
+Table Mountain
+Atomium, Brussels
+Guggenheim Museum (Bilbao)
+Hollywood Walk of Fame
+Death Valley
+Winter Palace
+Amalienborg Palace
+Ellis Island Immigration Museum
+British Museum
+Oxford University
+Blue Lagoon
+Kremlin
+Blue Mosque, Istanbul
+Piccadilly Circus
+Trafalgar Square
+Millau Bridge, France
+Newgrange
+New York City, United States
+Paris, France
+Rome, Italy
+London, United Kingdom
+Jerusalem, Israel
+Bangkok, Thailand
+Prague, Czech Republic
+Berlin, Germany
+Amsterdam, Netherlands
+Madrid, Spain
+Munich, Germany
+Vienna, Austria
+Washington DC, United States
+Brussels, Belgium
+Tel Aviv, Israel
+Barcelona, Spain
+Istanbul, Turkey
+Sydney, Australia
+Rio De Janeiro, Brazil
+Venice, Italy
+Budapest, Hungary
+Seville, Spain
+Granada, Spain
+San Francisco, United States
+Cape Town, South Africa
+Hong Kong, China
+Buenos Aires, Argentina
+Florence, Italy
+Tokyo, Japan
+Cairo, Egypt
+Toronto, Canada
+Athens, Greece
+Melbourne, Australia
+Kathmandu, Nepal
+Montreal, Canada
+Edinburgh, United Kingdom
+Hanoi, Vietnam
+Singapore
+Dublin, Ireland
+Mexico City, Mexico
+Krakow, Poland
+Las Vegas, United States
+Havana, Cuba
+Sarajevo, Bosnia and Herzegovina
+Los Angeles, United States
+Stockholm, Sweden
+Chicago, United States
+Lisbon, Portugal
+New Orleans, United States
+Ho Chi Minh City, Vietnam
+Marrakech, Morocco
+Kyoto, Japan
+Moscow, Russia
+Shanghai, China
+Seattle, United States
+Beijing, China
+Helsinki, Finland
+St. Petersburg, Russia
+Fes, Morocco
+Phnom Penh, Cambodia
+Cusco, Peru
+Varanasi, India
+Luang Prabang, Laos
+Dubrovnik, Croatia
+New Delhi, India
+Salvador Da Bahia, Brazil
+Kolkata, India
+Santiago, Chile
+Auckland, New Zealand
+Manila, Philippines
+Zanzibar, Tanzania
+Mumbai, India
+Hamburg, Germany
+Wellington, New Zealand
+Ljubljana, Slovenia
+Seoul, South Korea
+Taipei, Taiwan
+Tallinn, Estonia
+Lhasa, China
+Bled, Slovenia
+Siena, Italy
+Jaipur, India
+La Paz, Bolivia
+Quebec City, Canada
+Naples, Italy
+Heidelberg, Germany
+Panama City, Panama
+Monaco
+Quito, Ecuador
+Bern, Switzerland
+Cartagena, Colombia
+Hobart, Australia
+Valparaiso, Chile
+Christchurch, New Zealand
+Dakar, Senegal
+Bratislava, Slovakia
+Riga, Latvia
+Copenhagen, Denmark
+Sofia, Bulgaria
+Marseille, France
+Glasgow, United Kingdom
+San Juan, Puerto Rico
+Bath, United Kingdom
+Macau, China
+Hoi An, Vietnam
+Zagreb, Croatia
+Manchester, United Kingdom
+Antigua, Guatemala
+Reykjavik, Iceland
+Hiroshima, Japan
+Nairobi, Kenya
+Vilnius, Lithuania
+Bukhara, Uzbekistan
+Bucharest, Romania
+Carcassonne, France
+Lubeck, Germany
+Montevideo, Uruguay
+Yangon, Myanmar
+Belgrade, Serbia
+Dar Es Salaam , Tanzania
+Kiev, Ukraine
+Caracas, Venezuela
+Male, Maldives
+Tbilisi, Georgia
+Suva, Fiji
+Ushuaia, Argentina
+Bogota, Colombia
+Minsk, Belarus
+Johannesburg, South Africa
+Belfast, United Kingdom
+Aswan, Egypt
+Anchorage, United States
+Yerevan, Armenia
+Luxembourg, Luxembourg
+Baku, Azerbaijan
+Addis Ababa, Ethiopia
+Santo Domingo, Dominican Republic
+Pyongyang, North Korea
+Almaty, Kazakhstan
+Mombasa, Kenya
+Valletta, Malta
+Antananarivo, Madagascar
+Miami, United States
+Bamako, Mali
+Ashgabat, Turkmenistan
+Oslo, Norway
+Milan, Italy
+Sao Paulo, Brazil
+Zurich, Switzerland
+Warsaw, Poland
+Atlanta, United States
+Guangzhou, China
+Philadelphia, United States
+Lima, Peru
+Brisbane, Australia
+Casablanca, Morocco
+Geneva, Switzerland
+Lyon, France
+San Jose, Costa Rica
+Lagos, Nigeria
+Detroit, United States
+Rotterdam, Netherlands
+Shenzhen, China
+Cologne, Germany
+Osaka, Japan
+Colombo, Sri Lanka
+Accra, Ghana
+St. Louis, United States
+Adelaide, Australia
+Porto, Portugal
+Birmingham, United Kingdom
+Turin, Italy
+Malmo, Sweden
+Ankara, Turkey
+Managua, Nicaragua
+Salt Lake City, United States
+Strasbourg, France
+Chengdu, China
+Nassau, Bahamas
+Lausanne, Switzerland
+Nuremberg, Germany
+Orlando, United States
+Ottawa, Canada
+Dresden, Germany
+Hangzhou, China
+Pretoria, South Africa
+Toulouse, France
+Bologna, Italy
+Canberra, Australia
+Nagoya, Japan
+Genoa, Italy
+Xian, China
+Nice, France
+Windhoek, Namibia
+Lalibela, Ethiopia
+Petra, Jordan
+Tashkent, Uzbekistan
+Santorini, Greece
+Siem Reap, Cambodia
+Kingston, Jamaica
+Brasilia, Brazil
+Liverpool, United Kingdom
+Bergen, Norway
+Harare, Zimbabwe
+Cancun, Mexico
+Cannes, France
+Samarkand, Uzbekistan
+Fukuoka, Japan
+Bagan, Myanmar
+Nottingham, United Kingdom
+Luxor, Egypt
+Mont St. Michel, France
+Lugano, Switzerland
+Sharm El Sheikh, Egypt
+Punta Cana, Domincan Republic
+Agra, India
+Varna, Bulgaria
+Honolulu, United States
+Chiang Mai, Thailand
+Haifa, Israel
+Thessaloniki, Greece
+Antalya, Turkey
+Batumi, Georgia
+The Hague, Netherlands
+Frankfurt, Germany
+Rabat, Morocco
+Cordoba, Spain
+Phuket, Thailand
+Salzburg, Austria
+Odessa, Ukraine
+Amman, Jordan
+Dubai, United Arab Emirates
+Kuala Lumpur, Malaysia
+Yalta, Ukraine
+Astana, Kazakhstan
+Interlaken, Switzerland
+Guatemala City, Guatemala
+Amritsar, India
+Ulaanbaatar, Mongolia
+Izmir, Turkey
+Volgograd, Russia
+Recife, Brazil
+Novosibirsk, Russia
+Manaus, Brazil
+Eilat, Israel
+Bali, Indonesia
+Riyadh, Saudi Arabia
+Doha, Qatar
+Vientiane, Laos
+Jericho, Palestine
