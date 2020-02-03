@@ -54,7 +54,7 @@ class Game(object):
         clues: List[Tuple[str, str]],
         win_threshold: int = 30,
         words_per_turn: int = 3,
-        seconds_per_turn: int = 90
+        seconds_per_turn: int = 90,
     ):
         self.reset(id, clues, win_threshold, words_per_turn, seconds_per_turn)
 
@@ -64,7 +64,7 @@ class Game(object):
         clues: List[Tuple[str, str]],
         win_threshold: int = 30,
         words_per_turn: int = 3,
-        seconds_per_turn: int = 90
+        seconds_per_turn: int = 90,
     ):
         self.id: str = id
 

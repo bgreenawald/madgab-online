@@ -26,7 +26,9 @@ if not os.path.isdir("logs"):
 logger = logging.getLogger(__name__)
 logger.setLevel("DEBUG")
 handler = logging.FileHandler("logs/app.log")
-handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+handler.setFormatter(
+    logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+)
 logger.addHandler(handler)
 
 
@@ -41,7 +43,7 @@ Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 all_games: Dict[str, Game] = {}
 
 # Generate the list of clues
-with open("./clues_full.txt", "r") as file:
+with open("./clues/clues.txt", "r") as file:
     clues = []
     for clue in file.readlines():
         category, phrase = clue.strip().split(" | ")
@@ -111,7 +113,11 @@ def on_disconnect():
 
 def emit_error(game_name: str, msg: str):
     logging.error(msg)
-    emit("render_board", {"status_code": 400, "message": msg, "payload": {}}, room=game_name)
+    emit(
+        "render_board",
+        {"status_code": 400, "message": msg, "payload": {}},
+        room=game_name,
+    )
 
 
 def emit_board(game_name: str, game: Game, msg: str):
