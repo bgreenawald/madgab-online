@@ -13,18 +13,6 @@ import { gsap } from "gsap/dist/gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 import { TimelineLite, CSSPlugin } from "gsap/all";
 
-
-// Sequence:
-// active team scored: __/3: show animation counting correct vs. incorrect
-
-// ---
-
-// Inactive team, you can steal: show animation:
-
-// Countdown get ready in 3.2.1
-
-// countdown 10 and make enter steal before show next turn
-
 let socket = io('http://localhost:5000')
 
 class Stealing extends Component {
@@ -43,18 +31,9 @@ class Stealing extends Component {
         this.myTween.staggerTo(this.cluesIcons, 0.5, { autoAlpha: 1, y: 0 }, 0.1).play();
     }
 
-    generateScoreArray = () => {
-
-    }
-
     displayAnswerResults = () => {
         let scoreArray = this.props.state.current_turn_clues;
         let index = 0;
-        // for (let result of scoreArray) {
-        //     let answer = result[2] ? 'correct' : 'incorrect';
-        //     this.cluesIcons.push(<ClueIcon value={answer} ref={elem => this.cluesIcons[index] = elem} />)
-        //     index++;
-        // }
         scoreArray.map((e, i) => (
             <ClueIcon
                 key={e.id}
@@ -70,10 +49,6 @@ class Stealing extends Component {
         })
     }
 
-    countStolen = () => {
-
-    }
-
     getPoints = (pts) => {
         let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
         let points = this.props.state.current_turn_correct;
@@ -83,12 +58,10 @@ class Stealing extends Component {
                 return `1 point!`;
             default:
                 return `${pts} points!`
-
         }
     }
 
     render() {
-        // this.displayAnswerResults();
         let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
         let opposingTeam = this.props.state.team_1_turn ? "Red Team" : "Blue Team";
 
@@ -96,7 +69,6 @@ class Stealing extends Component {
             <div className="game-content">
                 <h2>{currentTeam},  you scored: </h2>
                 <div className="clue-icon-container">
-                    {/* {this.cluesIcons} */}
                     {this.props.state.current_turn_clues.map((e, i) => (
                         <ClueIcon
                             value={e[2] ? 'correct' : 'incorrect'}
@@ -108,27 +80,6 @@ class Stealing extends Component {
             </div>
 
         )
-        // if (this.props.state.inCountdown) {
-        //     return (<div className="game-content">
-        //         <div className="stealing-container">
-        //             <p>
-        //                 {currentTeam} start stealing in...
-        //             </p>
-        //             <Countdown inheritedCountdown={[3, 2, 1]} />
-        //         </div>
-        //     </div>
-        //     )
-        // }
-        // return (
-        //     <div className="game-content">
-        //         <div className="stealing-container">
-        //             <p>{currentTeam}, you got {this.props.state.current_turn_correct}/{this.props.state.current_turn_counter} clues correct</p>
-        //             <p>{opposingTeam}, here's your chance to steal {this.cluesToSteal} clues</p>
-        //             {/* show score count animation */}
-        //             {/* <Countdown inheritedCountdown={['10...', "Time's up!"]} /> */}
-        //         </div>
-        //     </div>
-        // )
     }
 }
 
