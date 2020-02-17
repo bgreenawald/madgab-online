@@ -1,5 +1,5 @@
-import time
 import re
+import time
 
 from madgab.madgab import mad_gabify
 
@@ -21,6 +21,7 @@ def profile():
         times.append(time.time() - t1)
 
     print(sum(times) / len(times))
+
 
 if __name__ == "__main__":
     profile()

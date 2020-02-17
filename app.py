@@ -7,12 +7,12 @@ from typing import Any, Dict
 
 import simplejson
 from apscheduler.schedulers.background import BackgroundScheduler
-from flask import Flask, render_template, json, Response, request
+from flask import Flask, json, render_template, request, Response
 from flask_cors import CORS
 from flask_scss import Scss
-from flask_socketio import join_room, SocketIO, emit
+from flask_socketio import emit, join_room, SocketIO
 
-from game import InvalidState, Game
+from game import Game, InvalidState
 
 # Initialize the application
 app = Flask(__name__)

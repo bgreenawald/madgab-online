@@ -1,6 +1,6 @@
 import datetime
-from enum import Enum
 import random
+from enum import Enum
 from typing import Any, Dict, List, Tuple
 
 from madgab.madgab import mad_gabify
