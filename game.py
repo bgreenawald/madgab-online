@@ -17,9 +17,19 @@ class State(Enum):
     """Defines the current state of a turn.
     """
 
+    # Waiting for a active team to start their turn
     IDLE = "IDLE"
+
+    # The active team is guessing
     ACTIVE = "ACTIVE"
+
+    # The non-active team is stealing
     STEALING = "STEALING"
+
+    # Waiting for the active team to end their turn
+    REVIEW = "REVIEW"
+
+    # The game is over
     OVER = "OVER"
 
 
@@ -35,15 +45,17 @@ class Game(object):
         date_created (datetime): When the game was first created.
         team_1_score (int): Team 1's score.
         team_2_score (int): Team 2's score.
-        state (State): The current state of the game. Can be "IDLE", "ACTIVE", "STEALING", "OVER"
+        state (State): The current state of the game. Can be "IDLE", "ACTIVE",
+            "STEALING", "REVIEW", or "OVER"
         clues (list): All of the clues for a given game.
         team_1_turn (bool): Whether it is team 1's turn.
         winning_team (str): The winning team. Can be None, 'Team 1', or 'Team 2'
         current_phrase (str): The current phrase (plain)
         current_madgab (str): The madgabed version of the current phrase
         current_turn_clues (list of tuples): The clues for the current turn.
-            Each list element is a tuple of length 3 with the original phrase, the madgabed phrase,
-            and a boolean for whether the team got the phrase correctly.
+            Each list element is a tuple of length 3 with the original phrase, the
+            madgabed phrase, and a boolean for whether the team got the phrase
+            correctly.
         current_turn_counter (int): The number of words guessed so far this turn.
         current_turn_correct (int): The number of words guessed correctly so far this turn.
     """
@@ -160,7 +172,7 @@ class Game(object):
     def change_active_team(self):
         """Change the active team.
         """
-        if self.state not in [State.ACTIVE, State.STEALING]:
+        if self.state != State.REVIEW:
             raise InvalidState("Invalid state to change teams")
         self.team_1_turn = not self.team_1_turn
 
@@ -187,6 +199,7 @@ class Game(object):
         """
         if self.state != State.ACTIVE:
             raise InvalidState("Cannot end active state when not in activate state")
+
         # If they got the word correct, update score and correct counter.
         if correct:
             self.update_score(1)
@@ -208,14 +221,15 @@ class Game(object):
                     "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
                 )
                 return
-            # If the game is not over, transition to the next turn
-            self.change_active_team()
-            self.state = State.IDLE
+            # If the game is not over, transition to the review state
+            self.state = State.REVIEW
+            return
+
         # If any were missed, update to the stealing state
         elif self.current_turn_correct != self.current_turn_counter:
             self.state = State.STEALING
             return
-        # Otherwise, they don't get bonus but do move to the idle state
+        # Otherwise, they don't get bonus but do move to the review state
         else:
             if self.check_game_over():
                 self.state = State.OVER
@@ -224,8 +238,15 @@ class Game(object):
                 )
                 return
             # If the game is not over, transition to the next turn
-            self.change_active_team()
-            self.state = State.IDLE
+            self.state = State.REVIEW
+
+    def end_turn(self):
+        """End the turn by changing the active team and setting state to idle.
+        """
+        if self.state != State.REVIEW:
+            raise InvalidState("Invalid state for ending turn.")
+        self.change_active_team()
+        self.state = State.IDLE
 
     def increment_active_state(self, correct: bool):
         """Wrapper for moving the turn ahead during the active state.
@@ -277,7 +298,7 @@ class Game(object):
         Start a new turn by reseting turn parameters, changing the state,
         and generating the first word.
         """
-        if self.state not in [State.IDLE, State.STEALING]:
+        if self.state != State.IDLE:
             raise InvalidState("Cannot start turn when not idle")
         if self.team_1_turn:
             self.round_number += 1
@@ -307,8 +328,7 @@ class Game(object):
             return
 
         # Transition to the next turn
-        self.change_active_team()
-        self.state = State.IDLE
+        self.state = State.REVIEW
 
     def toggle_difficulty(self):
         if self.difficulty == "easy":

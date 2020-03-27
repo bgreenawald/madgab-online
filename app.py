@@ -157,7 +157,12 @@ def start_turn(json: Dict[Any, Any]):
         return
 
     game_name = json["name"]
-    game = all_games[game_name]
+    try:
+        game = all_games[game_name]
+    except KeyError:
+        logger.warning(f"Could not find the game named {game_name}.")
+        emit_error(game_name, f"Could not find the game named {game_name}.")
+        return
 
     try:
         game.start_turn()
@@ -175,7 +180,12 @@ def reset_game(json: Dict[Any, Any]):
         return
 
     game_name = json["name"]
-    game = all_games[game_name]
+    try:
+        game = all_games[game_name]
+    except KeyError:
+        logger.warning(f"Could not find the game named {game_name}.")
+        emit_error(game_name, f"Could not find the game named {game_name}.")
+        return
 
     game.reset(game_name, clues)
     emit_board(game_name, game, "Game reset")
@@ -188,7 +198,12 @@ def new_phrase(json: Dict[Any, Any]):
         return
 
     game_name = json["name"]
-    game = all_games[game_name]
+    try:
+        game = all_games[game_name]
+    except KeyError:
+        logger.warning(f"Could not find the game named {game_name}.")
+        emit_error(game_name, f"Could not find the game named {game_name}.")
+        return
 
     if "correct" not in json:
         emit_error(game_name, "'correct' not in request")
@@ -202,13 +217,18 @@ def new_phrase(json: Dict[Any, Any]):
 
 
 @socketio.on("end_turn")
-def end_turn(json: Dict[Any, Any]):
+def end_active_state(json: Dict[Any, Any]):
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
 
     game_name = json["name"]
-    game = all_games[game_name]
+    try:
+        game = all_games[game_name]
+    except KeyError:
+        logger.warning(f"Could not find the game named {game_name}.")
+        emit_error(game_name, f"Could not find the game named {game_name}.")
+        return
 
     if "correct" not in json:
         emit_error(game_name, "'correct' not in request")
@@ -219,6 +239,28 @@ def end_turn(json: Dict[Any, Any]):
 
     try:
         game.end_active_state(json["correct"], json["time_left"])
+        emit_board(game_name, game, "Active state ended")
+    except InvalidState as e:
+        logging.error("Exception occurred", exc_info=True)
+        emit_error(game_name, str(e))
+
+
+@socketio.on("change_turn")
+def end_turn(json: Dict[Any, Any]):
+    if "name" not in json:
+        logger.warning("Could not find the given board.")
+        return
+
+    game_name = json["name"]
+    try:
+        game = all_games[game_name]
+    except KeyError:
+        logger.warning(f"Could not find the game named {game_name}.")
+        emit_error(game_name, f"Could not find the game named {game_name}.")
+        return
+
+    try:
+        game.end_turn()
         emit_board(game_name, game, "Active state ended")
     except InvalidState as e:
         logging.error("Exception occurred", exc_info=True)
