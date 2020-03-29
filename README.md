@@ -2,7 +2,7 @@
 
 This is an online implementation of the game *MadGab*. It can be played on any device which can access a browser.
 
-# Setup
+# Setup - Backend
 
 This app runs on Python 3 and uses *poetry* to maintain dependencies. Assuming you already have poetry installed, you can simply run
 
@@ -33,6 +33,18 @@ After setting up the environment, just run
 python app.py
 ```
 
+## Test - Backend
+To test the backend, make sure you have the correct virtual environment setup and run
+```python
+pytest tests\test.py
+```
+
+Or to run coverage, run
+```python
+coverage run -m pytest tests\test.py
+coverage report
+```
+
 ## Setup - Frontend
 CD into the frontend directory
 Run
@@ -41,3 +53,4 @@ npm run start
 ```
 
 The UI will start up on port 3000.
+

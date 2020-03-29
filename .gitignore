@@ -1,10 +1,30 @@
-__pycache__/
-.vscode/
-env/
-clues_temp/
+# Ignore caches and checkpoints
 .ipynb_checkpoints/
 .mypy_cache
+__pycache__/
+
+# Ignore VScode
+.vscode/
+
+# Ignore virtual environments
+env/
+venv/
+.env/
+.venv/
+
+# Ignore OS specific files
+.DS_Store
+
+# Ignore modules
+node_modules/
+
+# Ignore temporary files and directories
+clues_temp/
+
+# Ignore logs and output
 profile.txt
 logs/
-node_modules/
-.DS_Store
+
+# Ignore test files
+.coverage
+htmlcov/
