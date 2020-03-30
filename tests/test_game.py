@@ -116,7 +116,9 @@ class testGameMethods(unittest.TestCase):
         game.end_turn()
         game.start_turn()
         game.team_2_score = game.win_threshold - 1
-        with self.subTest("Check winning team is none before end condition in active state."):
+        with self.subTest(
+            "Check winning team is none before end condition in active state."
+        ):
             self.assertEqual(game.winning_team, "")
 
         game.end_active_state(game.words_per_turn, 0)
@@ -132,13 +134,14 @@ class testGameMethods(unittest.TestCase):
         game.team_1_score = game.win_threshold - 1
         game.end_active_state(0, 0)
 
-        with self.subTest("Check winning team is none before end condition in steal state."):
+        with self.subTest(
+            "Check winning team is none before end condition in steal state."
+        ):
             self.assertEqual(game.winning_team, "")
 
         game.steal(3)
         with self.subTest("Check team 1 winning team from steal state."):
             self.assertEqual(game.winning_team, "Team 1")
-
 
     def testEndActiveState(self):
         game = Game("", clues)

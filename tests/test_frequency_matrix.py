@@ -6,7 +6,9 @@ from madgab.frequency_matrix import FrequencyMatrix
 class testFrequencyMatrix(unittest.TestCase):
     def test_normalize(self):
         f = FrequencyMatrix()
-        self.assertTrue(all([abs(x - 1) < 0.0001 for x in f.frequency_matrix.sum(axis=1)]))
+        self.assertTrue(
+            all([abs(x - 1) < 0.0001 for x in f.frequency_matrix.sum(axis=1)])
+        )
 
     def test_indexing(self):
         f = FrequencyMatrix()

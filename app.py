@@ -136,7 +136,9 @@ def emit_board(game_name: str, game: Game, msg: str):
 def load_board(json: Dict[Any, Any]):
     """Loads the current game board, or creates on if none exists.
     Args:
-        json (dict): dictionary with parameter called 'game'.
+        json (Dict[Any, Any]): {
+            "game": (Any) The name of the game.
+        }
     """
     game_name = json["name"]
 
@@ -152,6 +154,13 @@ def load_board(json: Dict[Any, Any]):
 
 @socketio.on("start_turn")
 def start_turn(json: Dict[Any, Any]):
+    """Starts the turn for the current active team.
+
+    Args:
+        json (Dict[Any, Any]): {
+            "name": (Any) The name of the game.
+        }
+    """
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
@@ -175,6 +184,13 @@ def start_turn(json: Dict[Any, Any]):
 
 @socketio.on("reset_game")
 def reset_game(json: Dict[Any, Any]):
+    """Resets the game for a given game ID.
+
+    Args:
+        json (Dict[Any, Any]): {
+            "name": (Any) The name of the game.
+        }
+    """
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
@@ -193,6 +209,14 @@ def reset_game(json: Dict[Any, Any]):
 
 @socketio.on("new_phrase")
 def new_phrase(json: Dict[Any, Any]):
+    """Generate a new phrase.
+
+    Args:
+        json (Dict[Any, Any]): {
+            "game": (Any) The name of the game.
+            "correct": (bool) Whether the last phrase was guessed correctly.
+        }
+    """
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
@@ -218,6 +242,18 @@ def new_phrase(json: Dict[Any, Any]):
 
 @socketio.on("end_turn")
 def end_active_state(json: Dict[Any, Any]):
+    """
+    Ends the active state for the current team. Moves the game
+    to either REVIEW or STEAL.
+
+    Args:
+        json (Dict[Any, Any]): {
+            "game": (Any) The name of the game.
+            "correct": (bool) Whether the last phrase was guessed correctly.
+            "time_left": (float). The number of seconds remaining in the turn.
+
+        }
+    """
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
@@ -247,6 +283,15 @@ def end_active_state(json: Dict[Any, Any]):
 
 @socketio.on("change_turn")
 def end_turn(json: Dict[Any, Any]):
+    """
+    Ends the turn for the current team. Moves the game from
+    REVIEW to IDLE.
+
+    Args:
+        json (Dict[Any, Any]): {
+            "game": (Any) The name of the game.
+        }
+    """
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
@@ -269,6 +314,16 @@ def end_turn(json: Dict[Any, Any]):
 
 @socketio.on("steal")
 def steal(json: Dict[Any, Any]):
+    """
+    Ends the active state for the current team. Moves the game
+    to either REVIEW or STEAL.
+
+    Args:
+        json (Dict[Any, Any]): {
+            "game": (Any) The name of the game.
+            "points": (int) The number of points stolen during STEAL phase.
+        }
+    """
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
@@ -290,6 +345,13 @@ def steal(json: Dict[Any, Any]):
 
 @socketio.on("toggle_difficulty")
 def toggle_difficulty(json: Dict[Any, Any]):
+    """Toggles the difficulty for the game with given ID.
+
+    Args:
+        json (Dict[Any, Any]): {
+            "game": (Any) The name of the game.
+        }
+    """
     if "name" not in json:
         logger.warning("Could not find the given board.")
         return
@@ -306,7 +368,7 @@ def toggle_difficulty(json: Dict[Any, Any]):
 # ---------------------------------------
 
 # Schedule cleanup
-def delete_old_games():
+def _delete_old_games():
     for game in all_games:
         age = datetime.datetime.now() - all_games[game].date_created
         if age.total_seconds() > 86400:
@@ -314,7 +376,7 @@ def delete_old_games():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=delete_old_games, trigger="interval", seconds=3600)
+scheduler.add_job(func=_delete_old_games, trigger="interval", seconds=3600)
 scheduler.start()
 
 # Shutdown your cron thread if the web process is stopped
