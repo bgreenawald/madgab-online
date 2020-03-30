@@ -96,13 +96,49 @@ class testGameMethods(unittest.TestCase):
     def testCheckGameOver(self):
         game = Game("", clues)
 
-        game.team_1_score = game.win_threshold + 1
-        with self.subTest("Game over on wrong turn"):
+        # Trivial game over check
+        game.team_1_score = game.win_threshold
+        with self.subTest("Game over false on wrong turn."):
             self.assertFalse(game.check_game_over())
 
         game.team_1_turn = False
-        with self.subTest("Correct game over state"):
+        with self.subTest("Game over true on correcdt turn."):
             self.assertTrue(game.check_game_over())
+
+        game.team_1_score = game.win_threshold - 1
+        with self.subTest("Check game not over, score not high enough."):
+            self.assertFalse(game.check_game_over())
+
+        # Game over within end active state
+        game = Game("", clues)
+        game.start_turn()
+        game.end_active_state(game.words_per_turn, 0)
+        game.end_turn()
+        game.start_turn()
+        game.team_2_score = game.win_threshold - 1
+        with self.subTest("Check winning team is none before end condition in active state."):
+            self.assertEqual(game.winning_team, "")
+
+        game.end_active_state(game.words_per_turn, 0)
+        with self.subTest("Check team 2 winning team from active state."):
+            self.assertEqual(game.winning_team, "Team 2")
+
+        # Check game over from steal
+        game = Game("", clues)
+        game.start_turn()
+        game.end_active_state(game.words_per_turn, 0)
+        game.end_turn()
+        game.start_turn()
+        game.team_1_score = game.win_threshold - 1
+        game.end_active_state(0, 0)
+
+        with self.subTest("Check winning team is none before end condition in steal state."):
+            self.assertEqual(game.winning_team, "")
+
+        game.steal(3)
+        with self.subTest("Check team 1 winning team from steal state."):
+            self.assertEqual(game.winning_team, "Team 1")
+
 
     def testEndActiveState(self):
         game = Game("", clues)

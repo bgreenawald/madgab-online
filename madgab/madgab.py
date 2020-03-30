@@ -119,7 +119,7 @@ def add_spaces(phrase: str) -> str:
     return end_str
 
 
-def tester():
+def tester():  # pragma: no cover
     while True:
         phrase = input("Enter a phrase ('q' to quit): ")
         if phrase == "q":
@@ -127,5 +127,5 @@ def tester():
         print(mad_gabify(phrase))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     tester()

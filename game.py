@@ -110,7 +110,7 @@ class Game(object):
         # the madgab, whether they got it correct, and the category.
         self.current_turn_clues: List[Tuple[str, str, bool, str]] = []
 
-    def __str__(self) -> str:
+    def __str__(self) -> str:  # pragma: no cover
         return (
             f"ID: {self.id}\n"
             f"Win threshold: {self.win_threshold}\n"
@@ -119,7 +119,7 @@ class Game(object):
             f"Clues: {self.clues}\n"
         )
 
-    def __json__(self) -> Dict[str, Any]:
+    def __json__(self) -> Dict[str, Any]:  # pragma: no cover
         return {
             "id": self.id,
             # General game configuration
@@ -353,7 +353,3 @@ class Game(object):
                 self.team_2_score += points
             else:
                 self.team_1_score += points
-
-
-if __name__ == "__main__":
-    Game("123", [])
