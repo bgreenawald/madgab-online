@@ -41,7 +41,7 @@ pytest tests\test.py
 
 Or to run coverage, run
 ```python
-coverage run -m pytest tests\test.py
+coverage run -m pytest tests/
 coverage report
 ```
 
