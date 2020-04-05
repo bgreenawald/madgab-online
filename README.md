@@ -36,7 +36,7 @@ python app.py
 ## Test - Backend
 To test the backend, make sure you have the correct virtual environment setup and run
 ```python
-pytest tests\test.py
+pytest tests/
 ```
 
 Or to run coverage, run

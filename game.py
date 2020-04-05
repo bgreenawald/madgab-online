@@ -1,6 +1,7 @@
 import datetime
 import random
 from enum import Enum
+from threading import Lock
 from typing import Any, Dict, List, Tuple
 
 from madgab.madgab import mad_gabify
@@ -58,6 +59,7 @@ class Game(object):
             correctly.
         current_turn_counter (int): The number of words guessed so far this turn.
         current_turn_correct (int): The number of words guessed correctly so far this turn.
+        lock (threading.Lock): A lock to keep the game state synchronized.
     """
 
     def __init__(
@@ -69,6 +71,9 @@ class Game(object):
         seconds_per_turn: int = 90,
     ):
         self.reset(id, clues, win_threshold, words_per_turn, seconds_per_turn)
+
+        # Lock to keep the game synchronized
+        self.lock = Lock()
 
     def reset(
         self,
@@ -145,7 +150,7 @@ class Game(object):
 
     for_json = __json__
 
-    def calculate_bonus(self, time_left: float):
+    def _calculate_bonus(self, time_left: float):
         """Calculate the bonus based on the time left
 
         Args:
@@ -167,16 +172,16 @@ class Game(object):
             bonus = 1
 
         if bonus:
-            self.update_score(bonus)
+            self._update_score(bonus)
 
-    def change_active_team(self):
+    def _change_active_team(self):
         """Change the active team.
         """
         if self.state != State.REVIEW:
             raise InvalidState("Invalid state to change teams")
         self.team_1_turn = not self.team_1_turn
 
-    def check_game_over(self):
+    def _check_game_over(self):
         """Check the end condition of the game.
 
         The end condition is simple. The game can only end on team 2's turn.
@@ -197,58 +202,78 @@ class Game(object):
             correct (bool): Whether the last clue was correctly guessed.
             time_left (float): The number of seconds remaining in the turn.
         """
-        if self.state != State.ACTIVE:
-            raise InvalidState("Cannot end active state when not in activate state")
+        self.lock.acquire(timeout=2)
+        try:
+            if self.state != State.ACTIVE:
+                raise InvalidState("Cannot end active state when not in activate state")
 
-        # If they got the word correct, update score and correct counter.
-        if correct:
-            self.update_score(1)
-            self.current_turn_correct += 1
-            self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, True, self.current_category)
-            )
-        else:
-            self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, False, self.current_category)
-            )
-
-        # If they got them all correct, calculate bonus, check end condition
-        if self.words_per_turn == self.current_turn_correct:
-            self.calculate_bonus(time_left)
-            if self.check_game_over():
-                self.state = State.OVER
-                self.winning_team = (
-                    "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+            # If they got the word correct, update score and correct counter.
+            if correct:
+                self._update_score(1)
+                self.current_turn_correct += 1
+                self.current_turn_clues.append(
+                    (self.current_phrase, self.current_madgab, True, self.current_category)
                 )
-                return
-            # If the game is not over, transition to the review state
-            self.state = State.REVIEW
-            return
-
-        # If any were missed, update to the stealing state
-        elif self.current_turn_correct != self.current_turn_counter:
-            self.state = State.STEALING
-            return
-        # Otherwise, they don't get bonus but do move to the review state
-        else:
-            if self.check_game_over():
-                self.state = State.OVER
-                self.winning_team = (
-                    "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+            else:
+                self.current_turn_clues.append(
+                    (self.current_phrase, self.current_madgab, False, self.current_category)
                 )
+
+            # If they got them all correct, calculate bonus, check end condition
+            if self.words_per_turn == self.current_turn_correct:
+                self._calculate_bonus(time_left)
+                if self._check_game_over():
+                    self.state = State.OVER
+                    self.winning_team = (
+                        "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+                    )
+                    return
+                # If the game is not over, transition to the review state
+                self.state = State.REVIEW
                 return
-            # If the game is not over, transition to the next turn
-            self.state = State.REVIEW
+
+            # If any were missed, update to the stealing state
+            elif self.current_turn_correct != self.current_turn_counter:
+                self.state = State.STEALING
+                return
+            # Otherwise, they don't get bonus but do move to the review state
+            else:
+                if self._check_game_over():
+                    self.state = State.OVER
+                    self.winning_team = (
+                        "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+                    )
+                    return
+                # If the game is not over, transition to the next turn
+                self.state = State.REVIEW
+        finally:
+            self.lock.release()
 
     def end_turn(self):
         """End the turn by changing the active team and setting state to idle.
         """
-        if self.state != State.REVIEW:
-            raise InvalidState("Invalid state for ending turn.")
-        self.change_active_team()
-        self.state = State.IDLE
+        self.lock.acquire(timeout=2)
+        try:
+            if self.state != State.REVIEW:
+                raise InvalidState("Invalid state for ending turn.")
+            self._change_active_team()
+            self.state = State.IDLE
+        finally:
+            self.lock.release()
 
     def increment_active_state(self, correct: bool):
+        """Wrapper for moving the turn ahead during the active state.
+
+        Args:
+            correct (bool): Whether the last clue was correctly guessed.
+        """
+        self.lock.acquire(timeout=2)
+        try:
+            self._increment_active_state(correct)
+        finally:
+            self.lock.release()
+
+    def _increment_active_state(self, correct: bool):
         """Wrapper for moving the turn ahead during the active state.
 
         Args:
@@ -262,7 +287,7 @@ class Game(object):
 
         # If they got the word correct, update score and correct counter.
         if correct:
-            self.update_score(1)
+            self._update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
                 (self.current_phrase, self.current_madgab, True, self.current_category)
@@ -278,15 +303,24 @@ class Game(object):
         self.current_turn_counter += 1
 
         # Generate a new phrase
-        self.new_phrase()
+        self._new_phrase()
 
     def new_phrase(self):
+        """Generates a new phrase
+        """
+        self.lock.acquire(timeout=2)
+        try:
+            self._new_phrase()
+        finally:
+            self.lock.release()
+
+    def _new_phrase(self):
         """Generates a new phrase
         """
         self.current_phrase, self.current_category = self.clues.pop()
         self.current_madgab = mad_gabify(self.current_phrase, self.difficulty)
 
-    def reset_turn(self):
+    def _reset_turn(self):
         self.current_phrase = ""
         self.current_madgab = ""
         self.current_turn_clues = []
@@ -298,13 +332,17 @@ class Game(object):
         Start a new turn by reseting turn parameters, changing the state,
         and generating the first word.
         """
-        if self.state != State.IDLE:
-            raise InvalidState("Cannot start turn when not idle")
-        if self.team_1_turn:
-            self.round_number += 1
-        self.reset_turn()
-        self.state = State.ACTIVE
-        self.increment_active_state(False)
+        self.lock.acquire(timeout=2)
+        try:
+            if self.state != State.IDLE:
+                raise InvalidState("Cannot start turn when not idle")
+            if self.team_1_turn:
+                self.round_number += 1
+            self._reset_turn()
+            self.state = State.ACTIVE
+            self._increment_active_state(False)
+        finally:
+            self.lock.release()
 
     def steal(self, points: int):
         """Steal points.
@@ -312,31 +350,39 @@ class Game(object):
         Args:
             point (int): Number of points stolen
         """
-        # Validate state
-        if self.state != State.STEALING:
-            raise InvalidState("Cannot steal when not in stealing state")
+        self.lock.acquire(timeout=2)
+        try:
+            # Validate state
+            if self.state != State.STEALING:
+                raise InvalidState("Cannot steal when not in stealing state")
 
-        # Add the stolen points
-        self.update_score(points, False)
+            # Add the stolen points
+            self._update_score(points, False)
 
-        # Check the game end condition
-        if self.check_game_over():
-            self.state = State.OVER
-            self.winning_team = (
-                "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
-            )
-            return
+            # Check the game end condition
+            if self._check_game_over():
+                self.state = State.OVER
+                self.winning_team = (
+                    "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+                )
+                return
 
-        # Transition to the next turn
-        self.state = State.REVIEW
+            # Transition to the next turn
+            self.state = State.REVIEW
+        finally:
+            self.lock.release()
 
     def toggle_difficulty(self):
-        if self.difficulty == "easy":
-            self.difficulty = "hard"
-        else:
-            self.difficulty = "easy"
+        self.lock.acquire(timeout=2)
+        try:
+            if self.difficulty == "easy":
+                self.difficulty = "hard"
+            else:
+                self.difficulty = "easy"
+        finally:
+            self.lock.release()
 
-    def update_score(self, points: int, current_team: bool = True):
+    def _update_score(self, points: int, current_team: bool = True):
         """Update the score.
 
         Args:

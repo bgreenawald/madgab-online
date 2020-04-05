@@ -3,6 +3,7 @@ import datetime
 import logging
 import os
 import re
+import sys
 from typing import Any, Dict
 
 import simplejson
@@ -26,10 +27,12 @@ if not os.path.isdir("logs"):
 logger = logging.getLogger(__name__)
 logger.setLevel("DEBUG")
 handler = logging.FileHandler("logs/app.log")
+shell_handler = logging.StreamHandler(sys.stdout)
 handler.setFormatter(
     logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 )
 logger.addHandler(handler)
+logger.addHandler(shell_handler)
 
 
 # Initialize CORS and styling

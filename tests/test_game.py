@@ -59,19 +59,19 @@ class testGameMethods(unittest.TestCase):
         game = Game("", clues)
         seconds = game.seconds_per_turn
 
-        game.calculate_bonus(seconds * 2 / 3 + 1)
+        game._calculate_bonus(seconds * 2 / 3 + 1)
         with self.subTest("Big bonus"):
             self.assertEqual(game.team_1_score, 3)
 
-        game.calculate_bonus(seconds * 1 / 2)
+        game._calculate_bonus(seconds * 1 / 2)
         with self.subTest("Medium bonus"):
             self.assertEqual(game.team_1_score, 5)
 
-        game.calculate_bonus(seconds * 1 / 4)
+        game._calculate_bonus(seconds * 1 / 4)
         with self.subTest("Small bonus"):
             self.assertEqual(game.team_1_score, 6)
 
-        game.calculate_bonus(seconds * 1 / 6 - 1)
+        game._calculate_bonus(seconds * 1 / 6 - 1)
         with self.subTest("No bonus"):
             self.assertEqual(game.team_1_score, 6)
 
@@ -80,7 +80,7 @@ class testGameMethods(unittest.TestCase):
 
         with self.subTest("Invalid change team not caught"):
             try:
-                game.change_active_team()
+                game._change_active_team()
             except InvalidState:
                 pass
             else:
@@ -89,7 +89,7 @@ class testGameMethods(unittest.TestCase):
         game.start_turn()
         game.current_turn_correct = game.words_per_turn - 1
         game.end_active_state(True, 0)
-        game.change_active_team()
+        game._change_active_team()
         with self.subTest("Check active team change"):
             self.assertFalse(game.team_1_turn)
 
@@ -99,15 +99,15 @@ class testGameMethods(unittest.TestCase):
         # Trivial game over check
         game.team_1_score = game.win_threshold
         with self.subTest("Game over false on wrong turn."):
-            self.assertFalse(game.check_game_over())
+            self.assertFalse(game._check_game_over())
 
         game.team_1_turn = False
         with self.subTest("Game over true on correcdt turn."):
-            self.assertTrue(game.check_game_over())
+            self.assertTrue(game._check_game_over())
 
         game.team_1_score = game.win_threshold - 1
         with self.subTest("Check game not over, score not high enough."):
-            self.assertFalse(game.check_game_over())
+            self.assertFalse(game._check_game_over())
 
         # Game over within end active state
         game = Game("", clues)
@@ -296,7 +296,7 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check correct"):
             self.assertEqual(game.current_turn_correct, 1)
 
-        game.reset_turn()
+        game._reset_turn()
         with self.subTest("Check current turn clues reset"):
             self.assertEqual(len(game.current_turn_clues), 0)
         with self.subTest("Check current phrase reset"):
@@ -392,22 +392,22 @@ class testGameMethods(unittest.TestCase):
     def testUpdateScore(self):
         game = Game("", clues)
 
-        game.update_score(2)
+        game._update_score(2)
         with self.subTest("Check team 1 update/team 1 active"):
             self.assertEqual(game.team_1_score, 2)
 
-        game.update_score(1, False)
+        game._update_score(1, False)
         with self.subTest("Check team2 update/team 1 active"):
             self.assertEqual(game.team_2_score, 1)
 
         game.reset("", clues)
         game.state = State.REVIEW
-        game.change_active_team()
-        game.update_score(2)
+        game._change_active_team()
+        game._update_score(2)
         with self.subTest("Check team 2 update/team 2 active"):
             self.assertEqual(game.team_2_score, 2)
 
-        game.update_score(1, False)
+        game._update_score(1, False)
         with self.subTest("Check team 2 update/team 1 active"):
             self.assertEqual(game.team_1_score, 1)
 
