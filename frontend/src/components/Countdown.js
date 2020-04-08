@@ -19,10 +19,6 @@ class Countdown extends Component {
 
 
     decrease = () => {
-
-        // this.currentValue = this.countdownArray.shift();
-        console.log('decreasing', this.countdownArray, 'length:', this.countdownArray.length, 'curVal', this.currentValue)
-
         if (this.countdownArray.length === 0) {
             setTimeout(this.stopCountdown, 1000)
         }

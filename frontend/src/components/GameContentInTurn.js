@@ -55,6 +55,14 @@ class GameContentInTurn extends Component {
 
   loadLastClue = (didGuessCorrectly) => {
     clearInterval(this.startTimer);
+
+    // update front end state
+    this.props.updateGameData({
+      lastGuessResult: didGuessCorrectly,
+      time_left: this.props.state.timer
+    })
+
+    // move back end state to next game state
     socket.emit("end_turn", {
       "name": this.props.state.id,
       "correct": didGuessCorrectly,
@@ -92,7 +100,7 @@ class GameContentInTurn extends Component {
           </div>
           <div className="buttons">
             <button className="correct primary" onClick={didGetCorrect => this.loadNextClue(true)}>Correct</button>
-            <button className="pass secondary" onClick={didGetCorrect => this.loadNextClue(false)}>Pass</button>
+            <button className="pass secondary" onClick={didGetWrong => this.loadNextClue(false)}>Pass</button>
           </div>
         </div>
       );

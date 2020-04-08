@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import TurnWaitStart from "./GameContentTurnWait";
 import InTurn from "./GameContentInTurn";
 import Stealing from "./Stealing";
+import ScoreReview from './ScoreReview';
 
 import { connect } from "react-redux";
 import { fetchGameData, updateGameData } from '../store/actions';
@@ -19,7 +20,9 @@ class Game extends Component {
       active_team: 1,
       game_name: this.props.history.location,
       userTeam: 1,
-      userRole: "guesser"
+      userRole: "guesser",
+      inScoreReview: false,
+      currentTeam: "blue"
     };
     this.clueRadioYes = React.createRef();
     this.clueRadioNo = React.createRef();
@@ -97,9 +100,12 @@ class Game extends Component {
   };
 
   renderGameContent = () => {
+    if (this.props.state.inScoreReview) return <Stealing />
     switch (this.props.state.state) {
       case 'ACTIVE':
         return <InTurn />
+      case 'REVIEW':
+        return <ScoreReview/>;
       case 'STEALING':
         return <Stealing />
       case 'IDLE':
@@ -115,8 +121,9 @@ class Game extends Component {
     socket.on("start_turn", resp => {
       console.log("start turn!", resp)
     })
+
     return (
-      <div className={this.props.state.team_1_turn ? "game-container blue" : "game-container red"}>
+      <div className={`game-container ${this.props.state.currentTeam}`}>
         <Header {...this.state} />
 
         {this.renderGameContent()}
