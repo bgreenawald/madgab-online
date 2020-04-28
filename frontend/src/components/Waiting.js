@@ -7,7 +7,7 @@ import { startTurn, toggleUserRole } from "../store/actions";
 import io from "socket.io-client";
 
 
-class GameContentTurnWait extends Component {
+class Waiting extends Component {
   handleStartTurn = () => {
     let socket = io("http://localhost:5000");
     socket.emit("start_turn", {
@@ -65,4 +65,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameContentTurnWait);
+export default connect(mapStateToProps, mapDispatchToProps)(Waiting);

@@ -4,10 +4,10 @@ import io from "socket.io-client";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import TurnWaitStart from "./GameContentTurnWait";
-import InTurn from "./GameContentInTurn";
+import TurnWaitStart from "./Waiting";
+import InTurn from "./InTurn";
 import Stealing from "./Stealing";
-import ScoreReview from './ScoreReview';
+import ScoreReview from "./ScoreReview";
 
 import { connect } from "react-redux";
 import { fetchGameData, updateGameData } from '../store/actions';
@@ -105,7 +105,7 @@ class Game extends Component {
       case 'ACTIVE':
         return <InTurn />
       case 'REVIEW':
-        return <ScoreReview/>;
+        return <ScoreReview />
       case 'STEALING':
         return <Stealing />
       case 'IDLE':

@@ -17,7 +17,7 @@ class Stealing extends Component {
     constructor(props) {
         super(props);
         this.myElement = null;
-      
+
     }
     componentDidMount = () => {
     }
@@ -33,7 +33,8 @@ class Stealing extends Component {
     render() {
         return (
             <div className="game-content">
-              <h2>Stealing component</h2>
+                <p>stealing component</p>
+                <button onClick={this.submitSteal}></button>
             </div>
 
         )

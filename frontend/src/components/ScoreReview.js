@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 import Countdown from './Countdown';
 import ClueIcon from './ClueIcon';
-import Stealing from './Stealing';
 import { updateGameData } from '../store/actions';
 
 import io from 'socket.io-client';
@@ -24,9 +23,7 @@ class ScoreReview extends Component {
         this.myTween = new TimelineLite({ paused: true });
         this.cluesIcons = [];
         this.references = [];
-        this.scoreArray = this.props.state.current_turn_clues.map(clueArray => clueArray[2]);
     }
-
     componentDidMount = () => {
         this.props.updateGameData({
             inCountdown: true
@@ -41,19 +38,12 @@ class ScoreReview extends Component {
             <ClueIcon
                 key={e.id}
                 value={e[2] ? 'correct' : 'incorrect'}
-                ref={() => this.cluesIcons[i] = e} />
+                ref={elem => this.cluesIcons[i] = e} />
         ))
     }
 
-    submitSteal = () => {
-        socket.emit("steal", {
-            "name": this.props.state.id,
-            "points": 3
-        })
-    }
-
     getPoints = (pts) => {
-        let currentTeam = this.props.state.currentTeam ? "Blue Team" : "Red Team";
+        let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
         let points = this.props.state.current_turn_correct;
 
         switch (pts) {
@@ -64,45 +54,30 @@ class ScoreReview extends Component {
         }
     }
 
-    stealOrNextTurn = () => {
-        let totalScore = this.scoreArray.reduce((acc, red) => acc+red);
-        let opposingTeam = this.props.state.currentTeam === "blue" ? "red" : "blue";
-        totalScore = 0;
-        if (totalScore === 3) {
-            this.loadNextTurn(opposingTeam);
-        }
-
-        // go onto next team's turn
-        else {
-            // show stealing page
-            // this.nextTurn()
-        }
-    }
-
-    loadNextTurn = (opposingTeam) => {
-      // start the next turn
-      socket.emit("end_turn", {
-        "name": this.props.state.id,
-        "correct": this.props.state.lastGuessResult,
-        "time_left": this.props.state.time_left
-      })
+    stealInit = () => {
+        socket.emit("end_turn", {
+            "name": this.props.state.id
+        })
     }
 
     render() {
+        let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
+        let opposingTeam = this.props.state.team_1_turn ? "Red Team" : "Blue Team";
+        let totalPoints = this.getPoints(this.props.state.current_turn_correct);
+
         return (
             <div className="game-content">
-                <h2>{this.props.state.currentTeam},  you scored: </h2>
+                <h2>{currentTeam},  you scored: </h2>
                 <div className="clue-icon-container">
-                    {this.scoreArray.map((result, i) => (
+                    {this.props.state.current_turn_clues.map((e, i) => (
                         <ClueIcon
-                            value={result ? 'correct' : 'incorrect'}
+                            value={e[2] ? 'correct' : 'incorrect'}
                             ref={ClueIcon => this.cluesIcons[i] = ClueIcon} />
                     ))}
                 </div>
                 <div className="square" ref={elem => this.myElement = elem}></div>
-                <h1>{this.getPoints(this.props.state.current_turn_correct)}</h1>
-                    <button className="score__next-button" onClick={input => this.stealOrNextTurn()}>Next</button>
-
+                <h1>{totalPoints}</h1>
+                <button onClick={this.stealInit}>continue</button>
             </div>
 
         )

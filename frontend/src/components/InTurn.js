@@ -10,7 +10,7 @@ import Countdown from './Countdown';
 
 let socket = io('http://localhost:5000');
 
-class GameContentInTurn extends Component {
+class InTurn extends Component {
 
   constructor() {
     super();
@@ -42,7 +42,7 @@ class GameContentInTurn extends Component {
 
   decrementTimer = () => {
     if (this.props.state.timer <= 0) {
-      socket.emit("end_turn", {
+      socket.emit("end_active_state", {
         "name": this.props.state.id,
         "correct": false,
         "time_left": 0
@@ -63,7 +63,7 @@ class GameContentInTurn extends Component {
     })
 
     // move back end state to next game state
-    socket.emit("end_turn", {
+    socket.emit("end_active_state", {
       "name": this.props.state.id,
       "correct": didGuessCorrectly,
       "time_left": this.props.state.timer
@@ -125,4 +125,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameContentInTurn);
+export default connect(mapStateToProps, mapDispatchToProps)(InTurn);
