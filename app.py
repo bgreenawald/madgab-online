@@ -243,7 +243,7 @@ def new_phrase(json: Dict[Any, Any]):
         emit_error(game_name, str(e))
 
 
-@socketio.on("end_active_statue")
+@socketio.on("end_active_state")
 def end_active_state(json: Dict[Any, Any]):
     """
     Ends the active state for the current team. Moves the game
