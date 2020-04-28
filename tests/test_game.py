@@ -112,8 +112,9 @@ class testGameMethods(unittest.TestCase):
         # Game over within end active state
         game = Game("", clues)
         game.start_turn()
-        game.end_active_state(game.words_per_turn, 0)
+        game.end_active_state(False, 0)
         game.end_turn()
+        game.steal(0)
         game.start_turn()
         game.team_2_score = game.win_threshold - 1
         with self.subTest(
@@ -121,18 +122,21 @@ class testGameMethods(unittest.TestCase):
         ):
             self.assertEqual(game.winning_team, "")
 
-        game.end_active_state(game.words_per_turn, 0)
+        game.end_active_state(True, 0)
+        game.end_turn()
         with self.subTest("Check team 2 winning team from active state."):
             self.assertEqual(game.winning_team, "Team 2")
 
         # Check game over from steal
         game = Game("", clues)
         game.start_turn()
-        game.end_active_state(game.words_per_turn, 0)
+        game.end_active_state(False, 0)
         game.end_turn()
+        game.steal(0)
         game.start_turn()
         game.team_1_score = game.win_threshold - 1
         game.end_active_state(0, 0)
+        game.end_turn()
 
         with self.subTest(
             "Check winning team is none before end condition in steal state."
@@ -153,44 +157,24 @@ class testGameMethods(unittest.TestCase):
             else:
                 self.fail()
 
-        # Test stealing case
+        # Test proceeded to review after some missed.
         game.start_turn()
         game.end_active_state(False, 0)
-        with self.subTest("Check game in stealing state"):
-            self.assertEqual(game.state, State.STEALING)
+        with self.subTest("Check game in review state - not all correct."):
+            self.assertEqual(game.state, State.REVIEW)
         with self.subTest("Check score not updated"):
             self.assertEqual(game.team_1_score, 0)
 
-        # Test all correct to idle state
+        # Test all correct to review state
         game = Game("", clues)
         game.start_turn()
         game.current_turn_correct = game.words_per_turn - 1
         game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
 
-        with self.subTest("Check game in review state - all correct"):
+        with self.subTest("Check game in review state - all correct."):
             self.assertEqual(game.state, State.REVIEW)
         with self.subTest("Check bonus applied"):
             self.assertEqual(game.team_1_score, 4)
-
-        # Test correct to game over state
-        game = Game("", clues)
-        game.start_turn()
-        game.current_turn_correct = game.words_per_turn - 1
-        game.team_1_turn = False
-        game.team_2_score = game.win_threshold - 2
-        game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
-
-        with self.subTest("Check game in over state"):
-            self.assertEqual(game.state, State.OVER)
-        with self.subTest("Check winning team correct"):
-            self.assertEqual(game.winning_team, "Team 2")
-
-        # Test none missed to review state
-        game = Game("", clues)
-        game.start_turn()
-        game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
-        with self.subTest("Check game in idle state"):
-            self.assertEqual(game.state, State.REVIEW)
 
     def testEndTurn(self):
         game = Game("", clues)
@@ -205,6 +189,7 @@ class testGameMethods(unittest.TestCase):
         # Test end active state to end turn
         game = Game("", clues)
         game.start_turn()
+        game.current_turn_counter = game.words_per_turn
         game.current_turn_correct = game.words_per_turn - 1
         game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
         game.end_turn()
@@ -214,16 +199,28 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check that team has changed from end turn (non-stealing)"):
             self.assertFalse(game.team_1_turn)
 
-        # Test steal state to end turn
+        # Test end turn to steal state
         game = Game("", clues)
         game.start_turn()
         game.end_active_state(False, 0)
-        game.steal(2)
         game.end_turn()
         with self.subTest("Check in idle state from end turn (stealing)."):
-            self.assertEqual(game.state, State.IDLE)
-        with self.subTest("Check that team has changed from end turn (stealing)"):
-            self.assertFalse(game.team_1_turn)
+            self.assertEqual(game.state, State.STEALING)
+
+        # Test correct to game over state
+        game = Game("", clues)
+        game.start_turn()
+        game.current_turn_correct = game.words_per_turn - 1
+        game.team_1_turn = False
+        game.team_2_score = game.win_threshold - 2
+        game.end_active_state(True, game.seconds_per_turn * 2 / 3 + 1)
+        game.end_turn()
+        game.steal(0)
+
+        with self.subTest("Check game in over state"):
+            self.assertEqual(game.state, State.OVER)
+        with self.subTest("Check winning team correct"):
+            self.assertEqual(game.winning_team, "Team 2")
 
     def testIncrementActiveState(self):
         game = Game("", clues)
@@ -321,16 +318,18 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.round_number, 1)
 
         # Check a new turn, round number should not update.
-        game.end_active_state(game.words_per_turn, 0)
+        game.end_active_state(False, 0)
         game.end_turn()
+        game.steal(0)
         game.start_turn()
 
         with self.subTest("Team 2 turn, round number should not update."):
             self.assertEqual(game.round_number, 1)
 
         # Check a new turn, round number should update.
-        game.end_active_state(game.words_per_turn, 0)
+        game.end_active_state(False, 0)
         game.end_turn()
+        game.steal(0)
         game.start_turn()
 
         with self.subTest("Second round number active state change."):
@@ -376,7 +375,7 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check other teams score"):
             self.assertEqual(game.team_2_score, 2)
         with self.subTest("Check game in review state."):
-            self.assertEqual(game.state, State.REVIEW)
+            self.assertEqual(game.state, State.IDLE)
 
     def testToggleDifficulty(self):
         game = Game("", clues)
