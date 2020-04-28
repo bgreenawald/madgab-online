@@ -177,8 +177,8 @@ class Game(object):
     def _change_active_team(self):
         """Change the active team.
         """
-        if self.state != State.REVIEW:
-            raise InvalidState("Invalid state to change teams")
+        if self.state not in [State.REVIEW, State.STEALING]:
+            raise InvalidState(f"Invalid state {self.state} to change teams.")
         self.team_1_turn = not self.team_1_turn
 
     def _check_game_over(self):
@@ -196,7 +196,7 @@ class Game(object):
             )
 
     def end_active_state(self, correct: bool, time_left: float):
-        """Ends the current active state.
+        """Ends the current active state and transition to the review state.
 
         Args:
             correct (bool): Whether the last clue was correctly guessed.
@@ -205,7 +205,7 @@ class Game(object):
         self.lock.acquire(timeout=2)
         try:
             if self.state != State.ACTIVE:
-                raise InvalidState("Cannot end active state when not in activate state")
+                raise InvalidState(f"Invalid state {self.state} to change teams.")
 
             # If they got the word correct, update score and correct counter.
             if correct:
@@ -219,33 +219,11 @@ class Game(object):
                     (self.current_phrase, self.current_madgab, False, self.current_category)
                 )
 
-            # If they got them all correct, calculate bonus, check end condition
+            # If they got them all correct, calculate bonus
             if self.words_per_turn == self.current_turn_correct:
                 self._calculate_bonus(time_left)
-                if self._check_game_over():
-                    self.state = State.OVER
-                    self.winning_team = (
-                        "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
-                    )
-                    return
-                # If the game is not over, transition to the review state
-                self.state = State.REVIEW
-                return
 
-            # If any were missed, update to the stealing state
-            elif self.current_turn_correct != self.current_turn_counter:
-                self.state = State.STEALING
-                return
-            # Otherwise, they don't get bonus but do move to the review state
-            else:
-                if self._check_game_over():
-                    self.state = State.OVER
-                    self.winning_team = (
-                        "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
-                    )
-                    return
-                # If the game is not over, transition to the next turn
-                self.state = State.REVIEW
+            self.state = State.REVIEW
         finally:
             self.lock.release()
 
@@ -255,7 +233,20 @@ class Game(object):
         self.lock.acquire(timeout=2)
         try:
             if self.state != State.REVIEW:
-                raise InvalidState("Invalid state for ending turn.")
+                raise InvalidState(f"Invalid state {self.state} for ending turn.")
+
+            # If any clues were missed, update to the stealing state
+            if self.current_turn_correct != self.current_turn_counter:
+                self.state = State.STEALING
+                return
+            # Otherwise, check the game over condition and change turns
+            else:
+                if self._check_game_over():
+                    self.state = State.OVER
+                    self.winning_team = (
+                        "Team 1" if self.team_1_score > self.team_2_score else "Team 2"
+                    )
+                    return
             self._change_active_team()
             self.state = State.IDLE
         finally:
@@ -335,7 +326,7 @@ class Game(object):
         self.lock.acquire(timeout=2)
         try:
             if self.state != State.IDLE:
-                raise InvalidState("Cannot start turn when not idle")
+                raise InvalidState(f"Invalid state {self.state} to start turn.")
             if self.team_1_turn:
                 self.round_number += 1
             self._reset_turn()
@@ -354,7 +345,7 @@ class Game(object):
         try:
             # Validate state
             if self.state != State.STEALING:
-                raise InvalidState("Cannot steal when not in stealing state")
+                raise InvalidState(f"Invalid state {self.state} for stealing.")
 
             # Add the stolen points
             self._update_score(points, False)
@@ -368,7 +359,8 @@ class Game(object):
                 return
 
             # Transition to the next turn
-            self.state = State.REVIEW
+            self._change_active_team()
+            self.state = State.IDLE
         finally:
             self.lock.release()
 
