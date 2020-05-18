@@ -212,11 +212,21 @@ class Game(object):
                 self._update_score(1)
                 self.current_turn_correct += 1
                 self.current_turn_clues.append(
-                    (self.current_phrase, self.current_madgab, True, self.current_category)
+                    (
+                        self.current_phrase,
+                        self.current_madgab,
+                        True,
+                        self.current_category,
+                    )
                 )
             else:
                 self.current_turn_clues.append(
-                    (self.current_phrase, self.current_madgab, False, self.current_category)
+                    (
+                        self.current_phrase,
+                        self.current_madgab,
+                        False,
+                        self.current_category,
+                    )
                 )
 
             # If they got them all correct, calculate bonus

@@ -12,6 +12,7 @@ from flask import Flask, json, render_template, request, Response
 from flask_cors import CORS
 from flask_scss import Scss
 from flask_socketio import emit, join_room, SocketIO
+from jsonschema import validate, ValidationError
 
 from game import Game, InvalidState
 
@@ -93,11 +94,26 @@ def get_names() -> Response:
 def on_join(data: Dict[str, Any]):
     """Joins the connection to the provided room
     Args:
-        data (dict): Name of the room.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
+        }
     """
-    room_name = data["name"]
-    join_room(room_name)
-    logger.info(f"{request.sid} has entered the room {room_name}")
+    schema = {
+        "type": "object",
+        "properties": {"name": {"type": ["string", "number"]}},
+        "required": ["name"],
+    }
+    try:
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        room_name = data["name"]
+        join_room(room_name)
+        logger.info(f"{request.sid} has entered the room {room_name}")
 
 
 @socketio.on("connect")
@@ -123,7 +139,7 @@ def emit_error(game_name: str, msg: str):
     )
 
 
-def emit_board(game_name: str, game: Game, msg: str):
+def emit_game(game_name: str, game: Game, msg: str):
     emit(
         "render_board",
         {
@@ -136,234 +152,304 @@ def emit_board(game_name: str, game: Game, msg: str):
 
 
 @socketio.on("load_board")
-def load_board(json: Dict[Any, Any]):
+def load_board(data: Dict[Any, Any]):
     """Loads the current game board, or creates on if none exists.
     Args:
-        json (Dict[Any, Any]): {
-            "game": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
         }
     """
-    game_name = json["name"]
-
-    logger.info(f"Loading board {game_name}")
-    if game_name in all_games:
-        cur_game = all_games[game_name]
-        emit_board(game_name, cur_game, "Game retrieved")
+    schema = {
+        "type": "object",
+        "properties": {"name": {"type": ["string", "number"]}},
+        "required": ["name"],
+    }
+    try:
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
     else:
-        cur_game = Game(game_name, clues)
-        all_games[game_name] = cur_game
-        emit_board(game_name, cur_game, "New game created")
+        game_name = data["name"]
+
+        if game_name not in all_games:
+            cur_game = Game(game_name)
+            all_games[game_name] = cur_game
+        else:
+            game = all_games[game_name]
+            emit_game(game_name, game, "Game loaded.")
 
 
 @socketio.on("start_turn")
-def start_turn(json: Dict[Any, Any]):
+def start_turn(data: Dict[Any, Any]):
     """Starts the turn for the current active team.
 
     Args:
-        json (Dict[Any, Any]): {
-            "name": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
         }
     """
-    if "name" not in json:
-        logger.warning("Could not find the given board.")
-        return
-
-    game_name = json["name"]
+    schema = {
+        "type": "object",
+        "properties": {"name": {"type": ["string", "number"]}},
+        "required": ["name"],
+    }
     try:
-        game = all_games[game_name]
-    except KeyError:
-        logger.warning(f"Could not find the game named {game_name}.")
-        emit_error(game_name, f"Could not find the game named {game_name}.")
-        return
-
-    try:
-        game.start_turn()
-    except InvalidState as e:
-        logging.error("Exception occurred", exc_info=True)
-        emit_error(game_name, str(e))
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
     else:
-        emit_board(game_name, game, "Started turn")
+        game_name = data["name"]
+        try:
+            game = all_games[game_name]
+        except KeyError:
+            logger.warning(f"Could not find the game named {game_name}.")
+            emit_error(game_name, f"Could not find the game named {game_name}.")
+            return
+
+        try:
+            game.start_turn()
+        except InvalidState as e:
+            logging.error("Exception occurred", exc_info=True)
+            emit_error(game_name, str(e))
+        else:
+            emit_game(game_name, game, "Started turn")
 
 
 @socketio.on("reset_game")
-def reset_game(json: Dict[Any, Any]):
+def reset_game(data: Dict[Any, Any]):
     """Resets the game for a given game ID.
 
     Args:
-        json (Dict[Any, Any]): {
-            "name": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
         }
     """
-    if "name" not in json:
-        logger.warning("Could not find the given board.")
-        return
-
-    game_name = json["name"]
+    schema = {
+        "type": "object",
+        "properties": {"name": {"type": ["string", "number"]}},
+        "required": ["name"],
+    }
     try:
-        game = all_games[game_name]
-    except KeyError:
-        logger.warning(f"Could not find the game named {game_name}.")
-        emit_error(game_name, f"Could not find the game named {game_name}.")
-        return
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        game_name = data["name"]
+        try:
+            game = all_games[game_name]
+        except KeyError:
+            logger.warning(f"Could not find the game named {game_name}.")
+            emit_error(game_name, f"Could not find the game named {game_name}.")
+            return
 
-    game.reset(game_name, clues)
-    emit_board(game_name, game, "Game reset")
+        game.reset(game_name, clues)
+        emit_game(game_name, game, "Game reset")
 
 
 @socketio.on("new_phrase")
-def new_phrase(json: Dict[Any, Any]):
+def new_phrase(data: Dict[Any, Any]):
     """Generate a new phrase.
 
     Args:
-        json (Dict[Any, Any]): {
-            "game": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
             "correct": (bool) Whether the last phrase was guessed correctly.
         }
     """
-    if "name" not in json:
-        logger.warning("Could not find the given board.")
-        return
-
-    game_name = json["name"]
+    schema = {
+        "type": "object",
+        "properties": {
+            "name": {"type": ["string", "number"]},
+            "correct": {"type": "boolean"},
+        },
+        "required": ["name", "correct"],
+    }
     try:
-        game = all_games[game_name]
-    except KeyError:
-        logger.warning(f"Could not find the game named {game_name}.")
-        emit_error(game_name, f"Could not find the game named {game_name}.")
-        return
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        game_name = data["name"]
+        try:
+            game = all_games[game_name]
+        except KeyError:
+            logger.warning(f"Could not find the game named {game_name}.")
+            emit_error(game_name, f"Could not find the game named {game_name}.")
+            return
 
-    if "correct" not in json:
-        emit_error(game_name, "'correct' not in request")
-
-    try:
-        game.increment_active_state(json["correct"])
-        emit_board(game_name, game, "New phrase generated")
-    except InvalidState as e:
-        logging.error("Exception occurred", exc_info=True)
-        emit_error(game_name, str(e))
+        try:
+            game.increment_active_state(data["correct"])
+            emit_game(game_name, game, "New phrase generated")
+        except InvalidState as e:
+            logging.error("Exception occurred", exc_info=True)
+            emit_error(game_name, str(e))
 
 
 @socketio.on("end_active_state")
-def end_active_state(json: Dict[Any, Any]):
+def end_active_state(data: Dict[Any, Any]):
     """
     Ends the active state for the current team. Moves the game
     to either REVIEW or STEAL.
 
     Args:
-        json (Dict[Any, Any]): {
-            "game": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
             "correct": (bool) Whether the last phrase was guessed correctly.
             "time_left": (float). The number of seconds remaining in the turn.
 
         }
     """
-    if "name" not in json:
-        logger.warning("Could not find the given board.")
-        return
-
-    game_name = json["name"]
+    schema = {
+        "type": "object",
+        "properties": {
+            "name": {"type": ["string", "number"]},
+            "correct": {"type": "boolean"},
+            "time_left": {"type": "number"},
+        },
+        "required": ["name", "correct", "time_left"],
+    }
     try:
-        game = all_games[game_name]
-    except KeyError:
-        logger.warning(f"Could not find the game named {game_name}.")
-        emit_error(game_name, f"Could not find the game named {game_name}.")
-        return
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        game_name = data["name"]
+        try:
+            game = all_games[game_name]
+        except KeyError:
+            logger.warning(f"Could not find the game named {game_name}.")
+            emit_error(game_name, f"Could not find the game named {game_name}.")
+            return
 
-    if "correct" not in json:
-        emit_error(game_name, "'correct' not in request")
-        return
-    elif "time_left" not in json:
-        emit_error(game_name, "'time_left' not in request")
-        return
-
-    try:
-        game.end_active_state(json["correct"], json["time_left"])
-        emit_board(game_name, game, "Active state ended")
-    except InvalidState as e:
-        logging.error("Exception occurred", exc_info=True)
-        emit_error(game_name, str(e))
+        try:
+            game.end_active_state(data["correct"], data["time_left"])
+            emit_game(game_name, game, "Active state ended")
+        except InvalidState as e:
+            logging.error("Exception occurred", exc_info=True)
+            emit_error(game_name, str(e))
 
 
 @socketio.on("end_turn")
-def end_turn(json: Dict[Any, Any]):
+def end_turn(data: Dict[Any, Any]):
     """
     Ends the turn for the current team. Moves the game from
     REVIEW to IDLE.
 
     Args:
-        json (Dict[Any, Any]): {
-            "game": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
         }
     """
-    if "name" not in json:
-        logger.warning("Could not find the given board.")
-        return
-
-    game_name = json["name"]
+    schema = {
+        "type": "object",
+        "properties": {"name": {"type": ["string", "number"]}},
+        "required": ["name"],
+    }
     try:
-        game = all_games[game_name]
-    except KeyError:
-        logger.warning(f"Could not find the game named {game_name}.")
-        emit_error(game_name, f"Could not find the game named {game_name}.")
-        return
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        game_name = data["name"]
+        try:
+            game = all_games[game_name]
+        except KeyError:
+            logger.warning(f"Could not find the game named {game_name}.")
+            emit_error(game_name, f"Could not find the game named {game_name}.")
+            return
 
-    try:
-        game.end_turn()
-        emit_board(game_name, game, "Active state ended")
-    except InvalidState as e:
-        logging.error("Exception occurred", exc_info=True)
-        emit_error(game_name, str(e))
+        try:
+            game.end_turn()
+            emit_game(game_name, game, "Active state ended")
+        except InvalidState as e:
+            logging.error("Exception occurred", exc_info=True)
+            emit_error(game_name, str(e))
 
 
 @socketio.on("steal")
-def steal(json: Dict[Any, Any]):
+def steal(data: Dict[Any, Any]):
     """
     Ends the active state for the current team. Moves the game
     to either REVIEW or STEAL.
 
     Args:
-        json (Dict[Any, Any]): {
-            "game": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
             "points": (int) The number of points stolen during STEAL phase.
         }
     """
-    if "name" not in json:
-        logger.warning("Could not find the given board.")
-        return
-
-    game_name = json["name"]
-    game = all_games[game_name]
-
-    if "points" not in json:
-        emit_error(game_name, "'points' not in request")
-        return
-
+    schema = {
+        "type": "object",
+        "properties": {
+            "name": {"type": ["string", "number"]},
+            "points": {"type": "integer"},
+        },
+        "required": ["name", "points"],
+    }
     try:
-        game.steal(json["points"])
-        emit_board(game_name, game, "Points stolen")
-    except InvalidState as e:
-        logging.error("Exception occurred", exc_info=True)
-        emit_error(game_name, str(e))
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        game_name = data["name"]
+        game = all_games[game_name]
+
+        try:
+            game.steal(data["points"])
+            emit_game(game_name, game, "Points stolen")
+        except InvalidState as e:
+            logging.error("Exception occurred", exc_info=True)
+            emit_error(game_name, str(e))
 
 
 @socketio.on("toggle_difficulty")
-def toggle_difficulty(json: Dict[Any, Any]):
+def toggle_difficulty(data: Dict[Any, Any]):
     """Toggles the difficulty for the game with given ID.
 
     Args:
-        json (Dict[Any, Any]): {
-            "game": (Any) The name of the game.
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
         }
     """
-    if "name" not in json:
-        logger.warning("Could not find the given board.")
-        return
+    schema = {
+        "type": "object",
+        "properties": {"name": {"type": ["string", "number"]}},
+        "required": ["name"],
+    }
+    try:
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        game_name = data["name"]
+        game = all_games[game_name]
 
-    game_name = json["name"]
-    game = all_games[game_name]
-
-    game.toggle_difficulty()
-    emit_board(game_name, game, "Difficulty toggled")
+        game.toggle_difficulty()
+        emit_game(game_name, game, "Difficulty toggled")
 
 
 # ---------------------------------------
