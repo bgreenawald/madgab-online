@@ -218,7 +218,7 @@ def start_turn(data: Dict[Any, Any]):
             logging.error("Exception occurred", exc_info=True)
             emit_error(game_name, str(e))
         else:
-            emit_game(game_name, game, "Started turn")
+            emit_game(game_name, game, "Started turn.")
 
 
 @socketio.on("reset_game")
@@ -252,7 +252,7 @@ def reset_game(data: Dict[Any, Any]):
             return
 
         game.reset(game_name, clues)
-        emit_game(game_name, game, "Game reset")
+        emit_game(game_name, game, "Game reset.")
 
 
 @socketio.on("new_phrase")
@@ -291,7 +291,7 @@ def new_phrase(data: Dict[Any, Any]):
 
         try:
             game.increment_active_state(data["correct"])
-            emit_game(game_name, game, "New phrase generated")
+            emit_game(game_name, game, "New phrase generated.")
         except InvalidState as e:
             logging.error("Exception occurred", exc_info=True)
             emit_error(game_name, str(e))
@@ -338,7 +338,7 @@ def end_active_state(data: Dict[Any, Any]):
 
         try:
             game.end_active_state(data["correct"], data["time_left"])
-            emit_game(game_name, game, "Active state ended")
+            emit_game(game_name, game, "Active state ended.")
         except InvalidState as e:
             logging.error("Exception occurred", exc_info=True)
             emit_error(game_name, str(e))
@@ -378,7 +378,7 @@ def end_turn(data: Dict[Any, Any]):
 
         try:
             game.end_turn()
-            emit_game(game_name, game, "Active state ended")
+            emit_game(game_name, game, "Turn ended.")
         except InvalidState as e:
             logging.error("Exception occurred", exc_info=True)
             emit_error(game_name, str(e))
@@ -417,7 +417,7 @@ def steal(data: Dict[Any, Any]):
 
         try:
             game.steal(data["points"])
-            emit_game(game_name, game, "Points stolen")
+            emit_game(game_name, game, "Points stolen.")
         except InvalidState as e:
             logging.error("Exception occurred", exc_info=True)
             emit_error(game_name, str(e))
@@ -449,7 +449,7 @@ def toggle_difficulty(data: Dict[Any, Any]):
         game = all_games[game_name]
 
         game.toggle_difficulty()
-        emit_game(game_name, game, "Difficulty toggled")
+        emit_game(game_name, game, "Difficulty toggled.")
 
 
 # ---------------------------------------
