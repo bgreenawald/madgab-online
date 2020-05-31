@@ -20,7 +20,8 @@ from game import Game, InvalidState
 app = Flask(__name__)
 app.debug = True
 app.config["SECRET_KEY"] = "secret!"
-socketio = SocketIO(app)
+cors_allowed_origins = 'https://localhost'
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Setup logging
 if not os.path.isdir("logs"):
@@ -38,9 +39,6 @@ logger.addHandler(shell_handler)
 
 # Initialize CORS and styling
 CORS(app)
-# app.wsgi_app = SassMiddleware(app.wsgi_app, {
-#     'app': ('static/sass', 'static/css', '/static/css')
-# })
 Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 
 # Dictionary to hold all games
@@ -175,7 +173,7 @@ def load_board(data: Dict[Any, Any]):
         game_name = data["name"]
 
         if game_name not in all_games:
-            cur_game = Game(game_name)
+            cur_game = Game(game_name, clues)
             all_games[game_name] = cur_game
         else:
             game = all_games[game_name]
