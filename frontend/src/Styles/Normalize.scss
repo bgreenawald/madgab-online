@@ -156,6 +156,7 @@ button {
   border-radius: 10px;
   cursor: pointer;
   display: block;
+  border: none;
 
   &.primary {
     background-color: $primary-yellow;
@@ -168,8 +169,8 @@ button {
   }
 
   &.secondary {
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: $off-black;
     transition: all 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     &:hover {
@@ -182,4 +183,5 @@ button {
 // ********** BUTTONS ********** //
 .card {
   background-color: #fff;
+  min-width: 400px;
 }
