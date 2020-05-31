@@ -43,9 +43,6 @@ class ScoreReview extends Component {
     }
 
     getPoints = (pts) => {
-        let currentTeam = this.props.state.team_1_turn ? "Blue Team" : "Red Team";
-        let points = this.props.state.current_turn_correct;
-
         switch (pts) {
             case 1:
                 return `1 point!`;

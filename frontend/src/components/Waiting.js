@@ -20,11 +20,12 @@ class Waiting extends Component {
   }
 
   render() {
+    let currentTeam = this.props.state.currentTeam.charAt(0).toUpperCase() + this.props.state.currentTeam.slice(1);
     return (
       <div className="game-content">
         <div className="turn-container textbox">
           <h3>It's your turn:</h3>
-          <h2 className='active-team'>{this.props.state.team_1_turn === true ? "Blue" : "Red"} Team</h2>
+          <h2 className='active-team'>{currentTeam} Team</h2>
         </div>
 
         <button

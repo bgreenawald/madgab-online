@@ -5,7 +5,9 @@ const initState = {
   areRulesOpen: false,
   inTurn: false,
   userRole: 'guesser',
-  scoreArray: []
+  scoreArray: [],
+  difficulty: 'easy',
+  currentTeam: "blue"
 };
 
 const rootReducer = (state = initState, action) => {

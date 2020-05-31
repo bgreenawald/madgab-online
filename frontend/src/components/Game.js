@@ -15,19 +15,38 @@ import { fetchGameData, updateGameData } from '../store/actions';
 class Game extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ...props,
-      active_team: 1,
-      game_name: this.props.history.location,
-      userTeam: 1,
-      userRole: "guesser",
-      inScoreReview: false,
-      currentTeam: "blue"
-    };
     this.clueRadioYes = React.createRef();
     this.clueRadioNo = React.createRef();
     this.timerDOM = React.createRef();
   }
+
+  componentDidMount = () => {
+    let socket = io("http://localhost:5000");
+    let id = this.getGameId();
+
+    socket.on("connect", (resp) => {
+      socket.emit("join", {
+        name: id
+      });
+    });
+
+    socket.on("connect", (resp) => {
+      socket.emit("load_board", {
+        name: id
+      });
+    });
+
+    socket.on("render_board", resp => {
+
+      const data = this.parsePayload(resp.payload)
+      data.currentTeam = data.team_1_turn ? 'blue' : 'red';
+      data.opposingTeam = data.team_1_turn ? 'red' : 'blue';
+      data.backgroundColor = (data.state === "STEALING") ? data.opposingTeam : data.currentTeam;
+      console.log('event received: \n', resp.message, '\n', data)
+
+      this.props.updateGameData(data);
+    });
+  };
 
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.state.state !== this.props.state.state
@@ -55,33 +74,8 @@ class Game extends Component {
     return payload
   }
 
-  componentDidMount = () => {
-    let socket = io("http://localhost:5000");
-    let id = this.getGameId();
-
-    socket.on("connect", (resp) => {
-      socket.emit("join", {
-        name: id
-      });
-    });
-
-    socket.on("connect", (resp) => {
-      socket.emit("load_board", {
-        name: id
-      });
-    });
-
-    socket.on("render_board", resp => {
-
-      let data = this.parsePayload(resp.payload)
-      console.log('event received: \n', resp.message, '\n', data)
-
-      this.props.updateGameData(data)
-    });
-  };
-
   handleRoleSelected = () => {
-    this.setState({
+    this.props.updateGameData({
       userRole: document.querySelector('input[name="userRole"]:checked').value
     });
   };
@@ -100,8 +94,9 @@ class Game extends Component {
   };
 
   renderGameContent = () => {
-    if (this.props.state.inScoreReview) return <Stealing />
-    switch (this.props.state.state) {
+    const state = this.props.state.state;
+
+    switch (state) {
       case 'ACTIVE':
         return <InTurn />
       case 'REVIEW':
@@ -123,7 +118,7 @@ class Game extends Component {
     })
 
     return (
-      <div className={`game-container ${this.props.state.currentTeam}`}>
+      <div className={`game-container ${this.props.state.backgroundColor}`}>
         <Header {...this.state} />
 
         {this.renderGameContent()}
