@@ -6,10 +6,16 @@ $border-radius: 15px;
 
 // ********** LAYOUT ********** //
 
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
 body {
   padding: 0;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   position: relative;
   overflow: hidden;
   color: white;
@@ -64,7 +70,15 @@ body {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3rem;
+  line-height: 1.3;
+}
+
+@media only screen and (max-width: 600px) {
+  p {
+    // font-size: 1rem;
+    font: 1rem 1.3;
+  }
 }
 
 // ********** COLORS ********** //
@@ -161,10 +175,20 @@ button {
   &.primary {
     background-color: $primary-yellow;
     color: $off-black;
-    transition: background-color 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: background-color 0.1s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: scale 0.1s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     &:hover {
-      background-color: lighten($primary-yellow, 10%);
+      background-color: darken($primary-yellow, 40%);
+      border: none;
+      color: white;
+    }
+
+    &:active {
+      background-color: darken($primary-yellow, 60%);
+      color: white;
+      transform: scale(1.03);
+      border: none;
     }
   }
 
@@ -174,14 +198,18 @@ button {
     transition: all 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     &:hover {
-      background-color: white;
-      color: $off-black;
+      background-color: rgba(darken($primary-yellow, 60%), .4);
+      color: white;
+    }
+
+    &:active {
+      background-color: rgba(darken($primary-yellow, 60%), .6);
+      color: white;
     }
   }
 }
 
-// ********** BUTTONS ********** //
+// // ********** CARD ********** //
 .card {
   background-color: #fff;
-  min-width: 400px;
 }

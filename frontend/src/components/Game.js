@@ -117,6 +117,8 @@ class Game extends Component {
       console.log("start turn!", resp)
     })
 
+    // if (!this.props.state.data) return null;
+
     return (
       <div className={`game-container ${this.props.state.backgroundColor}`}>
         <Header {...this.state} />

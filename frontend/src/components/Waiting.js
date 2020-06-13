@@ -25,7 +25,7 @@ class Waiting extends Component {
       <div className="game-content">
         <div className="turn-container textbox">
           <h3>It's your turn:</h3>
-          <h2 className='active-team'>{currentTeam} Team</h2>
+          <h1 className='active-team'>{currentTeam} Team</h1>
         </div>
 
         <button

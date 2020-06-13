@@ -72,9 +72,9 @@ class ScoreReview extends Component {
                             ref={ClueIcon => this.cluesIcons[i] = ClueIcon} />
                     ))}
                 </div>
-                <div className="square" ref={elem => this.myElement = elem}></div>
+                {/* <div className="square" ref={elem => this.myElement = elem}></div> */}
                 <h1>{totalPoints}</h1>
-                <button onClick={this.stealInit}>continue</button>
+                <button className="primary" onClick={this.stealInit}>continue</button>
             </div>
 
         )

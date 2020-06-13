@@ -1,8 +1,10 @@
-@import './Normalize.scss';
+@import './App.scss';
 
 .header {
-    padding: 0px 20px;
+    @include flexbox();
+    padding: 10px 20px;
     flex-flow: column wrap;
+    justify-content: center;
     background-color: #fff;
     color: $off-black;
     border-bottom: 1px solid white;
@@ -11,6 +13,7 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     max-height: 90px;
+    margin-top: -4%;
 
     h3 {
         margin: 0px;
@@ -29,3 +32,24 @@
 .team-2-red-score {
     color: $primary-red;
 }
+
+// .header .game-branding {
+//     display: none;
+// }
+
+// @media only screen and (max-width: 600px) {
+.header .game-branding {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    @include flexbox();
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    color: white;
+    // TODO add links to home and to rules modal0
+    font-size: 1.3rem;
+}
+
+// }
