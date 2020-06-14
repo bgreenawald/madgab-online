@@ -4,6 +4,7 @@
 .footer {
     @include flexbox();
     flex-flow: column nowrap;
+    justify-content: flex-end;
     width: 100%;
     max-height: 200px;
 
