@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "../Styles/App.scss";
-import "../Styles/Game.scss"
+import "../Styles/Variables.scss";
 // import { connect } from 'react-redux';
 
 // import { gsap } from "gsap/dist/gsap";

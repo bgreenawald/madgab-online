@@ -1,5 +1,3 @@
-import "../Styles/App.scss";
-import "../Styles/Game.scss";
 
 import React, { Component } from "react";
 import { connect } from 'react-redux';
@@ -34,7 +32,9 @@ class Stealing extends Component {
         socket.emit("steal", {
             "name": this.props.state.id,
             "points": 3
-        })
+        });
+
+        // launch countdown component
     }
 
     render() {
@@ -52,6 +52,9 @@ class Stealing extends Component {
                 <div className="game-content">
                     <h2>{this.props.state.opposingTeam} team, you get 10 seconds to steal {this.props.state.availablePoints} points from the {this.props.state.currentTeam} team!</h2>
                     <button className="primary" onClick={this.submitSteal}>Let's steal!</button>
+                    <div className="tooltip-icon">?
+                        <div className="tooltip modal"><span>these are the rules</span></div>
+                    </div>
                 </div>
 
             )

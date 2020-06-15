@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../Styles/Normalize.scss";
+import "../Styles/Variables.scss";
 
 export default class Button extends Component {
   render() {

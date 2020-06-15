@@ -1,0 +1,101 @@
+$border-radius: 15px;
+
+@mixin flexbox() {
+    display: flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin pos-a-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// ********** COLORS ********** //
+
+$primary-blue: #0057f9;
+$primary-yellow: #ffd754;
+$primary-red: #e84855;
+$off-black: #403f4c;
+
+// Color scheme: https://coolors.co/ffff99-91bfff-ffd754-1034a6-0057f9
+
+// ********** MIXINS ********** //
+
+@mixin background-gradient($background-color) {
+    background: $background-color;
+
+    background: -moz-linear-gradient(-45deg,
+            $background-color 0%,
+            $background-color 24%,
+            #555555 25%,
+            $background-color 26%,
+            $background-color 50%,
+            $background-color 74%,
+            #555555 75%,
+            $background-color 76%,
+            $background-color 100%);
+
+    background: -webkit-gradient(linear,
+            left top,
+            right bottom,
+            color-stop(0%, $background-color),
+            color-stop(24%, $background-color),
+            color-stop(25%, #555555),
+            color-stop(26%, $background-color),
+            color-stop(50%, $background-color),
+            color-stop(74%, $background-color),
+            color-stop(75%, #555555),
+            color-stop(76%, $background-color),
+            color-stop(100%, $background-color));
+    background: -webkit-linear-gradient(-45deg,
+            $background-color 0%,
+            $background-color 24%,
+            #555555 25%,
+            $background-color 26%,
+            $background-color 50%,
+            $background-color 74%,
+            #555555 75%,
+            $background-color 76%,
+            $background-color 100%);
+    background: -o-linear-gradient(-45deg,
+            $background-color 0%,
+            $background-color 24%,
+            #555555 25%,
+            $background-color 26%,
+            $background-color 50%,
+            $background-color 74%,
+            #555555 75%,
+            $background-color 76%,
+            $background-color 100%);
+    background: -ms-linear-gradient(-45deg,
+            $background-color 0%,
+            $background-color 24%,
+            #555555 25%,
+            $background-color 26%,
+            $background-color 50%,
+            $background-color 74%,
+            #555555 75%,
+            $background-color 76%,
+            $background-color 100%);
+    background: linear-gradient(135deg,
+            $background-color 0%,
+            $background-color -10%,
+            lighten($background-color, 5%) -24%,
+            $background-color 54%,
+            $background-color 97%,
+            lighten($background-color, 4%) 136%,
+            lighten($background-color, 5%) 195%,
+            $background-color 4.8%,
+            lighten($background-color, 4%) 70%);
+
+    background-size: 70px 70px;
+    -webkit-box-shadow: 0 0 25px 0 #fff;
+}

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import '../Styles/App.scss';
-import "../Styles/Game.scss";
 import "../Styles/Loading.scss";
 
 import { connect } from 'react-redux';

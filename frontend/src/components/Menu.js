@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../Styles/App.scss'
 
 class Menu extends Component {
     constructor(props) {

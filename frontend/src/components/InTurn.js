@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import "../Styles/App.scss";
-import "../Styles/Game.scss";
 import io from "socket.io-client";
 
 import { connect } from 'react-redux';

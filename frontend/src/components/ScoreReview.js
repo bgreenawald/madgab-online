@@ -1,4 +1,3 @@
-import "../Styles/App.scss";
 import "../Styles/Game.scss";
 
 import React, { Component } from "react";

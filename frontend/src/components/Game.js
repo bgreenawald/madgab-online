@@ -96,18 +96,19 @@ class Game extends Component {
   renderGameContent = () => {
     const state = this.props.state.state;
 
-    switch (state) {
-      case 'ACTIVE':
-        return <InTurn />
-      case 'REVIEW':
-        return <ScoreReview />
-      case 'STEALING':
-        return <Stealing />
-      case 'IDLE':
-        return <TurnWaitStart />
-      default:
-        return <TurnWaitStart />
-    }
+    // switch (state) {
+    //   case 'ACTIVE':
+    //     return <InTurn />
+    //   case 'REVIEW':
+    //     return <ScoreReview />
+    //   case 'STEALING':
+    //     return <Stealing />
+    //   case 'IDLE':
+    //     return <TurnWaitStart />
+    //   default:
+    //     return <TurnWaitStart />
+    // }
+    return <Stealing />
   }
 
   render() {
