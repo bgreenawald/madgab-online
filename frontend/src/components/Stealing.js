@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 import Countdown from './Countdown';
-import ClueIcon from './ClueIcon';
+// import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
 import io from 'socket.io-client';
@@ -38,13 +38,24 @@ class Stealing extends Component {
     }
 
     render() {
-        return (
-            <div className="game-content">
-                <h2>{this.props.state.opposingTeam} team, you get 10 seconds to steal {this.props.state.availablePoints} points from the {this.props.state.currentTeam} team!</h2>
-                <button className="primary" onClick={this.submitSteal}>Let's steal!</button>
-            </div>
+        if (this.props.state.inCountdown === true) {
+            return (
+                <div className="game-content">
+                    <Countdown loadingMessage="Ready?" />
+                </div>
+            )
+        }
+        else {
 
-        )
+            return (
+
+                <div className="game-content">
+                    <h2>{this.props.state.opposingTeam} team, you get 10 seconds to steal {this.props.state.availablePoints} points from the {this.props.state.currentTeam} team!</h2>
+                    <button className="primary" onClick={this.submitSteal}>Let's steal!</button>
+                </div>
+
+            )
+        }
     }
 }
 

@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import "../Styles/App.scss";
 import "../Styles/Game.scss"
-import io from "socket.io-client";
+// import { connect } from 'react-redux';
 
-import { connect } from 'react-redux';
-
-import { gsap } from "gsap/dist/gsap";
-import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
-import { TimelineLite, CSSPlugin } from "gsap/all";
+// import { gsap } from "gsap/dist/gsap";
+// import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+// import { TimelineLite, CSSPlugin } from "gsap/all";
 
 
 
