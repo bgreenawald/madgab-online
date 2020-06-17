@@ -134,10 +134,8 @@
   #rules-button {
     border: 1px solid white;
     border-radius: 15px;
-    position: absolute;
+    @include pos-a-center();
     top: -10px;
-    left: 50%;
-    transform: translate(-50%, -50%);
     transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     padding: 15px 20px 40px 20px;
     color: white;
@@ -309,9 +307,9 @@ input:checked+.slider:before {
 }
 
 .tooltip.modal {
-  visibility: hidden;
+  visibility: visible;
   width: 120px;
-  background-color: pink;
+  background-color: rgba(darken($primary-blue, 50%), .9);
   color: white;
   text-align: center;
   border-radius: 10px;
