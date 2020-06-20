@@ -16,6 +16,8 @@ class Stealing extends Component {
         super(props);
         this.myElement = null;
         this.availablePoints = 0;
+        this.stealTimerLength = 10;
+        this.stealTimer = this.stealTimerLength;
     }
 
     componentDidMount = () => {
@@ -37,11 +39,41 @@ class Stealing extends Component {
         // launch countdown component
     }
 
+    beginCountdown = () => {
+        this.stealTimerID = setInterval(this.decrease, 1000);
+
+        this.props.updateGameData({
+            inCountdown: true
+        })
+    }
+
+    decrease = () => {
+        if (this.stealTimer === 0) setTimeout(this.stopCountdown)
+        else {
+            this.setState({
+                stealTimer: this.stealTimer--
+            })
+        }
+        console.log(this.stealTimer)
+    }
+
+    stopCountdown = () => {
+        clearInterval(this.stealTimerID);
+
+        this.props.updateGameData({
+            inCountdown: false
+        })
+    }
+
+    resetTimer = () => {
+        this.stealTimer = this.stealTimerLength;
+    }
+
     render() {
         if (this.props.state.inCountdown === true) {
             return (
                 <div className="game-content">
-                    <Countdown loadingMessage="Ready?" />
+                    {this.stealTimer}
                 </div>
             )
         }
@@ -51,7 +83,7 @@ class Stealing extends Component {
 
                 <div className="game-content">
                     <h2>{this.props.state.opposingTeam} team, you get 10 seconds to steal {this.props.state.availablePoints} points from the {this.props.state.currentTeam} team!</h2>
-                    <button className="primary" onClick={this.submitSteal}>Let's steal!</button>
+                    <button className="primary" onClick={this.beginCountdown}>Let's steal!</button>
                     <div className="tooltip-icon">?
                         <div className="tooltip modal"><span>these are the rules</span></div>
                     </div>
