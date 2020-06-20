@@ -59,7 +59,8 @@ class ScoreReview extends Component {
                     {this.props.state.current_turn_clues.map((e, i) => (
                         <ClueIcon
                             value={e[2] ? 'correct' : 'incorrect'}
-                            ref={ClueIcon => this.cluesIcons[i] = ClueIcon} />
+                            ref={ClueIcon => this.cluesIcons[i] = ClueIcon}
+                            key={i} />
                     ))}
                 </div>
                 {/* <div className="square" ref={elem => this.myElement = elem}></div> */}
