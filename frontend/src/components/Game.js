@@ -96,6 +96,9 @@ class Game extends Component {
   renderGameContent = () => {
     const state = this.props.state.state;
 
+    // dev config:
+    return <Stealing />
+
     switch (state) {
       case 'ACTIVE':
         return <InTurn />
@@ -108,7 +111,6 @@ class Game extends Component {
       default:
         return <TurnWaitStart />
     }
-    // return <Stealing />
   }
 
   render() {
