@@ -1,0 +1,9 @@
+@import './Variables.scss';
+
+.cta-begin-stealing {
+    @include flexbox();
+
+    .tooltip-icon {
+        margin-left: 10px;
+    }
+}

@@ -2,10 +2,12 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-// import ClueIcon from './ClueIcon';
+import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
 import io from 'socket.io-client';
+
+import "../Styles/Stealing.scss";
 
 let socket = io('http://localhost:5000')
 
@@ -14,27 +16,16 @@ class Stealing extends Component {
     constructor(props) {
         super(props);
         this.myElement = null;
-        this.availablePoints = 0;
+        this.stolenPoints = 0;
         this.stealTimerLength = 10;
         this.stealTimer = this.stealTimerLength;
     }
 
-    componentDidMount = () => {
-        this.calculateAvailablePoints();
-    }
-
-    calculateAvailablePoints = () => {
-        this.props.updateGameData({
-            availablePoints: Number(this.props.state.words_per_turn) - Number(this.props.state.current_turn_correct)
-        })
-    }
-
     submitSteal = () => {
-
         // TODO: get steal value from user!
         socket.emit("steal", {
             "name": this.props.state.id,
-            "points": 3
+            "points": this.stolenPoints
         });
     }
 
@@ -56,7 +47,6 @@ class Stealing extends Component {
                 stealTimer: this.stealTimer--
             })
         }
-        console.log(this.stealTimer)
     }
 
     stopCountdown = () => {
@@ -73,24 +63,56 @@ class Stealing extends Component {
 
     render() {
         if (this.props.state.inCountdown === true) {
+            this.arrayPointsToSteal = new Array(this.props.state.availablePoints);
+
             return (
                 <div className="game-content">
-                    {this.stealTimer}
+                    <h1>The stealer recalled</h1>
+                    <div className="steal-clue-buttons">
+                        {this.arrayPointsToSteal.map((e, i) => (
+                            <ClueIcon
+                                key={e[i]}
+                                value={e[i]}
+                                ref={elem => e[i]} />
+                        ))}
+                    </div>
+                    <h1>Clues</h1>
+                    <div className="cta-steal-submit">
+                        <button class="steal-submit-button" onClick={this.submitSteal}>Submit</button>
+                        <span class="steal-submit-timer">{this.stealTimer}s</span>
+                    </div>
                 </div>
             )
         }
-        else {
+        else if (this.props.state.availablePoints >= 0) {
 
             return (
-
                 <div className="game-content">
-                    <h2>{this.props.state.opposingTeam} team, you get 10 seconds to steal {this.props.state.availablePoints} points from the {this.props.state.currentTeam} team!</h2>
-                    <button className="primary" onClick={this.beginCountdown}>Let's steal!</button>
-                    <div className="tooltip-icon">?
-                        <div className="tooltip modal"><span>these are the rules</span></div>
+                    <h1>{this.props.state.availablePoints} points</h1>
+                    <h3>are available for the</h3>
+                    <h1>{this.props.state.currentTeam} team!</h1>
+                    <h2>to steal</h2>
+                    <div className="cta-begin-stealing">
+                        <button className="primary" onClick={this.beginCountdown}>Let's steal!</button>
+                        <div className="tooltip-icon tooltip">?
+                            <div className="tooltip-modal">
+                                <span>these are the rules</span>
+                                <span className="arrow-down"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+            )
+        }
+
+        else {
+            return (
+                <div className="game-content">
+                    <div className="loading-container">
+                        <div className="loader"></div>
+                    </div>
+                </div>
             )
         }
     }

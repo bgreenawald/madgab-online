@@ -57,7 +57,9 @@ class InTurn extends Component {
     // update front end state
     this.props.updateGameData({
       lastGuessResult: didGuessCorrectly,
-      time_left: this.props.state.timer
+      time_left: this.props.state.timer,
+      inCountdown: false,
+      inTurn: false,
     })
 
     // move back end state to next game state

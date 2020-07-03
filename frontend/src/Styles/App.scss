@@ -294,27 +294,44 @@ input:checked+.slider:before {
 }
 
 // ********** TOOLTIP ********** //
-.tooltip-icon {
+$tooltip-width: 120px;
+
+div.tooltip-icon {
   position: relative;
   display: inline-block;
   color: white;
 
   &:hover {
-    .tooltip.modal {
+    .tooltip-modal {
       visibility: visible;
     }
   }
-}
 
-.tooltip.modal {
-  visibility: visible;
-  width: 120px;
-  background-color: rgba(darken($primary-blue, 50%), .9);
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
+  .tooltip-modal {
+    visibility: visible;
+    width: $tooltip-width;
+    background-color: rgba(darken($primary-blue, 50%), .9);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: Calc((($tooltip-width/2) * -1) + 5);
+  }
+
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    border-top: 20px solid rgba(darken($primary-blue, 50%), .9);
+    ;
+    bottom: -10px;
+    left: 40px;
+    z-index: -1;
+    position: absolute;
+  }
 }

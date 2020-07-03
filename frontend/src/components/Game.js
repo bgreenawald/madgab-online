@@ -42,6 +42,7 @@ class Game extends Component {
       data.currentTeam = data.team_1_turn ? 'blue' : 'red';
       data.opposingTeam = data.team_1_turn ? 'red' : 'blue';
       data.backgroundColor = (data.state === "STEALING") ? data.opposingTeam : data.currentTeam;
+      data.availablePoints = data.current_turn_counter - data.current_turn_correct;
       console.log('event received: \n', resp.message, '\n', data)
 
       this.props.updateGameData(data);
@@ -62,6 +63,7 @@ class Game extends Component {
     this.props.updateGameData({
       id: id
     });
+    console.log('id', id)
     return id;
   }
 
@@ -97,7 +99,7 @@ class Game extends Component {
     const state = this.props.state.state;
 
     // dev config:
-    return <Stealing />
+    // return <Stealing />
 
     switch (state) {
       case 'ACTIVE':

@@ -17,11 +17,6 @@ class ScoreReview extends Component {
         this.cluesIcons = [];
         this.references = [];
     }
-    componentDidMount = () => {
-        this.props.updateGameData({
-            inCountdown: true
-        });
-    }
 
     displayAnswerResults = () => {
         let scoreArray = this.props.state.current_turn_clues;
