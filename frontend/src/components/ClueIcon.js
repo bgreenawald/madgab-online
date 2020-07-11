@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../Styles/Variables.scss";
 
-class ClueIcon extends Component {
+export class ClueIcon extends Component {
     constructor(props) {
         super(props)
         this.myElement = null;
@@ -32,4 +32,8 @@ class ClueIcon extends Component {
     }
 }
 
-export default ClueIcon;
+export  class ClueIconButton extends ClueIcon {
+    constructor(props) {
+        super(props)
+    }
+}

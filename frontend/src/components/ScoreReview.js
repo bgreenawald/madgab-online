@@ -15,17 +15,6 @@ class ScoreReview extends Component {
     constructor(props) {
         super(props);
         this.cluesIcons = [];
-        this.references = [];
-    }
-
-    displayAnswerResults = () => {
-        let scoreArray = this.props.state.current_turn_clues;
-        scoreArray.map((e, i) => (
-            <ClueIcon
-                key={e.id}
-                value={e[2] ? 'correct' : 'incorrect'}
-                ref={elem => this.cluesIcons[i] = e} />
-        ))
     }
 
     getPoints = (pts) => {

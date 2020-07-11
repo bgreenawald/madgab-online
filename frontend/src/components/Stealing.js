@@ -39,8 +39,9 @@ class Stealing extends Component {
 
     decrease = () => {
         if (this.stealTimer === 1) {
-            setTimeout(this.stopCountdown)
-            this.submitSteal()
+            setTimeout(this.stopCountdown);
+            this.stealTimerLength = 10;
+            // this.submitSteal()
         }
         else {
             this.setState({
@@ -62,24 +63,21 @@ class Stealing extends Component {
     }
 
     render() {
+      
         if (this.props.state.inCountdown === true) {
-            this.arrayPointsToSteal = new Array(this.props.state.availablePoints);
-
+            console.log(this.props.state.current_turn_clues)
             return (
                 <div className="game-content">
                     <h1>The stealer recalled</h1>
                     <div className="steal-clue-buttons">
-                        {this.arrayPointsToSteal.map((e, i) => (
-                            <ClueIcon
-                                key={e[i]}
-                                value={e[i]}
-                                ref={elem => e[i]} />
+                        {this.props.state.current_turn_clues.map((e, i) => (
+                          <ClueIcon value={i} key={i}/>
                         ))}
                     </div>
                     <h1>Clues</h1>
                     <div className="cta-steal-submit">
-                        <button class="steal-submit-button" onClick={this.submitSteal}>Submit</button>
-                        <span class="steal-submit-timer">{this.stealTimer}s</span>
+                        <button className="steal-submit-button" onClick={this.submitSteal}>Submit</button>
+                        <span className="steal-submit-timer">{this.stealTimer}s</span>
                     </div>
                 </div>
             )
