@@ -14,6 +14,12 @@ class InTurn extends Component {
     super();
     this.timerDOM = React.createRef();
     this.countdownOffsetTimer = 4;
+    socket.on("connect", (resp) => {
+      socket.emit("join", {
+        name: this.props.state.id
+      });
+    });
+
   }
 
   componentDidMount = () => {

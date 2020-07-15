@@ -32,7 +32,7 @@ export class ClueIcon extends Component {
     }
 }
 
-export  class ClueIconButton extends ClueIcon {
+export class ClueIconButton extends ClueIcon {
     constructor(props) {
         super(props)
     }

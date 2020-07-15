@@ -3,7 +3,7 @@ import "../Styles/Game.scss";
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import ClueIcon from './ClueIcon';
+import {ClueIcon} from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
 import io from 'socket.io-client';
