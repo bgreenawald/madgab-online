@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 import Countdown from './Countdown';
-// import ClueIcon from './ClueIcon';
+import ClueIcon from './ClueIcon';
+
 import { updateGameData } from '../store/actions';
 
 import io from 'socket.io-client';
