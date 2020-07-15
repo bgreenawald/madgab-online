@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Styles/Game.scss";
-import io from "socket.io-client";
+import Socket from './../Socket';
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -21,19 +21,18 @@ class Game extends Component {
   }
 
   componentDidMount = () => {
-    let socket = io("http://localhost:5000");
+    let socket = Socket;
     let id = this.getGameId();
 
     socket.on("connect", (resp) => {
-      socket.emit("join", {
-        name: id
-      });
     });
 
-    socket.on("connect", (resp) => {
-      socket.emit("load_board", {
-        name: id
-      });
+    socket.emit("join", {
+      name: id
+    });
+
+    socket.emit("load_board", {
+      name: id
     });
 
     socket.on("render_board", resp => {
@@ -116,11 +115,6 @@ class Game extends Component {
   }
 
   render() {
-    let socket = io("http://localhost:5000");
-
-    socket.on("start_turn", resp => {
-      console.log("start turn!", resp)
-    })
 
     // if (!this.props.state.data) return null;
 
