@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import {ClueIcon} from './ClueIcon';
+import {ClueIcon, ClueIconButton} from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
 import io from 'socket.io-client';
@@ -69,9 +69,9 @@ class Stealing extends Component {
             return (
                 <div className="game-content">
                     <h1>The stealer recalled</h1>
-                    <div className="steal-clue-buttons">
+                    <div className="clue-icon-container">
                         {this.props.state.current_turn_clues.map((e, i) => (
-                          <ClueIcon value={i} key={i}/>
+                          <ClueIconButton value={i} key={i}/>
                         ))}
                     </div>
                     <h1>Clues</h1>
