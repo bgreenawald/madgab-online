@@ -32,6 +32,7 @@ class ClueIcon extends Component {
     }
 
     handleClick = e => {
+        this.togglePressed(e);
         if (!this.props.isButton) return;
         let numberStolen = this.validateStolenPoints(e.target.innerHTML);
         console.log('number stolen: ', numberStolen)
@@ -48,6 +49,11 @@ class ClueIcon extends Component {
             return points;
         }
         else return 0;
+    }
+
+    togglePressed = e => {
+        document.querySelectorAll('.circle-icon').forEach(e => e.classList.remove('pressed'));
+        e.target.classList.contains('pressed') ? e.target.classList.remove('pressed') : e.target.classList.add('pressed');
     }
 
     render() {

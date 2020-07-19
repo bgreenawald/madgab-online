@@ -23,7 +23,6 @@ class Stealing extends Component {
     }
 
     submitSteal = () => {
-        // TODO: get steal value from user!
         socket.emit("steal", {
             "name": this.props.state.id,
             "points": this.props.state.stolenPoints
@@ -42,7 +41,6 @@ class Stealing extends Component {
         if (this.stealTimer === 1) {
             setTimeout(this.stopCountdown);
             this.stealTimerLength = 10;
-            // this.submitSteal()
         }
         else {
             this.setState({
