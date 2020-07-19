@@ -1,7 +1,14 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+
+
+import { updateGameData } from '../store/actions';
+
 import "../Styles/Variables.scss";
 
-export class ClueIcon extends Component {
+import { Socket } from "socket.io-client";
+class ClueIcon extends Component {
+   
     constructor(props) {
         super(props)
         this.myElement = null;
@@ -23,17 +30,52 @@ export class ClueIcon extends Component {
                 return value;
         }
     }
+
+    handleClick = e => {
+        if (!this.props.isButton) return;
+        let numberStolen = this.validateStolenPoints(e.target.innerHTML);
+        console.log('number stolen: ', numberStolen)
+        this.props.updateGameData({
+            stolenPoints: numberStolen
+        })
+    }
+
+    validateStolenPoints = rawValue => {
+        if ((rawValue !== 0) && (!rawValue)) return 0;
+
+        let points = Number(rawValue);
+        if ((points >= 0) && (points <= this.props.state.words_per_turn)) {
+            return points;
+        }
+        else return 0;
+    }
+
     render() {
         return (
-            <div className={`circle-icon ${this.props.value}`} ref={elem => this.myElement = elem}>
+            <div className={`circle-icon ${this.props.value}`}
+                ref={elem => this.myElement = elem}
+                onClick={e => this.handleClick(e)}
+            >
                 {this.getIcon(this.props.value)}
             </div>
         )
     }
 }
 
-export class ClueIconButton extends ClueIcon {
-    constructor(props) {
-        super(props)
+
+
+const mapStateToProps = state => {
+    return {
+        state: { ...state }
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateGameData: gameData => {
+            dispatch(updateGameData(gameData))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClueIcon);

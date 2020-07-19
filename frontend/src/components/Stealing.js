@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import {ClueIcon, ClueIconButton} from './ClueIcon';
+import ClueIcon from './ClueIcon';
 
 import { updateGameData } from '../store/actions';
 
@@ -26,7 +26,7 @@ class Stealing extends Component {
         // TODO: get steal value from user!
         socket.emit("steal", {
             "name": this.props.state.id,
-            "points": this.stolenPoints
+            "points": this.props.state.stolenPoints
         });
     }
 
@@ -54,9 +54,18 @@ class Stealing extends Component {
     stopCountdown = () => {
         clearInterval(this.stealTimerID);
 
+        this.submitSteal();
+
         this.props.updateGameData({
             inCountdown: false
         })
+    }
+
+    calculateStealablePoints = () => {
+        this.stealablePointsArray = [];
+        for (let i = 0; i <= this.props.state.availablePoints; i++) {
+            this.stealablePointsArray.push(i)
+        }
     }
 
     resetTimer = () => {
@@ -64,15 +73,16 @@ class Stealing extends Component {
     }
 
     render() {
-      
+
         if (this.props.state.inCountdown === true) {
             console.log(this.props.state.current_turn_clues)
+            this.calculateStealablePoints();
             return (
                 <div className="game-content">
                     <h1>The stealer recalled</h1>
                     <div className="clue-icon-container">
-                        {this.props.state.current_turn_clues.map((e, i) => (
-                          <ClueIconButton value={i} key={i}/>
+                        {this.stealablePointsArray.map((e, i) => (
+                            <ClueIcon value={i} key={i} isButton={true} />
                         ))}
                     </div>
                     <h1>Clues</h1>
