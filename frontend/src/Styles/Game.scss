@@ -208,8 +208,12 @@
         // border: 1px solid white;
       }
 
-      button.primary {
-        margin-top: 1.4rem;
+      // button.primary & button.secondary {
+      //   padding: 20px 0px;
+      // }
+
+      button.correct {
+        margin-right: 1rem;
       }
 
       h1 {
@@ -240,20 +244,21 @@
     }
 
     // for inturn component 
-    .card.clue {
-      padding: 20px 40px;
-    }
+    // .card.clue {
+    //   padding: 20px 40px;
+    // }
 
     .buttons {
       margin: 0;
 
       button {
-        padding: 5px 10px;
+        padding: 10px 10px;
         margin: 0;
+        margin-top: 1rem;
 
-        &:first-child {
-          margin-bottom: 10px;
-        }
+        // &:first-child {
+        //   margin-bottom: 10px;
+        // }
       }
     }
   }
