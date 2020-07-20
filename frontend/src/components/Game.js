@@ -36,7 +36,6 @@ class Game extends Component {
     });
 
     socket.on("render_board", resp => {
-      console.log('state update')
 
       const data = this.parsePayload(resp.payload)
       data.currentTeam = data.team_1_turn ? 'blue' : 'red';
@@ -99,7 +98,7 @@ class Game extends Component {
     const state = this.props.state.state;
 
     // dev config:
-    // return <Stealing />
+    return <Stealing />
 
     switch (state) {
       case 'ACTIVE':

@@ -7,14 +7,8 @@ import { updateGameData } from '../store/actions';
 
 import ClueIcon from './ClueIcon';
 
-import styled, {keyframes} from 'styled-components';
-import {fadeIn} from 'react-animations';
-
 import io from 'socket.io-client';
 let socket = io('http://localhost:5000');
-
-const bounceAnimation = keyframes`${fadeIn}`;
-const BounceDiv = styled.div`animation: .5s ${bounceAnimation}`;
 
 
 class Stealing extends Component {
@@ -35,7 +29,7 @@ class Stealing extends Component {
     }
 
     beginCountdown = () => {
-        this.stealTimerID = setInterval(this.decrease, 1000);
+        // this.stealTimerID = setInterval(this.decrease, 1000);
 
         this.props.updateGameData({
             inCountdown: true
@@ -85,9 +79,7 @@ class Stealing extends Component {
                     <h1>The stealer recalled</h1>
                     <div className="clue-icon-container">
                         {this.stealablePointsArray.map((e, i) => (
-                            <BounceDiv>
                                 <ClueIcon value={i} key={i} isButton={true} />
-                            </BounceDiv>
                         ))}
                     </div>
                     <h1>Clues</h1>

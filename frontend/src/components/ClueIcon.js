@@ -6,7 +6,12 @@ import { updateGameData } from '../store/actions';
 
 import "../Styles/Variables.scss";
 
-import { Socket } from "socket.io-client";
+import styled, {keyframes} from 'styled-components';
+import {fadeIn} from 'react-animations';
+
+const animation = keyframes`${fadeIn}`;
+const FadeDiv = styled.div`animation: .5s ${animation}`;
+
 class ClueIcon extends Component {
    
     constructor(props) {
@@ -58,12 +63,14 @@ class ClueIcon extends Component {
 
     render() {
         return (
-            <div className={`circle-icon ${this.props.value}`}
-                ref={elem => this.myElement = elem}
-                onClick={e => this.handleClick(e)}
-            >
-                {this.getIcon(this.props.value)}
-            </div>
+            <FadeDiv>
+                <div className={`circle-icon ${this.props.value}`}
+                    ref={elem => this.myElement = elem}
+                    onClick={e => this.handleClick(e)}
+                >
+                    {this.getIcon(this.props.value)}
+                </div>
+            </FadeDiv>
         )
     }
 }
