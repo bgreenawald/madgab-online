@@ -98,7 +98,7 @@ class Game extends Component {
     const state = this.props.state.state;
 
     // dev config:
-    return <Stealing />
+    // return <Stealing />
 
     switch (state) {
       case 'ACTIVE':
