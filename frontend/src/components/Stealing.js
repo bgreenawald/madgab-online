@@ -1,16 +1,21 @@
+import "../Styles/Stealing.scss";
 
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import ClueIcon from './ClueIcon';
-
 import { updateGameData } from '../store/actions';
 
+import ClueIcon from './ClueIcon';
+
+import styled, {keyframes} from 'styled-components';
+import {fadeIn} from 'react-animations';
+
 import io from 'socket.io-client';
+let socket = io('http://localhost:5000');
 
-import "../Styles/Stealing.scss";
+const bounceAnimation = keyframes`${fadeIn}`;
+const BounceDiv = styled.div`animation: .5s ${bounceAnimation}`;
 
-let socket = io('http://localhost:5000')
 
 class Stealing extends Component {
 
@@ -80,7 +85,9 @@ class Stealing extends Component {
                     <h1>The stealer recalled</h1>
                     <div className="clue-icon-container">
                         {this.stealablePointsArray.map((e, i) => (
-                            <ClueIcon value={i} key={i} isButton={true} />
+                            <BounceDiv>
+                                <ClueIcon value={i} key={i} isButton={true} />
+                            </BounceDiv>
                         ))}
                     </div>
                     <h1>Clues</h1>
