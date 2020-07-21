@@ -24,6 +24,7 @@ class InTurn extends Component {
 
   componentDidMount = () => {
     this.resetTimer();
+    this.resetTempState();
     this.timerID = this.startTimer();
     this.props.updateGameData({
       inCountdown: true,
@@ -41,6 +42,12 @@ class InTurn extends Component {
   resetTimer = () => {
     this.props.updateGameData({
       timer: this.props.state.seconds_per_turn + this.countdownOffsetTimer
+    })
+  }
+
+  resetTempState = () => {
+    this.props.updateGameData({
+      stolenPoints: 0
     })
   }
 
@@ -63,7 +70,9 @@ class InTurn extends Component {
     // update front end state
     this.props.updateGameData({
       lastGuessResult: didGuessCorrectly,
-      time_left: this.props.state.timer
+      time_left: this.props.state.timer,
+      inCountdown: false,
+      inTurn: false,
     })
 
     // move back end state to next game state

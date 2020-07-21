@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import { startTurn, toggleUserRole } from "../store/actions";
-import io from "socket.io-client";
 
 import Socket from './../Socket';
 
@@ -20,6 +19,7 @@ class Waiting extends Component {
   }
 
   render() {
+
     let currentTeam = this.props.state.currentTeam.charAt(0).toUpperCase() + this.props.state.currentTeam.slice(1);
     return (
       <div className="game-content">

@@ -15,22 +15,6 @@ class ScoreReview extends Component {
     constructor(props) {
         super(props);
         this.cluesIcons = [];
-        this.references = [];
-    }
-    componentDidMount = () => {
-        this.props.updateGameData({
-            inCountdown: true
-        });
-    }
-
-    displayAnswerResults = () => {
-        let scoreArray = this.props.state.current_turn_clues;
-        scoreArray.map((e, i) => (
-            <ClueIcon
-                key={e.id}
-                value={e[2] ? 'correct' : 'incorrect'}
-                ref={elem => this.cluesIcons[i] = e} />
-        ))
     }
 
     getPoints = (pts) => {
@@ -59,7 +43,8 @@ class ScoreReview extends Component {
                     {this.props.state.current_turn_clues.map((e, i) => (
                         <ClueIcon
                             value={e[2] ? 'correct' : 'incorrect'}
-                            ref={ClueIcon => this.cluesIcons[i] = ClueIcon} />
+                            key={i} 
+                            isButton={false}/>
                     ))}
                 </div>
                 {/* <div className="square" ref={elem => this.myElement = elem}></div> */}

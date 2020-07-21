@@ -7,23 +7,23 @@ import { updateGameData } from '../store/actions';
 class Countdown extends Component {
     constructor(props) {
         super(props)
-        this.countdownArray = this.props.inheritedCountdown || [3, 2, 1];
-        this.index = 0;
+        this.countdownLength = this.props.inheritedCountdown + 1 || 3 + 1;
+        this.timer = 0;
     }
 
     beginCountdown = () => {
-        return setInterval(this.decrease, 1000)
+        this.countdownTimerID = setInterval(this.decrease, 1000)
     }
 
 
     decrease = () => {
-        if (this.countdownArray.length === 0) {
-            setTimeout(this.stopCountdown, 1000)
+        if (this.timer === 1) {
+            setTimeout(this.stopCountdown)
         }
-        this.index = this.index + 1;
-        this.currentValue = this.countdownArray[this.index];
-        if (this.index === this.countdownArray.length) {
-            setTimeout(this.stopCountdown, 1000);
+        else {
+            this.setState({
+                timer: this.timer--
+            })
         }
     }
 
@@ -37,24 +37,21 @@ class Countdown extends Component {
 
 
     componentDidMount = () => {
-        this.currentValue = this.countdownArray[this.index];
-        // this.index = this.index + 1;
-        this.countdownTimerID = this.beginCountdown();
+        this.timer = this.countdownLength;
+        this.beginCountdown();
     }
 
     render() {
         return (
             <div className="game-content">
                 <div id="countdown">
-                    {this.currentValue ? <h1>
-                        {this.currentValue}
+                    {this.timer ? <h1>
+                        {this.timer}
                     </h1> :
                         <div className="loading-container">
                             <h2>{this.props.loadingMessage || null}</h2>
                             <div className="loader"></div>
                         </div>
-                        // this.countdownArray[this.index]
-                        // "loading"
                     }
                 </div>
             </div>

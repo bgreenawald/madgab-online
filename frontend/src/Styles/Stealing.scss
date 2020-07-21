@@ -1,0 +1,19 @@
+@import './Variables.scss';
+
+.cta-begin-stealing {
+    @include flexbox();
+
+    .tooltip-icon {
+        margin-left: 10px;
+    }
+}
+
+.cta-steal-submit {
+    position: relative;
+
+    .steal-submit-timer {
+        position: absolute;
+        top: 30%;
+        right: -40%;
+    }
+}
