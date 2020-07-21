@@ -4,6 +4,8 @@ This is an online implementation of the game *MadGab*. It can be played on any d
 
 # Setup - Backend
 
+Before interacting with the backend, make sure to change into the *backend* directory.
+
 This app runs on Python 3 and uses *poetry* to maintain dependencies. Assuming you already have poetry installed, you can simply run
 
 ```bash
@@ -16,7 +18,7 @@ poetry install --no-dev
 poetry install
 ```
 
-Alternatively, you can use *virtualenv* with the included requirements files. After creating a new virtual environment for the project, run
+Alternatively, you can use *virtualenv* with the included requirements files. This is is recommended as this may be deprecated in the future. After creating a new virtual environment for the project, run
 
 ```bash
 # Make sure you have created the virtual environment and are currently in it.
