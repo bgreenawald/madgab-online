@@ -4,6 +4,7 @@ from enum import Enum
 from threading import Lock
 from typing import Any, Dict, List, Tuple
 
+import game_config
 from madgab.madgab import mad_gabify
 
 
@@ -66,9 +67,9 @@ class Game(object):
         self,
         id: str,
         clues: List[Tuple[str, str]],
-        win_threshold: int = 30,
-        words_per_turn: int = 3,
-        seconds_per_turn: int = 90,
+        win_threshold: int = game_config.WIN_THRESHOLD,
+        words_per_turn: int = game_config.WORDS_PER_TURN,
+        seconds_per_turn: int = game_config.SECONDS_PER_TURN,
     ):
         self.reset(id, clues, win_threshold, words_per_turn, seconds_per_turn)
 
@@ -79,9 +80,9 @@ class Game(object):
         self,
         id: str,
         clues: List[Tuple[str, str]],
-        win_threshold: int = 30,
-        words_per_turn: int = 3,
-        seconds_per_turn: int = 90,
+        win_threshold: int = game_config.WIN_THRESHOLD,
+        words_per_turn: int = game_config.WORDS_PER_TURN,
+        seconds_per_turn: int = game_config.SECONDS_PER_TURN,
     ):
         self.id: str = id
 

@@ -4,6 +4,7 @@ import re
 
 import pytest
 
+import game_config
 from app import app, all_games, socketio
 from game import Game
 
@@ -58,9 +59,9 @@ def test_load_board(socket_client):
     assert resp[0]["args"][0]["message"] == "Game loaded."
     assert json.loads(resp[0]["args"][0]["payload"]) == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "hard",
         "team_1_score": 0,
         "team_2_score": 0,
@@ -90,9 +91,9 @@ def test_start_game(socket_client):
     data.pop("current_madgab", None)
     assert data == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "hard",
         "team_1_score": 0,
         "team_2_score": 0,
@@ -117,9 +118,9 @@ def test_reset(socket_client):
     assert resp[0]["args"][0]["message"] == "Game reset."
     assert json.loads(resp[0]["args"][0]["payload"]) == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "hard",
         "team_1_score": 0,
         "team_2_score": 0,
@@ -155,7 +156,7 @@ def test_new_phrase(socket_client):
     socket_client.emit("new_phrase", {"name": "TEST_GAME", "correct": True})
     resp = socket_client.get_received()
     assert resp[0]["name"] == "render_board"
-    assert len(resp[0]["args"][0]) == 3
+    assert len(resp[0]["args"][0]) == game_config.WORDS_PER_TURN
     assert resp[0]["args"][0]["status_code"] == 200
     assert resp[0]["args"][0]["message"] == "New phrase generated."
     data = json.loads(resp[0]["args"][0]["payload"])
@@ -165,9 +166,9 @@ def test_new_phrase(socket_client):
     data.pop("current_turn_clues", None)
     assert data == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "hard",
         "team_1_score": 1,
         "team_2_score": 0,
@@ -201,7 +202,7 @@ def test_end_active_state(socket_client):
     )
     resp = socket_client.get_received()
     assert resp[0]["name"] == "render_board"
-    assert len(resp[0]["args"][0]) == 3
+    assert len(resp[0]["args"][0]) == game_config.WORDS_PER_TURN
     assert resp[0]["args"][0]["status_code"] == 200
     assert resp[0]["args"][0]["message"] == "Active state ended."
     data = json.loads(resp[0]["args"][0]["payload"])
@@ -211,9 +212,9 @@ def test_end_active_state(socket_client):
     data.pop("current_turn_clues", None)
     assert data == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "hard",
         "team_1_score": 0,
         "team_2_score": 0,
@@ -246,9 +247,9 @@ def test_end_turn(socket_client):
     data.pop("current_turn_clues", None)
     assert data == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "hard",
         "team_1_score": 0,
         "team_2_score": 0,
@@ -296,9 +297,9 @@ def test_steal(socket_client):
     data.pop("current_turn_clues", None)
     assert data == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "hard",
         "team_1_score": 0,
         "team_2_score": 1,
@@ -320,9 +321,9 @@ def test_toggle_difficulty(socket_client):
     assert resp[0]["args"][0]["message"] == "Difficulty toggled."
     assert json.loads(resp[0]["args"][0]["payload"]) == {
         "id": "TEST_GAME",
-        "win_threshold": 30,
-        "words_per_turn": 3,
-        "seconds_per_turn": 90,
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
         "difficulty": "easy",
         "team_1_score": 0,
         "team_2_score": 0,
