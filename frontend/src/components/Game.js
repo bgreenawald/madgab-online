@@ -6,6 +6,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import TurnWaitStart from "./Waiting";
 import InTurn from "./InTurn";
+import GameOver from './GameOver';
 import Stealing from "./Stealing";
 import ScoreReview from "./ScoreReview";
 
@@ -109,6 +110,8 @@ class Game extends Component {
         return <Stealing />
       case 'IDLE':
         return <TurnWaitStart />
+      case 'OVER':
+        return <GameOver />
       default:
         return <TurnWaitStart />
     }
