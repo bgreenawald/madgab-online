@@ -7,6 +7,8 @@ import { updateGameData } from '../store/actions';
 
 import ClueIcon from './ClueIcon';
 
+import {gsap} from 'gsap';
+
 import io from 'socket.io-client';
 let socket = io('http://localhost:5000');
 
@@ -19,12 +21,41 @@ class Stealing extends Component {
         this.stolenPoints = 0;
         this.stealTimerLength = 10;
         this.stealTimer = this.stealTimerLength;
+        this.animation = gsap.timeline();
+    }
+
+    componentDidMount() {
+        // gsap.timeline().from('h1', {duration: 1, opacity: 0.5})
+        this.animation.from('h1#available-points', {
+            duration: 1,
+            opacity: 0,
+            y: -50,
+            ease: "power3(1, 0.3)"
+        })
+        .from('.line', {
+            duration: 1,
+            opacity: 0,
+            x: 30,
+            ease: "power3(1, 0.3)"
+        }, .5)
+        .from('.cta-begin-stealing', {
+            duration: 1,
+            opacity: 0,
+            x: 50,
+            ease: "power3(1, 0.3)"
+        }, 1)
+        .from('.tooltip', {
+            duration: .4,
+            opacity: 0,
+            scale: .7,
+            ease: "back"
+        })
     }
 
     submitSteal = () => {
         socket.emit("steal", {
             "name": this.props.state.id,
-            "points": this.props.state.stolenPoints
+            "points": 30
         });
     }
 
@@ -76,13 +107,12 @@ class Stealing extends Component {
             this.calculateStealablePoints();
             return (
                 <div className="game-content">
-                    <h1>The stealer recalled</h1>
+                    <h1>How many clues did the stealer recall?</h1>
                     <div className="clue-icon-container">
                         {this.stealablePointsArray.map((e, i) => (
                                 <ClueIcon value={i} key={i} isButton={true} />
                         ))}
                     </div>
-                    <h1>Clues</h1>
                     <div className="cta-steal-submit">
                         <button className="steal-submit-button" onClick={this.submitSteal}>Submit</button>
                         <span className="steal-submit-timer">{this.stealTimer}s</span>
@@ -94,10 +124,10 @@ class Stealing extends Component {
 
             return (
                 <div className="game-content">
-                    <h1>{this.props.state.availablePoints} points</h1>
-                    <h3>are available for the</h3>
-                    <h1>{this.props.state.currentTeam} team!</h1>
-                    <h2>to steal</h2>
+                    <h1 id="available-points">{this.props.state.availablePoints} points</h1>
+                    <h3 className="line two">are available for the</h3>
+                    <h1 className="line three">{this.props.state.currentTeam} team</h1>
+                    <h2 className="line four">to steal</h2>
                     <div className="cta-begin-stealing">
                         <button className="primary" onClick={this.beginCountdown}>Let's steal!</button>
                         <div className="tooltip-icon tooltip">?

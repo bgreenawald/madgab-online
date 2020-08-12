@@ -2,9 +2,12 @@
 
 .cta-begin-stealing {
     @include flexbox();
+    position: relative;
 
     .tooltip-icon {
         margin-left: 10px;
+        position: absolute;
+        left: 100%;
     }
 }
 
