@@ -47,12 +47,25 @@ coverage run -m pytest tests/
 coverage report
 ```
 
+
 ## Setup - Frontend
 CD into the frontend directory
-Run
-```npm i
-npm run start
+To install all node modules necessary for the frontend (one time setup, or on node module update), run: 
+```
+npm i
 ```
 
+Additionally, you must unzip the file 
+```./gsap-bonus.tgz``` 
+
+Then run 
+```npm install .gsap-bonus.tgz```
+
+To start the frontend server:
+```
+npm run start
+```
 The UI will start up on port 3000.
+
+
 
