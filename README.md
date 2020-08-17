@@ -47,20 +47,29 @@ coverage run -m pytest tests/
 coverage report
 ```
 
+
 ## Setup - Frontend
-CD into the frontend directory
+CD into the frontend directory.
 To install all node modules necessary for the frontend (one time setup, or on node module update), run: 
 ```
 npm i
 ```
 
-Additionally, you must unzip the file `./gsap-bonus.tgz`  Then run `npm install .gsap-bonus.tgz`.
+Additionally, you must unzip and npm install the an animations package: gsap bonus file:
+```
+# unzip ./gsap-bonus.tgz
 
-To start the frontend server:
+# Then to install the package:
+npm install .gsap-bonus.tgz
+``` 
+
+
+To start the UI on port 3000:
 ```
 npm run start
 ```
-The UI will start up on port 3000.
+
+
 
 
 
