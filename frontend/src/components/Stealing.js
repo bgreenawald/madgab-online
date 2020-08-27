@@ -7,7 +7,7 @@ import { updateGameData } from '../store/actions';
 
 import ClueIcon from './ClueIcon';
 
-import {gsap} from 'gsap';
+import { gsap } from 'gsap';
 
 import io from 'socket.io-client';
 let socket = io('http://localhost:5000');
@@ -22,34 +22,59 @@ class Stealing extends Component {
         this.stealTimerLength = 10;
         this.stealTimer = this.stealTimerLength;
         this.animation = gsap.timeline();
+        this.animation2 = gsap.timeline();
+        this.animation3 = gsap.timeline();
     }
 
     componentDidMount() {
         // gsap.timeline().from('h1', {duration: 1, opacity: 0.5})
-        this.animation.from('h1#available-points', {
-            duration: 1,
-            opacity: 0,
-            y: -50,
-            ease: "power3(1, 0.3)"
-        })
-        .from('.line', {
-            duration: 1,
-            opacity: 0,
-            x: 30,
-            ease: "power3(1, 0.3)"
-        }, .5)
-        .from('.cta-begin-stealing', {
+        this.animation
+            .from('.line', {
+                duration: 1,
+                opacity: 0,
+                y: -50,
+                ease: "power3(1, 0.3)",
+            })
+            .from('h1#available-points', {
+                duration: 1,
+                opacity: 0,
+                x: 30,
+                ease: "power3(1, 0.3)"
+            }, .5)
+            .from('.cta-begin-stealing', {
+                duration: 1,
+                opacity: 0,
+                x: 50,
+                ease: "power3(1, 0.3)"
+            }, 1)
+            .from('.tooltip', {
+                duration: .4,
+                opacity: 0,
+                scale: .7,
+                ease: "back"
+            })
+        this.animation2
+        .from('h1#title-how-many', {
             duration: 1,
             opacity: 0,
             x: 50,
-            ease: "power3(1, 0.3)"
-        }, 1)
-        .from('.tooltip', {
-            duration: .4,
-            opacity: 0,
-            scale: .7,
-            ease: "back"
+            ease: 'power3(1, 0.3)'
         })
+        .from('.circle-icon', {
+            duration: 1,
+            opacity: 0,
+            y: -50,
+            ease: 'power3(1, 0.3)',
+            stagger: 0.2
+        })
+        this.animation3
+        .from('.test-square', {
+            duration: 1,
+            opacity: 0,
+            x: 50,
+            ease: 'power3(1, 0.3)'
+        });
+        console.log('did mount')
     }
 
     submitSteal = () => {
@@ -65,6 +90,36 @@ class Stealing extends Component {
         this.props.updateGameData({
             inCountdown: true
         })
+    }
+
+    animateCountdown() {
+        // do animation;
+        console.log('animating')
+    }
+
+    componentDidUpdate() {
+        this.animation2
+        .from('h1#title-how-many', {
+            duration: 1,
+            opacity: 0,
+            x: 50,
+            ease: 'power3(1, 0.3)'
+        })
+        .from('.clue-icon-container', {
+            duration: 1,
+            opacity: 0,
+            y: -50,
+            ease: 'power3(1, 0.3)'
+        })
+        // this.animation3.restart();
+        this.animation3
+        .from('.test-square', {
+            duration: 1,
+            opacity: 0,
+            x: 50,
+            ease: 'power3(1, 0.3)'
+        });
+
     }
 
     decrease = () => {
@@ -102,15 +157,19 @@ class Stealing extends Component {
 
     render() {
 
+
         if (this.props.state.inCountdown === true) {
-            console.log(this.props.state.current_turn_clues)
+            //  if (this.props.state.availablePoints >= 0) {
+
             this.calculateStealablePoints();
+            this.animateCountdown();
             return (
                 <div className="game-content">
-                    <h1>How many clues did the stealer recall?</h1>
-                    <div className="clue-icon-container">
+                    <div className="test-square"></div>
+                    <h1 id="title-how-many">How many clues did the stealer recall?</h1>
+                    <div className="clue-icon-container" ref={div => this.myElement = div}>
                         {this.stealablePointsArray.map((e, i) => (
-                                <ClueIcon value={i} key={i} isButton={true} />
+                            <ClueIcon value={i} key={i} isButton={true} />
                         ))}
                     </div>
                     <div className="cta-steal-submit">
@@ -121,13 +180,12 @@ class Stealing extends Component {
             )
         }
         else if (this.props.state.availablePoints >= 0) {
-
             return (
                 <div className="game-content">
+                    {/* <div className="test-square"></div> */}
+                    <h1 className="line three">{this.props.state.opposingTeam} team</h1>
+                    <h3 className="line two">can steal</h3>
                     <h1 id="available-points">{this.props.state.availablePoints} points</h1>
-                    <h3 className="line two">are available for the</h3>
-                    <h1 className="line three">{this.props.state.currentTeam} team</h1>
-                    <h2 className="line four">to steal</h2>
                     <div className="cta-begin-stealing">
                         <button className="primary" onClick={this.beginCountdown}>Let's steal!</button>
                         <div className="tooltip-icon tooltip">?

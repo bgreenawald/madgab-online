@@ -6,11 +6,11 @@ import { updateGameData } from '../store/actions';
 
 import "../Styles/Variables.scss";
 
-import styled, {keyframes} from 'styled-components';
-import {fadeIn} from 'react-animations';
+// import styled, {keyframes} from 'styled-components';
+// import {fadeIn} from 'react-animations';
 
-const animation = keyframes`${fadeIn}`;
-const FadeDiv = styled.div`animation: .5s ${animation}`;
+// const animation = keyframes`${fadeIn}`;
+// const FadeDiv = styled.div`animation: .5s ${animation}`;
 
 class ClueIcon extends Component {
    
@@ -63,14 +63,14 @@ class ClueIcon extends Component {
 
     render() {
         return (
-            <FadeDiv>
+            // <FadeDiv>
                 <div className={`circle-icon ${this.props.value}`}
                     ref={elem => this.myElement = elem}
                     onClick={e => this.handleClick(e)}
                 >
                     {this.getIcon(this.props.value)}
                 </div>
-            </FadeDiv>
+            // </FadeDiv>
         )
     }
 }

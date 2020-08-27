@@ -1,4 +1,5 @@
 import "../Styles/Game.scss";
+import "../Styles/Review.scss";
 
 import React, { Component } from "react";
 import { connect } from 'react-redux';
@@ -8,6 +9,8 @@ import { updateGameData } from '../store/actions';
 
 import io from 'socket.io-client';
 
+import { gsap } from 'gsap';
+
 let socket = io('http://localhost:5000')
 
 class ScoreReview extends Component {
@@ -15,6 +18,42 @@ class ScoreReview extends Component {
     constructor(props) {
         super(props);
         this.cluesIcons = [];
+        this.animation = gsap.timeline();
+    }
+
+    componentDidMount() {
+        this.animation
+            .from(
+                '.circle-icon', {
+                duration: 1,
+                opacity: 0,
+                y: -30,
+                ease: 'power1',
+                stagger: 0.2
+            }
+            )
+            .to(
+                '.circle-icon.incorrect', {
+                duration: 1,
+                opacity: 0,
+                y: 25,
+                ease: 'power3(1,0.3)',
+            }, '-=0.2')
+            .to(
+                '.circle-icon.correct', {
+                duration: 2,
+                y: 50,
+                ease: 'power3(1,0.3)',
+                stagger: 0.2
+            }, '-=1.2')
+            .from(
+                'h1#points-count', {
+                    duration: 1,
+                    y: 30,
+                    ease: 'power1',
+                    opacity: 0
+                }, '-=0.5'
+            )
     }
 
     getPoints = (pts) => {
@@ -43,12 +82,12 @@ class ScoreReview extends Component {
                     {this.props.state.current_turn_clues.map((e, i) => (
                         <ClueIcon
                             value={e[2] ? 'correct' : 'incorrect'}
-                            key={i} 
-                            isButton={false}/>
+                            key={i}
+                            isButton={false} />
                     ))}
                 </div>
                 {/* <div className="square" ref={elem => this.myElement = elem}></div> */}
-                <h1>{totalPoints}</h1>
+                <h1 id='points-count'>{totalPoints}</h1>
                 <button className="primary" onClick={this.stealInit}>continue</button>
             </div>
 
