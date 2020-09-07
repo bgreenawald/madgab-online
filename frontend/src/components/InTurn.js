@@ -6,6 +6,8 @@ import { decreaseTimer, updateGameData } from '../store/actions'
 
 import Countdown from './Countdown';
 
+import './../Styles/InTurn.scss';
+
 let socket = io('http://localhost:5000');
 
 class InTurn extends Component {
@@ -86,12 +88,12 @@ class InTurn extends Component {
   loadNextClue = (didGuessCorrectly) => {
     if (this.props.state.current_turn_counter === this.props.state.words_per_turn) {
       this.loadLastClue(didGuessCorrectly);
+    } else {
+      socket.emit("new_phrase", {
+        "name": this.props.state.id,
+        "correct": didGuessCorrectly
+      })
     }
-
-    socket.emit("new_phrase", {
-      "name": this.props.state.id,
-      "correct": didGuessCorrectly
-    })
   }
 
   render() {
