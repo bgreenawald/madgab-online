@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Styles/Game.scss";
-import Socket from './../Socket';
+import Socket from './Socket';
 
 import Header from "./Header";
 import Footer from "./Footer";

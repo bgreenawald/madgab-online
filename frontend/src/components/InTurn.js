@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import io from "socket.io-client";
+import Socket from './Socket';
 
 import { connect } from 'react-redux';
 import { decreaseTimer, updateGameData } from '../store/actions'
@@ -8,7 +8,7 @@ import Countdown from './Countdown';
 
 import './../Styles/InTurn.scss';
 
-let socket = io('http://localhost:5000');
+let socket = Socket;
 
 class InTurn extends Component {
 

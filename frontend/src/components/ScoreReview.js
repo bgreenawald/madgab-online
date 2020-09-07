@@ -7,11 +7,11 @@ import { connect } from 'react-redux';
 import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
-import io from 'socket.io-client';
+import Socket from './Socket';
 
 import { gsap } from 'gsap';
 
-let socket = io('http://localhost:5000')
+let socket = Socket;
 
 class ScoreReview extends Component {
 
@@ -87,12 +87,12 @@ class ScoreReview extends Component {
 
     fadeUp() {
         this.fadeAnimation
-        .to('.game-content', {
-            duration: 1,
-            opacity: 0,
-            y: -100,
-            ease: 'power4'
-        }).resume();
+            .to('.game-content', {
+                duration: 1,
+                opacity: 0,
+                y: -100,
+                ease: 'power4'
+            }).resume();
     }
 
     test() {
@@ -110,11 +110,11 @@ class ScoreReview extends Component {
     }
 
     stealInit = () => {
-        // socket.emit("end_turn", {
-        //     "name": this.props.state.id
-        // })
+        socket.emit("end_turn", {
+            "name": this.props.state.id
+        })
         this.fadeUp();
-        setTimeout(this.props.updateGameData({state: 'STEALING'}), 1000);
+        setTimeout(this.props.updateGameData({ state: 'STEALING' }), 1000);
         console.log('steal init')
     }
 

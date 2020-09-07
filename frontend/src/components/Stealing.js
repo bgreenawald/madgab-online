@@ -9,8 +9,8 @@ import ClueIcon from './ClueIcon';
 
 import { gsap } from 'gsap';
 
-import io from 'socket.io-client';
-let socket = io('http://localhost:5000');
+import Socket from './Socket';
+let socket = Socket;
 
 
 class Stealing extends Component {

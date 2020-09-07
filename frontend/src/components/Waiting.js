@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { startTurn, toggleUserRole } from "../store/actions";
 
-import Socket from './../Socket';
+import Socket from './Socket';
 
 
 class Waiting extends Component {

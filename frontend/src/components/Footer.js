@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import "../Styles/Footer.scss";
 import { connect } from "react-redux";
-import io from 'socket.io-client';
 import { toggleUserRole } from '../store/actions';
+import Socket from './Socket';
 
 class Footer extends Component {
+
+  socket = Socket;
 
   toggleRole = (role) => {
     this.props.toggleUserRole();
   };
 
   toggleDifficulty = e => {
-    let socket = io("http://localhost:5000");
-    socket.emit("toggle_difficulty", {
+    this.socket.emit("toggle_difficulty", {
       "name": this.props.state.id
     })
   };
