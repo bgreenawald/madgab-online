@@ -141,8 +141,6 @@ class Stealing extends Component {
     }
 
     render() {
-
-
         if (this.props.state.inCountdown === true) {
             this.calculateStealablePoints();
             this.animateCountdown();
