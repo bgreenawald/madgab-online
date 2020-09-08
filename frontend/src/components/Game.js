@@ -48,10 +48,6 @@ class Game extends Component {
       this.props.updateGameData(data);
     });
   };
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.state.state !== this.props.state.state
-  } 
   
   getGameId = () => {
     let id = this.props.state.id;
