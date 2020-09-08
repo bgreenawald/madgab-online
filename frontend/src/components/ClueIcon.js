@@ -13,7 +13,7 @@ import "../Styles/Variables.scss";
 // const FadeDiv = styled.div`animation: .5s ${animation}`;
 
 class ClueIcon extends Component {
-   
+
     constructor(props) {
         super(props)
         this.myElement = null;
@@ -64,12 +64,12 @@ class ClueIcon extends Component {
     render() {
         return (
             // <FadeDiv>
-                <div className={`circle-icon ${this.props.value}`}
-                    ref={elem => this.myElement = elem}
-                    onClick={e => this.handleClick(e)}
-                >
-                    {this.getIcon(this.props.value)}
-                </div>
+            <div className={`circle-icon ${this.props.value}`}
+                ref={elem => this.myElement = elem}
+                onClick={e => this.handleClick(e)}
+            >
+                {this.getIcon(this.props.value)}
+            </div>
             // </FadeDiv>
         )
     }
@@ -85,8 +85,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateGameData: gameData => {
-            dispatch(updateGameData(gameData))
+        updateGameData: (gameData) => {
+            let copyGameData = JSON.parse(JSON.stringify(gameData));
+            dispatch(updateGameData(copyGameData));
         }
     }
 }

@@ -51,8 +51,8 @@ class Game extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.state.state !== this.props.state.state
-  }
-
+  } 
+  
   getGameId = () => {
     let id = this.props.state.id;
     let url = window.location.href;
@@ -134,17 +134,12 @@ class Game extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleDifficulty: () => {
-      dispatch({
-        type: "TOGGLE_DIFFICULTY",
-        difficulty: "hard"
-      });
-    },
     fetchGameData: () => {
       dispatch(fetchGameData())
     },
     updateGameData: (gameData) => {
-      dispatch(updateGameData(gameData))
+      const copyGameData = JSON.parse(JSON.stringify(gameData));
+      dispatch(updateGameData(copyGameData))
     }
   };
 };

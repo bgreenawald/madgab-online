@@ -1,4 +1,4 @@
-import React, {ReactDOM, Component } from 'react';
+import React, { ReactDOM, Component } from 'react';
 
 import { connect } from "react-redux";
 import { fetchGameData, updateGameData } from '../store/actions';
@@ -22,12 +22,12 @@ class GameOver extends Component {
             confetti: []
         }
         this.confettiArray = [];
-        this.myTween = new TimelineLite({paused: true});
+        this.myTween = new TimelineLite({ paused: true });
     }
 
     componentDidMount() {
         gsap.registerPlugin(Physics2DPlugin);
-        this.myTween.staggerTo(this.confettiArray, 0.5, {y: 0, autoAlpha: 1}, 0.1);
+        this.myTween.staggerTo(this.confettiArray, 0.5, { y: 0, autoAlpha: 1 }, 0.1);
     }
 
     popConfetti(elem) {
@@ -106,15 +106,15 @@ class GameOver extends Component {
     render() {
         return (
             <div className="game-content gameover"
-                // ref={div => this.gameover = div}
-                // onClick={() => { this.popConfetti(this.gameover) }}
+            // ref={div => this.gameover = div}
+            // onClick={() => { this.popConfetti(this.gameover) }}
             >
                 <div className="loading-container">
                     <h1>🎉 XX Team Wins!! 🎉</h1>
                 </div>
                 <button className="button grey"
-                     ref={div => this.button = div}
-                     onClick={() => { this.popConfetti(this.button) }}
+                    ref={div => this.button = div}
+                    onClick={() => { this.popConfetti(this.button) }}
                 >
                     <div className="icon">
                         <div className="cannon"></div>
@@ -146,8 +146,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateGameData: gameData => {
-            dispatch(updateGameData(gameData))
+        updateGameData: (gameData) => {
+            const copyGameData = JSON.parse(JSON.stringify(gameData));
+            dispatch(updateGameData(copyGameData));
         }
     }
 }

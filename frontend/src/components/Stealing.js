@@ -200,8 +200,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateGameData: gameData => {
-            dispatch(updateGameData(gameData))
-        }
+            const copyGameData = JSON.parse(JSON.stringify(gameData));
+            dispatch(updateGameData(copyGameData));        }
     }
 }
 

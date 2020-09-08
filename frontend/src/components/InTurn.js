@@ -128,8 +128,9 @@ const mapDispatchToProps = dispatch => {
     decreaseTimer: () => {
       dispatch(decreaseTimer())
     },
-    updateGameData: (data) => {
-      dispatch(updateGameData(data))
+    updateGameData: (gameData) => {
+      const copyGameData = JSON.parse(JSON.stringify(gameData));
+            dispatch(updateGameData(copyGameData));
     }
   }
 }
