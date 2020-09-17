@@ -9,6 +9,7 @@ import InTurn from "./InTurn";
 import GameOver from './GameOver';
 import Stealing from "./Stealing";
 import ScoreReview from "./ScoreReview";
+import ScoreCount from './ScoreCount';
 
 import { connect } from "react-redux";
 import { fetchGameData, updateGameData } from '../store/actions';
@@ -116,10 +117,12 @@ class Game extends Component {
   render() {
 
     // if (!this.props.state.data) return null;
+    const state = this.props.state.state;
 
     return (
       <div className={`game-container ${this.props.state.backgroundColor}`}>
         <Header {...this.state} />
+        {(state === "STEALING" || state === "REVIEW") ? <ScoreCount/> : null }
 
         {this.renderGameContent()}
         <Footer {...this.state} />

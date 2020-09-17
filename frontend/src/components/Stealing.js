@@ -21,46 +21,35 @@ class Stealing extends Component {
         this.stolenPoints = 0;
         this.stealTimerLength = 10;
         this.stealTimer = this.stealTimerLength;
-        this.animation = gsap.timeline();
-        this.animationPage2 = gsap.timeline().paused(true);
-        this.animation3 = gsap.timeline().paused(true);
-        this.fadeIn = gsap.timeline();
+        this.animation = gsap.timeline({ defaults: { duration: 1, opacity: 0 } }).paused(true);
     }
 
     componentDidMount() {
-        // gsap.timeline().from('h1', {duration: 1, opacity: 0.5})
+        this.showScore();
         this.animation
-            .from('.game-content', {
+            .from('#available-points', {
                 duration: 1,
                 opacity: 0,
-                y: 100,
-                ease: 'power2'
+                y: 50,
+                ease: 'back'
             })
-            // .from('.line', {
-            //     duration: 1,
-            //     opacity: 0,
-            //     y: -50,
-            //     ease: "power3(1, 0.3)",
-            // })
-            // .from('h1#available-points', {
-            //     duration: 1,
-            //     opacity: 0,
-            //     x: 30,
-            //     ease: "power3(1, 0.3)"
-            // }, .5)
-            // .from('.cta-begin-stealing', {
-            //     duration: 1,
-            //     opacity: 0,
-            //     x: 50,
-            //     ease: "power3(1, 0.3)"
-            // }, 1)
-            // .from('.tooltip', {
-            //     duration: .4,
-            //     opacity: 0,
-            //     scale: .7,
-            //     ease: "back"
-            // })
-        console.log('did mount')
+            .from('.line.three', {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                ease: 'back'
+            }, '-=.5')
+            .from('.line.two', {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                ease: 'back'
+            }, '-=1')
+            .to('.circle-icon.correct', {
+                opacity: 0,
+                y: 50,
+                ease: 'power3'
+            }).play();
     }
 
     submitSteal = () => {
@@ -71,11 +60,12 @@ class Stealing extends Component {
     }
 
     beginCountdown = () => {
-        // this.stealTimerID = setInterval(this.decrease, 1000);
+        this.stealTimerID = setInterval(this.decrease, 1000);
 
         this.props.updateGameData({
             inCountdown: true
         })
+        this.hideScore();
     }
 
     animateCountdown() {
@@ -84,27 +74,6 @@ class Stealing extends Component {
     }
 
     componentDidUpdate() {
-        this.animationPage2
-            .from('h1#title-how-many', {
-                duration: 1,
-                opacity: 0,
-                x: 50,
-                ease: 'power3(1, 0.3)'
-            })
-            .from('.clue-icon-container', {
-                duration: 1,
-                opacity: 0,
-                y: -50,
-                ease: 'power3(1, 0.3)'
-            }).resume();
-
-        this.animation3
-            .from('.test-square', {
-                duration: 1,
-                opacity: 0,
-                x: 50,
-                ease: 'power3(1, 0.3)'
-            }).resume();
     }
 
     decrease = () => {
@@ -140,6 +109,18 @@ class Stealing extends Component {
         this.stealTimer = this.stealTimerLength;
     }
 
+    hideScore() {
+        this.props.updateGameData({
+            scoreVisible: false
+        })
+    }
+
+    showScore()  {
+        this.props.updateGameData({
+            scoreVisible: true
+        })
+    }
+
     render() {
         if (this.props.state.inCountdown === true) {
             this.calculateStealablePoints();
@@ -163,7 +144,8 @@ class Stealing extends Component {
             return (
                 <div className="game-content">
                     <h1 className="line three">{this.props.state.opposingTeam} team</h1>
-                    <h3 className="line two">can steal</h3>
+                    <h3 className="line two">here's your chance to steal</h3>
+                    <div className="icon-placeholder"></div>
                     <h1 id="available-points">{this.props.state.availablePoints} points</h1>
                     <div className="cta-begin-stealing">
                         <button className="primary" onClick={this.beginCountdown}>Let's steal!</button>
@@ -201,7 +183,8 @@ const mapDispatchToProps = dispatch => {
     return {
         updateGameData: gameData => {
             const copyGameData = JSON.parse(JSON.stringify(gameData));
-            dispatch(updateGameData(copyGameData));        }
+            dispatch(updateGameData(copyGameData));
+        }
     }
 }
 
