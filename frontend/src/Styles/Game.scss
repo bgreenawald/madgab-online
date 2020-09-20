@@ -95,6 +95,7 @@
   flex-flow: column wrap;
   justify-content: center;
   position: relative;
+  min-width: $card-min-width;
 
   p {
     align-self: center;
