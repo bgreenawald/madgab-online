@@ -24,17 +24,14 @@ class ScoreCount extends Component {
     }
 
     componentDidMount() {
-        let iconsHeight = document.querySelector('.icon-placeholder');
-        if (!iconsHeight) {
-            return;
-        } 
-        iconsHeight = iconsHeight.getClientRects()[0].top;
-        console.log(iconsHeight)
-        this.ref.current.style.position = 'fixed';
-        this.ref.current.style.top = `${iconsHeight}px`;
+        this.realign();
     }
 
     componentDidUpdate() {
+       this.realign();
+    }
+
+    realign() {
         let iconsHeight = document.querySelector('.icon-placeholder');
         if (!iconsHeight) {
             return;

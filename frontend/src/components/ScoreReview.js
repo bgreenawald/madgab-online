@@ -87,10 +87,10 @@ class ScoreReview extends Component {
     stealInit = () => {
         this.fadeUp();
         setTimeout(() => {
-            this.props.updateGameData({ state: 'STEALING' });
-            // socket.emit("end_turn", {
-            //     "name": this.props.state.id
-            // })
+            // this.props.updateGameData({ state: 'STEALING' });
+            socket.emit("end_turn", {
+                "name": this.props.state.id
+            })
         }, 1000);
         console.log('steal init')
     }

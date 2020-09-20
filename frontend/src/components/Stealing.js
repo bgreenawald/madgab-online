@@ -22,6 +22,7 @@ class Stealing extends Component {
         this.stealTimerLength = 10;
         this.stealTimer = this.stealTimerLength;
         this.animation = gsap.timeline({ defaults: { duration: 1, opacity: 0 } }).paused(true);
+        this.countdownAnimation = gsap.timeline({defaults: {duration: 1, opacity: 0}}).paused(true);
     }
 
     componentDidMount() {
@@ -31,19 +32,19 @@ class Stealing extends Component {
                 duration: 1,
                 opacity: 0,
                 y: 50,
-                ease: 'back'
+                ease: 'power3'
             })
             .from('.line.three', {
                 duration: 1,
                 opacity: 0,
                 y: 50,
-                ease: 'back'
+                ease: 'power3'
             }, '-=.5')
             .from('.line.two', {
                 duration: 1,
                 opacity: 0,
                 y: 50,
-                ease: 'back'
+                ease: 'power3'
             }, '-=1')
             .to('.circle-icon.correct', {
                 opacity: 0,
@@ -69,8 +70,7 @@ class Stealing extends Component {
     }
 
     animateCountdown() {
-        // do animation;
-        console.log('animating')
+        document.querySelector('.clue-icon-container').classList.add('none');
     }
 
     componentDidUpdate() {

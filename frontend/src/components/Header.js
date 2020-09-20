@@ -15,11 +15,11 @@ class Header extends Component {
             <span className="team-2-red-score">{this.props.state.team_2_score ? this.props.state.team_2_score : 0}</span>
           </div>
           <div className="game-branding">
-            <div className="footer-child">
-              <p>Rad Gab</p>
+            <div className="header-child">
+              <a href='/' className='home-logo'>Rad Gab</a>
             </div>
-            <div className="footer-child">
-              <p className="rules-button">Rules</p>
+            <div className="header-child">
+              <a className="rules-button">Rules</a>
             </div>
           </div>
         </div>

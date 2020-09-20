@@ -54,4 +54,10 @@ h1#points-count {
 
 .icon-placeholder {
     height: 48px;
+    width: 48px;
+    // border: 1px solid yellow;
+}
+
+.game-content > *  {
+    margin: 1rem auto;
 }
