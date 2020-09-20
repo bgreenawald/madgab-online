@@ -19,7 +19,7 @@ class Header extends Component {
               <a href='/' className='home-logo'>Rad Gab</a>
             </div>
             <div className="header-child">
-              <a className="rules-button">Rules</a>
+              <p className="rules-button">Rules</p>
             </div>
           </div>
         </div>

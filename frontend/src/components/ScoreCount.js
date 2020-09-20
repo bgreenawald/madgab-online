@@ -7,11 +7,7 @@ import { connect } from 'react-redux';
 import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
-import Socket from './Socket';
-
 import { gsap } from 'gsap';
-
-let socket = Socket;
 
 class ScoreCount extends Component {
 

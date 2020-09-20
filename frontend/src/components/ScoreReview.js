@@ -4,7 +4,6 @@ import "../Styles/Review.scss";
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
 import Socket from './Socket';

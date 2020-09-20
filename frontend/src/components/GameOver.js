@@ -1,11 +1,11 @@
-import React, { ReactDOM, Component } from 'react';
+import React, { Component } from 'react';
 
 import { connect } from "react-redux";
-import { fetchGameData, updateGameData } from '../store/actions';
+import { updateGameData } from '../store/actions';
 
 import { gsap } from "gsap";
 import { Physics2DPlugin } from "gsap/Physics2DPlugin";
-import { TweenLite, TimelineLite } from "gsap/all";
+import { TimelineLite } from "gsap/all";
 
 import "../Styles/Confetti.scss";
 
@@ -110,7 +110,7 @@ class GameOver extends Component {
             // onClick={() => { this.popConfetti(this.gameover) }}
             >
                 <div className="loading-container">
-                    <h1>🎉 XX Team Wins!! 🎉</h1>
+                    <h1><span role="img" aria-label="confetti-popper">🎉</span> XX Team Wins!! <span role="img" aria-label="confetti-popper">🎉</span></h1>
                 </div>
                 <button className="button grey"
                     ref={div => this.button = div}
