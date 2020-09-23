@@ -66,7 +66,8 @@ class ScoreReview extends Component {
                 opacity: 0,
                 y: -50,
                 ease: 'power4'
-            }, '-=1').resume();
+            }, '-=1')
+            .resume();
     }
 
     test() {
@@ -86,7 +87,6 @@ class ScoreReview extends Component {
     stealInit = () => {
         this.fadeUp();
         setTimeout(() => {
-            // this.props.updateGameData({ state: 'STEALING' });
             socket.emit("end_turn", {
                 "name": this.props.state.id
             })
