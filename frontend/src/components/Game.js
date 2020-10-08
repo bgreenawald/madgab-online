@@ -96,7 +96,7 @@ class Game extends Component {
     const state = this.props.state.state;
 
     // dev config:
-    // return <Stealing />
+    // return <GameOver />
 
     switch (state) {
       case 'ACTIVE':
@@ -110,7 +110,7 @@ class Game extends Component {
       case 'OVER':
         return <GameOver />
       default:
-        return <TurnWaitStart />
+        return null;
     }
   }
 
@@ -124,7 +124,7 @@ class Game extends Component {
         <Header {...this.state} />
         {(state === "STEALING" || state === "REVIEW") ? <ScoreCount/> : null }
 
-        {this.renderGameContent()}
+        {this.props.state.state ? this.renderGameContent() : null}
         <Footer {...this.state} />
       </div>
     );

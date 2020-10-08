@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "../Styles/Variables.scss";
 import "../Styles/Confetti.scss";
 
-import gsap from "gsap";
-
 export default class ConfettiParticle extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +17,6 @@ export default class ConfettiParticle extends Component {
     return this.color
   }
   render() {
-    return <div className={`confetti-particle ${this.chooseRandomColor()}`} ></div>;
+    return <div className={`confetti-particle ${this.chooseRandomColor()} ${this.props.position}`} ></div>;
   }
 }

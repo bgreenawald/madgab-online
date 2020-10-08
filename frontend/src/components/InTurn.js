@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Socket from './Socket';
+import gsap from 'gsap';
 
 import { connect } from 'react-redux';
 import { decreaseTimer, updateGameData } from '../store/actions'
@@ -21,7 +22,8 @@ class InTurn extends Component {
         name: this.props.state.id
       });
     });
-
+    this.animation = gsap.timeline({defaults: {duration: 1, opacity: 0}}).paused(true);
+    this.footerAnimation = gsap.timeline({defaults: {duration: 1, opacity: 0}}).paused(true);
   }
 
   componentDidMount = () => {
@@ -99,7 +101,7 @@ class InTurn extends Component {
   render() {
     if (this.props.state.inCountdown === true) {
       return (
-        <div className="game-content">
+        <div className="game-content round-countdown">
           <Countdown loadingMessage="Ready?" />
         </div>
       )

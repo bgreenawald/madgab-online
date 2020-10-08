@@ -47,18 +47,15 @@ class InSteal extends Component {
 
         this.countdownAnimation
         .from('.game-content .clue-icon-container .circle-icon', {
-            y: 10,
-            x: 30,
+            y: 30,
             opacity: 0,
             stagger: 0.2
         })
         .from('h1#title-how-many', {
-            y: 10,
-            x: 30,
+            y: 30,
         }, "-=0.5")
         .from(".steal-submit-button", {
-            y: 10,
-            x: 30,
+            y: 30,
         }, "-=0.5")
         .from(".steal-submit-timer", {
             y: 10,

@@ -5,13 +5,9 @@ import { connect } from "react-redux";
 
 import { updateGameData } from "../store/actions";
 
-import ClueIcon from "./ClueIcon";
 import InSteal from "./InSteal";
 
 import { gsap } from "gsap";
-
-import Socket from "./Socket";
-let socket = Socket;
 
 class Stealing extends Component {
   constructor(props) {
