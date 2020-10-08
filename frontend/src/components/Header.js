@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   render() {
-    // if (this.props.state.team_1_score) {
       return (
         <div className="header">
           <h3 className="round-counter">Round {this.props.state.round_number}</h3>
@@ -24,13 +23,6 @@ class Header extends Component {
           </div>
         </div>
       );
-    // } else {
-    //   return (
-    //     <div className="loading-container">
-    //       <div className="loader"></div>
-    //     </div>
-    //   )
-    // }
   }
 }
 

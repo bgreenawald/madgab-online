@@ -17,7 +17,6 @@ class Waiting extends Component {
   }
 
   componentDidMount() {
-    console.log('i"m waiting')
     this.animation
       .from("h3.its-your-turn", {
         x: 30,
@@ -53,8 +52,7 @@ class Waiting extends Component {
   }
 
   handleStartTurn = () => {
-    let socket = Socket;
-    socket.emit("start_turn", {
+    Socket.emit("start_turn", {
       name: this.props.state.id,
     });
   };

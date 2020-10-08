@@ -66,8 +66,6 @@ class GameOver extends Component {
   };
 
   popConfetti() {
-    let colors = ["#FFFF04", "#EA4C89", "#892AB8", "#4AF2FD"];
-
     const selectedParticlesLeft = document.querySelectorAll(
       ".confetti-particle.left"
     );
@@ -90,7 +88,6 @@ class GameOver extends Component {
   animateParticle(dot, x, y, minAngle, maxAngle) {
     let angle = gsap.utils.random(minAngle, maxAngle);
     let velocity = gsap.utils.random(70, 140);
-    let friction = gsap.utils.random(0.1, 0.15);
     let length = Math.random() * 20;
     let delay = Math.random() * 2;
 

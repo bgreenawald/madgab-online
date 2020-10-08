@@ -34,11 +34,6 @@
     color: $primary-red;
 }
 
-// .header .game-branding {
-//     display: none;
-// }
-
-// @media only screen and (max-width: 600px) {
 .header .game-branding {
     position: absolute;
     top: 0;
@@ -49,15 +44,13 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     color: white;
-    // TODO add links to home and to rules modal0
+    // TODO add links to rules modal
     font-size: 1.3rem;
     margin-top: 2%;
     height: 40px;
     padding: 0px 2vw;
     box-sizing: border-box;
 }
-
-// }
 
 
 // TODO: fix scorebox overlap onto home and rules

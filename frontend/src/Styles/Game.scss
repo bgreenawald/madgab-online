@@ -166,15 +166,12 @@
 
   &.incorrect,
   &.unseen {
-    // background-color: rgba(lighten($off-black, 60%), .9);
-    // border: 4px solid rgba(lighten($off-black, 80%), 30%);
     text-shadow: 0px 0px 6px white;
   }
 
   &:hover {
     cursor: pointer;
     background-color: rgba(lighten($off-black, 70%), 0.9);
-    // color: white;
     border: 4px solid rgba(lighten($off-black, 50%), 30%);
   }
 

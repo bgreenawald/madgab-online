@@ -38,7 +38,6 @@ class ScoreReview extends Component {
                 y: 30,
                 ease: 'power3',
                 opacity: 0,
-                // onComplete: this.test
             }, '-=.7')
             .from(
                 'button.primary', {
@@ -46,7 +45,6 @@ class ScoreReview extends Component {
                 y: 30,
                 ease: 'power3',
                 opacity: 0,
-                // onComplete: this.test
             }, '-=.7');
             this.props.updateGameData({
                 scoreVisible: this.scoreVisible
