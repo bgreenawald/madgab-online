@@ -43,12 +43,12 @@ class Waiting extends Component {
         },
         "-=0.5"
       )
-      // .from('.footer-child:first-child', {
-      //   y: 30
-      // }, "-=0.5")
-      // .from('.footer-child:nth-child(2)', {
-      //   y: 30
-      // }, "-=0.5")
+      .from('.footer-child:first-child', {
+        y: 30
+      }, "-=0.5")
+      .from('.footer-child:nth-child(2)', {
+        y: 30
+      }, "-=0.5")
       .resume();
   }
 

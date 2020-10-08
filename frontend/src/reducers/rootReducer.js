@@ -8,7 +8,7 @@ const initState = {
   scoreArray: [],
   difficulty: 'easy',
   currentTeam: "blue",
-  stolenPoints: 0, 
+  stolenPoints: 0,
   state: 'IDLE'
 };
 

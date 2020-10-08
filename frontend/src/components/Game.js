@@ -23,21 +23,18 @@ class Game extends Component {
   }
 
   componentDidMount = () => {
-    let socket = Socket;
     let id = this.getGameId();
 
-    socket.on("connect", (resp) => {
-    });
+      Socket.emit("join", {
+        name: id
+      });
+  
+  
+      Socket.emit("load_board", {
+        name: id
+      });
 
-    socket.emit("join", {
-      name: id
-    });
-
-    socket.emit("load_board", {
-      name: id
-    });
-
-    socket.on("render_board", resp => {
+    Socket.on("render_board", resp => {
 
       const data = this.parsePayload(resp.payload)
       data.currentTeam = data.team_1_turn ? 'blue' : 'red';
@@ -95,9 +92,6 @@ class Game extends Component {
   renderGameContent = () => {
     const state = this.props.state.state;
 
-    // dev config:
-    // return <GameOver />
-
     switch (state) {
       case 'ACTIVE':
         return <InTurn />
@@ -116,7 +110,6 @@ class Game extends Component {
 
   render() {
 
-    // if (!this.props.state.data) return null;
     const state = this.props.state.state;
 
     return (
