@@ -7,7 +7,7 @@ class Header extends Component {
   render() {
       return (
         <div className="header">
-          <h3 className="round-counter">Round {this.props.state.round_number}</h3>
+          <h3 className="round-counter">Round {this.props.state.round_number ? this.props.state.round_number : 0}</h3>
           <div className="score-box">
             <span className="team-1-blue-score">{this.props.state.team_1_score ? this.props.state.team_1_score : 0}</span>
             <span> - </span>

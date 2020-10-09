@@ -6,7 +6,7 @@ const initState = {
   inTurn: false,
   userRole: 'guesser',
   scoreArray: [],
-  difficulty: 'easy',
+  difficulty: 'hard',
   currentTeam: "blue",
   stolenPoints: 0,
   state: 'IDLE'
