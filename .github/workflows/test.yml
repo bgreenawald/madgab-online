@@ -1,0 +1,42 @@
+name: Test
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      backend-directory: ./backend
+      python_version: 3.7.0
+      poetry_version: 1.0
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # Test the backend
+    - name: Install
+      uses: abatilo/actions-poetry@v1.5.0
+      with:
+        python_version: ${{ env.python_version }}
+        poetry_version: ${{ env.poetry_version }}
+        working-directory: ${{ env.backend-directory }}
+        args: install
+    - name: Lint with flake8
+      uses: abatilo/actions-poetry@v1.5.0
+      with:
+        python_version: ${{ env.python_version }}
+        poetry_version: ${{ env.poetry_version }}
+        working-directory: ${{ env.backend-directory }}
+        # stop the build if there are Python syntax errors or undefined names
+        args: run flake8 .
+    - name: Test with pytest
+      uses: abatilo/actions-poetry@v1.5.0
+      with:
+        python_version: ${{ env.python_version }}
+        poetry_version: ${{ env.poetry_version }}
+        working-directory: ${{ env.backend-directory }}
+        # stop the build if there are Python syntax errors or undefined names
+        args: run pytest
