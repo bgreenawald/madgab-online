@@ -37,9 +37,8 @@ logger.addHandler(handler)
 logger.addHandler(shell_handler)
 
 
-# Initialize CORS and styling
+# Initialize CORS
 CORS(app)
-Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 
 # Dictionary to hold all games
 all_games: Dict[str, Game] = {}
