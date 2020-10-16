@@ -74,6 +74,7 @@ def test_load_board(socket_client):
         "current_madgab": "",
         "current_turn_counter": 0,
         "current_turn_correct": 0,
+        "current_turn_bonus_points": 0,
         "current_turn_clues": [],
     }
 
@@ -103,6 +104,7 @@ def test_start_game(socket_client):
         "team_1_turn": True,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
+        "current_turn_bonus_points": 0,
         "current_turn_clues": [],
     }
 
@@ -133,6 +135,7 @@ def test_reset(socket_client):
         "current_madgab": "",
         "current_turn_counter": 0,
         "current_turn_correct": 0,
+        "current_turn_bonus_points": 0,
         "current_turn_clues": [],
     }
 
@@ -178,6 +181,7 @@ def test_new_phrase(socket_client):
         "team_1_turn": True,
         "current_turn_counter": 2,
         "current_turn_correct": 1,
+        "current_turn_bonus_points": 0,
     }
 
 
@@ -224,6 +228,7 @@ def test_end_active_state(socket_client):
         "team_1_turn": True,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
+        "current_turn_bonus_points": 0,
     }
 
 
@@ -259,6 +264,7 @@ def test_end_turn(socket_client):
         "team_1_turn": True,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
+        "current_turn_bonus_points": 0,
     }
 
 
@@ -309,6 +315,7 @@ def test_steal(socket_client):
         "team_1_turn": False,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
+        "current_turn_bonus_points": 0,
     }
 
 
@@ -336,5 +343,6 @@ def test_toggle_difficulty(socket_client):
         "current_madgab": "",
         "current_turn_counter": 0,
         "current_turn_correct": 0,
+        "current_turn_bonus_points": 0,
         "current_turn_clues": [],
     }

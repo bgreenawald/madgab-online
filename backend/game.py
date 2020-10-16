@@ -111,6 +111,7 @@ class Game(object):
         self.current_madgab: str = ""
         self.current_turn_counter: int = 0
         self.current_turn_correct: int = 0
+        self.bonus_points: int = 0
 
         # This contains the current turn clues. It is a tuple with the phrase,
         # the madgab, whether they got it correct, and the category.
@@ -146,6 +147,7 @@ class Game(object):
             "current_madgab": self.current_madgab,
             "current_turn_counter": self.current_turn_counter,
             "current_turn_correct": self.current_turn_correct,
+            "current_turn_bonus_points": self.bonus_points,
             "current_turn_clues": self.current_turn_clues,
         }
 
@@ -173,6 +175,7 @@ class Game(object):
             bonus = 1
 
         if bonus:
+            self.bonus_points = bonus
             self._update_score(bonus)
 
     def _change_active_team(self):
@@ -328,6 +331,7 @@ class Game(object):
         self.current_turn_clues = []
         self.current_turn_counter = 0
         self.current_turn_correct = 0
+        self.bonus_points = 0
 
     def start_turn(self):
         """

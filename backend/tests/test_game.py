@@ -59,20 +59,28 @@ class testGameMethods(unittest.TestCase):
         game = Game("", clues)
         seconds = game.seconds_per_turn
 
+        game._reset_turn()
         game._calculate_bonus(seconds * 2 / 3 + 1)
         with self.subTest("Big bonus"):
+            self.assertEqual(game.bonus_points, 3)
             self.assertEqual(game.team_1_score, 3)
 
+        game._reset_turn()
         game._calculate_bonus(seconds * 1 / 2)
         with self.subTest("Medium bonus"):
+            self.assertEqual(game.bonus_points, 2)
             self.assertEqual(game.team_1_score, 5)
 
+        game._reset_turn()
         game._calculate_bonus(seconds * 1 / 4)
         with self.subTest("Small bonus"):
+            self.assertEqual(game.bonus_points, 1)
             self.assertEqual(game.team_1_score, 6)
 
+        game._reset_turn()
         game._calculate_bonus(seconds * 1 / 6 - 1)
         with self.subTest("No bonus"):
+            self.assertEqual(game.bonus_points, 0)
             self.assertEqual(game.team_1_score, 6)
 
     def testChangeActiveTeam(self):
@@ -282,6 +290,7 @@ class testGameMethods(unittest.TestCase):
 
         game.start_turn()
         game.increment_active_state(True)
+        game.bonus_points = 3
         with self.subTest("Check current turn clues"):
             self.assertEqual(len(game.current_turn_clues), 1)
         with self.subTest("Check current phrase"):
@@ -304,6 +313,8 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.current_turn_counter, 0)
         with self.subTest("Check correct reset"):
             self.assertEqual(game.current_turn_correct, 0)
+        with self.subTest("Check bonus points reset"):
+            self.assertEqual(game.bonus_points, 0)
 
     def testRoundNumber(self):
         game = Game("", clues)
