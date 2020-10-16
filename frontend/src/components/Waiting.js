@@ -78,6 +78,7 @@ class Waiting extends Component {
             name="userRole"
             value="clue giver"
             onChange={this.setRole}
+            checked={this.props.state.userRole === "guesser" ? false : true}
           />
           <label htmlFor="Yes">I'm the clue reader</label>
         </div>
