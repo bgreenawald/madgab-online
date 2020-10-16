@@ -6,7 +6,7 @@ import { decreaseTimer, updateGameData } from '../store/actions'
 
 import Countdown from './Countdown';
 
-let socket = io('http://localhost:5000');
+let socket = io(process.env.REACT_APP_BACKEND_URL);
 
 class InTurn extends Component {
 
