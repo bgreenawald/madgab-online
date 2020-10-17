@@ -19,8 +19,8 @@ from game import Game, InvalidState
 app = Flask(__name__)
 app.debug = True
 app.config["SECRET_KEY"] = "secret!"  # noqa: S105
-cors_allowed_origins = "https://localhost"
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app)
+socketio.init_app(app, cors_allowed_origins="*")
 
 # Setup logging
 if not os.path.isdir("logs"):
