@@ -18,7 +18,7 @@ from game import Game, InvalidState
 # Initialize the application
 app = Flask(__name__)
 app.debug = True
-app.config["SECRET_KEY"] = "secret!"
+app.config["SECRET_KEY"] = "secret!"  # noqa: S105
 cors_allowed_origins = "https://localhost"
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -468,4 +468,4 @@ scheduler.start()
 atexit.register(lambda: scheduler.shutdown())
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True)  # noqa: S201
