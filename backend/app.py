@@ -10,7 +10,6 @@ import simplejson
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, json, render_template, request, Response
 from flask_cors import CORS
-from flask_scss import Scss
 from flask_socketio import emit, join_room, SocketIO
 from jsonschema import validate, ValidationError
 
@@ -39,7 +38,6 @@ logger.addHandler(shell_handler)
 
 # Initialize CORS and styling
 CORS(app)
-Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 
 # Dictionary to hold all games
 all_games: Dict[str, Game] = {}
