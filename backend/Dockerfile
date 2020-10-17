@@ -21,6 +21,10 @@ RUN poetry export -f requirements.txt > requirements.txt
 # Install the requirements
 RUN pip install -r requirements.txt
 
+# Install the production server
+RUN pip install eventlet
+RUN pip install gunicorn
+
 # Copy over application code
 COPY . /app
 WORKDIR /app
