@@ -11,7 +11,7 @@ class Footer extends Component {
   };
 
   toggleDifficulty = e => {
-    let socket = io("http://localhost:5000");
+    let socket = io(process.env.REACT_APP_BACKEND_URL);
     socket.emit("toggle_difficulty", {
       "name": this.props.state.id
     })

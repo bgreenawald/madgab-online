@@ -257,18 +257,6 @@ Six = "*"
 
 [[package]]
 category = "main"
-description = "Adds support for scss files to Flask applications"
-name = "flask-scss"
-optional = false
-python-versions = "*"
-version = "0.5"
-
-[package.dependencies]
-Flask = "*"
-pyScss = "*"
-
-[[package]]
-category = "main"
 description = "Socket.IO integration for Flask applications"
 name = "flask-socketio"
 optional = false
@@ -521,17 +509,6 @@ version = "0.16.0"
 six = "*"
 
 [[package]]
-category = "main"
-description = "pyScss, a Scss compiler for Python"
-name = "pyscss"
-optional = false
-python-versions = "*"
-version = "1.3.5"
-
-[package.dependencies]
-six = "*"
-
-[[package]]
 category = "dev"
 description = "pytest: simple powerful testing with Python"
 name = "pytest"
@@ -768,7 +745,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "fe5e4c6c56a08c1abac575790e9969b98ca4033662b37bce9a2ef9012ceff163"
+content-hash = "0d4aaef3ac1b7c33b207f925acaa7a4aac90b2e8fdf71f8fbfd47e58809fe933"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -878,10 +855,6 @@ flask = [
 flask-cors = [
     {file = "Flask-Cors-3.0.8.tar.gz", hash = "sha256:72170423eb4612f0847318afff8c247b38bd516b7737adfc10d1c2cdbb382d16"},
     {file = "Flask_Cors-3.0.8-py2.py3-none-any.whl", hash = "sha256:f4d97201660e6bbcff2d89d082b5b6d31abee04b1b3003ee073a6fd25ad1d69a"},
-]
-flask-scss = [
-    {file = "Flask-Scss-0.5.tar.gz", hash = "sha256:21e28c3b03fd5905c909085578a4a3c0b250ddb061214eb3775037fd78f74782"},
-    {file = "Flask_Scss-0.5-py3-none-any.whl", hash = "sha256:6155657a6b48630585a00666b69d7f443b4432ab9e4fe87f27e1583abe047125"},
 ]
 flask-socketio = [
     {file = "Flask-SocketIO-4.2.1.tar.gz", hash = "sha256:2172dff1e42415ba480cee02c30c2fc833671ff326f1598ee3d69aa02cf768ec"},
@@ -1052,9 +1025,6 @@ pyparsing = [
 ]
 pyrsistent = [
     {file = "pyrsistent-0.16.0.tar.gz", hash = "sha256:28669905fe725965daa16184933676547c5bb40a5153055a8dee2a4bd7933ad3"},
-]
-pyscss = [
-    {file = "pyScss-1.3.5.tar.gz", hash = "sha256:14a25c33c221a66bb1f000a6a067f376528d3df2f9333cee9c95709a9280cdb0"},
 ]
 pytest = [
     {file = "pytest-5.4.1-py3-none-any.whl", hash = "sha256:0e5b30f5cb04e887b91b1ee519fa3d89049595f428c1db76e73bd7f17b09b172"},

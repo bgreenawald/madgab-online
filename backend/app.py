@@ -10,7 +10,6 @@ import simplejson
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, json, render_template, request, Response
 from flask_cors import CORS
-from flask_scss import Scss
 from flask_socketio import emit, join_room, SocketIO
 from jsonschema import validate, ValidationError
 
@@ -19,8 +18,8 @@ from game import Game, InvalidState
 # Initialize the application
 app = Flask(__name__)
 app.debug = True
-app.config["SECRET_KEY"] = "secret!"
-cors_allowed_origins = 'https://localhost'
+app.config["SECRET_KEY"] = "secret!"  # noqa: S105
+cors_allowed_origins = "https://localhost"
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Setup logging
@@ -39,7 +38,6 @@ logger.addHandler(shell_handler)
 
 # Initialize CORS and styling
 CORS(app)
-Scss(app, static_dir="static/styles/css", asset_dir="static/styles/scss")
 
 # Dictionary to hold all games
 all_games: Dict[str, Game] = {}
@@ -470,4 +468,4 @@ scheduler.start()
 atexit.register(lambda: scheduler.shutdown())
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True)  # noqa: S201
