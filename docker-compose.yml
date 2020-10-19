@@ -6,7 +6,9 @@ services:
         build: ./backend
         container_name: backend
     frontend:
-        build: ./frontend
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile.dev
         container_name: frontend
         links:
         - backend
