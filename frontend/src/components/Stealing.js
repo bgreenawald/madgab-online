@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 import { updateGameData } from "../store/actions";
 
 import InSteal from "./InSteal";
-import ClueIcon from './ClueIcon';
-import Socket from './Socket';
 
 import { gsap } from "gsap";
 
