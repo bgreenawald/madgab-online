@@ -74,14 +74,9 @@ def return_game(id: str) -> str:
 def return_game_test(id: str) -> str:
     return render_template("game2.html", id=id)
 
-@app.route("/api/test_backend")
-def return_test_backend() -> str:
-    print("Backend test")
-    return "Hello world"
 
 @app.route("/api/get_names")
 def get_names() -> Response:
-    print("Get names test")
     ids = [x for x in all_games]
     return json.jsonify({"ids": ids})
 
