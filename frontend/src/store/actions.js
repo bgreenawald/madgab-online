@@ -1,7 +1,7 @@
 export const fetchGameData = (id) => {
     return (dispatch, getState) => {
 
-        fetch("http://localhost:5000/api/get_names")
+        fetch(process.env.REACT_APP_BACKEND_URL + '/api/get_names')
             .then(res => res.json())
             .then(json => {
                 // let registerIDSuccess = validateUnusedId(json.ids, id);

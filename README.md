@@ -27,7 +27,7 @@ Alternatively, you can use *virtualenv* with the included requirements files. Th
 pip install -r requirements.txt
 
 # Install all packages (for testing and development).
-pip install -r dev-requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 After setting up the environment, just run
