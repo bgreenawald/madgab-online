@@ -1,6 +1,7 @@
 import io from 'socket.io-client';
+import Socket from './../components/Socket';
 
-let socket = io('http://localhost:3000/');
+let socket = Socket;
 
 export const emitAction = (actionCreator) => {
     return (...args) => {
