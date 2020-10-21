@@ -15,6 +15,8 @@ numpy = "^1.18.1"
 scipy = "^1.4.1"
 pandas = "^0.25.3"
 jsonschema = "^3.2.0"
+gunicorn = {extras = ["gevent"], version = "^20.0.4"}
+
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
