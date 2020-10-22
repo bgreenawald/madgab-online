@@ -21,14 +21,10 @@ RUN poetry export -f requirements.txt > requirements.txt
 # Install the requirements
 RUN pip install -r requirements.txt
 
-# Install the production server
-RUN pip install eventlet
-RUN pip install gunicorn
-
 # Copy over application code
 COPY . /app
 WORKDIR /app
 
 EXPOSE 5000
 
-CMD gunicorn --bind :5000 --worker-class eventlet -w 1 'app:app'
+CMD gunicorn --bind :5000 --worker-class gevent -w 1 'app:app'
