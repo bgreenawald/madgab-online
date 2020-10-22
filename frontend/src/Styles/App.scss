@@ -308,7 +308,7 @@ div.tooltip-icon {
   }
 
   .tooltip-modal {
-    visibility: visible;
+    visibility: hidden;
     width: $tooltip-width;
     background-color: rgba(darken($primary-blue, 50%), .9);
     color: white;

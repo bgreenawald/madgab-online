@@ -2,9 +2,12 @@
 
 .cta-begin-stealing {
     @include flexbox();
+    position: relative;
 
     .tooltip-icon {
-        margin-left: 10px;
+        margin-left: 2rem;
+        position: absolute;
+        left: 100%;
     }
 }
 
@@ -16,4 +19,21 @@
         top: 30%;
         right: -40%;
     }
+}
+
+.line.three {
+    margin-bottom: .1em;
+    line-height: 1em;
+}
+
+.line.two {
+    margin-top: 0em;
+}
+
+.icon-placeholder {
+    height: 48px;
+}
+
+#available-points {
+    margin-top: 0em;
 }

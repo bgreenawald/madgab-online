@@ -1,0 +1,31 @@
+.game-content.gameover {
+    width: 50vw;
+}
+
+.confetti-array {
+    top: -10vw;
+    position: absolute;
+
+    &.one {
+        left: 0;
+    }
+
+    &.two {
+        right: -50vw;
+    }
+}
+
+.emoji.tada {
+    margin: 0 .6em;
+    transform: scale(.7);
+    font-size: .6em;
+    vertical-align: middle;
+
+    &.left {
+        -moz-transform: scale(-1, 1);
+        -webkit-transform: scale(-1, 1);
+        -o-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+    }
+}

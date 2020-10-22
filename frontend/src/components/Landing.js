@@ -2,18 +2,47 @@ import React, { Component } from "react";
 import "../Styles/App.scss";
 import { connect } from "react-redux";
 import { fetchGameData, toggleRules, generateID } from '../store/actions';
+import { gsap } from 'gsap';
 
 class Landing extends Component {
   constructor(props) {
     super(props);
     this.input_name = React.createRef();
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.loadingAnimation = gsap.timeline({ defaults: { duration: 1, ease: 'power3' } });
   }
+
+  componentDidMount() {
+    this.props.fetchGameData();
+    this.props.generateID();
+    this.loadingAnimation
+      .from('h2.title', {
+        opacity: 0,
+        y: 30,
+      })
+      .from('h1.title', {
+        opacity: 0,
+        y: 30
+      }, '-=.5')
+      .from('.game-id-label', {
+        duration: 0.5,
+        opacity: 0,
+        x: 10
+      }, '-=.3')
+      .from('div.input-container', {
+        opacity: 0,
+        y: 30,
+      }, '-=.5')
+      .from('button.start-game-button', {
+        opacity: 0,
+        y: 40
+      }, '-=0.5')
+  }
+  
 
   generateID = () => {
     this.props.generateID();
   };
-
   createGame = () => {
     this.props.fetchGameData(this.input_name.current.value);
     this.props.history.push(`/game/${this.input_name.current.value}`, {
@@ -30,11 +59,6 @@ class Landing extends Component {
       this.props.toggleRules();
     }
   };
-
-  componentDidMount() {
-    this.props.fetchGameData();
-    this.props.generateID();
-  }
 
   render() {
     return (
@@ -53,13 +77,15 @@ class Landing extends Component {
             MADGAB
           </h1>
           <h3 className="game-id-label">Game ID:</h3>
-          {this.props.state.id === "loading..." ? (<h1>Loading...</h1>) :
-            (<input id="game_id" aria-label="game id input field" type="text"
-              className="game-id-input"
-              ref={this.input_name}
+          <div className="input-container">
+            {this.props.state.id === "loading..." ? (<h1>Loading...</h1>) :
+              (<input id="game_id" aria-label="game id input field" type="text"
+                className="game-id-input"
+                ref={this.input_name}
 
-              defaultValue={this.props.state.id}
-            ></input>)}
+                defaultValue={this.props.state.id}
+              ></input>)}
+          </div>
 
           <button className="primary button start-game-button" aria-label="submit"
             type="submit"

@@ -2,7 +2,7 @@
 
 .header {
     @include flexbox();
-    padding: 10px 20px;
+    padding: 10px 20px 10px 20px;
     flex-flow: column wrap;
     justify-content: center;
     background-color: #fff;
@@ -14,10 +14,12 @@
     border-bottom-right-radius: 15px;
     max-height: 90px;
     margin-top: -4%;
+    min-width: 5rem;
 
     h3 {
         margin: 0px;
         margin-bottom: 10px;
+        margin-top: 12%;
     }
 }
 
@@ -33,26 +35,39 @@
     color: $primary-red;
 }
 
-// .header .game-branding {
-//     display: none;
-// }
-
-// @media only screen and (max-width: 600px) {
 .header .game-branding {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 100%;
     @include flexbox();
     flex-flow: row nowrap;
     justify-content: space-between;
     color: white;
-    // TODO add links to home and to rules modal0
+    // TODO add links to rules modal
     font-size: 1.3rem;
+    margin-top: 2%;
+    height: 40px;
+    padding: 0px 2vw;
+    box-sizing: border-box;
 }
-
-// }
 
 
 // TODO: fix scorebox overlap onto home and rules
+
+.home-logo {
+    color: white;
+    text-decoration: none;
+    &:hover {
+        font-weight: bold;
+        font-size: 105%;
+    }
+    &:active {
+        outline: none;
+    }
+    &:focus {
+        outline: none;
+        border: none;
+    }
+}

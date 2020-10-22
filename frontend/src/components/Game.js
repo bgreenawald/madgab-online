@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "../Styles/Game.scss";
-import Socket from './../Socket';
+import Socket from './Socket';
 
 import Header from "./Header";
 import Footer from "./Footer";
 import TurnWaitStart from "./Waiting";
 import InTurn from "./InTurn";
+import GameOver from './GameOver';
 import Stealing from "./Stealing";
 import ScoreReview from "./ScoreReview";
+import ScoreCount from './ScoreCount';
 
 import { connect } from "react-redux";
 import { fetchGameData, updateGameData } from '../store/actions';
@@ -21,21 +23,18 @@ class Game extends Component {
   }
 
   componentDidMount = () => {
-    let socket = Socket;
     let id = this.getGameId();
 
-    socket.on("connect", (resp) => {
-    });
+      Socket.emit("join", {
+        name: id
+      });
+  
+  
+      Socket.emit("load_board", {
+        name: id
+      });
 
-    socket.emit("join", {
-      name: id
-    });
-
-    socket.emit("load_board", {
-      name: id
-    });
-
-    socket.on("render_board", resp => {
+    Socket.on("render_board", resp => {
 
       const data = this.parsePayload(resp.payload)
       data.currentTeam = data.team_1_turn ? 'blue' : 'red';
@@ -47,11 +46,7 @@ class Game extends Component {
       this.props.updateGameData(data);
     });
   };
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.state.state !== this.props.state.state
-  }
-
+  
   getGameId = () => {
     let id = this.props.state.id;
     let url = window.location.href;
@@ -97,9 +92,6 @@ class Game extends Component {
   renderGameContent = () => {
     const state = this.props.state.state;
 
-    // dev config:
-    // return <Stealing />
-
     switch (state) {
       case 'ACTIVE':
         return <InTurn />
@@ -109,20 +101,23 @@ class Game extends Component {
         return <Stealing />
       case 'IDLE':
         return <TurnWaitStart />
+      case 'OVER':
+        return <GameOver />
       default:
-        return <TurnWaitStart />
+        return null;
     }
   }
 
   render() {
 
-    // if (!this.props.state.data) return null;
+    const state = this.props.state.state;
 
     return (
       <div className={`game-container ${this.props.state.backgroundColor}`}>
         <Header {...this.state} />
+        {(state === "STEALING" || state === "REVIEW") ? <ScoreCount/> : null }
 
-        {this.renderGameContent()}
+        {this.props.state.state ? this.renderGameContent() : null}
         <Footer {...this.state} />
       </div>
     );
@@ -131,17 +126,12 @@ class Game extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleDifficulty: () => {
-      dispatch({
-        type: "TOGGLE_DIFFICULTY",
-        difficulty: "hard"
-      });
-    },
     fetchGameData: () => {
       dispatch(fetchGameData())
     },
     updateGameData: (gameData) => {
-      dispatch(updateGameData(gameData))
+      const copyGameData = JSON.parse(JSON.stringify(gameData));
+      dispatch(updateGameData(copyGameData))
     }
   };
 };

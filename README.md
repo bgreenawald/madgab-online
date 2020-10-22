@@ -14,8 +14,14 @@ This app runs on Python 3 and uses *poetry* to maintain dependencies. Assuming y
 # Install minimal packages needed to run.
 poetry install --no-dev
 
-# Install all packages (for testing and development).
+# Install all packages (for testing and development) and create virtual environment.
 poetry install
+
+# Start the poetry virtual environment
+poetry shell
+
+# To exit poetry shell
+exit (NOT deactivate! deactive will break the shell)
 ```
 
 Alternatively, you can use *virtualenv* with the included requirements files. This is is recommended as this may be deprecated in the future. After creating a new virtual environment for the project, run
@@ -68,6 +74,8 @@ To start the UI on port 3000:
 ```
 npm run start
 ```
+
+
 
 
 

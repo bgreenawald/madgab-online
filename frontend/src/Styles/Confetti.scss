@@ -1,0 +1,32 @@
+  .confetti-particle {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: -20%;
+    background: blue;
+    opacity: 0;
+    left: -25vw;
+
+    &.blue {
+      background: #4AF2FD;
+    }
+
+    &.yellow {
+      background: #FFFF04;
+    }
+
+    &.purple {
+      background: #892AB8;
+    }
+
+    &.pink {
+      background:#EA4C89;
+    }
+
+    &.right {
+      right: 25vw;
+      left: default;
+    }
+
+ 
+  }

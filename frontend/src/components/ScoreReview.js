@@ -1,20 +1,76 @@
 import "../Styles/Game.scss";
+import "../Styles/Review.scss";
 
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import ClueIcon from './ClueIcon';
 import { updateGameData } from '../store/actions';
 
-import io from 'socket.io-client';
+import Socket from './Socket';
 
-let socket = io(process.env.REACT_APP_BACKEND_URL)
+import { gsap } from 'gsap';
+
+let socket = Socket;
 
 class ScoreReview extends Component {
 
     constructor(props) {
         super(props);
         this.cluesIcons = [];
+        this.animation = gsap.timeline().timeScale(1.2);
+        this.fadeAnimation = gsap.timeline().paused(true);
+        this.scoreVisible = true;
+    }
+
+    componentDidMount() {
+        this.animation
+            .from(
+                '.circle-icon:not(.total)', {
+                duration: 1,
+                opacity: 0,
+                y: -30,
+                ease: 'power4',
+                stagger: 0.3
+            })
+            .from(
+                'h1#points-count', {
+                duration: 1,
+                y: 30,
+                ease: 'power3',
+                opacity: 0,
+            }, '-=.7')
+            .from(
+                'button.primary', {
+                duration: 1,
+                y: 30,
+                ease: 'power3',
+                opacity: 0,
+            }, '-=.7');
+            this.props.updateGameData({
+                scoreVisible: this.scoreVisible
+            })
+    }
+
+    fadeUp() {
+        this.fadeAnimation
+            .to('.game-content', {
+                duration: 1,
+                opacity: 0,
+                y: -50,
+                ease: 'power4'
+            })
+            .to('.circle-icon.correct', {
+                duration: 1,
+                opacity: 0,
+                y: -50,
+                ease: 'power4'
+            }, '-=1')
+            .resume();
+    }
+
+    test() {
+        const clueIconContainer = document.querySelector('.clue-icon-container');
+        clueIconContainer.classList.add('none');
     }
 
     getPoints = (pts) => {
@@ -27,9 +83,13 @@ class ScoreReview extends Component {
     }
 
     stealInit = () => {
-        socket.emit("end_turn", {
-            "name": this.props.state.id
-        })
+        this.fadeUp();
+        setTimeout(() => {
+            socket.emit("end_turn", {
+                "name": this.props.state.id
+            })
+        }, 1000);
+        console.log('steal init')
     }
 
     render() {
@@ -39,16 +99,8 @@ class ScoreReview extends Component {
         return (
             <div className="game-content">
                 <h2>{currentTeam},  you scored: </h2>
-                <div className="clue-icon-container">
-                    {this.props.state.current_turn_clues.map((e, i) => (
-                        <ClueIcon
-                            value={e[2] ? 'correct' : 'incorrect'}
-                            key={i} 
-                            isButton={false}/>
-                    ))}
-                </div>
-                {/* <div className="square" ref={elem => this.myElement = elem}></div> */}
-                <h1>{totalPoints}</h1>
+                <div className="icon-placeholder"></div>
+                <h1 id='points-count'>{totalPoints}</h1>
                 <button className="primary" onClick={this.stealInit}>continue</button>
             </div>
 
@@ -65,7 +117,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateGameData: gameData => {
-            dispatch(updateGameData(gameData))
+            const copyGameData = JSON.parse(JSON.stringify(gameData));
+            dispatch(updateGameData(copyGameData));
         }
     }
 }

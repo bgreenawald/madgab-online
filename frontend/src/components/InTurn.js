@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import io from "socket.io-client";
+import Socket from './Socket';
+import gsap from 'gsap';
 
 import { connect } from 'react-redux';
 import { decreaseTimer, updateGameData } from '../store/actions'
 
 import Countdown from './Countdown';
 
-let socket = io(process.env.REACT_APP_BACKEND_URL);
+import './../Styles/InTurn.scss';
+
+let socket = Socket;
 
 class InTurn extends Component {
 
@@ -19,7 +22,8 @@ class InTurn extends Component {
         name: this.props.state.id
       });
     });
-
+    this.animation = gsap.timeline({defaults: {duration: 1, opacity: 0}}).paused(true);
+    this.footerAnimation = gsap.timeline({defaults: {duration: 1, opacity: 0}}).paused(true);
   }
 
   componentDidMount = () => {
@@ -86,18 +90,18 @@ class InTurn extends Component {
   loadNextClue = (didGuessCorrectly) => {
     if (this.props.state.current_turn_counter === this.props.state.words_per_turn) {
       this.loadLastClue(didGuessCorrectly);
+    } else {
+      socket.emit("new_phrase", {
+        "name": this.props.state.id,
+        "correct": didGuessCorrectly
+      })
     }
-
-    socket.emit("new_phrase", {
-      "name": this.props.state.id,
-      "correct": didGuessCorrectly
-    })
   }
 
   render() {
     if (this.props.state.inCountdown === true) {
       return (
-        <div className="game-content">
+        <div className="game-content round-countdown">
           <Countdown loadingMessage="Ready?" />
         </div>
       )
@@ -126,8 +130,9 @@ const mapDispatchToProps = dispatch => {
     decreaseTimer: () => {
       dispatch(decreaseTimer())
     },
-    updateGameData: (data) => {
-      dispatch(updateGameData(data))
+    updateGameData: (gameData) => {
+      const copyGameData = JSON.parse(JSON.stringify(gameData));
+            dispatch(updateGameData(copyGameData));
     }
   }
 }

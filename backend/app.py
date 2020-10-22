@@ -36,7 +36,7 @@ logger.addHandler(handler)
 logger.addHandler(shell_handler)
 
 
-# Initialize CORS and styling
+# Initialize CORS
 CORS(app)
 
 # Dictionary to hold all games

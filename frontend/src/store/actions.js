@@ -1,17 +1,3 @@
-// TODO: test error/validation
-// let validateUnusedId = (existingIdsArray, choosenId) => {
-//     if (existingIdsArray.includes(choosenId)) {
-//         return false
-//     }
-//     else return true
-// }
-
-// import { rootReducer, store } from "../reducers/rootReducer";
-
-// import io from "socket.io-client";
-
-// const socket = io("process.env.REACT_APP_BACKEND_URL/");
-
 export const fetchGameData = (id) => {
     return (dispatch, getState) => {
 
