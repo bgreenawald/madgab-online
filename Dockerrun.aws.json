@@ -11,7 +11,7 @@
             "name": "frontend",
             "image": "512324380783.dkr.ecr.us-east-1.amazonaws.com/radgab_frontend",
             "essential": true,
-            "memory": 128,
+            "memory": 256,
             "portMappings": [
                 {
                     "hostPort": 80,

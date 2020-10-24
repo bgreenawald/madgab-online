@@ -27,4 +27,4 @@ WORKDIR /app
 
 EXPOSE 5000
 
-CMD gunicorn --bind :5000 --worker-class gevent -w 1 'app:app'
+CMD gunicorn --bind :5000 --worker-class eventlet -w 1 'app:app'
