@@ -1,5 +1,6 @@
 import atexit
 import datetime
+import json
 import logging
 import os
 import re
@@ -43,16 +44,17 @@ CORS(app)
 all_games: Dict[str, Game] = {}
 
 # Generate the list of clues
-with open("./clues/clues.txt", "r") as file:
+with open("./clues/clues.json", "r") as file:
     clues = []
-    for clue in file.readlines():
-        category, phrase = clue.strip().split(" | ")
+    for clue in json.loads(file.read()):
+        if clue["use"]:
+            phrase, category = clue["phrase"], clue["category"]
 
-        # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
-        phrase = phrase.lower()
-        phrase = re.sub(r"[^a-z '.]", "", phrase)
+            # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
+            phrase = phrase.lower()
+            phrase = re.sub(r"[^a-z '.]", "", phrase)
 
-        clues.append((category, phrase))
+            clues.append((phrase, category))
 
 
 # ---------------------------------------

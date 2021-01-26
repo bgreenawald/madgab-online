@@ -28,7 +28,14 @@ logs/
 # Ignore test files
 .coverage
 htmlcov/
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Variable configuration files
+.env
+
+# Output files
+output/
