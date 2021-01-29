@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Landing from './components/Landing';
 import Game from './components/Game';
 import Socket from './components/Socket';
+import ErrorPageNotFound from './ErrorPageNotFound';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
         <React.Fragment>
           <Route exact path='/' render={props=><Landing {...props}/>}/>
           <Route path='/game' render={props=><Game {...props}/>}/>
+          <Route component={ErrorPageNotFound} />
         </React.Fragment>
       </Router>
       );

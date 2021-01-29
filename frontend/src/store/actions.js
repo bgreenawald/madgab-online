@@ -11,6 +11,16 @@ export const fetchGameData = (id) => {
     }
 }
 
+export const fetchMaintenanceStatus = () => {
+    return (dispatch, getState) => {
+        fetch("https://radgab.s3.amazonaws.com/radgab.json")
+        .then(res => res.json())
+        .then(json => {
+            dispatch({type: 'FETCH_MAINTENANCE_STATUS', })
+        })
+    }
+}
+
 export const toggleRules = (rulesStatus) => {
     return (dispatch, getState) => {
         dispatch({

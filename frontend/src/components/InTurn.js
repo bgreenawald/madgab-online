@@ -27,6 +27,7 @@ class InTurn extends Component {
   }
 
   componentDidMount = () => {
+    console.log(window.innerWidth())
     this.resetTimer();
     this.resetTempState();
     this.timerID = this.startTimer();
@@ -38,6 +39,47 @@ class InTurn extends Component {
   componentWillUnmount = () => {
     clearInterval(this.timerID);
   }
+
+  splitWords(text, max_length) {
+
+    // Ensure the arguments are the correct type
+    if (typeof(text) != "string" || typeof(max_length) != "number") {
+        console.log("Invalid argument types.");
+        return;
+    }
+
+    // Ensure a valid line length
+    if (max_length < 0 || max_length === NaN) {
+        console.log("Invalid max_length.");
+        return;
+    }
+
+    // Split the words based on spaces
+    var words = text.split(" ");
+
+    // Make the return string equal to the first word and records its length
+    var formattedString = words.shift();
+    var currentLength = formattedString.length;
+
+    // Iterate over the remaining words
+    for (let i in words) {
+        var currentWord = words[i];
+
+        // If the current line plus the next word is still less than max
+        // length, add the current word to the current line
+        if (currentLength + currentWord.length + 1 <= max_length) {
+            formattedString += " " + currentWord;
+            currentLength += currentWord.length + 1;
+        }
+        // Otherwise, add a line break and make the new line equal to the next word
+        else {
+            formattedString += "<br>" + currentWord;
+            currentLength = currentWord.length;
+        }
+    }
+
+    return formattedString;
+}
 
   startTimer = () => {
     return setInterval(this.decrementTimer, 1000)

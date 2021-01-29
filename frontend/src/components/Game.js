@@ -25,6 +25,7 @@ class Game extends Component {
   componentDidMount = () => {
     let id = this.getGameId();
 
+    // socket.on("connect", () => {
       Socket.emit("join", {
         name: id
       });
@@ -33,6 +34,7 @@ class Game extends Component {
       Socket.emit("load_board", {
         name: id
       });
+    // });
 
     Socket.on("render_board", resp => {
 
@@ -46,6 +48,16 @@ class Game extends Component {
       this.props.updateGameData(data);
     });
   };
+
+  checkMesssages() {
+    const resp = await fetch("https://bgreenawald.github.io/misc/radgab/radgab.json");
+    response = await resp.json();
+    if (response.message) this.showMaintenance();
+  }
+
+  showMaintenance() {
+    
+  }
   
   getGameId = () => {
     let id = this.props.state.id;

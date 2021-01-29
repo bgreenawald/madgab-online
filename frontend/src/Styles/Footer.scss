@@ -21,8 +21,6 @@
         @include flexbox();
         flex-flow: row wrap;
         width: 100%;
-        justify-content: space-between;
-
 
         .footer-child {
             @include flexbox();
