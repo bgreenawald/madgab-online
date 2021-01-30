@@ -4,8 +4,8 @@ from enum import Enum
 from threading import Lock
 from typing import Any, Dict, List, Tuple
 
-import game_config
-from madgab.madgab import mad_gabify
+import src.game.game_config as game_config
+from src.madgab.madgab import mad_gabify
 
 
 class InvalidState(Exception):

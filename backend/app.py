@@ -2,7 +2,6 @@ import atexit
 import datetime
 import logging
 import os
-import re
 import sys
 from typing import Any, Dict
 
@@ -13,7 +12,8 @@ from flask_cors import CORS
 from flask_socketio import emit, join_room, SocketIO
 from jsonschema import validate, ValidationError
 
-from game import Game, InvalidState
+from src.clues.clue_manager import ClueManager
+from src.game.game import Game, InvalidState
 
 # Initialize the application
 app = Flask(__name__)
@@ -42,17 +42,7 @@ CORS(app)
 # Dictionary to hold all games
 all_games: Dict[str, Game] = {}
 
-# Generate the list of clues
-with open("./clues/clues.txt", "r") as file:
-    clues = []
-    for clue in file.readlines():
-        category, phrase = clue.strip().split(" | ")
-
-        # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
-        phrase = phrase.lower()
-        phrase = re.sub(r"[^a-z '.]", "", phrase)
-
-        clues.append((category, phrase))
+clue_manager = ClueManager()
 
 
 # ---------------------------------------
@@ -171,7 +161,7 @@ def load_board(data: Dict[Any, Any]):
         game_name = data["name"]
 
         if game_name not in all_games:
-            cur_game = Game(game_name, clues)
+            cur_game = Game(game_name, clue_manager.get_clues())
             all_games[game_name] = cur_game
         else:
             game = all_games[game_name]
@@ -247,7 +237,7 @@ def reset_game(data: Dict[Any, Any]):
             emit_error(game_name, f"Could not find the game named {game_name}.")
             return
 
-        game.reset(game_name, clues)
+        game.reset(game_name, clue_manager.get_clues())
         emit_game(game_name, game, "Game reset.")
 
 
