@@ -1,20 +1,12 @@
+import json
 import re
 import unittest
 
-from game import Game, InvalidState, State
+from src.clues.clue_manager import ClueManager
+from src.game.game import Game, InvalidState, State
 
 
-# Generate the list of clues
-with open("./clues/clues.txt", "r") as file:
-    clues = []
-    for clue in file.readlines():
-        category, phrase = clue.strip().split(" | ")
-
-        # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
-        phrase = phrase.lower()
-        phrase = re.sub(r"[^a-z '.]", "", phrase)
-
-        clues.append((category, phrase))
+clues = ClueManager().get_clues()
 
 
 class testGameMethods(unittest.TestCase):

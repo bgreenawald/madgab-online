@@ -472,7 +472,7 @@
     {
         "category": "General Expression",
         "phrase": "Pull your finger out",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -482,7 +482,7 @@
     {
         "category": "General Expression",
         "phrase": "Sex and shopping",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -662,7 +662,7 @@
     {
         "category": "General Expression",
         "phrase": "As dead as a doornail",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -1072,7 +1072,7 @@
     {
         "category": "General Expression",
         "phrase": "Dog's bollocks",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -1332,7 +1332,7 @@
     {
         "category": "General Expression",
         "phrase": "The law is an ass",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -1372,7 +1372,7 @@
     {
         "category": "General Expression",
         "phrase": "The birds and the bees",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -1477,7 +1477,7 @@
     {
         "category": "General Expression",
         "phrase": "Granny dumping",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -1742,7 +1742,7 @@
     {
         "category": "General Expression",
         "phrase": "Dead in the water",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -1762,7 +1762,7 @@
     {
         "category": "General Expression",
         "phrase": "Piece of piss",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -2027,7 +2027,7 @@
     {
         "category": "General Expression",
         "phrase": "Dead as a dodo",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -2187,7 +2187,7 @@
     {
         "category": "General Expression",
         "phrase": "Birds and the bees",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -2282,7 +2282,7 @@
     {
         "category": "General Expression",
         "phrase": "Squeaky bum time",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -2622,7 +2622,7 @@
     {
         "category": "General Expression",
         "phrase": "Shit for brains",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -2772,7 +2772,7 @@
     {
         "category": "General Expression",
         "phrase": "Full of piss and vinegar",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -2787,7 +2787,7 @@
     {
         "category": "General Expression",
         "phrase": "Cock and bull story",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -2882,7 +2882,7 @@
     {
         "category": "General Expression",
         "phrase": "Blonde bombshell",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3102,7 +3102,7 @@
     {
         "category": "General Expression",
         "phrase": "Flogging a dead horse",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3207,7 +3207,7 @@
     {
         "category": "General Expression",
         "phrase": "Moaning Minnie",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3277,12 +3277,12 @@
     {
         "category": "General Expression",
         "phrase": "As dead as a dodo",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
         "phrase": "Colder than a witch's tit",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3442,7 +3442,7 @@
     {
         "category": "General Expression",
         "phrase": "The quick and the dead",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3487,7 +3487,7 @@
     {
         "category": "General Expression",
         "phrase": "Sweet Fanny Adams",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3647,7 +3647,7 @@
     {
         "category": "General Expression",
         "phrase": "Bodice ripper",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3692,7 +3692,7 @@
     {
         "category": "General Expression",
         "phrase": "Get on my wick",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3717,7 +3717,7 @@
     {
         "category": "General Expression",
         "phrase": "The cut of your jib",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3807,7 +3807,7 @@
     {
         "category": "General Expression",
         "phrase": "You get on my wick",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3872,7 +3872,7 @@
     {
         "category": "General Expression",
         "phrase": "Laid out in lavender",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3927,7 +3927,7 @@
     {
         "category": "General Expression",
         "phrase": "Get thee behind me Satan",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -3997,7 +3997,7 @@
     {
         "category": "General Expression",
         "phrase": "Beast with two backs",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4097,7 +4097,7 @@
     {
         "category": "General Expression",
         "phrase": "Bubble and squeak",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4117,7 +4117,7 @@
     {
         "category": "General Expression",
         "phrase": "Something nasty in the woodshed",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4157,7 +4157,7 @@
     {
         "category": "General Expression",
         "phrase": "Dead as a doornail",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4452,7 +4452,7 @@
     {
         "category": "General Expression",
         "phrase": "Cut of your jib",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4557,7 +4557,7 @@
     {
         "category": "General Expression",
         "phrase": "Hard and fast",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4762,12 +4762,12 @@
     {
         "category": "General Expression",
         "phrase": "Dead cat bounce",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
         "phrase": "Quick and the dead",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4882,7 +4882,7 @@
     {
         "category": "General Expression",
         "phrase": "Nasty brutish and short",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -4897,7 +4897,7 @@
     {
         "category": "General Expression",
         "phrase": "Piss and vinegar",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -5307,7 +5307,7 @@
     {
         "category": "General Expression",
         "phrase": "Son of a bitch",
-        "use": true
+        "use": false
     },
     {
         "category": "General Expression",
@@ -7092,7 +7092,7 @@
     {
         "category": "TV Show",
         "phrase": "The Walking Dead",
-        "use": true
+        "use": false
     },
     {
         "category": "TV Show",
@@ -7132,7 +7132,7 @@
     {
         "category": "TV Show",
         "phrase": "Sex and the City",
-        "use": true
+        "use": false
     },
     {
         "category": "TV Show",
@@ -7187,7 +7187,7 @@
     {
         "category": "TV Show",
         "phrase": "Beavis and ButtHead",
-        "use": true
+        "use": false
     },
     {
         "category": "TV Show",
@@ -7807,7 +7807,7 @@
     {
         "category": "Song",
         "phrase": "I'll Make Love to You",
-        "use": true
+        "use": false
     },
     {
         "category": "Song",
@@ -8432,7 +8432,7 @@
     {
         "category": "Book",
         "phrase": "The Joy of Sex",
-        "use": true
+        "use": false
     },
     {
         "category": "Book",
@@ -8567,7 +8567,7 @@
     {
         "category": "Book",
         "phrase": "The Naked Ape",
-        "use": true
+        "use": false
     },
     {
         "category": "Book",

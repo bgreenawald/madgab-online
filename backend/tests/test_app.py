@@ -4,14 +4,14 @@ import re
 
 import pytest
 
-import game_config
+import src.game.game_config as game_config
 from app import app, all_games, socketio
-from game import Game
+from src.game.game import Game
 
 
 def generate_clues():
     # Generate the list of clues
-    with open("clues/clues.txt", "r") as file:
+    with open("src/clues/clues.txt", "r") as file:
         clues = []
         for clue in file.readlines():
             category, phrase = clue.strip().split(" | ")

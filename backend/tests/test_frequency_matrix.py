@@ -1,6 +1,6 @@
 import unittest
 
-from madgab.frequency_matrix import FrequencyMatrix
+from src.madgab.frequency_matrix import FrequencyMatrix
 
 
 class testFrequencyMatrix(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-import madgab.madgab as madgab
+import src.madgab.madgab as madgab
 
 
 class testMadGab(unittest.TestCase):
