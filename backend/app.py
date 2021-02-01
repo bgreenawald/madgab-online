@@ -12,7 +12,7 @@ from flask_cors import CORS
 from flask_socketio import emit, join_room, SocketIO
 from jsonschema import validate, ValidationError
 
-from src.clues.clue_manager import ClueManager
+from src.clues.clue_manager import ClueSetType
 from src.game.game import Game, InvalidState
 
 # Initialize the application
@@ -41,8 +41,6 @@ CORS(app)
 
 # Dictionary to hold all games
 all_games: Dict[str, Game] = {}
-
-clue_manager = ClueManager()
 
 
 # ---------------------------------------
@@ -161,7 +159,7 @@ def load_board(data: Dict[Any, Any]):
         game_name = data["name"]
 
         if game_name not in all_games:
-            cur_game = Game(game_name, clue_manager.get_clues())
+            cur_game = Game(game_name, [ClueSetType.BASE])
             all_games[game_name] = cur_game
         else:
             game = all_games[game_name]
@@ -237,7 +235,7 @@ def reset_game(data: Dict[Any, Any]):
             emit_error(game_name, f"Could not find the game named {game_name}.")
             return
 
-        game.reset(game_name, clue_manager.get_clues())
+        game.reset(game_name, [ClueSetType.BASE])
         emit_game(game_name, game, "Game reset.")
 
 
