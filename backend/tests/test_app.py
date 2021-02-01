@@ -44,10 +44,16 @@ def socket_client():
     yield socket_client
 
 
-def test_get_names(client):
-    resp = client.get("/api/get_names")
+def test_check_name_positive(client):
+    resp = client.get("/api/check_name/TEST_GAME")
     assert resp.status_code == 200
-    assert json.loads(resp.data.decode("utf-8")) == {"ids": ["TEST_GAME"]}
+    assert json.loads(resp.data.decode("utf-8")) == {"in_use": True}
+
+
+def test_check_name_negative(client):
+    resp = client.get("/api/check_name/TEST_GAME_FALSE")
+    assert resp.status_code == 200
+    assert json.loads(resp.data.decode("utf-8")) == {"in_use": False}
 
 
 def test_load_board(socket_client):
