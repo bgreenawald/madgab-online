@@ -10,7 +10,6 @@ from src.clues.clue_manager import ClueManager, ClueSetType
 from src.game.game import Game
 
 
-
 @pytest.fixture
 def client():
     app.config["TESTING"] = True

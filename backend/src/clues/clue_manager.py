@@ -5,14 +5,18 @@ from enum import Enum
 from typing import Dict, List, Tuple
 
 
+class ClueException(Exception):
+    pass
+
+
 class ClueSetType(Enum):
     """Define the current selection of clueset
     """
 
-    BASE = "BASE"
+    BASE = "Base"
 
 
-class ClueSetGenerator:
+class ClueSet:
     clue_set_path = "src/clues/clue_sets"
 
     @staticmethod
@@ -20,12 +24,20 @@ class ClueSetGenerator:
         with open(filename, "r") as file:
             return json.loads(file.read())
 
+
+class ClueSetManager:
+    clue_sets = {
+        ClueSetType.BASE: ClueSet.read_clues_from_file(
+            os.path.join(ClueSet.clue_set_path, "base.json")
+        )
+    }
+
     @staticmethod
-    def generate_clues(clue_set: ClueSetType):
-        if clue_set == ClueSetType.BASE:
-            return ClueSetGenerator.read_clues_from_file(
-                os.path.join(ClueSetGenerator.clue_set_path, "base.json")
-            )
+    def get_clues(clue_set: ClueSetType):
+        if clue_set in ClueSetManager.clue_sets:
+            return ClueSetManager.clue_sets[clue_set]
+        else:
+            raise ClueException("The given clue set is not found.")
 
 
 class ClueManager:
@@ -40,7 +52,7 @@ class ClueManager:
     def _read_clues(self, clue_sets: List[ClueSetType]) -> List:
         all_clues = []
         for clue_set in clue_sets:
-            all_clues += ClueSetGenerator.generate_clues(clue_set)
+            all_clues += ClueSetManager.get_clues(clue_set)
         return all_clues
 
     def _process_clues(self, clues: List[Dict]):

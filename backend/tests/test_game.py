@@ -3,6 +3,7 @@ import unittest
 from src.clues.clue_manager import ClueManager, ClueSetType
 from src.game.game import Game, InvalidState, State
 
+
 class testGameMethods(unittest.TestCase):
     def test_init(self):
         # Test the win threshold
@@ -14,7 +15,8 @@ class testGameMethods(unittest.TestCase):
         for thresh, test, msg in params_threshold:
             with self.subTest(msg):
                 self.assertEqual(
-                    Game("", [ClueSetType.BASE], win_threshold=thresh).win_threshold, test
+                    Game("", [ClueSetType.BASE], win_threshold=thresh).win_threshold,
+                    test,
                 )
 
         # Test the words per turn threshold
@@ -26,7 +28,10 @@ class testGameMethods(unittest.TestCase):
         for words_per_turn, test, msg in params_words_per_turn:
             with self.subTest(msg):
                 self.assertEqual(
-                    Game("", [ClueSetType.BASE], words_per_turn=words_per_turn).words_per_turn, test
+                    Game(
+                        "", [ClueSetType.BASE], words_per_turn=words_per_turn
+                    ).words_per_turn,
+                    test,
                 )
 
         params_seconds_per_turn = [
@@ -37,7 +42,9 @@ class testGameMethods(unittest.TestCase):
         for seconds_per_turn, test, msg in params_seconds_per_turn:
             with self.subTest(msg):
                 self.assertEqual(
-                    Game("", [ClueSetType.BASE], seconds_per_turn=seconds_per_turn).seconds_per_turn,
+                    Game(
+                        "", [ClueSetType.BASE], seconds_per_turn=seconds_per_turn
+                    ).seconds_per_turn,
                     test,
                 )
 
