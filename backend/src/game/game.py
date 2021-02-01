@@ -5,6 +5,7 @@ from threading import Lock
 from typing import Any, Dict, List, Tuple
 
 import src.game.game_config as game_config
+from src.clues.clue_manager import ClueManager, ClueSetType
 from src.madgab.madgab import mad_gabify
 
 
@@ -66,7 +67,7 @@ class Game(object):
     def __init__(
         self,
         id: str,
-        clues: List[Tuple[str, str]],
+        clues: List[ClueSetType],
         win_threshold: int = game_config.WIN_THRESHOLD,
         words_per_turn: int = game_config.WORDS_PER_TURN,
         seconds_per_turn: int = game_config.SECONDS_PER_TURN,
@@ -79,7 +80,7 @@ class Game(object):
     def reset(
         self,
         id: str,
-        clues: List[Tuple[str, str]],
+        clues: List[ClueSetType],
         win_threshold: int = game_config.WIN_THRESHOLD,
         words_per_turn: int = game_config.WORDS_PER_TURN,
         seconds_per_turn: int = game_config.SECONDS_PER_TURN,
@@ -100,8 +101,9 @@ class Game(object):
         self.state: State = State.IDLE
 
         # Initialize the clues
-        random.shuffle(clues)
-        self.clues: List[Tuple[str, str]] = clues
+        all_clues = ClueManager(clues).get_clues()
+        random.shuffle(all_clues)
+        self.clues: List[Tuple[str, str]] = all_clues
 
         # Turn state
         self.team_1_turn: bool = True
