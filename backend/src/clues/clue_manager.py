@@ -4,6 +4,8 @@ import re
 from enum import Enum
 from typing import Dict, List, Tuple
 
+from src.madgab.madgab import WORD_TO_PHONEME
+
 
 class ClueException(Exception):
     pass
@@ -60,14 +62,23 @@ class ClueManager:
         self.unused_clues = []
         for clue in clues:
             if clue["use"]:
-                self.clues.append(self._parse_clue(clue))
-            else:
-                self.unused_clues.append(self._parse_clue(clue))
+                phrase, category = self._parse_clue(clue)
+                if self._is_valid_phrase(phrase):
+                    self.clues.append((phrase, category))
+                    continue
+            self.unused_clues.append(self._parse_clue(clue))
 
     def _parse_clue(self, clue: Dict) -> Tuple:
         phrase, category = clue["phrase"], clue["category"]
         phrase = self._process_phrase(phrase)
         return (phrase, category)
+
+    def _is_valid_phrase(self, phrase):
+        try:
+            words = phrase.split(" ")
+            return all([word in WORD_TO_PHONEME for word in words])
+        except Exception:
+            return False
 
     def _process_phrase(self, phrase: str) -> str:
         # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
