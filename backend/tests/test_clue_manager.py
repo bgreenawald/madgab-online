@@ -35,3 +35,10 @@ class testClueManager(unittest.TestCase):
             test_clue_unchanged,
             msg="ClueManager ignores already processed clue.",
         )
+
+    def test_is_valid_phrase(self):
+        clue_manager = ClueManager([ClueSetType.BASE])
+        self.assertTrue(clue_manager._is_valid_phrase("hello world"))
+        self.assertFalse(clue_manager._is_valid_phrase(None))
+        self.assertFalse(clue_manager._is_valid_phrase(""))
+        self.assertFalse(clue_manager._is_valid_phrase("azb asdkjfh hello world"))
