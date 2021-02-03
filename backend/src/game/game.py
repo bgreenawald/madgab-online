@@ -5,6 +5,7 @@ from threading import Lock
 from typing import Any, Dict, List, Tuple
 
 import src.game.game_config as game_config
+from src.clues.clue_manager import ClueManager, ClueSetType
 from src.madgab.madgab import mad_gabify
 
 
@@ -49,7 +50,8 @@ class Game(object):
         team_2_score (int): Team 2's score.
         state (State): The current state of the game. Can be "IDLE", "ACTIVE",
             "STEALING", "REVIEW", or "OVER"
-        clues (list): All of the clues for a given game.
+        clue_sets (list): All of the clue sets for a given game.
+        seen_clues (list): All of the already seen clues for a session.
         team_1_turn (bool): Whether it is team 1's turn.
         winning_team (str): The winning team. Can be None, 'Team 1', or 'Team 2'
         current_phrase (str): The current phrase (plain)
@@ -66,20 +68,26 @@ class Game(object):
     def __init__(
         self,
         id: str,
-        clues: List[Tuple[str, str]],
+        clue_sets: List[ClueSetType],
         win_threshold: int = game_config.WIN_THRESHOLD,
         words_per_turn: int = game_config.WORDS_PER_TURN,
         seconds_per_turn: int = game_config.SECONDS_PER_TURN,
     ):
-        self.reset(id, clues, win_threshold, words_per_turn, seconds_per_turn)
+        self.clue_sets = clue_sets
+        self.reset(id, win_threshold, words_per_turn, seconds_per_turn)
+
+        # Keep a global list of seen clues
+        self.seen_clues = []
 
         # Lock to keep the game synchronized
         self.lock = Lock()
 
+        # Initialize the clues
+        self.update_clues()
+
     def reset(
         self,
         id: str,
-        clues: List[Tuple[str, str]],
         win_threshold: int = game_config.WIN_THRESHOLD,
         words_per_turn: int = game_config.WORDS_PER_TURN,
         seconds_per_turn: int = game_config.SECONDS_PER_TURN,
@@ -98,10 +106,6 @@ class Game(object):
         self.team_2_score: int = 0
         self.round_number: int = 0
         self.state: State = State.IDLE
-
-        # Initialize the clues
-        random.shuffle(clues)
-        self.clues: List[Tuple[str, str]] = clues
 
         # Turn state
         self.team_1_turn: bool = True
@@ -150,6 +154,32 @@ class Game(object):
         }
 
     for_json = __json__
+
+    def update_clues(self):
+        self.lock.acquire(timeout=2)
+        try:
+            self._update_clues()
+        finally:
+            self.lock.release()
+
+    def update_clue_sets(self, clue_sets: List[ClueSetType]):
+        self.lock.acquire(timeout=2)
+        try:
+            self.clue_sets = clue_sets
+            self._update_clues()
+        finally:
+            self.lock.release()
+
+    def _update_clues(self):
+        # Initialize the clues
+        all_clues = ClueManager(self.clue_sets).get_clues()
+        all_clues = list(set(all_clues).difference(set(self.seen_clues)))
+        random.shuffle(all_clues)
+        self.clues: List[Tuple[str, str]] = all_clues
+
+    def _reset_clues(self):
+        self.seen_clues = []
+        self._update_clues()
 
     def _calculate_bonus(self, time_left: float):
         """Calculate the bonus based on the time left
@@ -319,7 +349,10 @@ class Game(object):
     def _new_phrase(self):
         """Generates a new phrase
         """
+        if len(self.clues) == 0:
+            self._reset_clues()
         self.current_phrase, self.current_category = self.clues.pop()
+        self.seen_clues.append((self.current_phrase, self.current_category))
         self.current_madgab = mad_gabify(self.current_phrase, self.difficulty)
 
     def _reset_turn(self):

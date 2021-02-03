@@ -6,29 +6,14 @@ import pytest
 
 import src.game.game_config as game_config
 from app import app, all_games, socketio
+from src.clues.clue_manager import ClueManager, ClueSetType
 from src.game.game import Game
-
-
-def generate_clues():
-    # Generate the list of clues
-    with open("src/clues/clues.txt", "r") as file:
-        clues = []
-        for clue in file.readlines():
-            category, phrase = clue.strip().split(" | ")
-
-            # Preprocess the phrase, change to lowercase and sub out any irrelevant characters.
-            phrase = phrase.lower()
-            phrase = re.sub(r"[^a-z '.]", "", phrase)
-
-            clues.append((category, phrase))
-
-    return clues
 
 
 @pytest.fixture
 def client():
     app.config["TESTING"] = True
-    all_games["TEST_GAME"] = Game("TEST_GAME", clues=generate_clues())
+    all_games["TEST_GAME"] = Game("TEST_GAME", [ClueSetType.BASE])
 
     with app.test_client() as client:
         yield client
@@ -37,7 +22,7 @@ def client():
 @pytest.fixture
 def socket_client():
     app.config["TESTING"] = True
-    all_games["TEST_GAME"] = Game("TEST_GAME", clues=generate_clues())
+    all_games["TEST_GAME"] = Game("TEST_GAME", [ClueSetType.BASE])
     client = app.test_client()
     socket_client = socketio.test_client(app, flask_test_client=client)
     socket_client.emit("join", {"name": "TEST_GAME"})
