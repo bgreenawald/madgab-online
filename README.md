@@ -41,6 +41,11 @@ After setting up the environment, just run
 python app.py
 ```
 
+## Troubleshooting:
+My environment is using the wrong version of python! 
+You may want to install and [use pyenv](https://python-poetry.org/docs/managing-environments/) to change the version of python being used, or you may need to reinstall poetry from the recommended method on it's [official documentation (curl request)](https://python-poetry.org/docs/#installation).
+
+
 ## Test - Backend
 To test the backend, make sure you have the correct virtual environment setup and run
 ```python
