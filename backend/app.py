@@ -235,7 +235,7 @@ def reset_game(data: Dict[Any, Any]):
             emit_error(game_name, f"Could not find the game named {game_name}.")
             return
 
-        game.reset(game_name, [ClueSetType.BASE])
+        game.reset(game_name)
         emit_game(game_name, game, "Game reset.")
 
 

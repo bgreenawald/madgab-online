@@ -1,6 +1,6 @@
 import unittest
 
-from src.clues.clue_manager import ClueManager, ClueSetType
+from src.clues.clue_manager import ClueManager, ClueSetManager, ClueSetType
 from src.game.game import Game, InvalidState, State
 
 
@@ -270,6 +270,42 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check phrase has been changed"):
             self.assertNotEqual(game.current_phrase, game.current_madgab)
 
+
+    def test_ResetClues(self):
+        game = Game("", [ClueSetType.BASE])
+        initial_clue_length = len(game.clues)
+        game.new_phrase()
+        with self.subTest("Check clues length before reset clues."):
+            self.assertEqual(len(game.clues), initial_clue_length - 1)
+        with self.subTest("Check seen clues length after reset clues."):
+            self.assertEqual(len(game.seen_clues), 1)
+        game._reset_clues()
+        with self.subTest("Check clues length after reset clues."):
+            self.assertEqual(len(game.clues), initial_clue_length)
+        with self.subTest("Check seen clues length after new phrase."):
+            self.assertEqual(len(game.seen_clues), 0)
+
+    def test_NewPhrase(self):
+        game = Game("", [ClueSetType.BASE])
+        initial_clue_length = len(game.clues)
+        game.seen_clues = game.clues
+        game.clues = []
+        game._new_phrase()
+        with self.subTest("Check clues length after new phrase reset."):
+            self.assertEqual(len(game.clues), initial_clue_length - 1)
+        with self.subTest("Check seen clues length after new phrase reset."):
+            self.assertEqual(len(game.seen_clues), 1)
+
+    def test_UpdateClues(self):
+        game = Game("", [ClueSetType.BASE])
+        initial_clue_length = len(game.clues)
+        game.new_phrase()
+        game._update_clues()
+        with self.subTest("Check clues length after update clues."):
+            self.assertEqual(len(game.clues), initial_clue_length - 1)
+        with self.subTest("Check seen clues length after update clues."):
+            self.assertEqual(len(game.seen_clues), 1)
+
     def testResetTurn(self):
         game = Game("", [ClueSetType.BASE])
 
@@ -392,7 +428,7 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check team2 update/team 1 active"):
             self.assertEqual(game.team_2_score, 1)
 
-        game.reset("", [ClueSetType.BASE])
+        game.reset("")
         game.state = State.REVIEW
         game._change_active_team()
         game._update_score(2)
