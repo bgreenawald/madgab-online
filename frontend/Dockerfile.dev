@@ -1,13 +1,21 @@
 # Stage 0, "build-stage", based on Node.js, to build and compile the frontend
 FROM tiangolo/node-frontend:10 as build-stage
+
+# set working directory
 WORKDIR /app
-COPY ./ /app/
 
-# Install the necesary packages
-RUN npm install
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-# Install GSAP
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+COPY gsap-bonus.tgz ./
+RUN npm install --silent
 RUN npm install ./gsap-bonus.tgz
+
+# Copy over all code
+COPY ./ /app/
 
 # Set the correct environment files and build
 RUN rm .env.production; mv .env.development .env.production
