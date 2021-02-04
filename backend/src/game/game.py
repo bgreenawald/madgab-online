@@ -2,10 +2,10 @@ import datetime
 import random
 from enum import Enum
 from threading import Lock
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 import src.game.game_config as game_config
-from src.clues.clue_manager import ClueManager, ClueSetType
+from src.clues.clue_manager import Clue, ClueManager, ClueSetType
 from src.madgab.madgab import mad_gabify
 
 
@@ -51,12 +51,13 @@ class Game(object):
         state (State): The current state of the game. Can be "IDLE", "ACTIVE",
             "STEALING", "REVIEW", or "OVER"
         clue_sets (list): All of the clue sets for a given game.
+        clues (list): All of the unseen clues for a given session.
         seen_clues (list): All of the already seen clues for a session.
         team_1_turn (bool): Whether it is team 1's turn.
         winning_team (str): The winning team. Can be None, 'Team 1', or 'Team 2'
         current_phrase (str): The current phrase (plain)
         current_madgab (str): The madgabed version of the current phrase
-        current_turn_clues (list of tuples): The clues for the current turn.
+        current_turn_clues (list of dicts): The clues for the current turn.
             Each list element is a tuple of length 3 with the original phrase, the
             madgabed phrase, and a boolean for whether the team got the phrase
             correctly.
@@ -111,14 +112,13 @@ class Game(object):
         self.team_1_turn: bool = True
         self.winning_team: str = ""
         self.current_phrase: str = ""
-        self.current_category: str = ""
         self.current_madgab: str = ""
         self.current_turn_counter: int = 0
         self.current_turn_correct: int = 0
 
         # This contains the current turn clues. It is a tuple with the phrase,
         # the madgab, whether they got it correct, and the category.
-        self.current_turn_clues: List[Tuple[str, str, bool, str]] = []
+        self.current_turn_clues: List[Dict] = []
 
     def __str__(self) -> str:  # pragma: no cover
         return (
@@ -146,7 +146,6 @@ class Game(object):
             # Turn state
             "team_1_turn": self.team_1_turn,
             "current_phrase": self.current_phrase,
-            "current_category": self.current_category,
             "current_madgab": self.current_madgab,
             "current_turn_counter": self.current_turn_counter,
             "current_turn_correct": self.current_turn_correct,
@@ -175,7 +174,7 @@ class Game(object):
         all_clues = ClueManager(self.clue_sets).get_clues()
         all_clues = list(set(all_clues).difference(set(self.seen_clues)))
         random.shuffle(all_clues)
-        self.clues: List[Tuple[str, str]] = all_clues
+        self.clues: List[Clue] = all_clues
 
     def _reset_clues(self):
         self.seen_clues = []
@@ -243,21 +242,19 @@ class Game(object):
                 self._update_score(1)
                 self.current_turn_correct += 1
                 self.current_turn_clues.append(
-                    (
-                        self.current_phrase,
-                        self.current_madgab,
-                        True,
-                        self.current_category,
-                    )
+                    {
+                        "phrase": self.current_phrase,
+                        "madgab": self.current_madgab,
+                        "correct": True,
+                    }
                 )
             else:
                 self.current_turn_clues.append(
-                    (
-                        self.current_phrase,
-                        self.current_madgab,
-                        False,
-                        self.current_category,
-                    )
+                    {
+                        "phrase": self.current_phrase,
+                        "madgab": self.current_madgab,
+                        "correct": False,
+                    }
                 )
 
             # If they got them all correct, calculate bonus
@@ -322,13 +319,21 @@ class Game(object):
             self._update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, True, self.current_category)
+                {
+                    "phrase": self.current_phrase,
+                    "madgab": self.current_madgab,
+                    "correct": True,
+                }
             )
         elif self.current_phrase:
             # If they didn't get it corect, but isn't the first
             # word, add to list but don't update score
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, False, self.current_category)
+                {
+                    "phrase": self.current_phrase,
+                    "madgab": self.current_madgab,
+                    "correct": False,
+                }
             )
 
         # Update the turn counter
@@ -351,8 +356,9 @@ class Game(object):
         """
         if len(self.clues) == 0:
             self._reset_clues()
-        self.current_phrase, self.current_category = self.clues.pop()
-        self.seen_clues.append((self.current_phrase, self.current_category))
+        clue = self.clues.pop()
+        self.current_phrase = clue.phrase
+        self.seen_clues.append(clue)
         self.current_madgab = mad_gabify(self.current_phrase, self.difficulty)
 
     def _reset_turn(self):

@@ -1,10 +1,17 @@
 import json
 import os
 import re
+from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 from src.madgab.madgab import WORD_TO_PHONEME
+
+
+@dataclass(frozen=True)
+class Clue:
+    phrase: str
+    clue_set: str
 
 
 class ClueException(Exception):
@@ -58,20 +65,20 @@ class ClueManager:
         return all_clues
 
     def _process_clues(self, clues: List[Dict]):
-        self.clues = []
-        self.unused_clues = []
+        self.clues: List[Clue] = []
+        self.unused_clues: List[Clue] = []
         for clue in clues:
+            current_clue = self._parse_clue(clue)
             if clue["use"]:
-                phrase, category = self._parse_clue(clue)
-                if self._is_valid_phrase(phrase):
-                    self.clues.append((phrase, category))
+                if self._is_valid_phrase(current_clue.phrase):
+                    self.clues.append(current_clue)
                     continue
-            self.unused_clues.append(self._parse_clue(clue))
+            self.unused_clues.append(current_clue)
 
-    def _parse_clue(self, clue: Dict) -> Tuple:
-        phrase, category = clue["phrase"], clue["category"]
+    def _parse_clue(self, clue: Dict) -> Clue:
+        phrase, clue_set = clue["phrase"], clue["clueSet"]
         phrase = self._process_phrase(phrase)
-        return (phrase, category)
+        return Clue(phrase, clue_set)
 
     def _is_valid_phrase(self, phrase):
         try:
@@ -87,5 +94,5 @@ class ClueManager:
 
         return phrase
 
-    def get_clues(self) -> List[Tuple]:
+    def get_clues(self) -> List[Clue]:
         return self.clues
