@@ -257,12 +257,8 @@ class testGameMethods(unittest.TestCase):
         game.new_phrase()
         with self.subTest("Check that phrase is generated"):
             self.assertIsNotNone(game.current_phrase)
-        with self.subTest("Check that category is generated"):
-            self.assertIsNotNone(game.current_category)
         with self.subTest("Check phrase is str"):
             self.assertTrue(isinstance(game.current_phrase, str))
-        with self.subTest("Check category is str"):
-            self.assertTrue(isinstance(game.current_category, str))
         with self.subTest("Check madgab is str"):
             self.assertTrue(isinstance(game.current_madgab, str))
         with self.subTest("Check that madgab generated"):

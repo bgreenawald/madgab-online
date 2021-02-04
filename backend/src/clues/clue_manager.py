@@ -3,7 +3,7 @@ import os
 import re
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 from src.madgab.madgab import WORD_TO_PHONEME
 
@@ -11,7 +11,7 @@ from src.madgab.madgab import WORD_TO_PHONEME
 @dataclass(frozen=True)
 class Clue:
     phrase: str
-    category: str
+    clue_set: str
 
 
 class ClueException(Exception):
@@ -76,9 +76,9 @@ class ClueManager:
             self.unused_clues.append(current_clue)
 
     def _parse_clue(self, clue: Dict) -> Clue:
-        phrase, category = clue["phrase"], clue["category"]
+        phrase, clue_set = clue["phrase"], clue["clueSet"]
         phrase = self._process_phrase(phrase)
-        return Clue(phrase, category)
+        return Clue(phrase, clue_set)
 
     def _is_valid_phrase(self, phrase):
         try:

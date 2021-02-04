@@ -112,7 +112,6 @@ class Game(object):
         self.team_1_turn: bool = True
         self.winning_team: str = ""
         self.current_phrase: str = ""
-        self.current_category: str = ""
         self.current_madgab: str = ""
         self.current_turn_counter: int = 0
         self.current_turn_correct: int = 0
@@ -147,7 +146,6 @@ class Game(object):
             # Turn state
             "team_1_turn": self.team_1_turn,
             "current_phrase": self.current_phrase,
-            "current_category": self.current_category,
             "current_madgab": self.current_madgab,
             "current_turn_counter": self.current_turn_counter,
             "current_turn_correct": self.current_turn_correct,
@@ -244,21 +242,11 @@ class Game(object):
                 self._update_score(1)
                 self.current_turn_correct += 1
                 self.current_turn_clues.append(
-                    (
-                        self.current_phrase,
-                        self.current_madgab,
-                        True,
-                        self.current_category,
-                    )
+                    (self.current_phrase, self.current_madgab, True,)
                 )
             else:
                 self.current_turn_clues.append(
-                    (
-                        self.current_phrase,
-                        self.current_madgab,
-                        False,
-                        self.current_category,
-                    )
+                    (self.current_phrase, self.current_madgab, False,)
                 )
 
             # If they got them all correct, calculate bonus
@@ -323,13 +311,13 @@ class Game(object):
             self._update_score(1)
             self.current_turn_correct += 1
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, True, self.current_category)
+                (self.current_phrase, self.current_madgab, True)
             )
         elif self.current_phrase:
             # If they didn't get it corect, but isn't the first
             # word, add to list but don't update score
             self.current_turn_clues.append(
-                (self.current_phrase, self.current_madgab, False, self.current_category)
+                (self.current_phrase, self.current_madgab, False)
             )
 
         # Update the turn counter
@@ -354,7 +342,6 @@ class Game(object):
             self._reset_clues()
         clue = self.clues.pop()
         self.current_phrase = clue.phrase
-        self.current_category = clue.category
         self.seen_clues.append(clue)
         self.current_madgab = mad_gabify(self.current_phrase, self.difficulty)
 

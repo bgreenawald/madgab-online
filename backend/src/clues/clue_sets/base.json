@@ -1,7854 +1,6545 @@
 [
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "ABC Sports",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A bottle of Coke",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A beauty mark",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A slip of the tongue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A straight A student",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A dark rain cloud",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A day of vacation",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A dry diaper",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Love affair",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Masseusse",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "An Extension Cord",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "An elected official",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A pair of sunglasses",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Screwdriver",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Batteries not included",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Baby got back",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bow legged",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can you keep a secret?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can you keep a secret?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chiquita Bananas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Go in peace",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Crack a book",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Detroit Pistons",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't do drugs",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Daily Offerings",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Prince of Tides",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The little mermaid",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do I know you?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do a Google search",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The ship is lost at sea",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dr. Atkins diet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "W.C. Fields",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do It To Me One More Time",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's on a roll",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A game of checkers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A team of horses",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "a tweed suit",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You're a part of it",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Your place or mine?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You're a prayer away",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I met a lass",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I'm a love machine",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I need a laxative",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Feel I'm brave enough to try",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Fever Blister",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "For he's a jolly good fellow",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Virgin Olive Oil",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Greatest Scores",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I was a teenage vampire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Identical Twins",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hi Ho Silver, away!",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Interview with a vampire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's only puppy love",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's been good for me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's too bad",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I've got a brand new key",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Open Up! It's The Police",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Happy Birthday",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I smell a skunk",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I gotcha",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I love you",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Itchy feet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "JFK",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chocolate Ice Cream",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Get in single file",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Noah's Ark",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Quality Products",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "little Red Riding Hood",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lord of the Rings",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lighter Fluid",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Little Italy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Love me Tender",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mary-kate and Ashley Olsen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Marriage made in heaven",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Minor infraction",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mozart",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "More than you can chew",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Michael Jackson",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No Soliciting",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "News Radio",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Who's Kissing Santa Claus",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pepsi Max",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Peace and Quiet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pirates of the Carribean",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pierced ears",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please take her off it",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ribbon cutting ceremony",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Remember The Alamo",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Santa Claus",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sexual harrasment",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Special Olympics",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Civil War",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "This is Spinal Tap",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The call of duty",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Gulf of MeXico",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Icing on The Cake",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Disco Lady",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Pair Of Shoes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A piece of cheese",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A pound Of Ground Round",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A person of high standards",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A surveyor",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What You Hear Not What You Say",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Week or two later",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wish I was there",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Weekly business hours",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Winter Olympic Games",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Will You Marry Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Holy cow",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Why Don't We Go Swimming",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wheels are in motion",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Will You Marry Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wayne Gretzky",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Walk like an Egyptian",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Would you care for dessert?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Yellow Pages",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You're looking good",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Amy Grant",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Alphabet Soup",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Apollo Thirteen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Condoleezza Rice",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Touch That Dial",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "David Beckham",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "David Cassidy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Total Recall",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Solar Eclipse",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Michael Jordan",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cellular Phone",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "May The Force Be With You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Charlie's Angels",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Fork It Over",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Girls Gone Wild",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Exercise Daily",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's At The Market",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can You Hear Me Now?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Kiefer Sutherland",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "O Canada",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Better Forget It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Henry Fonda",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dalmatians",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Last Will And Testament",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Don't Stand A Chance",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Regular Or Decaf?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Private Benjamin",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Johnny Appleseed",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Get Ready For Takeoff",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sugarless Gum",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Farmer In The Dell",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Beauty Mark",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Aerosmith",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "War And Peace",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oscar Mayer Wieners",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Die's Been Cast",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Time And Again",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Bachelor Pad",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "For He's A Jolly Good Fellow",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "First Aid Instructor",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mr. Saturday Night",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Smashing Pumpkins",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Holiday Weekend",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pick Up The Soap",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Buyer's Market",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Fax Machine Paper",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "John And Bobby Kennedy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Blessing In Disguise",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "After Five O'clock",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Preparation H",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Islands In The Stream",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Baby Shampoo",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Pierced Navel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Botox Injections",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Computer Virus",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Just You Wait A Minute",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Krispy Kreme Doughnuts",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "That Seventies Show",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Renee Zellweger",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Yankee Doodle Dandy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mormon Tabernacle Choir",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sponge Bob Square Pants",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Table And Chair",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Just Take It Easy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Drink Gatorade",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Donald Sutherland",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No More Tears",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Like A Virgin",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Casper The Friendly Ghost",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dead Man Walking",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "High And Dry",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Bar Of Hershey's Chocolate",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Artificial Intelligence",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Soft As A Baby's Bottom",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Light Up My Life",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sunny Side Up",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Junior High School",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "In A Bottle Or Glass?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Morley Safer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Surely You Jest",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Missing Link",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Chance Of A Lifetime",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Every Tom, Dick And Harry",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Fugitive",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Feet Are Cold",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sesame Street",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Strangers In The Night",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Virgin Olive Oil",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Frequently Asked Questions",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Murphy's Law",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Smoking Gun",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Opportunity Knocks",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Only The Lonely",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Bevy Of Beauties",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Feel Awful",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Johnny On The Spot",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pat Sajak",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A League Of Their Own",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Austin Powers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sweet And Sour Pork",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Soothing Massage",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tommy Lasorda",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Postage Due",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lou Diamond Phillips",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "For Your Eyes Only",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Gospel Music",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Twinkle In His Eyes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Four-leaf Clover",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Malt-O-Meal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Random Acts Of Kindness",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Theodore Roosevelt",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Didn't Start The Fire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Straight-A Student",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "NYPD Blue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Kate Winslet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tyra Banks",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Never Write To Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Look What I've Got",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "More Than You Can Chew",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rocky Mountain Oysters",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do The Macarena",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "National Enquirer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Bowl Of Chips And Dip",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Amazing Discovery",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ladies Of The Night",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mile High Club",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sarah Michell Gellar",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Twinkle Defense",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You're A Control Freak",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Stay To The Right",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "David Carradine",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Status Symbol",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Milwaukee Brewers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cyndi Lauper",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tampa Bay, Florida",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Survey Says",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's Back In The Saddle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "One Dollar And Ten Cents",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Set Your Clock",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Parole Violation",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Miss You So Much",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Vanessa Williams",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Touch My Stuff",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Batteries Not Included",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's Hungover",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hide And Seek",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Made For Each Other",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Palm Pilot",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Fact Of The Matter",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Olympic Games",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Treasure Island",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Be Serious",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Leonardo DiCaprio",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "From Zero To Sixty",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can You See What I See?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Three-Piece Suit",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "USA Today",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Marriage Proposal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rocky And Bullwinkle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Sound Of Music",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What's For Dinner",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chicago Illinois",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Am With Stupid",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Kate Hudson",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Joe Namath",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "When It Rains, It Pours",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Manicure",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "New Orleans Saints",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ridiculous",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Mask Of Zorro",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "New York City",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wholesale Prices",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Tupperware Party",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Monsters Inc",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "North American",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Saturday Night Fever",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You're In The Money",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Think You're Cool?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Staples Center",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Temptation Island",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Stack Of Pancakes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Marc Anthony",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Picnic Table",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Doesn't Make Any Sense To Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Soup And Crackers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "First And Foremost",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Once Upon A Time",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Simple As A-B-C",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Wait To Be Seated",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Make A Night Of It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Into Thin Air",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Your Place Or Mine",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chicken Of The Sea",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Booby Trap",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ewan McGregor",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oops I Did It Again",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Minority Report",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rotten To The Core",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "This Is All New To Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wipe Up The Spilled Juice",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The French Connection",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "See You Later",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Olsen Twins",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Man-Of-War",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hawaiian Surfer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Vanilla Ice",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Prince Of Tides",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Eighty-Six",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Julia Roberts",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Minnesota Vikings",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Celine Dion",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Icing On The Cake",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ymca",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Marine Corps",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Boys II Men",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Martha Stewart",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dr. Dre",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Counting Crows",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "American Airlines",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Make A Suggestion",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Parking Space",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Romeo And Juliet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Phantom Menace",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Why Didn't You Say So?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tabloid Newspapers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Phoenix Suns",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's Too Bad",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Majore League Baseball",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Politically Incorrect",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Super Size Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Walk A Mile In My Shoes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pencil Eraser",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Juneau, Alaska",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "48 Hours",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Beach Boys",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's A Ladies Man",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Home Improvement",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Shoe's Untied",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Prince Charles",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Toyota Tercel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rent A Video",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sir Paul McCartney",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pigs In A Blanket",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Marriage Made In Heaven",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Interview With The Vampire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Disturbing The Peace",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Second Chance",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "This Guy's Off His Rocker",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Pledge Allegiance To The Flag",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mr. Smith Goes To Washington",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The First Lady",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Research And Development",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Home Theater System",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lady Marmalade",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Open Up! It's The Police",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A By-Product",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do It To Me One More Time",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Electric Avenue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cheaper By The Dozen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No Sex Before Marriage",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Save It For A Rainy Day",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "This Is Spinal Tap",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hooters Restaurant",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Manchurian Candidate",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Leave A Message",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Matter Of Opinion",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dover, Delaware",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Government Spending",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "How's The Wife And Kids?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mail-Order Bride",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Only Takes A Minute",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Princess Fiona",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Magnificant Seven",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Worth Its Weight In Gold",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Peace Treaty",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Phenomenon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's Not Even Close",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Shoelace Is Untied",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Enter Your Password",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Stove Top Dressing",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Walter Cronkite",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Maria Shriver",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Georgia On My Mind",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Food For Thought",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Scam Artist",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Father Murphy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's Been Good For Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Masquerade Costume",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sick And Tired Of It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Utah Jazz",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Some Guys Are Babies",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pocahontas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "MasterCard",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Eugen, Oregon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A True Story",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A King-Size Bed",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Doctor's Orders",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Halle Barry",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wardrobe Malfunction",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Vanilla Sky",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Who's Afraid Of The Big Bad Wolf?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "New York Rangers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Plead Innocent",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Microbrewery",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Writer's Cramp",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Toronto, Canada",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Sight For Sore Eyes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "This Copier Needs Toner",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Folgers Coffee",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Few Good Men",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Metrosexual",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ryan Seacrest",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Toilet Tissue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Silicone Implants",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No-Parking Zone",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Did You Say Something?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bet Your Bottom Dollar",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Exterminator",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Donald Trump",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "First Amendment",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Entertainement Tonight",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oreo Cookie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Strawberries And Cream",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You're In My Space",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Weird Science",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sweet Sixteen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bachelor Party",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No Ifs, Ands Or Buts",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dr. Atkins Diet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "For Your Approval",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Anchors Away",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Apple Of His Eye",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Doctor Phil",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Can See It In Your Eyes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Electric Car",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "That's Not My Style",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Eucalyptus Tree",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Unforgiven",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pinocchio",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Interstate",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Warren Buffett",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Mod Squad",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Home Movies",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Legal-Size Envelope",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Just My Size",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Have A Nice Day",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dr. Frankenstein",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Skinny Dip",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Winona Ryder",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sandra Bullock",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Shot The Sheriff",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "In Sickness And In Health",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nature Calls",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rice-A-Roni",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Pillow Fight",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Use Your Noodle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Drive-In Movie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Jell-O Pudding",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "One In A Million",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Movers And Shakers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Paula Abdul",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Roberto Benigni",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dr. Dolittle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Psychosomatic",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Overindulgent",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do Not Talk To Strangers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Big Man On Campus",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Case Of Constipation",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Be Afraid Of The Dark",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Flock Of Seagulls",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ander The Giant",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Next-day Delivery",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sixty Minutes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Trader Joe's Market",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What A Creep",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Midas Touch",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Parental Controls",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Dark Rain Cloud",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Sharper Image",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's Got Love Handles",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Deliver A Eulogy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dora The Explorer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Dimpled Chin",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Octopus Tentacles",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do We Have A Deal?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Lump In My Throat",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Foreign Dictator",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Law & Order",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Panama Canal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Toronto Blue Jays",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hootie & The Blowfish",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sugar Daddy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oscar De La Renta",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It Happened One Night",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Hunchback Of Notre Dame",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Harry Potter And The Sorcerer's Stone",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Missouri River Boat",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chinese Acupuncture",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Why Are You Annoying Me?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "As Best At I Can",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Go Fly A Kite",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Laughing Out Loud",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Peace And Quiet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The O'Reilly Factor",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Will Ferrell",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Personal Trainer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ellen DeGeneres",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Indecent Proposal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sixty-Four Thousand Dollars",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Talk To The Hand",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Colin Farrell",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Michael Douglas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Stubborn As A Mule",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Million To One",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Need A Kiss",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Joe Cocker",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Taxi Driver",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Yellow Pages",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Red Hot Chili Peppers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "One-Hour Photo",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Touch Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Truth Or Dare",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mad About You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Three's A Crowd",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Valentine's Day",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Matthew Broderick",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "First Things First",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Boxers Or Briefs",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hugh Jackman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "When Do We Start?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Am Not A Crook",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Personal Ads",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Great Balls Of Fire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hilary Duff",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Botox Injections",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Later Dude",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Come Again",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Shall Overcome",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Act Your Age",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Coffee And Cream",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bikini Wax",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Religious Person",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Place Your Ad Here",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "U.s.s. Enterprise",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Peek-a-boo! I See You!",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Get A Load Of Him",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Adult Entertainment",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Indianapolis",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Red Cross",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lincoln, Nebraska",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Alanta Falcons",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lord Of The Rings",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pride And Prejudice",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Mummy Returns",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Why Don't You See Me Anymore?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ants In Your Pants",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dixie Chicks",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Henry Mancini",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Susan Sarandon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Desperate Housewives",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A1 Steak Sauce",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Little Did I Know",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Man I Love",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do I Know You?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Failed English",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mary Tyler Moore",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The French Chef",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Regular Coffee",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sarah Jessica Parker",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I've Got A Brand New Key",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Catch Some Z's",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Who Let The Dogs Out?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nabisco Triscuits",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tony Randall",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Stop Or I'll Shoot!",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mercedes-Benz",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Gut Reaction",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's A Noble Cause",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Liquid Detergent",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Subaru Motors",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wipe Your Feet On The Mat",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sex And The City",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tuscon, Arizona",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Elbows Off The Table",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don Johnson",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nieces And Nephews",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Six Degrees Of Separation",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Can't Meet Anymore",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Jada Pinkett Smith",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I've Been Dreaming Of You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Inferiority Complex",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Have The Right Answers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sixty Minutes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wichita Kansas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Home Mortgage",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Have A New Attitude",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Partridge In A Pear Tree",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Long Island Iced Tea",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wizard Of Oz",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Madison County",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Play On Words",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ludicrous",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Spiderman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Daily Newspaper",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Let's Make A Deal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Eat Standing Up",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rome, Italy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pirates Of The Caribbean",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Double Indemnity",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pillow Fight",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A People Person",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "For Your Information",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Virgin Airlines",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Bachelorette",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Radioactive",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Who Wants To Be A Millionaire?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Muhammad Ali",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Practical Joke",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What's In It For Me?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Million Dollars",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "One, Two, Buckle My Shoe",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Let It All Hang Out",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Popeye The Sailor Man",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's Gone AWOL",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Every Which Way But Loose",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I've Seen The Light",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Thanks For The Memories",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "E.Coli Bacteria",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Little Pony",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Abracadabra",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Low-Carbohydrate Menu",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Everybody Loves Raymond",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "X-Ray Vision",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Would You Care For Some More?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "George And Laura Bush",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Half The Fun Is Getting There",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "20 Mule Team Borax",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cherokee Tribe",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Life Is Beautiful",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pajama Parties",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cable Television",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "San Diego Chargers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Amazon Dot Com",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Jackie Chan",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Meet The Parents",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Selma Hayek",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chelsea Clinton",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Vin Diesel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Need Quarters For The Slots",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "When The Saints Go Marching In",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Felix Unger",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Little Red Riding Hood",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Measles",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Allen Iverson",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Anger Management",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I've Been Gone A Long Time",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Walk Like An Egyptain",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Security Blanket",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Sweat The Small Things",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Australian Accent",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Enrique Iglesias",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "IRA Accounts",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Red, White And Blue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Be Such A Nuisance",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "That Doesn't Prove Anything",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Who Not Come On Up And See Me?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "American Graffiti",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bite Your Tongue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Recreational Vehicle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Welcome Home",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Macy's And Bloomingdale's",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Billy Goat",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can You Keep A Secret?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Why Do You Think I Love You?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "If You Don't Know Me By Now",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Put Me Out Of My Misery",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Just In Case",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Be Brief",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "That's Correct",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Crash A Party",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cleveland, Ohio",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Out On A Ledge",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Need To Talk",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Video Store",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Elimidate",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wednesday Night",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Remember The Alamo!",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Where Do You Think You're Going?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dancing Queen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Freddie Prinze Jr.",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What Are You Talking About?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Digital Cable",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He Started It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Career Counselor",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Knock! Knock! Who's There?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Put His Tail Between His Legs",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "When A Man Loves A Woman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Family Jewels",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Donald Rumsfield",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pedicure",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Massachusetts Bay Company",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Full Monty",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Name Is Bond",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lord Have Mercy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Denver Broncos",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Shania Twain",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can You Come For Dinner?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Big Fat Greek Wedding",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Toad The Wet Sprocket",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Salsa Music",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Labrador Retrievers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Omar Sharif",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The More The Merrier",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Memphis, Tennessee",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Library Of Congress",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Just A Simple Request",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nelly Furtado",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Peter Jackson",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "High-Speed Connection",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Can't Handle The Truth",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Noxzema Lotion",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Open Slowly",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's All My Fault",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Thoroughbred Race Horse",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "United Kingdom",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Senior Citizens",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lactose Intolerant",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tony The Tiger",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oxford Dictionary",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Identity Theft",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Psycho-Drama",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Winner Takes All",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Internal Revenue Service",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Should Have Known",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Liza Minnelli",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Home Economics",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cisco Kid",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Aromatherapy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Total Eclipse Of The Heart",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Disco Lady",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lady Madonna",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Was A Teenage Vampire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Enemy Of The People",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Newspaper Reporter",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Without A Paddle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Aol Time Warner",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Country Time Lemonade",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Steven Spielberg",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Peggy Sue Got Married",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Allow Me To Buy You A Drink",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Duke Of Earl",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Visa Card",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ask Anyone",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Film At Eleven",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mountain Lion",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Extreme Makeover",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hope You Have A Nice Summer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Bring Good Things To Life",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mozart",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Newspaper Stand",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Spy Who Shagged Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Niagara Falls",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Puerto Rico",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Macaroni And Cheese",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's So Immature",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Love Me Tender",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What Have We Got To Lose?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Maxwell House Coffee",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Am The Greatest",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Microsurgery",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Daylight Savings Time",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Humpty Dumpty",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Go Through The Motions",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bachelor Party",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oh Thats Disgusting",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Christopher Columbus",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Thank You For Taking My Call",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bootylicious",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can You Keep It To Yourself?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Guacamole Dip",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Whitney Houston",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mother's Day",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Aspen, Colorado",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Below Average",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Felix The Cat",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wonder Woman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mosquito Repellant",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Virtual Reality",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wok Lie Canny Chip Shun",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Naughty Or Nice",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Baby Got Back",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Go To My Head",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pretty Woman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Police Department",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "How The West Was Won",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Tease Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Paper Clips",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rocky Road Ice Cream",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Julius Ceasar",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Before And After",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Emancipation",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Man-Eating Shark",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ten Percent Discount",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tony Soprano",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Indiana State",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Told You So",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wienna Waltz Music",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Penelope Cruz",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Santa Clause",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "City Slickers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Car's In The Shop",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Greenwich Village",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Anybody There?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I'm A Love Machine",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ruben Studdard",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nicole Kidman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Smell Good",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Louisville, Kentucky",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Pack Of Lies",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Long Overdue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Out Of Sequence",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "One Hundred Dollars",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Soccer Balls",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Let's Do Lunch",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Department Store",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "High School Valedictorian",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lox And Bagels",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Stolen Kisses",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Without A Trace",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pussycats",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lover's Triangle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Christina Aguilera",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Unique Opportunity",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rapunzel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Los Angeles Times",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Attack Of The Clones",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Thank You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "United States",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "If The Shoe Fits, Wear It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Elle MacPherson",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ronald Reagan",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What A Bummer!",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Summer Olympics",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "News Radio",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Unforgettable",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Escape From Alcatraz",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Summer Camp Counselor",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tobey Maguire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ronald McDonald",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do Not Open Before Christmas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Havana Cuba",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Roman Coliseum",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "White Elephant Sale",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mary Poppins",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Barbra Streisand",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Free Samples",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Rest My Case",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Thursday Evening",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What A Bunch Of Nonsense",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Patrick Stewart",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "American Idol",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Bold-Faced Lie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Coyote Ugly",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I'll Meet You Halfway",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tip Of My Tongue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Not A Chance",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chicken Cacciatore",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nacho Cheese",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Early To Bed Early To Rise",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Who Framed Roger Rabbit?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Public Utility",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wish I Were There",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Blazing Saddles",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Eyewitness News",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Birthday Suit",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Attention Deficit Disorder",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nestle Crunch Bar",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Total Confusion",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Pound Of Ground Round",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Over My Bead Body",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Home Of The Brave",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I'm Out Of Gas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Scandalous Affair",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Au Natural",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Charlie Sheen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chicken Soup For The Soul",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Six Feet Under",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Afraid Of The Dark",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Elizabeth Hurley",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dearly Beloved",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sugar Donuts",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Real McCoy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chattanooga, Tennessee",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mary-Kate And Ashley Olsen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Aretha Franklin",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Duplicate Prints",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "This Is No Place For A Lady",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Supreme Court",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Native Americans",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Vatican City",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Get Over A Broken Heart",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Driving Miss Daisy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Minnesota Twins",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Close The Door",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Ghettysburg Address",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Euro Disney",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sparkling Water",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No-Smoking Zone",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Anna Nicole Smith",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Deliverance",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Masseuse",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Fatal Attraction",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I've Got You Under My Skin",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ice Cream Sandwich",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Toupee",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Barbecued Ribs",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Virgin Records",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Detroit Pistons",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Let's Get On With It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Leave Me Alone",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Use As Directed",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wake Up To The Facts",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Too Tense To Relax",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Buns Of Steel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Married With Children",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oprah Winfrey",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Are The One For Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Bar Of Soap",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Three Men In A Tub",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I'll Meet You Later",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Dream Of Genie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "People Are Funny",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "When Harry Met Sally",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Maltese Falcon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "National Security",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Sing At A Hight Pitch",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "All Kidding Aside",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He's A Rock Groupie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Temporary Job",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Treat Yourself Right",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Zip-A-Dee-Doo-Dah",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Whose Line Is It Anyway?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Guantanamo Bay, Cuba",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ambulance Siren",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lucy In The Sky With Diamonds",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rubber Baby Buggy Bumpers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Know How I Feel About You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Here's One For The Road",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Dime A Dozen",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Bite Your Fingernails",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Alfred Hitchcock",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "If You Knew Susie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Malcolm X",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Saving Private Ryan",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Said A Mouthful",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wake Up In The Morning",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sears Roebuck",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Matrix Reloaded",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Hand Over The Money",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Pair Of Sunglasses",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Beggars Can't Be Choosers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's Only Puppy Love",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Village Idiot",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Check Is In The Mail",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Danny Kaye",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Get Mad, Get Even",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Elvis Costello",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Love Affair",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Michael Eisner",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Census Takers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Walk A Mile In My Shoes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Treat With TLC",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Curse Of The Vampire",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Barenaked Ladies",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ladies' Home Journal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "MP3 Player",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dial M For Murder",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Dusty Road",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "There's Always A Chance",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can I Buy You A Drink?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Noah Wyle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Raiders Of The Lost Ark",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Do Paper Collating",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Psychobabble",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Leave Me Alone",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ocean Spray",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "X Marks The Spot",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dr. Seuss",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wilson Phillips",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Supremes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Dim The Lights",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lawrence Of Arabia",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's A Small World",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Back To Square One",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Kate And Leopold",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Name Of The Game",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Stink",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Barometer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Romantic Comedy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Physical Exam",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Halls Of Montezuma",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "License And Registration",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ode To Billie Joe",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Shaquille O'Neal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Can Work Around It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Read My Lips",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Set Your Sights High",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Never Say Never",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Sent It To You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Greg Kinnear",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Round Of Applause",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Alexander The Great",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Offensive Foul",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mary Had A Little Lamb",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Weird Al Yankovic",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The First Of January",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rudy Giuliani",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Multi-National Force",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do You Know My Number?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do You Come Here Often?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Thursday Morning",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Philadelphia Story",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Central America",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pastrami Sandwich",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Miami Dolphins",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "John Kerry",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "He Pitched A Perfect Game",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Game Of Checkers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can't Take My Eyes Off You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pepperoni Pizza",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cinco De Mayo",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "To Protect And Serve",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A City Slicker",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cited For Contempt",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "People Magazine",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Labor Day Weekend",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Will Always Love You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Never Make Mistakes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Always Good For A Laugh",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It's About Time",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Keep It Simple Stupid",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Naomi Judd",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Potato Salad",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Shirley MacLaine",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Professional Speaker",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Toga Party",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Jack Of All Trades",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nobody Knows For Sure",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Charlize Theron",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Florida Marlins",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Negotiate",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nudist Colony",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rolling In The Money",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tortilla Chips",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Which Way Did He Go?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Sounds Of Silence",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pacific Ocean",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "London Bridge",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Highway To Heaven",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Drink And Drive",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Double Jeopardy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I'm Only Kidding",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Laser Surgery",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You're Looking Good",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dot Com",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Soviet Union",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pencil Sharpener",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Legally Blonde",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Coat And Hat Check",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "George Of The Jungle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What A Strange Language",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "State Of Arkansas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Playstation",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ocean's Eleven",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lisa Kudrow",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Is That You Knocking?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Face The Music",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Statue Of Liberty",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "New Zealand",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Replacements",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Terrible Twos",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "William Shakespeare",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Taxpayer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Penny Marshall",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Macaulay Culkin",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Whole Kit And Caboodle",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "First Come First Served",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Colonel Sanders",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Stuffed Animal",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "International Treaty",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Milk And Cookies",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pixar Entertainment",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Slyvester And Tweety",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tidal Wave",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Talkin' To Me?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Stake A Claim",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Partners In Crime",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Los Angeles Lakers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Apprentice",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Da Vinci Code",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Back In The Saddle Again",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "All Together Now",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Touch Me In The Morning",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Need A Cold Shower",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Lost In Translation",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No Strings Attached",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Santa Monica",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tunnel Of Love",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Did You Hear The News?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Who Cut The Cheese?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "An Eternal Flame",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cincinnati, Ohio",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Client Is Innocent",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Home Equity Loan",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Good Souce Of Fiber",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Garden Of Eden",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Will You Marry Me?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wait-And-See Attitude",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tell Her About It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pistachio Nuts",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Make A Name For Yourself",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Greenwich, Connecticut",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Change Of Pace",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Assistant Manager",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "To Be Or Not To Be",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chinese Chicken Salad",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I'll Take Care Of You",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Me Tarzan, You Jane",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Laser Eye Surgery",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tony Awards Ceremony",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Aces And Eights",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "If You Only Knew",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Because I Said So",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Sound And The Fury",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Pair Of Tennis Shoes",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "See-Through Shrink Wrap",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "No More Mister Nice Guy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Justice William Rehnquist",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Classified Advertisement",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Degrees Centigrade",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "MTV's Beach House",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Can You Shake Your Booty?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oscar Madison",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wonderbra",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The School Of Rock",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Soap Opera Star",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nicky And Paris Hilton",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Daimler Chrysler",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Life Insurance Policy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Golden Parachute",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Monkey Wrench",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Digital Camera",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Jim Belushi",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Get An Early Start",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mike Myers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Robert De Niro",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Fight Club",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Country Mile",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Easter Parade",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Almighty Dollar",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Can't Help It",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Howard Stern",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Killer Bee Sting",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Phoenix, Arizona",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Slip Of The Tongue",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Two Thumbs Up",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Why Don't You Call?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tori Spelling",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ceasar Salad",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Harrison Ford",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Marilyn Manson",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Detroit Tigers",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Election Day",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Finding Nemo",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Superman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Boy Scouts Of America",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Microsoft Excel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Let Us Pray",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Perfect World",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "It Stands To Reason",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Girl Scout Of America",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Birthday Suit",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Champagne Toast",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Piece Of Cheese",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sweet Potato Pie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pay-Per-View Movie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Leonardo Da Vinci",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Independence Day",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Denzel Washington",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Sky's The Limit",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "American Express",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Miracle Drug",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Spy Kids",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Wheel Of Fortune",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Austin, Texas",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Make It Quick",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Fahrenheit",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Miami Vice",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Always On My Mind",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Dramatic Climax",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Comedy Of Errors",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Raising Arizona",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Let's Get Out Of Here",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "We Pay Wholesale",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Paper Roses",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I See Dead People",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "David Duchovny",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Fur Chin Ollie Foil",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "For Whom The Bell Tolls",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Danny Devito",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Paparazzi",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Las Vegas Casino",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "New Kids On The Block",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Be A Girly Man",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Just Between Us Girls",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Universal Studios",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Uma Thurman",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Louisiana Purchase",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Little House On The Prairie",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Magic 8-ball",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Scholastic Aptitude Test",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You'll Ease My Mind",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Politically Correct",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Low-Interest Mortgage",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Put Your Seat Belt On",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Ivana Trump",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Under Any Circumstances",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Naomi Campbell",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "After Midnight",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Gag Me With A Spoon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Take Any Chances",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Drive An SUV",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Justice Of The Peace",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Four Seasons Hotel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I Ran All The Way Home",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Rest Assured",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Please Call A Doctor",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cinnamon Sugar",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Cover Story",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "July The Forth",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Change Of Address",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Boston Clam Chowder",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Blue Plate Special",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Baby Face",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Buffy The Vampire Slayer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Academy Awards",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sheryl Crow",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "My Lips Are Sealed",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You'll Be Sorry",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Sink Or Swim",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Nickelodeon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Tattle Tale",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "As A Matter Of Fact",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Seat Yourself",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pooper Scooper",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Love 'Em And Leave 'Em",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Chicago Bears",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Half Reed Hummed He Canary",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "You Are The Weakest Link",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Be Cruel",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "What A Pair",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Portland, Oregon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Mister Nice Guy",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Making Out",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Oakland Raiders",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Twenty-One And Over",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Silence Of The Lambs",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Making The Video",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Philadelphia Phillies",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Okay",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Abe Lincoln",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Waste My Time",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Meg Ryan",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Katie Couric",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Back Seat Driver",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "All My Love",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Greasy Spoon",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Jack Of All Trades",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "I've Got Your Number",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "All You Can Eat Buffet",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "The Star Spangled Banner",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Pardon Me",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Tori Amos",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do You Know My Name?",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Do A Google Search",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Don't Pick Your Nose",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Donna Summer",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Colin Powell",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Punk Rock Music",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "Eric Clapton",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Christmas Carol",
         "use": true
     },
     {
-        "category": "Base",
         "clueSet": "Base",
         "phrase": "A Candle In The Wind",
         "use": true

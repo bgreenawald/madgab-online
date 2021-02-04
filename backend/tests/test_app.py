@@ -55,7 +55,6 @@ def test_load_board(socket_client):
         "winning_team": "",
         "team_1_turn": True,
         "current_phrase": "",
-        "current_category": "",
         "current_madgab": "",
         "current_turn_counter": 0,
         "current_turn_correct": 0,
@@ -72,7 +71,6 @@ def test_start_game(socket_client):
     assert resp[0]["args"][0]["message"] == "Started turn."
     data = json.loads(resp[0]["args"][0]["payload"])
     data.pop("current_phrase", None)
-    data.pop("current_category", None)
     data.pop("current_madgab", None)
     assert data == {
         "id": "TEST_GAME",
@@ -114,7 +112,6 @@ def test_reset(socket_client):
         "winning_team": "",
         "team_1_turn": True,
         "current_phrase": "",
-        "current_category": "",
         "current_madgab": "",
         "current_turn_counter": 0,
         "current_turn_correct": 0,
@@ -146,7 +143,6 @@ def test_new_phrase(socket_client):
     assert resp[0]["args"][0]["message"] == "New phrase generated."
     data = json.loads(resp[0]["args"][0]["payload"])
     data.pop("current_phrase", None)
-    data.pop("current_category", None)
     data.pop("current_madgab", None)
     data.pop("current_turn_clues", None)
     assert data == {
@@ -192,7 +188,6 @@ def test_end_active_state(socket_client):
     assert resp[0]["args"][0]["message"] == "Active state ended."
     data = json.loads(resp[0]["args"][0]["payload"])
     data.pop("current_phrase", None)
-    data.pop("current_category", None)
     data.pop("current_madgab", None)
     data.pop("current_turn_clues", None)
     assert data == {
@@ -227,7 +222,6 @@ def test_end_turn(socket_client):
     assert resp[0]["args"][0]["message"] == "Turn ended."
     data = json.loads(resp[0]["args"][0]["payload"])
     data.pop("current_phrase", None)
-    data.pop("current_category", None)
     data.pop("current_madgab", None)
     data.pop("current_turn_clues", None)
     assert data == {
@@ -277,7 +271,6 @@ def test_steal(socket_client):
     assert resp[0]["args"][0]["message"] == "Points stolen."
     data = json.loads(resp[0]["args"][0]["payload"])
     data.pop("current_phrase", None)
-    data.pop("current_category", None)
     data.pop("current_madgab", None)
     data.pop("current_turn_clues", None)
     assert data == {
@@ -317,7 +310,6 @@ def test_toggle_difficulty(socket_client):
         "winning_team": "",
         "team_1_turn": True,
         "current_phrase": "",
-        "current_category": "",
         "current_madgab": "",
         "current_turn_counter": 0,
         "current_turn_correct": 0,
