@@ -5,7 +5,7 @@ from threading import Lock
 from typing import Any, Dict, List, Tuple
 
 import src.game.game_config as game_config
-from src.clues.clue_manager import ClueManager, ClueSetType
+from src.clues.clue_manager import Clue, ClueManager, ClueSetType
 from src.madgab.madgab import mad_gabify
 
 
@@ -51,6 +51,7 @@ class Game(object):
         state (State): The current state of the game. Can be "IDLE", "ACTIVE",
             "STEALING", "REVIEW", or "OVER"
         clue_sets (list): All of the clue sets for a given game.
+        clues (list): All of the unseen clues for a given session.
         seen_clues (list): All of the already seen clues for a session.
         team_1_turn (bool): Whether it is team 1's turn.
         winning_team (str): The winning team. Can be None, 'Team 1', or 'Team 2'
@@ -175,7 +176,7 @@ class Game(object):
         all_clues = ClueManager(self.clue_sets).get_clues()
         all_clues = list(set(all_clues).difference(set(self.seen_clues)))
         random.shuffle(all_clues)
-        self.clues: List[Tuple[str, str]] = all_clues
+        self.clues: List[Clue] = all_clues
 
     def _reset_clues(self):
         self.seen_clues = []
@@ -351,8 +352,10 @@ class Game(object):
         """
         if len(self.clues) == 0:
             self._reset_clues()
-        self.current_phrase, self.current_category = self.clues.pop()
-        self.seen_clues.append((self.current_phrase, self.current_category))
+        clue = self.clues.pop()
+        self.current_phrase = clue.phrase
+        self.current_category = clue.category
+        self.seen_clues.append(clue)
         self.current_madgab = mad_gabify(self.current_phrase, self.difficulty)
 
     def _reset_turn(self):
