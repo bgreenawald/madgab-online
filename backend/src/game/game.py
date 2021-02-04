@@ -2,7 +2,7 @@ import datetime
 import random
 from enum import Enum
 from threading import Lock
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 import src.game.game_config as game_config
 from src.clues.clue_manager import Clue, ClueManager, ClueSetType
@@ -241,17 +241,21 @@ class Game(object):
             if correct:
                 self._update_score(1)
                 self.current_turn_correct += 1
-                self.current_turn_clues.append({
-                    "phrase": self.current_phrase,
-                    "madgab": self.current_madgab,
-                    "correct": True
-                })
+                self.current_turn_clues.append(
+                    {
+                        "phrase": self.current_phrase,
+                        "madgab": self.current_madgab,
+                        "correct": True,
+                    }
+                )
             else:
-                self.current_turn_clues.append({
-                    "phrase": self.current_phrase,
-                    "madgab": self.current_madgab,
-                    "correct": False
-                })
+                self.current_turn_clues.append(
+                    {
+                        "phrase": self.current_phrase,
+                        "madgab": self.current_madgab,
+                        "correct": False,
+                    }
+                )
 
             # If they got them all correct, calculate bonus
             if self.words_per_turn == self.current_turn_correct:
@@ -314,19 +318,23 @@ class Game(object):
         if correct:
             self._update_score(1)
             self.current_turn_correct += 1
-            self.current_turn_clues.append({
-                "phrase": self.current_phrase,
-                "madgab": self.current_madgab,
-                "correct": True
-            })
+            self.current_turn_clues.append(
+                {
+                    "phrase": self.current_phrase,
+                    "madgab": self.current_madgab,
+                    "correct": True,
+                }
+            )
         elif self.current_phrase:
             # If they didn't get it corect, but isn't the first
             # word, add to list but don't update score
-            self.current_turn_clues.append({
-                "phrase": self.current_phrase,
-                "madgab": self.current_madgab,
-                "correct": False
-            })
+            self.current_turn_clues.append(
+                {
+                    "phrase": self.current_phrase,
+                    "madgab": self.current_madgab,
+                    "correct": False,
+                }
+            )
 
         # Update the turn counter
         self.current_turn_counter += 1
