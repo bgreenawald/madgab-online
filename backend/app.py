@@ -63,10 +63,9 @@ def return_game_test(id: str) -> str:
     return render_template("game2.html", id=id)
 
 
-@app.route("/api/get_names")
-def get_names() -> Response:
-    ids = [x for x in all_games]
-    return json.jsonify({"ids": ids})
+@app.route("/api/check_name/<id>")
+def get_names(id: str) -> Response:
+    return json.jsonify({"in_use": id in all_games})
 
 
 # ---------------------------------------
