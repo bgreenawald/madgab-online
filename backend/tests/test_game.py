@@ -236,7 +236,7 @@ class testGameMethods(unittest.TestCase):
             self.assertNotEqual(game.current_madgab, last_madgab)
         with self.subTest("Check score not changed"):
             self.assertEqual(game.team_1_score, 0)
-        with self.subTest("Check phrase added to current turn [ClueSetType.BASE]"):
+        with self.subTest("Check phrase added to current turn clue"):
             self.assertEqual(len(game.current_turn_clues), 1)
 
         game.increment_active_state(True)
@@ -307,7 +307,7 @@ class testGameMethods(unittest.TestCase):
 
         game.start_turn()
         game.increment_active_state(True)
-        with self.subTest("Check current turn [ClueSetType.BASE]"):
+        with self.subTest("Check current turn clue"):
             self.assertEqual(len(game.current_turn_clues), 1)
         with self.subTest("Check current phrase"):
             self.assertIsNotNone(game.current_phrase)
@@ -319,7 +319,7 @@ class testGameMethods(unittest.TestCase):
             self.assertEqual(game.current_turn_correct, 1)
 
         game._reset_turn()
-        with self.subTest("Check current turn [ClueSetType.BASE] reset"):
+        with self.subTest("Check current turn clue reset"):
             self.assertEqual(len(game.current_turn_clues), 0)
         with self.subTest("Check current phrase reset"):
             self.assertEqual(game.current_phrase, "")

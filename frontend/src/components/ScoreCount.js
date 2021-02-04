@@ -44,7 +44,7 @@ class ScoreCount extends Component {
             <div className="clue-icon-container" ref={this.ref}>
                 {this.props.state.current_turn_clues.map((e, i) => (
                     <ClueIcon
-                        value={e[2] ? 'correct' : 'incorrect'}
+                        value={e["correct"] ? 'correct' : 'incorrect'}
                         key={i}
                         isButton={false} />
                 ))}
