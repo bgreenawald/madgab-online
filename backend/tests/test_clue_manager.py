@@ -26,7 +26,9 @@ class testClueSetType(unittest.TestCase):
         self.assertEqual(ClueSetType.BASE, ClueSetType.from_string("Base"))
 
     def test_from_string_not_implemented(self):
-        self.assertRaises(NotImplementedError, lambda: ClueSetType.from_string("INVALID"))
+        self.assertRaises(
+            NotImplementedError, lambda: ClueSetType.from_string("INVALID")
+        )
 
     def test_from_list(self):
         self.assertEqual([ClueSetType.BASE], ClueSetType.from_list(["Base"]))

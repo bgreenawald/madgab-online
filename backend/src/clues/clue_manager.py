@@ -31,20 +31,18 @@ class ClueSetType(Enum):
     """
 
     BASE = "Base"
+    MOVIES = "Movies"
 
     @staticmethod
-    def from_string(s: str):
-        if s == "Base":
-            return ClueSetType.BASE
-        else:
-            raise NotImplementedError
+    def from_string(clue_set: str):
+        clue_set_map = {"Base": ClueSetType.BASE, "Movies": ClueSetType.MOVIES}
+        if clue_set in clue_set_map:
+            return clue_set_map[clue_set]
+        raise NotImplementedError
 
     @staticmethod
-    def from_list(l: List[str]):
-        return [
-            ClueSetType.from_string(s)
-            for s in l
-        ]
+    def from_list(clue_sets: List[str]):
+        return [ClueSetType.from_string(clue_set) for clue_set in clue_sets]
 
 
 class ClueSet:
@@ -60,7 +58,10 @@ class ClueSetManager:
     clue_sets = {
         ClueSetType.BASE: ClueSet.read_clues_from_file(
             os.path.join(ClueSet.clue_set_path, "base.json")
-        )
+        ),
+        ClueSetType.MOVIES: ClueSet.read_clues_from_file(
+            os.path.join(ClueSet.clue_set_path, "movies.json")
+        ),
     }
 
     @staticmethod

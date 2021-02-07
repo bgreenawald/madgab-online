@@ -1,0 +1,452 @@
+[
+    {
+        "clueSet": "Movie",
+        "phrase": "The Dark Knight Rises",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Jurassic World",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "It's a Wonderful Life",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "A Streetcar Named Desire",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Bonnie and Clyde",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Back to the Future",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Beverly Hills Cop",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "It Happened One Night",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Deer Hunter",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Lady and the Tramp",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Gone With the Wind",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Sound of Music",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "An American in Paris",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Singin' in the Rain",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Rogue One A Star Wars Story",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "E. T. The ExtraTerrestrial",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Silence of the Lambs",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "American Graffiti",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Great Dictator",
+        "use": false
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Treasure of the Sierra Madre",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Lion King",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Apocalypse Now",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Bells of St. Mary's",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Shawshank Redemption",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "North by Northwest",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Rocky Horror Picture Show",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Searchers",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Pirates of the Caribbean Dead Man's Chest",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Jungle Book",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "West Side Story",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Some Like It Hot",
+        "use": false
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Mr. Smith Goes to Washington",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "National Lampoon's Animal House",
+        "use": false
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Wizard of Oz",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Double Indemnity",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Yankee Doodle Dandy",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Bridge on the River Kwai",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Jurassic Park",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Best Years of Our Lives",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Black Panther",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Sleeping Beauty",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Bridge On The River Kwai",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "On the Waterfront",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Dark Knight",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Third Man",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Butch Cassidy and the Sundance Kid",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Good Will Hunting",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Philadelphia Story",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Swiss Family Robinson",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Apartment",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Independence Day",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Snow White and the Seven Dwarfs",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "From Here to Eternity",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "All Quiet on the Western Front",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Ten Commandments",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Lawrence of Arabia",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Godfather",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Dances with Wolves",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "To Kill a Mockingbird",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Sixth Sense",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The African Queen",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Mutiny on the Bounty",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Green Mile",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Blazing Saddles",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Greatest Show on Earth",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The French Connection",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Maltese Falcon",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Good the Bad and the Ugly",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "One Flew Over the Cuckoo's Nest",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Schindler's List",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Raiders of the Lost Ark",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "It's a Mad Mad Mad Mad World",
+        "use": false
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Smokey and the Bandit",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Rebel Without a Cause",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Transformers Revenge of the Fallen",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Beauty and the Beast",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Poseidon Adventure",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "A Clockwork Orange",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Indiana Jones and the Temple of Doom",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Towering Inferno",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Terms of Endearment",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Gone with the Wind",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Midnight Cowboy",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Wuthering Heights",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Close Encounters of the Third Kind",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Saving Private Ryan",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Grapes of Wrath",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "The Passion of the Christ",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "Doctor Zhivago",
+        "use": true
+    },
+    {
+        "clueSet": "Movie",
+        "phrase": "A Place in the Sun",
+        "use": true
+    }
+]
