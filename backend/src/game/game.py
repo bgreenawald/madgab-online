@@ -165,7 +165,11 @@ class Game(object):
     def update_clue_sets(self, clue_sets: List[ClueSetType]):
         self.lock.acquire(timeout=2)
         try:
-            self.clue_sets = clue_sets
+            # Ensure that clue sets is not set to empty
+            if not clue_sets:
+                self.clue_sets = [ClueSetType.BASE]
+            else:
+                self.clue_sets = clue_sets
             self._update_clues()
         finally:
             self.lock.release()

@@ -331,3 +331,61 @@ def test_toggle_difficulty(socket_client):
         "current_turn_correct": 0,
         "current_turn_clues": [],
     }
+
+
+def test_update_clue_set(socket_client):
+    socket_client.emit(
+        "update_clue_sets", {"name": "TEST_GAME", "clue_sets": ["Base", "Movies"]}
+    )
+    resp = socket_client.get_received()
+    assert resp[0]["name"] == "render_board"
+    assert len(resp[0]["args"][0]) == 3
+    assert resp[0]["args"][0]["status_code"] == 200
+    assert resp[0]["args"][0]["message"] == "Clue sets updated."
+    assert json.loads(resp[0]["args"][0]["payload"]) == {
+        "id": "TEST_GAME",
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
+        "difficulty": "hard",
+        "team_1_score": 0,
+        "team_2_score": 0,
+        "round_number": 0,
+        "state": "IDLE",
+        "winning_team": "",
+        "clue_sets": ["Base", "Movies"],
+        "team_1_turn": True,
+        "current_phrase": "",
+        "current_madgab": "",
+        "current_turn_counter": 0,
+        "current_turn_correct": 0,
+        "current_turn_clues": [],
+    }
+
+
+def test_update_clue_set_fail(socket_client):
+    socket_client.emit("update_clue_sets", {"name": "TEST_GAME"})
+    resp = socket_client.get_received()
+    assert resp[0]["name"] == "render_board"
+    assert len(resp[0]["args"][0]) == 3
+    assert resp[0]["args"][0]["status_code"] == 400
+    assert (
+        resp[0]["args"][0]["message"].split("\n")[0]
+        == "'clue_sets' is a required property"
+    )
+    assert resp[0]["args"][0]["payload"] == {}
+
+
+def test_update_clue_set_fail_invalid_clue_set(socket_client):
+    socket_client.emit(
+        "update_clue_sets", {"name": "TEST_GAME", "clue_sets": ["INVALID", "Base"]}
+    )
+    resp = socket_client.get_received()
+    assert resp[0]["name"] == "render_board"
+    assert len(resp[0]["args"][0]) == 3
+    assert resp[0]["args"][0]["status_code"] == 400
+    assert (
+        resp[0]["args"][0]["message"].split("\n")[0]
+        == f"'INVALID' is not one of {[clue_set.value for clue_set in ClueSetType]}"
+    )
+    assert resp[0]["args"][0]["payload"] == {}

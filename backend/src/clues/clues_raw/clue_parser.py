@@ -3,7 +3,8 @@
 # %% [markdown]
 # # Clue Generator
 #
-# Scrape MadGab clues from a variety of sources. Remove any extra characters, make sure all clues are valid, write to file with category.
+# Scrape MadGab clues from a variety of sources.
+# Remove any extra characters, make sure all clues are valid, write to file with category.
 
 # %%
 import json
@@ -234,7 +235,7 @@ print(f"All phrases with musical artists: {len(all_phrases)}")
 
 # %%
 song_page = requests.get(
-    "https://www.billboard.com/articles/news/hot-100-turns-60/8468142/hot-100-all-time-biggest-hits-songs-list"
+    "https://www.billboard.com/articles/news/hot-100-turns-60/8468142/hot-100-all-time-biggest-hits-songs-list"  # noqa: E501, B950
 )
 song_soup = BeautifulSoup(song_page.text)
 
