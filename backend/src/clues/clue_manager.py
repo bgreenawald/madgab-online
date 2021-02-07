@@ -13,6 +13,14 @@ class Clue:
     phrase: str
     clue_set: str
 
+    def __eq__(self, o: object) -> bool:
+        if isinstance(o, Clue):
+            return self.phrase == o.phrase
+        return False
+
+    def __hash__(self) -> int:
+        return hash(self.phrase)
+
 
 class ClueException(Exception):
     pass

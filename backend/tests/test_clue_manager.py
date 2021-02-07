@@ -1,6 +1,24 @@
 import unittest
 
-from src.clues.clue_manager import ClueManager, ClueSet, ClueSetManager, ClueSetType
+from src.clues.clue_manager import (
+    Clue,
+    ClueManager,
+    ClueSet,
+    ClueSetManager,
+    ClueSetType,
+)
+
+
+class testClue(unittest.TestCase):
+    def test_hash(self):
+        c1 = Clue("Hello", None)
+        c2 = Clue("Hello", None)
+        self.assertEqual(len(set([c1, c2])), 1)
+
+    def test_equal(self):
+        c1 = Clue("Hello", "World")
+        c2 = Clue("Hello", "Universe")
+        self.assertTrue(c1 == c2)
 
 
 class testClueSet(unittest.TestCase):
