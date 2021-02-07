@@ -143,6 +143,7 @@ class Game(object):
             "round_number": self.round_number,
             "state": self.state.value,
             "winning_team": self.winning_team,
+            "clue_sets": [clue_set.value for clue_set in self.clue_sets],
             # Turn state
             "team_1_turn": self.team_1_turn,
             "current_phrase": self.current_phrase,
