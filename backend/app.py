@@ -69,6 +69,12 @@ def get_names() -> Response:
     return json.jsonify({"ids": ids})
 
 
+@app.route("/api/get_clue_sets")
+def get_clue_sets() -> Response:
+    clue_sets = [clue_set.value for clue_set in ClueSetType]
+    return json.jsonify({"clue_sets": clue_sets})
+
+
 # ---------------------------------------
 # Socket functions
 # ---------------------------------------

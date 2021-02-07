@@ -35,6 +35,14 @@ def test_get_names(client):
     assert json.loads(resp.data.decode("utf-8")) == {"ids": ["TEST_GAME"]}
 
 
+def test_get_clue_sets(client):
+    resp = client.get("/api/get_clue_sets")
+    assert resp.status_code == 200
+    assert json.loads(resp.data.decode("utf-8")) == {
+        "clue_sets": [clue_set.value for clue_set in ClueSetType]
+    }
+
+
 def test_load_board(socket_client):
     socket_client.emit("load_board", {"name": "TEST_GAME"})
     resp = socket_client.get_received()
