@@ -21,6 +21,17 @@ class testClue(unittest.TestCase):
         self.assertTrue(c1 == c2)
 
 
+class testClueSetType(unittest.TestCase):
+    def test_from_string(self):
+        self.assertEqual(ClueSetType.BASE, ClueSetType.from_string("Base"))
+
+    def test_from_string_not_implemented(self):
+        self.assertRaises(NotImplementedError, lambda: ClueSetType.from_string("INVALID"))
+
+    def test_from_list(self):
+        self.assertEqual([ClueSetType.BASE], ClueSetType.from_list(["Base"]))
+
+
 class testClueSet(unittest.TestCase):
     def test_read_clues_from_file(self):
         clues = ClueSet.read_clues_from_file("src/clues/clue_sets/base.json")

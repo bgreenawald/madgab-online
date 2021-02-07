@@ -32,6 +32,20 @@ class ClueSetType(Enum):
 
     BASE = "Base"
 
+    @staticmethod
+    def from_string(s: str):
+        if s == "Base":
+            return ClueSetType.BASE
+        else:
+            raise NotImplementedError
+
+    @staticmethod
+    def from_list(l: List[str]):
+        return [
+            ClueSetType.from_string(s)
+            for s in l
+        ]
+
 
 class ClueSet:
     clue_set_path = "src/clues/clue_sets"
