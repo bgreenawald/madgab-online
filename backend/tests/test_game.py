@@ -266,7 +266,6 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check phrase has been changed"):
             self.assertNotEqual(game.current_phrase, game.current_madgab)
 
-
     def test_ResetClues(self):
         game = Game("", [ClueSetType.BASE])
         initial_clue_length = len(game.clues)
