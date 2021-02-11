@@ -86,23 +86,20 @@ def submit_feedback(game_id: str) -> Response:
     try:
         game = all_games[game_id]
     except KeyError:
-        return Response(
-            "{}", status=int(HTTPStatus.NOT_FOUND), mimetype="application/json",
-        )
+        return Response(status=int(HTTPStatus.NOT_FOUND))
 
     # Create upload data by combining form data and game state and upload
     try:
         request_data = request.form
-        print(request_data)
         upload_data = {"form_data": request_data, "game_data": game.__json__()}
         upload_name = generate_bucket_name(game_id)
         if "DRY_RUN" in request_data and request_data["DRY_RUN"]:
-            return Response(status=int(HTTPStatus.OK))
+            return Response(json.dumps(upload_data), status=int(HTTPStatus.OK))
         upload_dict_to_s3(upload_data, upload_name)
-    except Exception:
-        return Response(status=int(HTTPStatus.INTERNAL_SERVER_ERROR))
+    except Exception as e:
+        return Response(str(e), status=int(HTTPStatus.INTERNAL_SERVER_ERROR))
     else:
-        return Response(status=int(HTTPStatus.CREATED))
+        return Response(json.dumps(upload_data), status=int(HTTPStatus.CREATED))
 
 
 # ---------------------------------------
