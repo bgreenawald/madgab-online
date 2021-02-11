@@ -11,6 +11,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+print("REGION: " + str(os.environ["AWS_DEFAULT_REGION"]))
+
 # Configure boto3
 session = boto3.Session(
     aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
