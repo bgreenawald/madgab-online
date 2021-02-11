@@ -11,7 +11,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-s3_resource = boto3.resource("s3")
+# Configure boto3
+session = boto3.Session(
+    aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
+    aws_secret_access_key=os.environ["AWS_SECRET_ACCESS_KEY"],
+    region_name=os.environ["AWS_DEFAULT_REGION"],
+)
+s3_resource = session.resource("s3")
 s3_bucket = os.environ.get("S3_RADGAB_BUCKET")
 
 
