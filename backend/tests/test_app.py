@@ -35,6 +35,18 @@ def test_get_names(client):
     assert json.loads(resp.data.decode("utf-8")) == {"ids": ["TEST_GAME"]}
 
 
+def test_submit_feedback(client):
+    data = {"DRY_RUN": True}
+    resp = client.post("/api/feedback/TEST_GAME", data=data)
+    assert resp.status_code == 200
+
+
+def test_submit_feedback_invalid_game(client):
+    data = {"DRY_RUN": True}
+    resp = client.post("/api/feedback/INVALID_GAME", data=data)
+    assert resp.status_code == 404
+
+
 def test_load_board(socket_client):
     socket_client.emit("load_board", {"name": "TEST_GAME"})
     resp = socket_client.get_received()

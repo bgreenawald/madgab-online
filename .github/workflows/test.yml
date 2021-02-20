@@ -35,5 +35,5 @@ jobs:
       working-directory: ${{ env.backend-directory }}
     - name: Test with pytest
       run: |
-        pytest
+        pytest ./tests/ --ignore ./tests/test_s3.py
       working-directory: ${{ env.backend-directory }}

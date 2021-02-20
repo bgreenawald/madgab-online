@@ -4,6 +4,7 @@ import logging
 import os
 import sys
 from typing import Any, Dict
+from http import HTTPStatus
 
 import simplejson
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -14,6 +15,8 @@ from jsonschema import validate, ValidationError
 
 from src.clues.clue_manager import ClueSetType
 from src.game.game import Game, InvalidState
+from src.utils.s3 import generate_bucket_name, upload_dict_to_s3
+
 
 # Initialize the application
 app = Flask(__name__)
@@ -67,6 +70,36 @@ def return_game_test(id: str) -> str:
 def get_names() -> Response:
     ids = [x for x in all_games]
     return json.jsonify({"ids": ids})
+
+
+@app.route("/api/feedback/<game_id>", methods=["POST"])
+def submit_feedback(game_id: str) -> Response:
+    """Uploads feedback to S3
+
+    Args:
+        game_id (str): Game the feedback originates from.
+
+    Returns:
+        Response: Flask response with the status code of the operation.
+    """
+    # See if the given game ID exists
+    try:
+        game = all_games[game_id]
+    except KeyError:
+        return Response(status=int(HTTPStatus.NOT_FOUND))
+
+    # Create upload data by combining form data and game state and upload
+    try:
+        request_data = request.form
+        upload_data = {"form_data": request_data, "game_data": game.__json__()}
+        upload_name = generate_bucket_name(game_id)
+        if "DRY_RUN" in request_data and request_data["DRY_RUN"]:
+            return Response(json.dumps(upload_data), status=int(HTTPStatus.OK))
+        upload_dict_to_s3(upload_data, upload_name)
+    except Exception as e:
+        return Response(str(e), status=int(HTTPStatus.INTERNAL_SERVER_ERROR))
+    else:
+        return Response(json.dumps(upload_data), status=int(HTTPStatus.CREATED))
 
 
 # ---------------------------------------

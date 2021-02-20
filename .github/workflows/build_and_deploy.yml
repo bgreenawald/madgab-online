@@ -37,7 +37,7 @@ jobs:
       working-directory: ${{ env.backend-directory }}
     - name: Test with pytest
       run: |
-        pytest
+        pytest ./tests/ --ignore ./tests/test_s3.py
       working-directory: ${{ env.backend-directory }}
 
     # Configure AWS credentials and login to the ECR
@@ -46,7 +46,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
+        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
     - name: Login to Amazon ECR
       id: login-ecr
