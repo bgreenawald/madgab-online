@@ -11,15 +11,6 @@ from src.utils.s3 import upload_dict_to_s3
 
 load_dotenv()
 
-print("REGION: " + str(os.environ["AWS_DEFAULT_REGION"]))
-
-# Configure boto3
-session = boto3.Session(
-    aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
-    aws_secret_access_key=os.environ["AWS_SECRET_ACCESS_KEY"],
-    region_name=os.environ["AWS_DEFAULT_REGION"],
-)
-
 s3_bucket = os.environ.get("S3_RADGAB_BUCKET")
 
 
