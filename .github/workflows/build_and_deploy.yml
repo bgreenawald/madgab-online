@@ -37,7 +37,7 @@ jobs:
       working-directory: ${{ env.backend-directory }}
     - name: Test with pytest
       run: |
-        pytest tests\ --ignore tests\test_s3.py
+        pytest ./tests/ --ignore ./tests/test_s3.py
       working-directory: ${{ env.backend-directory }}
 
     # Configure AWS credentials and login to the ECR
