@@ -31,13 +31,18 @@ class ClueSetType(Enum):
     """
 
     BASE = "Base"
+    BOOKS = "Books"
     MOVIES = "Movies"
+    MUSICAL_ARTISTS = "Musical Artists"
+    PEOPLE = "Famous People"
+    SONGS = "Songs"
+    TELEVISION_SHOWS = "Television Shows"
 
     @staticmethod
     def from_string(clue_set: str):
-        clue_set_map = {"Base": ClueSetType.BASE, "Movies": ClueSetType.MOVIES}
-        if clue_set in clue_set_map:
-            return clue_set_map[clue_set]
+        for clue_set_type in ClueSetType:
+            if clue_set_type.value == clue_set:
+                return clue_set_type
         raise NotImplementedError
 
     @staticmethod
@@ -59,8 +64,23 @@ class ClueSetManager:
         ClueSetType.BASE: ClueSet.read_clues_from_file(
             os.path.join(ClueSet.clue_set_path, "base.json")
         ),
+        ClueSetType.BOOKS: ClueSet.read_clues_from_file(
+            os.path.join(ClueSet.clue_set_path, "books.json")
+        ),
         ClueSetType.MOVIES: ClueSet.read_clues_from_file(
             os.path.join(ClueSet.clue_set_path, "movies.json")
+        ),
+        ClueSetType.MUSICAL_ARTISTS: ClueSet.read_clues_from_file(
+            os.path.join(ClueSet.clue_set_path, "musical_artists.json")
+        ),
+        ClueSetType.PEOPLE: ClueSet.read_clues_from_file(
+            os.path.join(ClueSet.clue_set_path, "people.json")
+        ),
+        ClueSetType.SONGS: ClueSet.read_clues_from_file(
+            os.path.join(ClueSet.clue_set_path, "songs.json")
+        ),
+        ClueSetType.TELEVISION_SHOWS: ClueSet.read_clues_from_file(
+            os.path.join(ClueSet.clue_set_path, "television_shows.json")
         ),
     }
 

@@ -1,0 +1,222 @@
+[
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Real Time with Bill Maher",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Six Feet Under",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Sesame Street",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Real World",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Rockford Files",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Late Night with Conan O'Brien",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Honeymooners",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Odd Couple",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Tonight Show Starring Johnny Carson",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "American Crime Story",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Daily Show",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Beavis and ButtHead",
+        "use": false
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "All in the Family",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Walking Dead",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Golden Girls",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Mary Tyler Moore Show",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Freaks and Geeks",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Arrested Development",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Bob Newhart Show",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Mr. Show with Bob and David",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Americans",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Wonder Years",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Monty Python's Flying Circus",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "In Living Color",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "American Idol",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Twilight Zone",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The West Wing",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "My SoCalled Life",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Colbert Report",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Muppet Show",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Sex and the City",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Key and Peele",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Buffy the Vampire Slayer",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Friday Night Lights",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Curb Your Enthusiasm",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Dick Van Dyke Show",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Larry Sanders Show",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Saturday Night Live",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Your Show of Shows",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Late Show with David Letterman",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Hill Street Blues",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "The Ed Sullivan Show",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "Orange Is the New Black",
+        "use": true
+    },
+    {
+        "clueSet": "Television Shows",
+        "phrase": "House of Cards",
+        "use": true
+    }
+]

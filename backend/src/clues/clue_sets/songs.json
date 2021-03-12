@@ -1,0 +1,732 @@
+[
+    {
+        "clueSet": "Songs",
+        "phrase": "Hey Soul Sister",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Smells Like Teen Spirit",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Let Me Love You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Ketchup Song",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Somebody That I Used to Know",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Don't Be Cruel",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Another One Bites the Dust",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "We Found Love",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Rolling in the Deep",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Petit Papa Noel",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Flavor of Life",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Think I Love You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "It's Now or Never",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "My Sweet Lord",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Together Again",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Play That Funky Music",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Candle in the Wind",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Time to Say Goodbye",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Chipmunk Song Christmas Don't Be Late",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Great Balls of Fire",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Battle of New Orleans",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "You're Still the One",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Crimson and Clover",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Party Rock Anthem",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "It's a Heartache",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Don't Let Me Down",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Kissed a Girl",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The House of the Rising Sun",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Mack the Knife",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Ebony and Ivory",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Wind of Change",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Heard It Through the Grapevine",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Born This Way",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Hips Don't Lie",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Bleeding Love",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Will Always Love You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Last Farewell",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Take Me to Your Heart",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Little Drummer Boy",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Hard to Handle",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Whenever Wherever",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Wabash Cannonball",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I'm a Believer",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Total Eclipse of the Heart",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Rock Around the Clock",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Cheap Thrills",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Joy to the World",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Love in This Club",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Something Just like This",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Something About the Way You Look Tonight",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Genie in a Bottle",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Call Me Maybe",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Careless Whisper",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Girls Like You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Blurred Lines",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Lazy Song",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Cherry Blossom Ending",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Can't Buy Me Love",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "My Blue Heaven",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Do You Really Want to Hurt Me",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Time Dirty Bit",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Lady Marmalade",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Bette Davis Eyes",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Do They Know It's Christmas",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Are You Lonesome Tonight",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Shadow Dancing",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Boulevard of Broken Dreams",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Tell Laura I Love Her",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Daydream Believer",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "End of the Road",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Say Something",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Want to Want Me",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Single Ladies Put a Ring on It",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Give Me Everything",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I'll Be There",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Can't Get You Out of My Head",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Just Give Me a Reason",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Want to Hold Your Hand",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Truly Madly Deeply",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "A Whiter Shade of Pale",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Just the Way You Are",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "In the Summertime",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "If I Didn't Care",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Thinking Out Loud",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Eye of the Tiger",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Took a Pill in Ibiza",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "She Loves You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Kung Fu Fighting",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Tennessee Waltz",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "See You Again",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "All Night Long All Night",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "It's All in the Game",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "One More Night",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Don't You Worry Child",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Party in the U.S.A.",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Those Were the Days",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "All About That Bass",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Prisoner's Song",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "My Heart Will Go On",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Ballad of the Green Berets",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Moves like Jagger",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Amazing Grace",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Silly Love Songs",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "You're So Vain",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Want You Back",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I'll Make Love to You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Oh Pretty Woman",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Knock Three Times",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "That's What I Like",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Stronger What Doesn't Kill You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Waiting for a Girl Like You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Karma Chameleon",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Family Affair",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Love the Way You Lie",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Let's Get It On",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Will Survive",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Love Me like You Do",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "We Are the World",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Let's All Chant",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Save Your Kisses for Me",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Boom Boom Pow",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Bridge over Troubled Water",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Just Like Starting Over",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Like a Prayer",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "That's What Friends Are For",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Bohemian Rhapsody",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Rock Your Baby",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Move On Up a Little Higher",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Seasons in the Sun",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "March from the River Kwai",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "How Do I Live",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "I Gotta Feeling",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Macarena Bayside Boys Mix",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "How You Remind Me",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "White Christmas",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Say You Say Me",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "When I Was Your Man",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Love Yourself",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "All I Want for Christmas Is You",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Livin' La Vida Loca",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "You're My Heart You're My Soul",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Kiss Me thru the Phone",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "You're the One That I Want",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Yes Sir I Can Boogie",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "Every Breath You Take",
+        "use": true
+    },
+    {
+        "clueSet": "Songs",
+        "phrase": "The Theme From A Summer Place",
+        "use": true
+    }
+]

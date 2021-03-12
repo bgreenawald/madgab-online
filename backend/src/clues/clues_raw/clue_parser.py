@@ -150,7 +150,7 @@ with open("./movies.txt", "r") as file:
 # %%
 processed_movies = process_phrases(movies_full)
 movie_clues = [
-    {"phrase": phrase, "clueSet": "Movie", "use": True} for phrase in processed_movies
+    {"phrase": phrase, "clueSet": "Movies", "use": True} for phrase in processed_movies
 ]
 with open("../clue_sets/movies.json", "w+") as file:
     file.write(json.dumps(movie_clues, indent=4, sort_keys=True))
@@ -184,12 +184,17 @@ with open("clues_temp/tv.txt", "w+") as file:
 with open("clues_temp/tv.txt", "r") as file:
     tv_full = file.read().split("\n")
 
-
+# %%
+with open("./tv.txt", "r") as file:
+    tv_full = file.read().split("\n")
 # %%
 processed_tv = process_phrases(tv_full)
-all_phrases += [(phrase, "TV Show") for phrase in processed_tv]
-print(f"All phrases with tv: {len(all_phrases)}")
-
+tv_clues = [
+    {"phrase": phrase, "clueSet": "Television Shows", "use": True}
+    for phrase in processed_tv
+]
+with open("../clue_sets/television_shows.json", "w+") as file:
+    file.write(json.dumps(tv_clues, indent=4, sort_keys=True))
 # %% [markdown]
 # ### Musical Artists
 #
@@ -218,14 +223,18 @@ with open("clues_temp/music.txt", "w+") as file:
 
 
 # %%
-with open("clues_temp/music.txt", "r") as file:
+with open("./music.txt", "r") as file:
     music_full = file.read().split("\n")
 
 
 # %%
 processed_music = process_phrases(music_full)
-all_phrases += [(phrase, "Musical Artists") for phrase in processed_music]
-print(f"All phrases with musical artists: {len(all_phrases)}")
+music_clues = [
+    {"phrase": phrase, "clueSet": "Musical Artists", "use": True}
+    for phrase in processed_music
+]
+with open("../clue_sets/musical_artists.json", "w+") as file:
+    file.write(json.dumps(music_clues, indent=4, sort_keys=True))
 
 # %% [markdown]
 # ### Songs
@@ -255,14 +264,17 @@ with open("clues_temp/song.txt", "w+") as file:
 
 
 # %%
-with open("clues_temp/song.txt", "r") as file:
+with open("./song.txt", "r") as file:
     song_full = file.read().split("\n")
 
 
 # %%
 processed_song = process_phrases(song_full)
-all_phrases += [(phrase, "Song") for phrase in processed_song]
-print(f"All phrases with song: {len(all_phrases)}")
+song_clues = [
+    {"phrase": phrase, "clueSet": "Songs", "use": True} for phrase in processed_song
+]
+with open("../clue_sets/songs.json", "w+") as file:
+    file.write(json.dumps(song_clues, indent=4, sort_keys=True))
 
 # %% [markdown]
 # ### Famous People
@@ -270,14 +282,18 @@ print(f"All phrases with song: {len(all_phrases)}")
 # https://www.biographyonline.net/people/famous-100.html
 
 # %%
-with open("clues_temp/people.txt", "r") as file:
-    people = file.read().split("\n")
+with open("./people.txt", "r") as file:
+    people_full = file.read().split("\n")
 
 
 # %%
-processed_people = process_phrases(people)
-all_phrases += [(phrase, "People") for phrase in processed_people]
-print(f"All phrases with people: {len(all_phrases)}")
+processed_people = process_phrases(people_full)
+people_clues = [
+    {"phrase": phrase, "clueSet": "Famous People", "use": True}
+    for phrase in processed_people
+]
+with open("../clue_sets/people.json", "w+") as file:
+    file.write(json.dumps(people_clues, indent=4, sort_keys=True))
 
 # %% [markdown]
 # ### Books
@@ -285,14 +301,17 @@ print(f"All phrases with people: {len(all_phrases)}")
 # https://en.wikipedia.org/wiki/List_of_best-selling_books
 
 # %%
-with open("clues_temp/books.txt", "r") as file:
+with open("./books.txt", "r") as file:
     books_full = file.read().split("\n")
 
 
 # %%
-processed_book = process_phrases(books_full)
-all_phrases += [(phrase, "Book") for phrase in processed_book]
-print(f"All phrases with books: {len(all_phrases)}")
+processed_books = process_phrases(books_full)
+books_clues = [
+    {"phrase": phrase, "clueSet": "Books", "use": True} for phrase in processed_books
+]
+with open("../clue_sets/books.json", "w+") as file:
+    file.write(json.dumps(books_clues, indent=4, sort_keys=True))
 
 # %% [markdown]
 # ## Write the results
