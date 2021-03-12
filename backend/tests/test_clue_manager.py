@@ -1,6 +1,37 @@
 import unittest
 
-from src.clues.clue_manager import ClueManager, ClueSet, ClueSetManager, ClueSetType
+from src.clues.clue_manager import (
+    Clue,
+    ClueManager,
+    ClueSet,
+    ClueSetManager,
+    ClueSetType,
+)
+
+
+class testClue(unittest.TestCase):
+    def test_hash(self):
+        c1 = Clue("Hello", None)
+        c2 = Clue("Hello", None)
+        self.assertEqual(len(set([c1, c2])), 1)
+
+    def test_equal(self):
+        c1 = Clue("Hello", "World")
+        c2 = Clue("Hello", "Universe")
+        self.assertTrue(c1 == c2)
+
+
+class testClueSetType(unittest.TestCase):
+    def test_from_string(self):
+        self.assertEqual(ClueSetType.BASE, ClueSetType.from_string("Base"))
+
+    def test_from_string_not_implemented(self):
+        self.assertRaises(
+            NotImplementedError, lambda: ClueSetType.from_string("INVALID")
+        )
+
+    def test_from_list(self):
+        self.assertEqual([ClueSetType.BASE], ClueSetType.from_list(["Base"]))
 
 
 class testClueSet(unittest.TestCase):

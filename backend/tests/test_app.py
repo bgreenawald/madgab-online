@@ -35,6 +35,14 @@ def test_get_names(client):
     assert json.loads(resp.data.decode("utf-8")) == {"ids": ["TEST_GAME"]}
 
 
+def test_get_clue_sets(client):
+    resp = client.get("/api/get_clue_sets")
+    assert resp.status_code == 200
+    assert json.loads(resp.data.decode("utf-8")) == {
+        "clue_sets": [clue_set.value for clue_set in ClueSetType]
+    }
+
+
 def test_load_board(socket_client):
     socket_client.emit("load_board", {"name": "TEST_GAME"})
     resp = socket_client.get_received()
@@ -53,6 +61,7 @@ def test_load_board(socket_client):
         "round_number": 0,
         "state": "IDLE",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": True,
         "current_phrase": "",
         "current_madgab": "",
@@ -83,6 +92,7 @@ def test_start_game(socket_client):
         "round_number": 1,
         "state": "ACTIVE",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": True,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
@@ -110,6 +120,7 @@ def test_reset(socket_client):
         "round_number": 0,
         "state": "IDLE",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": True,
         "current_phrase": "",
         "current_madgab": "",
@@ -156,6 +167,7 @@ def test_new_phrase(socket_client):
         "round_number": 1,
         "state": "ACTIVE",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": True,
         "current_turn_counter": 2,
         "current_turn_correct": 1,
@@ -201,6 +213,7 @@ def test_end_active_state(socket_client):
         "round_number": 1,
         "state": "REVIEW",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": True,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
@@ -235,6 +248,7 @@ def test_end_turn(socket_client):
         "round_number": 1,
         "state": "STEALING",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": True,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
@@ -284,6 +298,7 @@ def test_steal(socket_client):
         "round_number": 1,
         "state": "IDLE",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": False,
         "current_turn_counter": 1,
         "current_turn_correct": 0,
@@ -308,6 +323,7 @@ def test_toggle_difficulty(socket_client):
         "round_number": 0,
         "state": "IDLE",
         "winning_team": "",
+        "clue_sets": ["Base"],
         "team_1_turn": True,
         "current_phrase": "",
         "current_madgab": "",
@@ -315,3 +331,61 @@ def test_toggle_difficulty(socket_client):
         "current_turn_correct": 0,
         "current_turn_clues": [],
     }
+
+
+def test_update_clue_set(socket_client):
+    socket_client.emit(
+        "update_clue_sets", {"name": "TEST_GAME", "clue_sets": ["Base", "Movies"]}
+    )
+    resp = socket_client.get_received()
+    assert resp[0]["name"] == "render_board"
+    assert len(resp[0]["args"][0]) == 3
+    assert resp[0]["args"][0]["status_code"] == 200
+    assert resp[0]["args"][0]["message"] == "Clue sets updated."
+    assert json.loads(resp[0]["args"][0]["payload"]) == {
+        "id": "TEST_GAME",
+        "win_threshold": game_config.WIN_THRESHOLD,
+        "words_per_turn": game_config.WORDS_PER_TURN,
+        "seconds_per_turn": game_config.SECONDS_PER_TURN,
+        "difficulty": "hard",
+        "team_1_score": 0,
+        "team_2_score": 0,
+        "round_number": 0,
+        "state": "IDLE",
+        "winning_team": "",
+        "clue_sets": ["Base", "Movies"],
+        "team_1_turn": True,
+        "current_phrase": "",
+        "current_madgab": "",
+        "current_turn_counter": 0,
+        "current_turn_correct": 0,
+        "current_turn_clues": [],
+    }
+
+
+def test_update_clue_set_fail(socket_client):
+    socket_client.emit("update_clue_sets", {"name": "TEST_GAME"})
+    resp = socket_client.get_received()
+    assert resp[0]["name"] == "render_board"
+    assert len(resp[0]["args"][0]) == 3
+    assert resp[0]["args"][0]["status_code"] == 400
+    assert (
+        resp[0]["args"][0]["message"].split("\n")[0]
+        == "'clue_sets' is a required property"
+    )
+    assert resp[0]["args"][0]["payload"] == {}
+
+
+def test_update_clue_set_fail_invalid_clue_set(socket_client):
+    socket_client.emit(
+        "update_clue_sets", {"name": "TEST_GAME", "clue_sets": ["INVALID", "Base"]}
+    )
+    resp = socket_client.get_received()
+    assert resp[0]["name"] == "render_board"
+    assert len(resp[0]["args"][0]) == 3
+    assert resp[0]["args"][0]["status_code"] == 400
+    assert (
+        resp[0]["args"][0]["message"].split("\n")[0]
+        == f"'INVALID' is not one of {[clue_set.value for clue_set in ClueSetType]}"
+    )
+    assert resp[0]["args"][0]["payload"] == {}

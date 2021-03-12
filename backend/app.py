@@ -12,7 +12,7 @@ from flask_cors import CORS
 from flask_socketio import emit, join_room, SocketIO
 from jsonschema import validate, ValidationError
 
-from src.clues.clue_manager import ClueSetType
+from src.clues.clue_manager import ClueException, ClueSetType
 from src.game.game import Game, InvalidState
 
 # Initialize the application
@@ -67,6 +67,12 @@ def return_game_test(id: str) -> str:
 def get_names() -> Response:
     ids = [x for x in all_games]
     return json.jsonify({"ids": ids})
+
+
+@app.route("/api/get_clue_sets")
+def get_clue_sets() -> Response:
+    clue_sets = [clue_set.value for clue_set in ClueSetType]
+    return json.jsonify({"clue_sets": clue_sets})
 
 
 # ---------------------------------------
@@ -434,6 +440,49 @@ def toggle_difficulty(data: Dict[Any, Any]):
 
         game.toggle_difficulty()
         emit_game(game_name, game, "Difficulty toggled.")
+
+
+@socketio.on("update_clue_sets")
+def update_clue_sets(data: Dict[Any, Any]):
+    """Updates the clue sets for a given game.
+
+    Args:
+        data (Dict[Any, Any]): {
+            "name": ([str, number]) The name of the game.
+            "clue_sets": ([List[str]]) The names of the updates clue sets
+        }
+    """
+    schema = {
+        "type": "object",
+        "properties": {
+            "name": {"type": ["string", "number"]},
+            "clue_sets": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "enum": [clue_set.value for clue_set in ClueSetType],
+                },
+            },
+        },
+        "required": ["name", "clue_sets"],
+    }
+    try:
+        validate(data, schema=schema)
+    except ValidationError as e:
+        if "name" in data:
+            emit_error(data["name"], str(e))
+        else:
+            logger.error("No game specified in input.")
+    else:
+        game_name = data["name"]
+        clue_sets = data["clue_sets"]
+        game = all_games[game_name]
+
+        try:
+            game.update_clue_sets(ClueSetType.from_list(clue_sets))
+            emit_game(game_name, game, "Clue sets updated.")
+        except (ClueException, NotImplementedError) as e:
+            emit_error(game_name, str(e))
 
 
 # ---------------------------------------

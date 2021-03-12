@@ -1,0 +1,517 @@
+[
+    {
+        "clueSet": "Books",
+        "phrase": "Fear of Flying",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Interpreter of Maladies",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "No Longer Human",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Kite Runner",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Pillars of the Earth",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Poky Little Puppy",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Shadow of the Wind",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Guess How Much I Love You",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Revolt of Mamie Stover",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Women's Room",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "One Hundred Years of Solitude",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Cat in the Hat",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Harry Potter and the Deathly Hallows",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "A Message to Garcia",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Girl on the Train",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Happy Hooker My Own Story",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "She A History of Adventure",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Gone with the Wind",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Gospel According to Peanuts",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Very Hungry Caterpillar",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Adventures of Huckleberry Finn",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Problems in China's Socialist Economy",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Charlotte's Web",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "What to Expect When You're Expecting",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Purpose Driven Life",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Da Vinci Code",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Horse Whisperer",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Young Guard",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Tale of Peter Rabbit",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Little Prince",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Girl with the Dragon Tattoo",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Front Runner",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Harry Potter and the Goblet of Fire",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Diana Her True Story",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Grapes of Wrath",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Celestine Prophecy",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Total Woman",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "All Quiet on the Western Front",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Lion the Witch and the Wardrobe",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Man's Search for Meaning",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Long Walk to Freedom",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Your Erroneous Zones",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Power of Positive Thinking",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Hite Report",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Goodnight Moon",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Bridges of Madison County",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "War and Peace",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Joy of Sex",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Catching Fire",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "A Brief History of Time",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Pilgrim's Progress",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Where the Wild Things Are",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Charlie and the Chocolate Factory",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Anne of Green Gables",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Harry Potter and the Chamber of Secrets",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Valley of the Dolls",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Confucius from the Heart",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "How to Win Friends and Influence People",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Pride and Prejudice",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Godfather",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Life After Life",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Eye of the Needle",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Adventures of Pinocchio",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Secret Diary of Adrian Mole",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Hunger Games",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Ginger Man",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "You Can Heal Your Life",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Flowers in the Attic",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Fault in Our Stars",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Me Before You",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "How the Steel Was Tempered",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Divine Comedy",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Naked Ape",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Who Moved My Cheese",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Follow Your Heart",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "To Kill a Mockingbird",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "And Then There Were None",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Lovely Bones",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Love You Forever",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Lost Symbol",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Name of the Rose",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Bermuda Triangle",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Outsiders",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Diary of Anne Frank",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Catcher in the Rye",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Norwegian Wood",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Things Fall Apart",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Jonathan Livingston Seagull",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Tuesdays with Morrie",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "What Color Is Your Parachute",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Thorn Birds",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Eagle Has Landed",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Great Gatsby",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Old Man and the Sea",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Sophie's World",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "God's Little Acre",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Think and Grow Rich",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Lord of the Rings",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "A Wrinkle in Time",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Kane and Abel",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "Dream of the Red Chamber",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Alchemist",
+        "use": true
+    },
+    {
+        "clueSet": "Books",
+        "phrase": "The Wind in the Willows",
+        "use": true
+    }
+]

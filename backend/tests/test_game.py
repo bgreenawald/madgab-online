@@ -1,6 +1,12 @@
 import unittest
 
-from src.clues.clue_manager import ClueManager, ClueSetManager, ClueSetType
+from src.clues.clue_manager import (
+    Clue,
+    ClueSet,
+    ClueManager,
+    ClueSetManager,
+    ClueSetType,
+)
 from src.game.game import Game, InvalidState, State
 
 
@@ -266,7 +272,6 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check phrase has been changed"):
             self.assertNotEqual(game.current_phrase, game.current_madgab)
 
-
     def test_ResetClues(self):
         game = Game("", [ClueSetType.BASE])
         initial_clue_length = len(game.clues)
@@ -292,7 +297,27 @@ class testGameMethods(unittest.TestCase):
         with self.subTest("Check seen clues length after new phrase reset."):
             self.assertEqual(len(game.seen_clues), 1)
 
-    def test_UpdateClues(self):
+    def testUpdateClueSets(self):
+        game = Game("", [ClueSetType.BASE])
+        initial_clue_length = len(game.clues)
+        game.update_clue_sets([ClueSetType.BASE, ClueSetType.MOVIES])
+        with self.subTest("Check clues length after update clue sets."):
+            self.assertTrue(len(game.clues) > initial_clue_length)
+        game.update_clue_sets([ClueSetType.BASE])
+        with self.subTest("Check seen clues length after revert update clue sets."):
+            self.assertEqual(len(game.clues), initial_clue_length)
+
+    def testUpdateClueSets_NullInput(self):
+        game = Game("", [ClueSetType.BASE])
+        initial_clue_length = len(game.clues)
+        game.update_clue_sets([])
+        with self.subTest("Check clues length after update clue sets with empty list."):
+            self.assertEqual(len(game.clues), initial_clue_length)
+        game.update_clue_sets(None)
+        with self.subTest("Check clues length after update clue sets with null input."):
+            self.assertEqual(len(game.clues), initial_clue_length)
+
+    def test_UpdateClues_MultipleCluesets(self):
         game = Game("", [ClueSetType.BASE])
         initial_clue_length = len(game.clues)
         game.new_phrase()

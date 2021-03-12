@@ -143,6 +143,7 @@ class Game(object):
             "round_number": self.round_number,
             "state": self.state.value,
             "winning_team": self.winning_team,
+            "clue_sets": [clue_set.value for clue_set in self.clue_sets],
             # Turn state
             "team_1_turn": self.team_1_turn,
             "current_phrase": self.current_phrase,
@@ -164,7 +165,11 @@ class Game(object):
     def update_clue_sets(self, clue_sets: List[ClueSetType]):
         self.lock.acquire(timeout=2)
         try:
-            self.clue_sets = clue_sets
+            # Ensure that clue sets is not set to empty
+            if not clue_sets:
+                self.clue_sets = [ClueSetType.BASE]
+            else:
+                self.clue_sets = clue_sets
             self._update_clues()
         finally:
             self.lock.release()
