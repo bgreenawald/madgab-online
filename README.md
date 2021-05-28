@@ -61,6 +61,24 @@ coverage report
 
 ## Setup - Frontend
 CD into the frontend directory.
+
+The frontend runs on node version 6.9.0.  We'll be using a node version management package (nvm) to maintain the right version and environment.
+
+If not already installed, follow instructions to setup nvm: 
+```
+https://github.com/nvm-sh/nvm
+```
+
+Then, install the nvm version we need (11.0.0):
+```
+nvm install 11.0.0
+```
+
+Finally, activate the right version: 
+```
+nvm use 11.0.0
+```
+
 To install all node modules necessary for the frontend (one time setup, or on node module update), run: 
 ```
 npm i
